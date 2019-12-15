@@ -9,15 +9,19 @@ const { height, width } = Dimensions.get('window')
 
 import RoundedButton from '../components/RoundedButton'
 import BackButton from '../components/RoundedBackButton'
+import Icon from 'react-native-vector-icons/Ionicons';
+
 
 class DetailScreen extends Component {
     static navigationOptions = {
-        header: null
+        header: null,
     }
 
     constructor(props) {
         super(props);
         this.scroll = new Animated.Value(0)
+        this.state = {
+        }
     }
 
     render() {
@@ -71,9 +75,10 @@ class DetailScreen extends Component {
                     <View style={{ padding: 15, marginBottom: 0 }}>
                         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                             <Text style={{ fontSize: 26, fontFamily: 'Black' }}>{navigation.getParam('title')}</Text>
-                            <Text style={{ fontSize: 18, fontFamily: 'Black', color: '#E55656' }}>12/12/20</Text>
-
-
+                            <View style={{ flexDirection: 'row',}}>
+                                <Icon name="ios-calendar" size={24} color="#E55656" style={{marginRight:5}} onPress={() => alert('Call')} />
+                                <Text style={{ fontSize: 18, fontFamily: 'Black', color: '#E55656' }}>12/12/20</Text>
+                            </View>
                         </View>
                         <Text style={{ fontSize: 16, marginTop: 8, fontFamily: 'Light' }}>
                             Qui ad consequat ut aliquip duis officia et reprehenderit dolore minim reprehenderit ea elit pariatur. Sunt excepteur consectetur sit mollit ad. Minim anim tempor mollit excepteur ullamco mollit. Ea eu ipsum ullamco labore deserunt adipisicing. Eiusmod mollit enim culpa veniam exercitation exercitation aliqua cillum veniam anim. Nulla commodo anim occaecat ullamco laborum ullamco reprehenderit irure.
@@ -95,7 +100,7 @@ class DetailScreen extends Component {
 
                 {/* Buy tickets button */}
                 <RoundedButton price="600" />
-                <BackButton />
+                <BackButton navigation={navigation} />
 
 
             </View>

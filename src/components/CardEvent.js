@@ -6,7 +6,7 @@ const ProCarComp = props => (
     <TouchableOpacity onPress={() => props.nav.navigate('Detail', {
         image: props.image, title: props.title
     })} style={{ flex: 1 }} activeOpacity={1}>
-        <View style={{ paddingTop: 10, }}>
+        <View style={{ paddingTop: 10 }}>
             <View
                 style={{
                     position: "absolute",

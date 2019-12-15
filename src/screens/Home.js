@@ -34,7 +34,7 @@ class Home extends Component {
             Animated.timing(this.animatedSlider, {
                 toValue: 0, duration: 500
             }).start()
-        }, 10000)
+        }, 4000)
     }
 
     render() {
@@ -56,7 +56,6 @@ class Home extends Component {
                             <Image style={{ flex: 1, borderRadius: 10 }} source={{ uri: 'https://picsum.photos/536/354' }} resizeMode="cover" />
                         </View>
                         <View
-
                             style={{ width: width - 20, margin: 10, marginTop: 15, backgroundColor: '#e3e3e3', height: sliderH - 50, borderRadius: 10, elevation: 9 }}>
                             <Image style={{ flex: 1, borderRadius: 10 }} source={{ uri: 'https://picsum.photos/id/237/536/354' }} resizeMode="cover" />
                         </View>
@@ -66,7 +65,7 @@ class Home extends Component {
                         </View>
                     </ScrollView>
                 </View>
-                <View style={{ flex: 1 }}>
+                <View style={{ height: 220, }}>
                     <View style={{ margin: 10, }}>
                         <Text style={{ fontSize: 20, fontFamily: 'Black', color: 'white' }}>PRIME EVENTS</Text>
                     </View>
@@ -75,12 +74,9 @@ class Home extends Component {
                         horizontal={true}
                         showsHorizontalScrollIndicator={false}
                         scrollEventThrottle={16}
-                        style={{ flex: 1 }}
+                        style={{}}
 
                         contentContainerStyle={{
-                            // justifyContent: 'center',
-                            // alignItems: 'center',
-                            // padding: 5,
                         }}>
                         <EventCard
                             nav={nav}
@@ -113,6 +109,8 @@ class Home extends Component {
                     </ScrollView>
 
                 </View>
+
+                <View style={{ flex: 1 }}></View>
 
 
 
