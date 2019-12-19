@@ -5,16 +5,16 @@ import {
     StyleSheet
 } from "react-native";
 
-class Chat extends Component {
+class Live extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>Chat</Text>
+                <Text>Live</Text>
             </View>
         );
     }
 }
-export default Chat;
+export default Live;
 
 const styles = StyleSheet.create({
     container: {

@@ -58,6 +58,7 @@ export default class CircularCarousel extends Component {
       alignItems: 'center',
       //backgroundColor: data.color,
       //opacity: item.opacity,
+      opacity: 0.7, 
       resizeMode: 'cover',
       position: 'absolute',
       padding: 10,
