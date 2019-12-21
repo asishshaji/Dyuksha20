@@ -29,7 +29,8 @@ const AppNavigator = createStackNavigator({
   },
   Select: {
     screen: SelectScreen
-  }
+  },
+  
 }, {
   initialRouteName: 'Home',
   // transitionConfig: navConfig
