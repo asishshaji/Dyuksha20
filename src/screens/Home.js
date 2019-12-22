@@ -19,11 +19,11 @@ import CircularCarousel from "../components/CircularCarousel";
 const { height, width } = Dimensions.get('window')
 
 const dataSource = [
-    { url: 'https://source.unsplash.com/1024x768/?nature' },
-    { url: 'https://source.unsplash.com/1024x768/?water' },
-    { url: 'https://source.unsplash.com/1024x768/?fire' },
-    { url: 'https://source.unsplash.com/1024x768/?old' },
-    { url: 'https://source.unsplash.com/1024x768/?forest' },
+    { imageUrl: 'https://source.unsplash.com/1024x768/?nature',date:'4 JAN' },
+    { imageUrl: 'https://source.unsplash.com/1024x768/?water',date:'4 JAN' },
+    { imageUrl: 'https://source.unsplash.com/1024x768/?fire',date:'4 JAN' },
+    { imageUrl: 'https://source.unsplash.com/1024x768/?old',date:'4 JAN' },
+    { imageUrl: 'https://source.unsplash.com/1024x768/?forest',date:'4 JAN' },
 
 ];
 
@@ -70,7 +70,7 @@ class Home extends Component {
 
 
         return (
-            <View style={styles.container} >
+            <ScrollView style={styles.container} >
 
                 {/* Carousel */}
                 <View style={{ height: sliderH }}>
@@ -104,7 +104,7 @@ class Home extends Component {
 
                 <View style={{ height: 220, marginTop: 5 }}>
                     <View style={{ margin: 10, marginTop: 0 }}>
-                        <Text style={{ fontSize: 24, fontFamily: 'Black', color: 'black' }}>EVENTS</Text>
+                        <Text style={{ fontSize: 24, fontFamily: 'Black', color: 'white' }}>EVENTS</Text>
                     </View>
                     <FlatList
                         horizontal={true}
@@ -133,7 +133,6 @@ class Home extends Component {
                         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginRight: 20, }}>
                             <CircularCarousel
                                 dataSource={dataSource}
-                                // pass image and title
                                 onItemPress={(item) => { nav.navigate('Detail', { item, image: item.url }) }}
                                 style={{ height: 210, width: 400, }}
                                 itemStyle={{ width: 120, height: 70, }}
@@ -143,7 +142,7 @@ class Home extends Component {
 
                     </View>
                 </View>
-            </View>
+            </ScrollView>
 
         );
     }
@@ -153,7 +152,7 @@ export default Home;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#222222',
 
 
     }

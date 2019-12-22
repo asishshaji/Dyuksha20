@@ -55,7 +55,7 @@ const RoundUser = (props) => {
 
             </View>}
 
-            <Text style={{ fontFamily: 'Black', textAlign: 'center', textTransform: 'uppercase' }}>{props.name}</Text>
+            <Text style={{ fontFamily: 'Black', textAlign: 'center', textTransform: 'uppercase', color: 'white' }}>{props.name}</Text>
         </TouchableOpacity>
     )
 }

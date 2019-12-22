@@ -36,7 +36,7 @@ class SplashScreen extends Component {
             .signInAnonymously()
             .then(credential => {
                 if (credential) {
-                    // console.log('default app user ->', credential.user.toJSON());
+
                 }
             });
 
@@ -47,7 +47,6 @@ class SplashScreen extends Component {
                 bannerList: []
             });
             querySnapshot.forEach(doc => {
-                console.log(doc.data())
                 this.setState({
                     bannerList: this.state.bannerList.concat(doc.data())
                 });
@@ -73,7 +72,6 @@ class SplashScreen extends Component {
         setTimeout(() => {
             if (this.state.bannerList.length !== 0 && this.state.primeEventsList.length !== 0) {
                 this.props.navigation.replace('Home', { bannerList: this.state.bannerList, primeEventsList: this.state.primeEventsList })
-                console.log(this.state.bannerList, this.state.bannerList.length)
             }
         }, 2000)
 
@@ -86,7 +84,7 @@ class SplashScreen extends Component {
         return (
             <View style={{ flex: 1 }}>
 
-                <ImageBackground source={require('../../assets/logo.png')} style={{ flex: 1 }} resizeMode="center" />
+                <ImageBackground source={require('../../assets/logo.png')} style={{ flex: 1 ,backgroundColor:'#222222'}} resizeMode="center" />
             </View>)
 
 

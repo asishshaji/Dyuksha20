@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { View, Image, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, PanResponder, Platform, ImageBackground } from 'react-native';
 import Math from 'mathjs/dist/math.js';
+import EventCard from '../components/CardEvent';
+
 
 const duration = (Platform.OS == "ios") ? 1 : 0;
 const elevationConstant = Math.cos(Math.pi / 2.3);
@@ -48,8 +50,8 @@ export default class CircularCarousel extends Component {
     var item = this.state.items[index];
 
     const imageStyle = {
-      marginTop: item.Y ,
-      marginLeft: item.X - 5 ,
+      marginTop: item.Y,
+      marginLeft: item.X - 5,
       zIndex: item.zIndex,
       width: 160,
       height: 160,
@@ -58,36 +60,14 @@ export default class CircularCarousel extends Component {
       alignItems: 'center',
       //backgroundColor: data.color,
       //opacity: item.opacity,
-      opacity: 0.7, 
+      opacity: 1,
       resizeMode: 'cover',
       position: 'absolute',
       padding: 10,
       borderRadius: 10,
     };
 
-    // For iOS
-    if (Platform.OS == 'ios') {
-      return (
-        <TouchableWithoutFeedback
-          onPress={() => this.itemPressed(index)}
-          key={index}
-          activeOpacity={1}
-        >
-          <View style={imageStyle}>
-            <Image
-              pointerEvents='none'
-              style={{
-                width: '100%',
-                height: '100%',
-                borderRadius: 8
-              }}
-              source={{ uri: data.url }}
-              resizeMode="cover"
-            />
-          </View>
-        </TouchableWithoutFeedback>
-      );
-    }
+
 
     // For android
     return (
@@ -96,15 +76,10 @@ export default class CircularCarousel extends Component {
         key={index}
       >
         <View style={imageStyle}>
-          <Image
-            pointerEvents='none'
-            style={{
-              width: '100%',
-              height: '100%',
-              borderRadius: 8
-            }}
-            source={{ uri: data.url }}
-            resizeMode="cover"
+          <EventCard
+            height={135}
+            width={135}
+            item={data}
           />
         </View>
       </TouchableWithoutFeedback>

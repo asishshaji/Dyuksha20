@@ -83,13 +83,13 @@ class DetailScreen extends Component {
                         {/* content section start*/}
                         <View style={{ padding: 15, marginBottom: 0, paddingBottom: 3 }}>
                             <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                                <Text style={{ fontSize: 26, fontFamily: 'Black' }}>{item.title}</Text>
+                                <Text style={{ fontSize: 26, fontFamily: 'Black', color: 'white' }}>{item.title}</Text>
                                 <View style={{ flexDirection: 'row', }}>
                                     <Icon name="ios-calendar" size={24} color="#E55656" style={{ marginRight: 5 }} onPress={() => alert('Call')} />
-                                    <Text style={{ fontSize: 18, fontFamily: 'Black', color: '#E55656' }}>{item.elabDate}</Text>
+                                    <Text style={{ fontSize: 18, fontFamily: 'Black', color: '#E55656', color: 'white' }}>{item.elabDate}</Text>
                                 </View>
                             </View>
-                            <Text style={{ fontSize: 16, marginTop: 8, fontFamily: 'Light' }}>{item.details}
+                            <Text style={{ fontSize: 16, marginTop: 8, fontFamily: 'Light', color: 'white' }}>{item.details}
                             </Text>
                         </View>
                         {/* content section end*/}
@@ -125,6 +125,6 @@ export default DetailScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: '#2f3032',
     }
 });
