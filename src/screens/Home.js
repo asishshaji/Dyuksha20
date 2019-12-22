@@ -3,15 +3,18 @@ import {
     View,
     ScrollView,
     StyleSheet,
-    FlatList, Dimensions, Image, Animated, Text, ImageBackground, BackHandler,
+
+    ScrollView, Image, Animated, Text, TouchableOpacity,
+
+    FlatList, Dimensions, ImageBackground, BackHandler,
 } from "react-native";
 
 import EventCard from '../components/CardEvent';
-<<<<<<< HEAD
+
 import BannerCard from '../components/BannerCard'
-=======
+
 import CircularCarousel from "../components/CircularCarousel";
->>>>>>> hosam
+
 
 const { height, width } = Dimensions.get('window')
 
@@ -52,7 +55,7 @@ class Home extends Component {
         console.disableYellowBox = true;
         const sliderH = height * 0.39;
         const nav = this.props.navigation;
-<<<<<<< HEAD
+
         const primeEventsList = this.props.navigation.getParam('primeEventsList', {})
         const bannerList = this.props.navigation.getParam('bannerList', {})
 
@@ -116,7 +119,7 @@ class Home extends Component {
 
 
             </View>
-=======
+
 
         const dataSource = [
             { url: 'https://source.unsplash.com/1024x768/?nature' },
@@ -154,8 +157,11 @@ class Home extends Component {
                         </ScrollView>
                     </View>
                     <View style={{ height: 220, }}>
-                        <View style={{ margin: 10, }}>
+                        <View style={{ margin: 10, flexDirection:'row', alignItems:'flex-end', justifyContent:'space-between'}}>
                             <Text style={{ fontSize: 20, fontFamily: 'Black', color: 'white' }}>PRIME EVENTS</Text>
+                            <TouchableOpacity onPress={() => nav.navigate('Select')}>
+                                <Text style={{ width:50, zIndex:100, fontSize: 15, fontWeight: 'bold', color: 'white' }}>See All</Text>
+                            </TouchableOpacity>
                         </View>
 
                         <ScrollView
@@ -202,12 +208,13 @@ class Home extends Component {
                         <Text style={{ fontSize: 20, fontFamily: 'Black', color: 'white' }}>PRIME WORKSHOPS</Text>
                     </View>
 
-                    <View style={{  flex: 1, marginBottom: 70, marginRight: 20, width: width - 20, }}>
+                    <View style={{ flex: 1, marginBottom: 70, marginRight: 20, width: width - 20, }}>
 
                         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginRight: 20, }}>
                             <CircularCarousel
                                 dataSource={dataSource}
-                                onItemPress={() => { console.log('clicked') }}
+                   // pass image and title
+                                onItemPress={(item) => { nav.navigate('Detail',{item, image: item.url }) }}
                                 style={{ height: 210, width: 400, }}
                                 itemStyle={{ width: 120, height: 70, }}
                                 radius={100}
@@ -218,7 +225,7 @@ class Home extends Component {
 
                 </ImageBackground>
             </ScrollView>
->>>>>>> hosam
+
         );
     }
 }

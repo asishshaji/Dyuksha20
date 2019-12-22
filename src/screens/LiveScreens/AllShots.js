@@ -1,20 +1,20 @@
 import React, { Component } from "react";
-import {
+import { 
     View,
     Text,
     StyleSheet
 } from "react-native";
 
-class Chat extends Component {
+class AllShots extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>Chat</Text>
+                <Text>AllShots</Text>
             </View>
         );
     }
 }
-export default Chat;
+export default AllShots;
 
 const styles = StyleSheet.create({
     container: {
