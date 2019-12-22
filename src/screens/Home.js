@@ -40,15 +40,11 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        // BackHandler.addEventListener('hardwareBackPress', this.handleBackButton);
         this.sliderAnim();
 
     }
 
-    // handleBackButton() {
-    //     return true;
-    // }
-
+  
     sliderAnim = () => {
         Animated.timing(this.animatedSlider, {
             toValue: 85, duration: 500
@@ -123,7 +119,7 @@ class Home extends Component {
                     />
                 </View>
 
-                <View style={{ flex: 1 }}>
+                {/* <View style={{ flex: 1 }}>
                     <View style={{ margin: 10, }}>
                         <Text style={{ fontSize: 20, fontFamily: 'Black', color: 'white' }}>PRIME WORKSHOPS</Text>
                     </View>
@@ -141,7 +137,7 @@ class Home extends Component {
                         </View>
 
                     </View>
-                </View>
+                </View> */}
             </ScrollView>
 
         );

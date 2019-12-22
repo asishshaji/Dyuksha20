@@ -125,6 +125,6 @@ export default DetailScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#2f3032',
+        backgroundColor: '#222222'
     }
 });

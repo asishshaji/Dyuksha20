@@ -83,8 +83,7 @@ class SplashScreen extends Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
-
-                <ImageBackground source={require('../../assets/logo.png')} style={{ flex: 1 ,backgroundColor:'#222222'}} resizeMode="center" />
+                <ImageBackground source={require('../../assets/logo.png')} style={{ flex: 1, backgroundColor: '#222222' }} resizeMode="center" />
             </View>)
 
 

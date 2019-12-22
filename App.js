@@ -21,13 +21,13 @@ import SelectScreen from './src/screens/SelectScreen';
 
 const { width } = Dimensions.get('window')
 
-const barWidth = 200
+const barWidth = 230
 const barSpacing = (width - barWidth) / 2
 
 const AppNavigator = createStackNavigator({
   Home: {
     screen: Home,
-    
+
   },
   Detail: {
     screen: Detail
@@ -36,8 +36,8 @@ const AppNavigator = createStackNavigator({
   Select: {
     screen: SelectScreen
   },
-  
-   SplashScreen: {
+
+  SplashScreen: {
     screen: SplashScreen
   }
 
@@ -99,7 +99,7 @@ const BottomNav = createBottomTabNavigator({
   },
   Live: {
     screen: Live,
-  }, 
+  },
   Notifications: {
     screen: Notifications
   },
@@ -113,6 +113,7 @@ const BottomNav = createBottomTabNavigator({
   defaultNavigationOptions: customTabs,
   animationEnabled: true,
   swipeEnabled: true,
+  // initialRouteName: 'Notifications',
   tabBarOptions: {
     style: {
       width: barWidth,
@@ -120,10 +121,10 @@ const BottomNav = createBottomTabNavigator({
       position: 'absolute',
       left: barSpacing,
       right: barSpacing,
-      height: 50,
+      height: 60,
       elevation: 4,
       bottom: 15,
-      borderRadius: 50 / 2,
+      borderRadius: 60 / 2,
       borderTopWidth: 0,
       padding: 5,
     }, showLabel: false
