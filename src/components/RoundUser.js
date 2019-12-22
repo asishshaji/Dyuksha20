@@ -13,6 +13,8 @@ const RoundUser = (props) => {
 
     return (
         <TouchableOpacity style={{ margin: 5, marginLeft: 10 }}
+            keyExtractor={(item, index) => String(index)}
+
             onPress={() => {
                 if (clicked) {
                     Animated.timing(opacity, {
