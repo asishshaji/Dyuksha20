@@ -4,10 +4,14 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import Home from './src/screens/Home';
+
 import Detail from './src/screens/DetailScreen';
 import Live from './src/screens/Live';
 import MapScreen from './src/screens/MapScreen';
 import Notifications from './src/screens/Notifications';
+import SplashScreen from './src/screens/SplashScreen'
+
+
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -23,16 +27,22 @@ const barSpacing = (width - barWidth) / 2
 const AppNavigator = createStackNavigator({
   Home: {
     screen: Home,
+    
   },
   Detail: {
     screen: Detail
+
   },
   Select: {
     screen: SelectScreen
   },
   
+   SplashScreen: {
+    screen: SplashScreen
+  }
+
 }, {
-  initialRouteName: 'Home',
+  initialRouteName: 'SplashScreen',
   // transitionConfig: navConfig
 });
 
@@ -44,6 +54,9 @@ AppNavigator.navigationOptions = ({ navigation }) => {
 
   if (routeName == 'Detail') {
     tabBarVisible = false
+  } else if (routeName === "SplashScreen") {
+    tabBarVisible = false
+
   }
 
   return {
@@ -90,9 +103,11 @@ const BottomNav = createBottomTabNavigator({
   Notifications: {
     screen: Notifications
   },
+
   Map: {
     screen: MapScreen
   }
+
 
 }, {
   defaultNavigationOptions: customTabs,

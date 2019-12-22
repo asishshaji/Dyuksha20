@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "817771550659",
+    "firebase_url": "https://dyuksha20-f6d1f.firebaseio.com",
+    "project_id": "dyuksha20-f6d1f",
+    "storage_bucket": "dyuksha20-f6d1f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:817771550659:android:66d0275e0b9948ccc08f76",
+        "android_client_info": {
+          "package_name": "com.dyuksha"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "817771550659-9u4g4vjk19an46u1oh94ih9tv4lqtkh7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYYa_l1sM1CFrCxuJMuEiffMMdeQ9FWVg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "817771550659-9u4g4vjk19an46u1oh94ih9tv4lqtkh7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
