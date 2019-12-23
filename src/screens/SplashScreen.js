@@ -5,9 +5,7 @@ import {
 
 import firebase, { firestore } from 'react-native-firebase';
 
-import SvgUri from 'react-native-svg-uri';
-
-import { StackActions, NavigationActions } from 'react-navigation';
+import { BGCOLOR } from '../Styles/Colors'
 
 
 
@@ -83,7 +81,7 @@ class SplashScreen extends Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
-                <ImageBackground source={require('../../assets/logo.png')} style={{ flex: 1, backgroundColor: '#222222' }} resizeMode="center" />
+                <ImageBackground source={require('../../assets/logo.png')} style={{ flex: 1, backgroundColor: BGCOLOR }} resizeMode="center" />
             </View>)
 
 

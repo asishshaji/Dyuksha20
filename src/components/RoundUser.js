@@ -5,7 +5,7 @@ import {
     Image, TouchableOpacity, Animated, Easing
 } from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons';
-
+import {BGCOLOR,FONTCOLOR} from '../Styles/Colors'
 
 const RoundUser = (props) => {
     const [clicked, clickListner] = useState(false)
@@ -55,7 +55,7 @@ const RoundUser = (props) => {
 
             </View>}
 
-            <Text style={{ fontFamily: 'Black', textAlign: 'center', textTransform: 'uppercase', color: 'white' }}>{props.name}</Text>
+            <Text style={{ fontFamily: 'Black', textAlign: 'center', textTransform: 'uppercase', color: FONTCOLOR }}>{props.name}</Text>
         </TouchableOpacity>
     )
 }

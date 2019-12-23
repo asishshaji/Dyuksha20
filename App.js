@@ -1,7 +1,6 @@
 import React from 'react'
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import Home from './src/screens/Home';
 
@@ -11,7 +10,7 @@ import MapScreen from './src/screens/MapScreen';
 import Notifications from './src/screens/Notifications';
 import SplashScreen from './src/screens/SplashScreen'
 
-
+import firebase from 'react-native-firebase'
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -20,6 +19,16 @@ import { Dimensions, View, Text } from 'react-native'
 import SelectScreen from './src/screens/SelectScreen';
 
 const { width } = Dimensions.get('window')
+
+const channel = new firebase.notifications.Android.Channel(
+  "notifications123",
+  "Notifications",
+  firebase.notifications.Android.Importance.Max
+).setDescription("My apps test channel");
+
+// Create the channel
+firebase.notifications().android.createChannel(channel);
+
 
 const barWidth = 230
 const barSpacing = (width - barWidth) / 2

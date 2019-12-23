@@ -3,29 +3,19 @@ import {
     View,
     ScrollView,
     StyleSheet,
-
-    Image, Animated, Text, TouchableOpacity,
-
-    FlatList, Dimensions, ImageBackground, BackHandler,
+    Image, Animated, Text,
+    FlatList, Dimensions,
 } from "react-native";
 
 import EventCard from '../components/CardEvent';
 
 import BannerCard from '../components/BannerCard'
 
-import CircularCarousel from "../components/CircularCarousel";
-
+import { BGCOLOR, FONTCOLOR } from "../Styles/Colors"
 
 const { height, width } = Dimensions.get('window')
+import firebase, { Notification, RemoteMessage } from 'react-native-firebase'
 
-const dataSource = [
-    { imageUrl: 'https://source.unsplash.com/1024x768/?nature',date:'4 JAN' },
-    { imageUrl: 'https://source.unsplash.com/1024x768/?water',date:'4 JAN' },
-    { imageUrl: 'https://source.unsplash.com/1024x768/?fire',date:'4 JAN' },
-    { imageUrl: 'https://source.unsplash.com/1024x768/?old',date:'4 JAN' },
-    { imageUrl: 'https://source.unsplash.com/1024x768/?forest',date:'4 JAN' },
-
-];
 
 class Home extends Component {
 
@@ -39,12 +29,59 @@ class Home extends Component {
 
     }
 
-    componentDidMount() {
+    async componentDidMount() {
         this.sliderAnim();
+        firebase
+            .messaging()
+            .getToken()
+            .then(fcmToken => {
+                if (fcmToken) {
+                    firebase
+                        .firestore()
+                        .collection("FCMTOKENS")
+                        .doc(fcmToken)
+                        .set({
+                            token: fcmToken
+                        });
+                } else {
+                    // user doesn't have a device token yet
+                }
+            });
+        const enabled = await firebase.messaging().hasPermission();
+        if (enabled) {
+        } else {
+            try {
+                await firebase.messaging().requestPermission();
+            } catch (error) {
+            }
+        }
 
+        // messages are invoked when the app is in background or closed
+        this.messageListener = firebase
+            .messaging()
+            .onMessage((message: RemoteMessage) => {
+                console.log(message)
+            });
+
+        this.removeNotificationListener = firebase
+            .notifications()
+            .onNotification((notification: Notification) => {
+                // Process your notification as required
+                const localnotification = new firebase.notifications.Notification()
+                    .setNotificationId(notification._notificationId)
+                    .setTitle(notification._title)
+                    .setBody(notification._body)
+                    .android.setChannelId("notifications123").android.setSmallIcon('ic_launcher');
+                firebase.notifications().displayNotification(localnotification);
+            });
+    }
+    componentWillUnmount() {
+        // this.unsubscribe();
+        this.messageListener();
+        this.removeNotificationListener();
     }
 
-  
+
     sliderAnim = () => {
         Animated.timing(this.animatedSlider, {
             toValue: 85, duration: 500
@@ -98,9 +135,9 @@ class Home extends Component {
                 </View>
 
 
-                <View style={{ height: 220, marginTop: 5 }}>
+                <View style={{ height: 250, marginTop: 5 }}>
                     <View style={{ margin: 10, marginTop: 0 }}>
-                        <Text style={{ fontSize: 24, fontFamily: 'Black', color: 'white' }}>EVENTS</Text>
+                        <Text style={{ fontSize: 24, fontFamily: 'Black', color: FONTCOLOR }}>EVENTS</Text>
                     </View>
                     <FlatList
                         horizontal={true}
@@ -118,26 +155,6 @@ class Home extends Component {
                         )}
                     />
                 </View>
-
-                {/* <View style={{ flex: 1 }}>
-                    <View style={{ margin: 10, }}>
-                        <Text style={{ fontSize: 20, fontFamily: 'Black', color: 'white' }}>PRIME WORKSHOPS</Text>
-                    </View>
-
-                    <View style={{ flex: 1, marginBottom: 70, marginRight: 20, width: width - 20, }}>
-
-                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginRight: 20, }}>
-                            <CircularCarousel
-                                dataSource={dataSource}
-                                onItemPress={(item) => { nav.navigate('Detail', { item, image: item.url }) }}
-                                style={{ height: 210, width: 400, }}
-                                itemStyle={{ width: 120, height: 70, }}
-                                radius={100}
-                            />
-                        </View>
-
-                    </View>
-                </View> */}
             </ScrollView>
 
         );
@@ -148,7 +165,7 @@ export default Home;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#222222',
+        backgroundColor: BGCOLOR
 
 
     }
