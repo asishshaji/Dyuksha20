@@ -91,7 +91,7 @@ const customTabs = ({ navigation }) => ({
     if (routeName === 'Home') {
       return renderNav(routeName, 'ios-home', tintColor, focused);
     } else if (routeName === 'Live') {
-      return renderNav(routeName, 'ios-images', tintColor, focused);
+      return renderNav(routeName, 'ios-search', tintColor, focused);
     }
     else if (routeName === 'Notifications') {
       return renderNav(routeName, 'ios-notifications', tintColor, focused);
