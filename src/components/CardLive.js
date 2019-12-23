@@ -38,8 +38,8 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         borderWidth: 0,
         height: 300,
-        width: width - 30,
-        elevation: 15,
+        width: width - 50,
+        elevation: 8,
     },
     card: {
         flex: 1,

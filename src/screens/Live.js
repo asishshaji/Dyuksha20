@@ -3,40 +3,80 @@ import {
   View,
   Text,
   StyleSheet,
-  Dimensions,
-  Image,
-  ScrollView
+  ScrollView,
+  Dimensions
 } from "react-native";
-import { BGCOLOR, FONTCOLOR } from "../Styles/Colors"
-import CardLive from "../components/CardLive";
+import LiveNow from "./LiveScreens/LiveNow";
+import { BGCOLOR, FONTCOLOR } from "../Styles/Colors";
+import Scoreboard from "./LiveScreens/Scoreboard";
+import AllPosts from "./LiveScreens/AllPosts";
+import Memories from "./LiveScreens/Memories";
 
 
 const { height, width } = Dimensions.get('window')
-
 class Live extends Component {
   render() {
     return (
-      <ScrollView showsVerticalScrollIndicator={false} >
-        <View >
-          <View style={styles.headerContainer}>
-            <Text style={{ marginBottom: 10, fontSize: 40, fontFamily: 'Black', color: FONTCOLOR }}>
-              See what's happening now.
-          </Text>
+      <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
+        <View style={styles.mainContainer}>
+
+          <View style={styles.TitleMain}>
+          <View style={{elevation:10}}>
+          <Text style={{ marginBottom: 10, fontSize: 40, fontFamily: 'Black', color: FONTCOLOR }}>
+              Dyuksha 20
+           </Text>
+          </View>
+            
           </View>
 
-          <View style={styles.contentContainer}>
 
-           <CardLive imageUrl={'https://source.unsplash.com/1024x768/?fire'} cardTitle={'Event Title'} time={'10 mins ago'} />
-           <CardLive imageUrl={'https://source.unsplash.com/1024x768/?heart'} cardTitle={'Workshop'} time={'15 mins ago'} />
-           <CardLive imageUrl={'https://source.unsplash.com/1024x768/?water'} cardTitle={'Event Title'} time={'10 mins ago'} />
-           <CardLive imageUrl={'https://source.unsplash.com/1024x768/?black'} cardTitle={'Workshop'} time={'15 mins ago'} />
-           <CardLive imageUrl={'https://source.unsplash.com/1024x768/?yellow'} cardTitle={'Event Title'} time={'10 mins ago'} />
-           <CardLive imageUrl={'https://source.unsplash.com/1024x768/?forest'} cardTitle={'Workshop'} time={'15 mins ago'} />
+          <View style={styles.todayContainer}>
+            <View style={styles.TitleToday}>
+              <Text style={{ fontSize: 25, fontFamily: 'Black', color: FONTCOLOR, }}>
+                Today
+              </Text>
+            </View>
+            <View>
+            {/* more than 6 is not swipable */}
+              <AllPosts />  
+            </View>
+          </View>
+
+          <View tyle={styles.nowContainer}>
+            <View style={styles.TitleNow}>
+              <Text style={{ marginBottom: 0, fontSize: 30, fontFamily: 'Black', color: FONTCOLOR }}>
+                See what's happening now.
+              </Text>
+            </View>
+            <View style={{}}>
+              <LiveNow />
+            </View>
+          </View>
+
+          <View style={{ height: height + 350 }}>
+            <View style={styles.TitleMemory}>
+              <Text style={{ marginBottom: 0, fontSize: 14, fontFamily: 'Light', color: FONTCOLOR }}>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+               Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+              </Text>
+            </View>
+
+            <View style={{ padding:15, backgroundColor:BGCOLOR, paddingBottom:5}}>
+            <Text style={{  fontSize: 20, fontFamily: 'Black', color: FONTCOLOR }}>
+              Glance back to Dyuksha 18.
+              </Text>
+            </View>
+           
+
+            <Memories />
 
           </View>
+
 
         </View>
       </ScrollView>
+
     );
   }
 }
@@ -45,11 +85,24 @@ export default Live;
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-
+    backgroundColor: 'white',
 
   },
-  headerContainer: {
+  TitleMain: {
     padding: 15,
+    paddingTop: 70,
+    height: 140,
+    width: width,
+   
+    alignItems: 'center',
+    borderBottomColor: 'white',
+    // borderWidth:1,
+    backgroundColor: BGCOLOR,
+    justifyContent: 'center',
+  },
+
+  TitleNow: {
+    paddingLeft: 5,
     paddingTop: 70,
     height: 140,
     width: width - 5,
@@ -59,44 +112,31 @@ const styles = StyleSheet.create({
     backgroundColor: BGCOLOR,
     justifyContent: 'center',
   },
-  contentContainer: {
+  nowContainer: {
     flex: 1,
-    paddingTop: 40,
-    backgroundColor: BGCOLOR, //'white',
-    paddingBottom: 100
   },
-  cardContainer: {
+  TitleToday: {
+    padding: 10,
+    paddingTop: 15,
+    width: 40,
+    backgroundColor: BGCOLOR,
+  },
+  TitleMemory: {
+    padding: 15,
+    paddingTop: 20,
+    height: 400,
+    width: width - 5,
     alignItems: 'center',
-    margin: 15,
-    borderRadius: 8,
-    borderWidth: 0,
-    height: 300,
-    width: width - 30,
-    elevation: 15,
-  },
-  card: {
-    flex: 1,
-    borderRadius: 8,
-    borderWidth: 0,
-    height: 300,
-    width: width - 30
-  },
-  cardHeader: {
-    borderWidth: 0,
-    borderTopLeftRadius: 8,
-    borderTopRightRadius: 8,
-    height: 50,
+    borderBottomColor: 'white',
+    // borderWidth:1,
+    backgroundColor: BGCOLOR,
     justifyContent: 'center',
-    padding: 5,
-    backgroundColor: 'white'
   },
-  cardTitle: {
-    width: 100
-  },
-  cardContent: {
+  todayContainer: {
     flex: 1,
-    backgroundColor: BGCOLOR, //'yellow'
-    borderRadius: 8
+    flexDirection: 'row',
+    width: width,
+    backgroundColor: BGCOLOR,
+    height: 450
   },
-
 });
