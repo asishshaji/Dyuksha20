@@ -21,10 +21,10 @@ import SelectScreen from './src/screens/SelectScreen';
 const { width } = Dimensions.get('window')
 
 const channel = new firebase.notifications.Android.Channel(
-  "notifications123",
+  "Dyuksha",
   "Notifications",
   firebase.notifications.Android.Importance.Max
-).setDescription("My apps test channel");
+).setDescription("Dyuksha");
 
 // Create the channel
 firebase.notifications().android.createChannel(channel);

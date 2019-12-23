@@ -23,7 +23,7 @@ const ProCarComp = props => {
                         padding: 2
                     }}
                 >
-                    <Text style={{ textAlign: "center", fontSize: 12, fontFamily: 'Light', flexShrink: 1 }}>
+                    <Text style={{ textAlign: "center", fontSize: 12, fontFamily: 'HeadB', flexShrink: 1 }}>
                         {item.date}
                     </Text>
                 </View>
@@ -53,7 +53,7 @@ const ProCarComp = props => {
                         elevation: 10
                     }}
                 >
-                    <Text style={{ textAlign: "center", fontFamily: 'Black', fontSize: 15, color: '#fff', textTransform: 'uppercase' }} >
+                    <Text style={{ textAlign: "center", fontFamily: 'HeadEB', fontSize: 15, color: '#fff', textTransform: 'uppercase' }} >
                         {item.title}
                     </Text>
                 </View>

@@ -71,7 +71,7 @@ class Home extends Component {
                     .setNotificationId(notification._notificationId)
                     .setTitle(notification._title)
                     .setBody(notification._body)
-                    .android.setChannelId("notifications123").android.setSmallIcon('ic_launcher');
+                    .android.setChannelId("Dyuksha").android.setSmallIcon('ic_launcher');
                 firebase.notifications().displayNotification(localnotification);
             });
     }

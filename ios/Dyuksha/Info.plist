@@ -77,6 +77,10 @@
 		<string>Octicons.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
+		<string>ContB.ttf</string>
+		<string>ContR.ttf</string>
+		<string>HeadB.ttf</string>
+		<string>HeadEB.ttf</string>
 	</array>
 </dict>
 </plist>
