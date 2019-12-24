@@ -2,6 +2,7 @@ import React, { Component, useState, useEffect } from 'react'
 import Swiper from 'react-native-deck-swiper'
 import { Button, StyleSheet, Text, View, Dimensions, TouchableOpacity, Image, Animated } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons';
+import { BGCOLOR } from '../../Styles/Colors';
 
 // demo purposes only
 function* range(start, end) {
@@ -11,41 +12,6 @@ function* range(start, end) {
 }
 
 const { height, width } = Dimensions.get('window')
-
-const FadeInView = (props) => {
-    const [fadeAnim] = useState(new Animated.Value(0))  
-
-    React.useEffect(() => {
-        Animated.timing(
-            fadeAnim,
-            {
-                toValue: .8,
-                duration: 700,
-            }
-        ).start();
-
-        setTimeout(() => {
-            Animated.timing(fadeAnim,
-                {
-                    toValue: 0,
-                    duration: 1000
-                }
-            ).start();
-        }, 2000)
-
-    }, [])
-
-    return (
-        <Animated.View
-            style={{
-                ...props.style,
-                opacity: fadeAnim,
-            }}
-        >
-            {props.children}
-        </Animated.View>
-    );
-}
 
 
 export default class Memories extends Component {
@@ -92,19 +58,19 @@ export default class Memories extends Component {
     render() {
         return (
             <View style={styles.container}>
+                
                 <Swiper
                     ref={swiper => {
                         this.swiper = swiper
                     }}
                     cardStyle={{
                         height: height / 2,
-                        top: 80
+                        top: 40
 
                     }}
                     containerStyle={{
-
-                        height: height,
-                        backgroundColor: 'black'
+                        backgroundColor: BGCOLOR,
+                    
                     }}
                     onSwiped={() => this.onSwiped('general')}
                     onSwipedLeft={() => this.onSwiped('left')}
@@ -129,19 +95,14 @@ export default class Memories extends Component {
                 >
                 </Swiper>
 
-                <View style={{ zIndex: 5000, top: 80, width: 50 }}>
+                <View style={{ zIndex: 5000, top: height/2, width: 50, elevation:10 }}>
                     <TouchableOpacity onPress={() => this.swiper.swipeBack()} >
-                        <View style={{ elevation: 8, backgroundColor: 'red', width: 50, height: 50, borderRadius: 25, alignItems: 'center', justifyContent: 'center' }}>
+                        <View style={{ elevation: 10, backgroundColor: 'red', width: 50, height: 50, borderRadius: 25, alignItems: 'center', justifyContent: 'center' }}>
                             <Icon name={'ios-refresh'} color={'white'} size={30} style={{}} />
                         </View>
                     </TouchableOpacity>
                 </View>
 
-                <View style={{left:width/2 + 80}}>
-                    <FadeInView style={{ width: 60, height: 60, borderRadius:30, backgroundColor: 'white', justifyContent:'center' }}>
-                        <Text style={{ fontSize: 15, textAlign: 'center',  }}>Tap</Text>
-                    </FadeInView>
-                </View>
 
             </View>
         )
@@ -151,8 +112,7 @@ export default class Memories extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 5,
-        justifyContent: 'center'
+        padding:5
     },
     card: {
         flex: 1,
@@ -160,18 +120,9 @@ const styles = StyleSheet.create({
         borderWidth: 0,
         borderColor: '#E8E8E8',
         justifyContent: 'center',
-        backgroundColor: '#E8E8E8',
+        backgroundColor: BGCOLOR, //'white'
         elevation: 10
     },
-    text: {
-        textAlign: 'center',
-        fontSize: 50,
-        backgroundColor: 'transparent'
-    },
-    done: {
-        textAlign: 'center',
-        fontSize: 30,
-        color: 'white',
-        backgroundColor: 'transparent'
-    }
+
+
 })

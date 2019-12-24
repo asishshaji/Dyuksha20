@@ -4,7 +4,7 @@ import {
     ScrollView,
     StyleSheet,
     Image, Animated, Text,
-    FlatList, Dimensions,
+    FlatList, Dimensions, StatusBar,
 } from "react-native";
 
 import EventCard from '../components/CardEvent';
@@ -104,6 +104,7 @@ class Home extends Component {
 
         return (
             <ScrollView style={styles.container} >
+             <StatusBar backgroundColor={BGCOLOR} barStyle="light-content" />
 
                 {/* Carousel */}
                 <View style={{ height: sliderH }}>

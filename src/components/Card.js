@@ -4,7 +4,7 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 
 const ProCarComp = props => (
     <TouchableOpacity onPress={() => props.nav.navigate('AllShots', {
-        image: props.image, title: props.title
+        image: props.image, title: props.title, time: props.time
     })} style={{ flex: 1 }} activeOpacity={1}>
         <View style={{ paddingTop: 10 }}>
             <View
@@ -18,12 +18,12 @@ const ProCarComp = props => (
                     elevation: 10, justifyContent: 'center',
                     height: 40,
                     width: 40,
-                    padding: 2
+                    padding: 2,
+                    opacity:1
                 }}
             >
                 <Text style={{ textAlign: "center", fontSize: 12, fontFamily: 'Light', flexShrink: 1 }}>
-                    12
-                    DEC
+                   {props.time}
                 </Text>
             </View>
             <View
@@ -52,7 +52,7 @@ const ProCarComp = props => (
                     elevation: 10
                 }}
             >
-                <Text style={{ textAlign: "center", fontFamily: 'Black', fontSize: 15, color: '#fff', textTransform: 'uppercase' }} >
+                <Text style={{ textAlign: "center", fontFamily: 'Light', fontSize: 15, color: '#fff', textTransform: 'uppercase' }} >
                     {props.title}
                 </Text>
             </View>
