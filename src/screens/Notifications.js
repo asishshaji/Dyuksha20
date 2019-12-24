@@ -3,7 +3,7 @@ import {
     View,
     Text,
     StyleSheet,
-    FlatList
+    FlatList,ScrollView
 } from "react-native";
 import { BGCOLOR, FONTCOLOR } from "../Styles/Colors"
 
@@ -34,7 +34,7 @@ class Notifications extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <ScrollView style={styles.container}>
                 <View style={{ flex: 1 }}>
                     <View style={{ padding: 10, }}>
                         <Text style={{ fontFamily: 'Black', fontSize: 30, color: FONTCOLOR }}>Notifications</Text>
@@ -45,7 +45,7 @@ class Notifications extends Component {
                         keyExtractor={(item, index) => String(index)}
                         data={this.state.notList}
                         renderItem={({ item }) => (
-                            <View style={{ margin: 10, backgroundColor: '#1f1e1e', borderRadius: 10, elevation: 10, minHeight: 100, padding: 12 }}>
+                            <View style={{ margin: 2, backgroundColor: '#1f1e1e', borderRadius: 10, elevation: 10, minHeight: 100, padding: 12 }}>
                                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                                     <Text style={{ color: FONTCOLOR, fontFamily: 'Black', fontSize: 26 }}>{item.Title}</Text>
                                     <Text style={{ color: FONTCOLOR, fontFamily: 'Black', fontSize: 16, alignSelf: 'center' }}>{item.date}</Text>
@@ -59,7 +59,7 @@ class Notifications extends Component {
                         )}
                     />
                 </View>
-            </View>
+            </ScrollView>
         );
     }
 }

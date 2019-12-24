@@ -10,11 +10,13 @@ import {
 import EventCard from '../components/CardEvent';
 
 import BannerCard from '../components/BannerCard'
+import AllPosts from "./LiveScreens/AllPosts";
 
 import { BGCOLOR, FONTCOLOR } from "../Styles/Colors"
 
 const { height, width } = Dimensions.get('window')
 import firebase, { Notification, RemoteMessage } from 'react-native-firebase'
+
 
 
 class Home extends Component {
@@ -103,8 +105,10 @@ class Home extends Component {
 
 
         return (
-            <ScrollView style={styles.container} >
-             <StatusBar backgroundColor={BGCOLOR} barStyle="light-content" />
+            <ScrollView style={styles.container} contentContainerStyle={{
+                paddingBottom: 80
+            }} showsVerticalScrollIndicator={false}>
+                <StatusBar backgroundColor={BGCOLOR} barStyle="light-content" />
 
                 {/* Carousel */}
                 <View style={{ height: sliderH }}>
@@ -149,8 +153,30 @@ class Home extends Component {
                         renderItem={({ item }) => (
                             <EventCard
                                 nav={nav}
-                                height={135}
-                                width={135}
+                                height={180}
+                                width={width / 2 - 40}
+                                item={item}
+                            />
+                        )}
+                    />
+                </View>
+                <View style={styles.todayContainer}>
+                    <View style={styles.TitleToday}>
+                        <Text style={{ fontSize: 24, fontFamily: 'Black', color: FONTCOLOR, maxWidth: 25 }}>
+                            WORKSHOPS
+                        </Text>
+                    </View>
+                    <FlatList
+                        numColumns={2}
+                        showsHorizontalScrollIndicator={false}
+                        scrollEventThrottle={16}
+                        keyExtractor={(item, index) => String(index)}
+                        data={primeEventsList}
+                        renderItem={({ item }) => (
+                            <EventCard
+                                nav={nav}
+                                height={180}
+                                width={width / 2 - 40}
                                 item={item}
                             />
                         )}
@@ -166,8 +192,17 @@ export default Home;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: BGCOLOR
+        backgroundColor: BGCOLOR,
 
 
-    }
+    }, TitleToday: {
+        backgroundColor: BGCOLOR,
+    }, todayContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        width: width,
+        backgroundColor: BGCOLOR,
+        height: 450,
+        padding: 10
+    },
 });

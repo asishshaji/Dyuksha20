@@ -7,8 +7,8 @@ const ProCarComp = props => {
     return (
         <TouchableOpacity onPress={() => props.nav.navigate('Detail', {
             item: item
-        })} style={{ flex: 1 }} activeOpacity={1}>
-            <View style={{ paddingTop: 10 }}>
+        })} style={{ height: props.height + 30, width: props.width + 20 }} activeOpacity={1}>
+            <View style={{ paddingTop: 10, position: 'relative' }}>
                 <View
                     style={{
                         position: "absolute",
@@ -33,7 +33,7 @@ const ProCarComp = props => {
                         zIndex: 100000,
                         bottom: 10,
                         backgroundColor: "#080808",
-                        borderRadius: 20,
+                        borderRadius: 10,
                         elevation: 10, margin: 10,
                         marginBottom: 0,
                         height: props.height,
@@ -50,10 +50,15 @@ const ProCarComp = props => {
                         left: 20,
                         right: 20,
                         padding: 4,
-                        elevation: 10
+                        elevation: 10,
                     }}
                 >
-                    <Text style={{ textAlign: "center", fontFamily: 'HeadEB', fontSize: 15, color: '#fff', textTransform: 'uppercase' }} >
+                    <Text style={{
+                        textAlign: "center",
+                        fontFamily: 'Black',
+                        fontSize: 15, color: '#fff',
+                        textTransform: 'uppercase',
+                    }} >
                         {item.title}
                     </Text>
                 </View>
@@ -63,12 +68,12 @@ const ProCarComp = props => {
                         backgroundColor: "#fff",
                         margin: 10,
                         width: props.width, //200
-                        borderRadius: 22,
+                        borderRadius: 10,
                         elevation: 10,
                     }}
                 >
                     <Image
-                        style={{ flex: 1, borderRadius: 20 }}
+                        style={{ flex: 1, borderRadius: 10 }}
                         resizeMode="cover"
                         source={{
                             uri: item.imageUrl

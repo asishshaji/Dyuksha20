@@ -11,6 +11,9 @@
       android:roundIcon="@mipmap/ic_launcher_round"
       android:allowBackup="false"
       android:theme="@style/AppTheme">
+      <meta-data
+      android:name="com.google.android.maps.v2.API_KEY"
+      android:value="AIzaSyB8o0hrLF4JQ5GMx1YIzii3auzCaLP0HLg"/>
       <service android:name="io.invertase.firebase.messaging.RNFirebaseMessagingService">
         <intent-filter>
           <action android:name="com.google.firebase.MESSAGING_EVENT" />
