@@ -1,2 +1,2 @@
 export const FONTCOLOR = "#fff"
-export const BGCOLOR = "#17223b"
+export const BGCOLOR = "#141E30"

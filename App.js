@@ -34,6 +34,9 @@ const barWidth = 230
 const barSpacing = (width - barWidth) / 2
 
 const AppNavigator = createStackNavigator({
+  SplashScreen: {
+    screen: SplashScreen
+  },
   Home: {
     screen: Home,
 
@@ -45,11 +48,6 @@ const AppNavigator = createStackNavigator({
   Select: {
     screen: SelectScreen
   },
-
-  SplashScreen: {
-    screen: SplashScreen
-  }
-
 }, {
   initialRouteName: 'SplashScreen',
   // transitionConfig: navConfig

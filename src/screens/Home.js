@@ -6,18 +6,14 @@ import {
     Image, Animated, Text,
     FlatList, Dimensions, StatusBar,
 } from "react-native";
-
 import EventCard from '../components/CardEvent';
-
 import BannerCard from '../components/BannerCard'
-import AllPosts from "./LiveScreens/AllPosts";
-
 import { BGCOLOR, FONTCOLOR } from "../Styles/Colors"
-
-const { height, width } = Dimensions.get('window')
 import firebase, { Notification, RemoteMessage } from 'react-native-firebase'
 
 
+
+const { height, width } = Dimensions.get('window')
 
 class Home extends Component {
 
@@ -140,7 +136,7 @@ class Home extends Component {
                 </View>
 
 
-                <View style={{ height: 250, marginTop: 5 }}>
+                <View style={{ height: 260, marginTop: 5 }}>
                     <View style={{ margin: 10, marginTop: 0 }}>
                         <Text style={{ fontSize: 24, fontFamily: 'Black', color: FONTCOLOR }}>EVENTS</Text>
                     </View>
@@ -181,6 +177,7 @@ class Home extends Component {
                             />
                         )}
                     />
+
                 </View>
             </ScrollView>
 
@@ -197,12 +194,12 @@ const styles = StyleSheet.create({
 
     }, TitleToday: {
         backgroundColor: BGCOLOR,
+        paddingTop:15
     }, todayContainer: {
         flex: 1,
         flexDirection: 'row',
         width: width,
         backgroundColor: BGCOLOR,
-        height: 450,
         padding: 10
     },
 });

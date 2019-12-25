@@ -17,7 +17,7 @@ const CardLive = props => {
             <View style={styles.card}>
                 <View style={styles.cardHeader}>
                     <View style={styles.cardTitle}>
-                        <Text style={{ fontSize: 13, fontFamily: 'Black', color: 'black' }}>{props.cardTitle}</Text>
+                        <Text style={{ fontSize: 13, fontFamily: 'Black', color: 'black',textTransform:'uppercase' }}>{props.cardTitle}</Text>
                         <Text style={{ fontSize: 12, color: 'grey' }}>{props.time}</Text>
                     </View>
                 </View>
