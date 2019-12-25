@@ -4,9 +4,11 @@ import {
     ScrollView,
     StyleSheet,
     Image, Animated, Text,
-    FlatList, Dimensions, StatusBar,
+    FlatList, Dimensions, StatusBar, TouchableOpacity, SafeAreaView
 } from "react-native";
-import EventCard from '../components/CardEvent';
+
+import Icon from 'react-native-vector-icons/Ionicons';
+import EventCard from '../components/CardHome';
 import BannerCard from '../components/BannerCard'
 import { BGCOLOR, FONTCOLOR } from "../Styles/Colors"
 import firebase, { Notification, RemoteMessage } from 'react-native-firebase'
@@ -95,16 +97,20 @@ class Home extends Component {
         console.disableYellowBox = true;
         const sliderH = height * 0.39;
         const nav = this.props.navigation;
+        const { navigate } = this.props.navigation;
 
         const primeEventsList = this.props.navigation.getParam('primeEventsList', {})
         const bannerList = this.props.navigation.getParam('bannerList', {})
 
 
         return (
-            <ScrollView style={styles.container} contentContainerStyle={{
-                paddingBottom: 80
-            }} showsVerticalScrollIndicator={false}>
+            <ScrollView style={styles.container} >
                 <StatusBar backgroundColor={BGCOLOR} barStyle="light-content" />
+                <View style={{ margin: 15 }}>
+                    <TouchableOpacity onPress={this.props.navigation.openDrawer} style={{ alignItems: "flex-start", }}>
+                        <Icon name={'ios-menu'} color={'white'} size={35} style={{}} />
+                    </TouchableOpacity>
+                </View>
 
                 {/* Carousel */}
                 <View style={{ height: sliderH }}>
@@ -136,9 +142,15 @@ class Home extends Component {
                 </View>
 
 
-                <View style={{ height: 260, marginTop: 5 }}>
-                    <View style={{ margin: 10, marginTop: 0 }}>
+
+                <View style={{ height: 300, marginTop: 5 }}>
+                    <View style={{ margin: 10, marginTop: 0, flexDirection: 'row', justifyContent: 'space-between' }}>
                         <Text style={{ fontSize: 24, fontFamily: 'Black', color: FONTCOLOR }}>EVENTS</Text>
+                        <TouchableOpacity onPress={() => navigate('Select', {})}  >
+                            <View style={{ backgroundColor: BGCOLOR, width: 50, height: 50 }}>
+                                <Text style={{ fontSize: 15, fontFamily: 'Light', color: FONTCOLOR, paddingTop: 5 }} >See All</Text>
+                            </View>
+                        </TouchableOpacity>
                     </View>
                     <FlatList
                         horizontal={true}
@@ -194,7 +206,7 @@ const styles = StyleSheet.create({
 
     }, TitleToday: {
         backgroundColor: BGCOLOR,
-        paddingTop:15
+        paddingTop: 15
     }, todayContainer: {
         flex: 1,
         flexDirection: 'row',

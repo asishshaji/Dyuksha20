@@ -1,22 +1,18 @@
 import React from 'react'
+import { Dimensions, View, Text, } from 'react-native'
 import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
-import { createBottomTabNavigator } from 'react-navigation-tabs';
-import Home from './src/screens/Home';
-
-import Detail from './src/screens/DetailScreen';
-import Live from './src/screens/Live';
-import MapScreen from './src/screens/MapScreen';
-import Notifications from './src/screens/Notifications';
-import SplashScreen from './src/screens/SplashScreen'
+import { createDrawerNavigator } from 'react-navigation-drawer';
+import { BGCOLOR, FONTCOLOR } from './src/Styles/Colors';
 
 import firebase from 'react-native-firebase'
 
-import Icon from 'react-native-vector-icons/Ionicons';
+import CustomDrawer from './src/components/CustomDrawer';
+
+import BottomNav from './navigators/index'
 
 
-import { Dimensions, View, Text } from 'react-native'
-import SelectScreen from './src/screens/SelectScreen';
+import About from './src/screens/DrawerScreens/About';
+
 
 const { width } = Dimensions.get('window')
 
@@ -33,112 +29,72 @@ firebase.notifications().android.createChannel(channel);
 const barWidth = 230
 const barSpacing = (width - barWidth) / 2
 
-const AppNavigator = createStackNavigator({
-  SplashScreen: {
-    screen: SplashScreen
-  },
+
+const DrawerNavigator = createDrawerNavigator({
+
   Home: {
-    screen: Home,
-
+    screen: BottomNav,
+    navigationOptions: {
+      title: 'Home'
+    }
   },
-  Detail: {
-    screen: Detail
 
+  About: {
+    screen: About,
+    navigationOptions: {
+      title: 'About'
+    }
   },
-  Select: {
-    screen: SelectScreen
-  },
-}, {
-  initialRouteName: 'SplashScreen',
-  // transitionConfig: navConfig
-});
+}
+  ,
+  {
+    contentComponent: props => <CustomDrawer {...props} />,
+    drawerWidth: width * 0.75,
+    //  hideStatusBar: true,
+    drawerType: 'slide',
+    contentOptions: {
+      activeBackgroundColor: BGCOLOR,
+      activeTintColor: FONTCOLOR,
+      inactiveTintColor: 'grey',
+      itemContainerStyle: {
+        // marginTop: 16,
+        // marginHorizontal: 8
+      },
 
-AppNavigator.navigationOptions = ({ navigation }) => {
+      itemStyle: {
+        borderRadius: 8
+      }
+    }
+  }
+);
+
+DrawerNavigator.navigationOptions = ({ navigation }) => {
+
 
   let tabBarVisible = true;
 
+  let isDrawerOpen = navigation.state.isDrawerOpen
+
   let routeName = navigation.state.routes[navigation.state.index].routeName
 
-  if (routeName == 'Detail') {
+  if (isDrawerOpen) {
     tabBarVisible = false
-  } else if (routeName === "SplashScreen") {
-    tabBarVisible = false
-
   }
+  // else if (routeName === "Map") {
+  //   tabBarVisible = false
+
+  // }
 
   return {
     tabBarVisible,
+    isDrawerOpen
   }
-
 }
 
-const renderNav = (routeName, name, tintColor, focused) => (
-  <View style={{
-    height: 35, width: 35, alignItems: 'center',
-    backgroundColor: focused ? "#E55656" : '#f5f5f5',
-    borderRadius: 35 / 2, alignItems: 'center', justifyContent: 'center'
-  }}>
-    <Icon name={name} color={focused ? "white" : '#ccc'} size={26} style={{}} />
-  </View>
-)
-
-const customTabs = ({ navigation }) => ({
-  tabBarIcon: ({ focused, horizontal, tintColor }) => {
-    const { routeName } = navigation.state;
-    tintColor = "white"
-    if (routeName === 'Home') {
-      return renderNav(routeName, 'ios-home', tintColor, focused);
-    } else if (routeName === 'Live') {
-      return renderNav(routeName, 'ios-search', tintColor, focused);
-    }
-    else if (routeName === 'Notifications') {
-      return renderNav(routeName, 'ios-notifications', tintColor, focused);
-    }
-    else if (routeName === 'Map') {
-      return renderNav(routeName, 'ios-compass', tintColor, focused);
-    }
-  }
-});
-
-const BottomNav = createBottomTabNavigator({
-  Home: {
-    screen: AppNavigator,
-  },
-  Live: {
-    screen: Live,
-  },
-  Notifications: {
-    screen: Notifications
-  },
-
-  Map: {
-    screen: MapScreen
-  }
 
 
-}, {
-  defaultNavigationOptions: customTabs,
-  animationEnabled: true,
-  swipeEnabled: true,
-  // initialRouteName: 'Notifications',
-  tabBarOptions: {
-    style: {
-      width: barWidth,
-      backgroundColor: 'white',
-      position: 'absolute',
-      left: barSpacing,
-      right: barSpacing,
-      height: 60,
-      elevation: 4,
-      bottom: 15,
-      borderRadius: 60 / 2,
-      borderTopWidth: 0,
-      padding: 5,
-    }, showLabel: false
-  }
 
-})
 
-export default createAppContainer(BottomNav);
+export default createAppContainer(DrawerNavigator);
 
 
