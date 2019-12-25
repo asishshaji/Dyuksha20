@@ -5,13 +5,14 @@ import {
     StyleSheet,
     FlatList,
     Alert,
-    Dimensions,
-    TouchableWithoutFeedback
+    TouchableWithoutFeedback,
+    ScrollView,
+    Dimensions
 } from "react-native";
-import CardSelect from './CardSelect';
+import CardSelect from '../../components/CardSelect';
+
 
 const { height, width } = Dimensions.get('window')
-
 
 let Event0 = [
     { "date": "Feb 14", "title": "DANCE", "url": "https://thumbs.dreamstime.com/z/retro-rays-comic-yellow-background-raster-gradient-halftone-pop-art-style-retro-rays-comic-yellow-background-raster-gradient-87472290.jpg" },
@@ -33,7 +34,7 @@ let Event2 = [
     { "date": "Feb 15", "title": "other", "url": "https://thumbs.dreamstime.com/b/retro-comic-blue-background-raster-gradient-halftone-pop-art-style-71615289.jpg" },
 ]
 
-let events = [{ "key": "event1" }, { "key": "event2" }]
+
 let workshops = [{ "key": "Workshop1" }, { "key": "Workshop2" }, { "key": "Workshop3" },]
 
 class ListItems extends Component {
@@ -42,14 +43,8 @@ class ListItems extends Component {
         super(props);
 
         this.state = {
-            eventData: [
-                
-                { "date": "Feb 15", "title": "other", "url": "https://thumbs.dreamstime.com/b/retro-comic-blue-background-raster-gradient-halftone-pop-art-style-71615289.jpg" },
-                { "date": "Feb 15", "title": "other", "url": "https://thumbs.dreamstime.com/b/retro-comic-blue-background-raster-gradient-halftone-pop-art-style-71615289.jpg" },
-                { "date": "Feb 15", "title": "other", "url": "https://thumbs.dreamstime.com/b/retro-comic-blue-background-raster-gradient-halftone-pop-art-style-71615289.jpg" },
-                
-            ],
-            workshopData: [],
+            eventData: this.eventSwitch(),
+            workshopData: this.workshopSwitch(),
             selectedTopTapBarIndex: 0,
             selectedEventTapBarIndex: 0,
             selectedWorkshopTapBarIndex: 0,
@@ -59,60 +54,91 @@ class ListItems extends Component {
 
     eventSwitch = index => {
         switch (index) {
-            case 0: this.state.eventData;
+            case 0: this.setState(previousIndex => {
+                return {
+                    eventData: Event0
+                };
+            });
                 break;
             case 1: this.ONE();
+                break;
+            case 2: this.TWO();
+                break;
+            case 3: this.THREE();
+                break;
+            case 4: this.FOUR();
+                break;
+            case 5: this.FIVE();
                 break;
             default: Alert.alert("error");
         }
     }
 
     ZERO = () => {
-
+        Alert.alert("Mechanical");
     }
 
-    ONE = () => console.log(this.state.eventData);
+    ONE = () => {
+        Alert.alert(JSON.stringify(this.state.eventData));
+    }
 
+    TWO = () => this.state.eventData
 
+    THREE = () => {
+        Alert.alert("Computer");
+    }
 
+    FOUR = () => {
+        Alert.alert("Civil");
+    }
 
+    FIVE = () => {
+        Alert.alert("Instrumentation");
+    }
 
-    workshopSwitch = () => this.state.workshopData
+    workshopSwitch = () => { }
 
 
     render() {
 
         let eventIndex = this.props.selectedEventTapBarIndex;
         let workshopIndex = this.props.selectedWorkshopTapBarIndex;
-        const eventdata = () => this.eventSwitch(eventIndex);
-        let data = this.state.eventData;
-        
+
         return (
-            <View style={styles.container}>
-                <View style={{ marginTop: 50 }}>
-                    <Text style={{color:'white'}}>{this.props.selectedTopTapBarIndex}</Text>
-                    <Text style={{color:'white'}}>{eventIndex}</Text>
-                    <Text style={{color:'white'}}>{workshopIndex}</Text>
+            <ScrollView>
+                <View style={styles.container}>
+                    <View style={{ marginTop: 50 }}>
+                        <Text style={{ color: 'white' }}>{this.props.selectedTopTapBarIndex}</Text>
+                        <Text style={{ color: 'white' }}>{eventIndex}</Text>
+                        <Text style={{ color: 'white' }}>{workshopIndex}</Text>
+                    </View>
+
+                    <View style={{ marginTop: 10 }}>
+
+                        {
+                            this.props.selectedTopTapBarIndex === 0 ?
+                                <View >
+                                    <FlatList
+                                        showsVerticalScrollIndicator={false}
+                                        data={this.eventSwitch(eventIndex)}
+                                        extraData={this.state.eventData}
+                                        renderItem={({ item, index }) => this.renderList(item, index)}
+                                    />
+                                </View>
+                                :
+                                <View >
+                                    <FlatList
+                                        showsVerticalScrollIndicator={false}
+                                        data={this.workshopSwitch(workshopIndex)}
+                                        extraData={workshops}
+                                        renderItem={({ item, index }) => this.renderList(item, index)}
+                                    />
+                                </View>
+                        }
+
+                    </View>
                 </View>
-
-                <View style={{ marginTop: 10, paddingBottom: 100 }}>
-
-
-
-                    <FlatList
-                        numColumns={2}
-                        showsHorizontalScrollIndicator={false}
-                        // data={this.eventSwitch(0)}
-                         data={eventdata(eventIndex)}
-                        //data={this.state.eventData}
-                        renderItem={({ item, index }) => this.renderList(item, index)}
-                    />
-
-
-
-                </View>
-
-            </View>
+            </ScrollView>
         );
     }
 
@@ -134,8 +160,6 @@ class ListItems extends Component {
         );
     }
 
-
-
 }
 export default ListItems;
 
@@ -143,6 +167,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        paddingBottom: 100
     }
 });

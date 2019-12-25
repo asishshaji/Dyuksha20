@@ -36,6 +36,13 @@ export default class Memories extends Component {
             <View style={styles.card}>
                 {/* <Text style={styles.text}>{card} - {index}</Text> */}
                 <Image style={{ flex: 1, borderRadius: 10 }} source={{ uri: card.url }} resizeMode="cover" />
+                <View style={{padding:3, zIndex: 5000, width: 50, elevation: 10 }}>
+                    <TouchableOpacity onPress={() => this.swiper.swipeBack()} >
+                        <View style={{ elevation: 10, backgroundColor: BGCOLOR, width: 50, height: 50, borderRadius: 25, alignItems: 'center', justifyContent: 'center' }}>
+                            <Icon name={'ios-arrow-dropright'} color={'white'} size={30} style={{}} />
+                        </View>
+                    </TouchableOpacity>
+                </View>
             </View>
         )
     };
@@ -58,19 +65,19 @@ export default class Memories extends Component {
     render() {
         return (
             <View style={styles.container}>
-                
+
                 <Swiper
                     ref={swiper => {
                         this.swiper = swiper
                     }}
                     cardStyle={{
                         height: height / 2,
-                        top: 40
+                        top: 20
 
                     }}
                     containerStyle={{
                         backgroundColor: BGCOLOR,
-                    
+
                     }}
                     onSwiped={() => this.onSwiped('general')}
                     onSwipedLeft={() => this.onSwiped('left')}
@@ -95,13 +102,7 @@ export default class Memories extends Component {
                 >
                 </Swiper>
 
-                <View style={{ zIndex: 5000, top: height/2, width: 50, elevation:10 }}>
-                    <TouchableOpacity onPress={() => this.swiper.swipeBack()} >
-                        <View style={{ elevation: 10, backgroundColor: 'red', width: 50, height: 50, borderRadius: 25, alignItems: 'center', justifyContent: 'center' }}>
-                            <Icon name={'ios-refresh'} color={'white'} size={30} style={{}} />
-                        </View>
-                    </TouchableOpacity>
-                </View>
+
 
 
             </View>
@@ -112,7 +113,7 @@ export default class Memories extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding:5
+        padding: 5
     },
     card: {
         flex: 1,

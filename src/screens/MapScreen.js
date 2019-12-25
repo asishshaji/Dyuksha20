@@ -4,22 +4,22 @@ import {
     Text,
     StyleSheet
 } from "react-native";
-import AllPosts from "./LiveScreens/AllPosts";
-import Memories from "./LiveScreens/Memories";
 
-class MapScreen extends Component {
+class Map extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Memories/>
+                <Text>Map</Text>
             </View>
         );
     }
 }
-export default MapScreen;
+export default Map;
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
     }
 });
