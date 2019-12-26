@@ -2,7 +2,7 @@ import React, { Component, useState, useEffect } from 'react'
 import Swiper from 'react-native-deck-swiper'
 import { Button, StyleSheet, Text, View, Dimensions, TouchableOpacity, Image, Animated } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons';
-import { BGCOLOR } from '../../Styles/Colors';
+import { BGCOLOR, ICONCOLOR } from '../../Styles/Colors';
 
 // demo purposes only
 function* range(start, end) {
@@ -39,7 +39,7 @@ export default class Memories extends Component {
                 <View style={{padding:3, zIndex: 5000, width: 50, elevation: 10 }}>
                     <TouchableOpacity onPress={() => this.swiper.swipeBack()} >
                         <View style={{ elevation: 10, backgroundColor: BGCOLOR, width: 50, height: 50, borderRadius: 25, alignItems: 'center', justifyContent: 'center' }}>
-                            <Icon name={'ios-arrow-dropright'} color={'white'} size={30} style={{}} />
+                            <Icon name={'ios-arrow-dropright'} color={ICONCOLOR} size={30} style={{}} />
                         </View>
                     </TouchableOpacity>
                 </View>

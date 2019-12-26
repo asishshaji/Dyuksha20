@@ -12,7 +12,7 @@ import EventCard from '../components/CardHome';
 
 import BannerCard from '../components/BannerCard'
 
-import { BGCOLOR, FONTCOLOR } from "../Styles/Colors"
+import { BGCOLORB, BGCOLOR, FONTCOLOR, ICONCOLOR } from "../Styles/Colors"
 
 const { height, width } = Dimensions.get('window')
 import firebase, { Notification, RemoteMessage } from 'react-native-firebase'
@@ -107,10 +107,13 @@ class Home extends Component {
         return (
             <ScrollView style={styles.container} >
                 <StatusBar backgroundColor={BGCOLOR} barStyle="light-content" />
-                <View style={{  margin:15}}>
-                    <TouchableOpacity onPress={this.props.navigation.openDrawer} style={{ alignItems: "flex-start",}}>
-                        <Icon name={'ios-menu'} color={'white'} size={35} style={{}} />
+                <View style={{ margin: 15, flexDirection:'row', justifyContent:'space-between' }}>
+                    <TouchableOpacity onPress={this.props.navigation.openDrawer} style={{ alignItems: "flex-start", }}>
+                        <Icon name={'ios-menu'} color={FONTCOLOR} size={35} style={{}} />
                     </TouchableOpacity>
+                    <Text style={{ fontSize: 25, fontFamily: 'Black', color: FONTCOLOR }}>
+                        Home
+                    </Text>
                 </View>
 
                 {/* Carousel */}

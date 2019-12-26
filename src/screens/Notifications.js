@@ -5,7 +5,7 @@ import {
     StyleSheet,
     FlatList
 } from "react-native";
-import { BGCOLOR, FONTCOLOR } from "../Styles/Colors"
+import { BGCOLOR, FONTCOLOR, FONTCOLORWHITE } from "../Styles/Colors"
 
 import { firestore } from 'react-native-firebase';
 
@@ -35,7 +35,7 @@ class Notifications extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <View style={{ flex: 1 }}>
+                <View style={{ flex: 1, }}>
                     <View style={{ padding: 10, }}>
                         <Text style={{ fontFamily: 'Black', fontSize: 30, color: FONTCOLOR }}>Notifications</Text>
                     </View>
@@ -68,7 +68,8 @@ export default Notifications;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: BGCOLOR
+        backgroundColor: BGCOLOR,
+        
 
     }
 });

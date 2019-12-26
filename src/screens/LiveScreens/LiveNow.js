@@ -12,7 +12,7 @@ import {
 } from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons';
 import firebase, { firestore } from 'react-native-firebase';
-import { BGCOLOR, FONTCOLOR } from "../../Styles/Colors"
+import { BGCOLOR, FONTCOLOR, ICONCOLOR } from "../../Styles/Colors"
 import CardLive from "../../components/CardLive";
 
 
@@ -58,14 +58,14 @@ class LiveNow extends Component {
 
         <View style={{ position:'absolute', zIndex:1000, backgroundColor: BGCOLOR, padding:8, paddingTop:20 }} >
             <TouchableOpacity onPress={() => navigate('Explore',{} )}  >
-              <View style={{ backgroundColor: BGCOLOR, width: 50, height: 50, left: 7, justifyContent: 'center' }}>
-                <Icon name={'ios-arrow-back'} color={'white'} size={40} style={{}} />
+              <View style={{ backgroundColor: BGCOLOR, width: 50, height: 50,borderRadius:25,elevation:5,alignItems:'center', justifyContent: 'center' }}>
+                <Icon name={'ios-arrow-back'} color={ICONCOLOR} size={40} style={{}} />
               </View>
             </TouchableOpacity>
           </View>
 
 
-          <View style={{ paddingTop: 100, alignItems: 'center', justifyContent: 'center', height: 200, backgroundColor: BGCOLOR, }}>
+          <View style={{ paddingTop: 100, alignItems: 'center', justifyContent: 'center', height: 250, backgroundColor: BGCOLOR, }}>
             <Text style={{ fontSize: 45, fontFamily: 'Black', color: FONTCOLOR }}>
               All Shots
               </Text>
