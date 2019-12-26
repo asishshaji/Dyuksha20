@@ -61,7 +61,7 @@ const DrawerNavigator = createDrawerNavigator({
     drawerType: 'slide',
 
     contentOptions: {
-      activeBackgroundColor: BGCOLOR,
+      activeBackgroundColor: "#d3d3d3",
       activeTintColor: '#fff',
       inactiveTintColor: '#d3d3d3',
       itemContainerStyle: {
@@ -71,9 +71,9 @@ const DrawerNavigator = createDrawerNavigator({
       },
       
       itemStyle: {
-        borderBottomColor: FONTCOLOR,
+       // borderBottomColor: FONTCOLOR,
         
-        borderBottomWidth:2,
+       // borderBottomWidth:2,
         borderRadius: 10
       }
     }

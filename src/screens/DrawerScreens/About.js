@@ -25,14 +25,14 @@ const DyukshaCard = props => {
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
-            backgroundColor: 'white'
+            backgroundColor: '#1f1e1e'
         }}>
 
             <View style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>
-                <Icon name="logo-facebook" size={30} color="black" style={{ padding: 5 }} onPress={() => Linking.openURL('https://www.facebook.com/Dyuksha20/')} />
-                <Icon name="logo-instagram" size={30} color="black" style={{ padding: 5 }} onPress={() => Linking.openURL('https://www.instagram.com/dyuksha20/')} />
-                <Icon name="logo-twitter" size={30} color="black" style={{ padding: 5 }} onPress={() => Linking.openURL('https://twitter.com/Dyuksha_20')} />
-                <Icon name="logo-youtube" size={30} color="black" style={{ padding: 5 }} onPress={() => Linking.openURL('https://www.youtube.com/channel/UCLMOER5VtwwO91qTlqgjrkg')} />
+                <Icon name="logo-facebook" size={30} color={FONTCOLOR} style={{ padding: 5 }} onPress={() => Linking.openURL('https://www.facebook.com/Dyuksha20/')} />
+                <Icon name="logo-instagram" size={30} color={FONTCOLOR} style={{ padding: 5 }} onPress={() => Linking.openURL('https://www.instagram.com/dyuksha20/')} />
+                <Icon name="logo-twitter" size={30} color={FONTCOLOR} style={{ padding: 5 }} onPress={() => Linking.openURL('https://twitter.com/Dyuksha_20')} />
+                <Icon name="logo-youtube" size={30} color={FONTCOLOR} style={{ padding: 5 }} onPress={() => Linking.openURL('https://www.youtube.com/channel/UCLMOER5VtwwO91qTlqgjrkg')} />
             </View>
         </View>
     );
@@ -189,17 +189,18 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         elevation: 10,
         width: width * 0.95,
-        backgroundColor: 'white',
+        backgroundColor: '#1f1e1e',
         alignItems: 'center',
         justifyContent: 'center',
         padding: 10,
     },
     text: {
+        paddingTop:10,
         fontWeight: 'normal',
         textAlign: 'justify',
         fontSize: 15,
         fontFamily: 'Light',
-        color: 'black',
+        color: FONTCOLOR,
         marginVertical: 10
     },
     developerContainer: {

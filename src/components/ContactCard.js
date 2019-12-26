@@ -8,6 +8,7 @@ import {
     Linking
 } from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons';
+import { FONTCOLOR } from "../Styles/Colors";
 
 const { height, width } = Dimensions.get('window')
 
@@ -24,13 +25,13 @@ const ContactCard = props => {
             flexDirection: 'row',
             justifyContent: 'space-around',
             alignItems: 'center',
-            backgroundColor: 'white'
+            backgroundColor: '#1f1e1e'
         }}>
             <View style={{
                 height: 120,
                 width: 120,
                 borderRadius: 60,
-                backgroundColor: 'white',
+                backgroundColor: '#1f1e1e',
                 alignItems: 'center',
                 elevation: 12
             }}>
@@ -44,7 +45,7 @@ const ContactCard = props => {
                     <Text style={{
                         fontSize: 15,
                         fontFamily: 'Light',
-                        color: 'black',
+                        color: FONTCOLOR,
                         padding: 3
                     }}>
                         {item.name}
@@ -52,7 +53,7 @@ const ContactCard = props => {
                     <Text style={{
                         fontSize: 15,
                         fontFamily: 'Light',
-                        color: 'black',
+                        color: FONTCOLOR,
                         padding: 3
                     }}>
                         {item.badge}
@@ -60,15 +61,15 @@ const ContactCard = props => {
                     <Text style={{
                         fontSize: 15,
                         fontFamily: 'Light',
-                        color: 'black',
+                        color: FONTCOLOR,
                         padding: 3
                     }}>
                         {item.number}
                     </Text>
                     <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
-                        <Icon name="logo-facebook" size={25} color="black" style={{ padding: 5 }} onPress={() => Linking.openURL(item.facebook)} />
-                        <Icon name="logo-instagram" size={25} color="black" style={{ padding: 5 }} onPress={() => Linking.openURL(item.instagram)} />
-                        <Icon name="logo-linkedin" size={25} color="black" style={{ padding: 5 }} onPress={() => Linking.openURL(item.linkedin)} />
+                        <Icon name="logo-facebook" size={25} color={FONTCOLOR} style={{ padding: 5 }} onPress={() => Linking.openURL(item.facebook)} />
+                        <Icon name="logo-instagram" size={25} color={FONTCOLOR} style={{ padding: 5 }} onPress={() => Linking.openURL(item.instagram)} />
+                        <Icon name="logo-linkedin" size={25} color={FONTCOLOR} style={{ padding: 5 }} onPress={() => Linking.openURL(item.linkedin)} />
                         
 
                     </View>

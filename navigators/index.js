@@ -16,6 +16,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { Dimensions, View, Text, } from 'react-native'
 import SelectScreen from '../src/screens/SelectScreens/Select';
 import LiveNow from '../src/screens/LiveScreens/LiveNow';
+import EventDetailScreen from '../detailScreens/EventDetails';
 
 const { width } = Dimensions.get('window')
 const barWidth = 230
@@ -48,8 +49,8 @@ const LiveStack = createStackNavigator({
     Explore: {
         screen: Live,
     },
-    Detail: {
-        screen: Detail
+    EventDetail: {
+        screen: EventDetailScreen
 
     },
     LiveNow: {
@@ -86,10 +87,12 @@ LiveStack.navigationOptions = ({ navigation }) => {
 
     if (routeName == 'LiveNow') {
         tabBarVisible = false
-    } else if (routeName === "SplashScreen") {
+    } 
+    else if (routeName === "EventDetail") {
         tabBarVisible = false
 
     }
+    
 
     return {
         tabBarVisible,

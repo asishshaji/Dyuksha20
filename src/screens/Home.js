@@ -107,13 +107,15 @@ class Home extends Component {
         return (
             <ScrollView style={styles.container} >
                 <StatusBar backgroundColor={BGCOLOR} barStyle="light-content" />
-                <View style={{ margin: 15, flexDirection:'row', justifyContent:'space-between' }}>
+                <View style={{ margin: 15, flexDirection: 'row', justifyContent: 'space-between' }}>
                     <TouchableOpacity onPress={this.props.navigation.openDrawer} style={{ alignItems: "flex-start", }}>
                         <Icon name={'ios-menu'} color={FONTCOLOR} size={35} style={{}} />
                     </TouchableOpacity>
-                    <Text style={{ fontSize: 25, fontFamily: 'Black', color: FONTCOLOR }}>
-                        Home
-                    </Text>
+                   
+                        <Text style={{ fontSize: 25, fontFamily: 'Black', color: FONTCOLOR }}>
+                            Home
+                        </Text>
+                   
                 </View>
 
                 {/* Carousel */}

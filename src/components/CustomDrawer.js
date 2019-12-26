@@ -18,7 +18,7 @@ const { width } = Dimensions.get('window')
 export default CustomDrawer = (props) => (
     <SafeAreaView style={{ opacity: 1, flex: 1, backgroundColor: BGCOLOR }}>
         <ScrollView>
-            <View style={{elevation:15, alignItems: 'center', justifyContent: 'center', height: 250, borderBottomEndRadius: 135, backgroundColor: 'black' }}>
+            <View style={{elevation:15, alignItems: 'center', justifyContent: 'center', height: 250, borderBottomEndRadius: 135, backgroundColor: '#1f1e1e' }}>
                 <Image source={require('../../assets/logo.png')} style={{ height: 80, width: 150, resizeMode: 'contain' }} />
             </View>
             <View style={styles.container}>

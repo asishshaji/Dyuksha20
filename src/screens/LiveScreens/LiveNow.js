@@ -8,7 +8,9 @@ import {
   ScrollView,
   FlatList,
   TouchableWithoutFeedback,
-  TouchableOpacity
+  TouchableOpacity,
+  ActivityIndicator,
+  RefreshControl
 } from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons';
 import firebase, { firestore } from 'react-native-firebase';
@@ -30,15 +32,17 @@ class LiveNow extends Component {
     this.state = {
       isLoading: true,
       LiveList: [],
-    
+      refreshing: false
     }
   }
 
 
-  componentDidMount() {
+  makeRequest = () => {
     this.events.onSnapshot(querySnapshot => {
       this.setState({
-        LiveList: []
+        LiveList: [],
+        isLoading: false,
+        refreshing: false
       });
 
       querySnapshot.forEach(doc => {
@@ -49,31 +53,44 @@ class LiveNow extends Component {
     });
   }
 
+  componentDidMount() {
+    this.makeRequest();
+  }
+
   render() {
-    const {navigate} = this.props.navigation;
+    const { navigate } = this.props.navigation;
 
     return (
-      <ScrollView showsVerticalScrollIndicator={false} >
-        <View>
 
-        <View style={{ position:'absolute', zIndex:1000, backgroundColor: BGCOLOR, padding:8, paddingTop:20 }} >
-            <TouchableOpacity onPress={() => navigate('Explore',{} )}  >
-              <View style={{ backgroundColor: BGCOLOR, width: 50, height: 50,borderRadius:25,elevation:5,alignItems:'center', justifyContent: 'center' }}>
+      <ScrollView
+        refreshControl={
+          <RefreshControl
+            refreshing={this.state.isLoading}
+            onRefresh={!this.handleRefresh}
+          />}
+      >
+
+        <View style={{ backgroundColor: BGCOLOR }}>
+
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between', backgroundColor: BGCOLOR }} >
+            <TouchableOpacity onPress={() => navigate('Explore', {})} style={{ alignItems: "flex-start", }} >
+              <View style={{ backgroundColor: BGCOLOR, width: 50, height: 50, borderRadius: 25, elevation: 6, alignItems: 'center', justifyContent: 'center' }}>
                 <Icon name={'ios-arrow-back'} color={ICONCOLOR} size={40} style={{}} />
               </View>
             </TouchableOpacity>
-          </View>
 
-
-          <View style={{ paddingTop: 100, alignItems: 'center', justifyContent: 'center', height: 250, backgroundColor: BGCOLOR, }}>
-            <Text style={{ fontSize: 45, fontFamily: 'Black', color: FONTCOLOR }}>
+            <Text style={{ padding: 12, fontSize: 25, fontFamily: 'Black', color: FONTCOLOR }}>
               All Shots
-              </Text>
+             </Text>
+
           </View>
+
+
+
 
           <View style={styles.contentContainer}>
 
-            <View>
+            <View style={{backgroundColor: BGCOLOR,}}>
               <FlatList
                 showsHorizontalScrollIndicator={false}
                 horizontal={false}
@@ -81,7 +98,9 @@ class LiveNow extends Component {
                 data={this.state.LiveList}
                 keyExtractor={item => item.id}
                 renderItem={({ item, index }) => this.renderList(item, index)}
-               
+                refreshing={this.state.refreshing}
+                onRefresh={this.handleRefresh}
+                ListFooterComponent={this.renderFooter}
               />
             </View>
 
@@ -92,7 +111,6 @@ class LiveNow extends Component {
   }
 
   renderList(item, index) {
-
     return (
       <TouchableWithoutFeedback>
         <CardLive
@@ -104,26 +122,31 @@ class LiveNow extends Component {
     );
   }
 
+  handleRefresh = () => {
+    this.setState({
+      refreshing: true,
+    }, () => {
+      this.makeRequest();
+    })
+  }
+
+  renderFooter = () => {
+    if (!this.state.loading) return null;
+
+    return (
+      <View style={styles.headerBg}>
+        <ActivityIndicator animating size="large" />
+      </View>
+    );
+  };
+
 }
 export default LiveNow;
 
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-
-
   },
-  // headerContainer: {
-  //   padding: 15,
-  //   paddingTop: 70,
-  //   height: 140,
-  //   width: width - 5,
-  //   alignItems: 'center',
-  //   borderBottomColor: 'white',
-  //   // borderWidth:1,
-  //   backgroundColor: BGCOLOR,
-  //   justifyContent: 'center',
-  // },
   contentContainer: {
     flex: 1,
     paddingTop: 40,
@@ -131,6 +154,13 @@ const styles = StyleSheet.create({
     paddingBottom: 30,
     backgroundColor: BGCOLOR, //'white',
 
+  },
+  headerBg: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: BGCOLOR,
+    height: 50,
   },
 
 });
