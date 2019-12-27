@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {
-    ImageBackground, View, Text
+    ImageBackground, View, StatusBar
 } from "react-native";
 
 import firebase, { firestore } from 'react-native-firebase';
@@ -85,7 +85,7 @@ class SplashScreen extends Component {
                 this.props.navigation.replace('Home', {
                     bannerList: this.state.bannerList,
                     primeEventsList: this.state.primeEventsList,
-                    LiveList:this.state.liveList
+                    LiveList: this.state.liveList
                 })
             }
         }, 2000)
@@ -98,6 +98,7 @@ class SplashScreen extends Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
+                <StatusBar backgroundColor={BGCOLOR} barStyle="light-content" />
                 <ImageBackground source={require('../../assets/logo.png')} style={{ flex: 1, backgroundColor: BGCOLOR }} resizeMode="center" />
             </View>)
 

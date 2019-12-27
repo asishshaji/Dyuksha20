@@ -7,7 +7,7 @@ import {
 const Banner = (props) => (
     <View
         style={{
-            width: props.width - 20, margin: 10, marginTop: 20,
+            width: props.width - 20, margin: 10, marginTop: 0,
             backgroundColor: '#e3e3e3', height: props.sliderH - 55,
             borderRadius: 20, elevation: 9
         }}>

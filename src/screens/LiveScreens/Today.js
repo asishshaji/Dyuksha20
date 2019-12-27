@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import firebase, { firestore } from 'react-native-firebase';
 
-import Card from '../../components/Card';
+import EventCard from '../../components/CardHome'
 import { BGCOLOR } from "../../Styles/Colors";
 
 
@@ -44,32 +44,30 @@ class Today extends Component {
     }
 
     render() {
-        const nav  = this.props.navigation;
+        const nav = this.props.navigation;
 
         return (
             <ScrollView style={{ backgroundColor: BGCOLOR, }} contentContainerStyle={{}} >
                 {/* <Text style={{ color: 'white' }}>ALL SHOTS</Text> */}
 
-                <View style={{ height: height, justifyContent: 'center' }}>
+                <View style={{ height: height, justifyContent: 'center', }}>
 
-                    <ScrollView>
-                        <FlatList
-                            showsHorizontalScrollIndicator={false}
-                            horizontal={false}
-                            numColumns={2}
-                            data={this.state.TodayList}
-                            renderItem={({ item, index }) => (
-                                <View style={{}}>
-                                    <Card
-                                        nav={nav}
-                                        height={100}
-                                        width={width / 2 - 40}
-                                        item={item}
-                                    />
-                                </View>
-                            )}
-                        />
-                    </ScrollView>
+                    <FlatList
+                        showsHorizontalScrollIndicator={false}
+                        horizontal={false}
+                        numColumns={2}
+                        data={this.state.TodayList}
+                        renderItem={({ item, index }) => (
+                            <View style={{}}>
+                                <EventCard
+                                    nav={nav}
+                                    height={100}
+                                    width={width / 2 - 40}
+                                    item={item}
+                                />
+                            </View>
+                        )}
+                    />
 
                 </View>
             </ScrollView>
@@ -81,7 +79,7 @@ class Today extends Component {
         return (
             <TouchableWithoutFeedback>
                 <View style={{}}>
-                    <Card
+                    <EventCard
                         nav={navigate}
                         height={100}
                         width={width / 2 - 40}

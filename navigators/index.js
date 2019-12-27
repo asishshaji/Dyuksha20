@@ -14,7 +14,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 
 import { Dimensions, View, Text, } from 'react-native'
-import SelectScreen from '../src/screens/SelectScreens/Select';
+import SelectScreen from '../src/screens/ListScreen';
 import LiveNow from '../src/screens/LiveScreens/LiveNow';
 import EventDetailScreen from '../detailScreens/EventDetails';
 
@@ -69,8 +69,9 @@ AppNavigator.navigationOptions = ({ navigation }) => {
     } else if (routeName === "SplashScreen") {
         tabBarVisible = false
 
+    } else if (routeName === "Select") {
+        tabBarVisible = false
     }
-
     return {
         tabBarVisible,
     }
@@ -87,12 +88,12 @@ LiveStack.navigationOptions = ({ navigation }) => {
 
     if (routeName == 'LiveNow') {
         tabBarVisible = false
-    } 
+    }
     else if (routeName === "EventDetail") {
         tabBarVisible = false
 
     }
-    
+
 
     return {
         tabBarVisible,
@@ -128,7 +129,7 @@ const customTabs = ({ navigation }) => ({
     }
 });
 
- const BottomNav = createBottomTabNavigator({
+const BottomNav = createBottomTabNavigator({
     Home: {
         screen: AppNavigator,
     },

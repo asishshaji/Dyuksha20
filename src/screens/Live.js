@@ -58,7 +58,7 @@ class Live extends Component {
     const navigate = this.props.navigation; // should navigate from today to details
 
     return (
-      <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
+      <ScrollView style={{ flex: 1, backgroundColor: BGCOLOR }} showsVerticalScrollIndicator={false}>
         <View style={styles.mainContainer}>
           <View style={styles.TitleMain}>
             <View style={{ elevation: 10 }}>
@@ -123,26 +123,6 @@ class Live extends Component {
             </View>
             <Memories />
           </View>
-
-
-          <View style={{ padding: 10 }}>
-            <Text style={{ fontSize: 30, fontFamily: 'Black', color: FONTCOLOR }}>
-              See what's happening now.
-          </Text>
-          </View>
-          <FlatList
-            showsHorizontalScrollIndicator={false}
-            scrollEventThrottle={16}
-            keyExtractor={(item, index) => String(index)}
-            data={this.state.primeEventsList}
-            renderItem={({ item }) => (
-              <CardLive
-                cardTitle={item.title}
-                imageUrl={item.imageUrl}
-                time={item.date}
-              />
-            )}
-          />
         </View>
       </ScrollView>
 
@@ -167,7 +147,7 @@ export default Live;
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: BGCOLOR,
 
   },
   TitleMain: {
