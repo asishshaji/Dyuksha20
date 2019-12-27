@@ -44,7 +44,7 @@ const ContactCard = props => {
                 <View style={{ alignItems: 'center', justifyContent: 'space-between' }}>
                     <Text style={{
                         fontSize: 15,
-                        fontFamily: 'Light',
+                        fontFamily: 'Black',
                         color: FONTCOLOR,
                         padding: 3
                     }}>
@@ -70,7 +70,7 @@ const ContactCard = props => {
                         <Icon name="logo-facebook" size={25} color={FONTCOLOR} style={{ padding: 5 }} onPress={() => Linking.openURL(item.facebook)} />
                         <Icon name="logo-instagram" size={25} color={FONTCOLOR} style={{ padding: 5 }} onPress={() => Linking.openURL(item.instagram)} />
                         <Icon name="logo-linkedin" size={25} color={FONTCOLOR} style={{ padding: 5 }} onPress={() => Linking.openURL(item.linkedin)} />
-                        
+
 
                     </View>
                 </View>

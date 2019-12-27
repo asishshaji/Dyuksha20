@@ -19,16 +19,13 @@ const DyukshaCard = props => {
         <View style={{
             flex: 1,
             height: 150,
-            width: width * 0.9,
             borderRadius: 12,
             elevation: 8,
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
+            width: width * 0.9,
             backgroundColor: '#1f1e1e'
         }}>
 
-            <View style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>
+            <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}>
                 <Icon name="logo-facebook" size={30} color={FONTCOLOR} style={{ padding: 5 }} onPress={() => Linking.openURL('https://www.facebook.com/Dyuksha20/')} />
                 <Icon name="logo-instagram" size={30} color={FONTCOLOR} style={{ padding: 5 }} onPress={() => Linking.openURL('https://www.instagram.com/dyuksha20/')} />
                 <Icon name="logo-twitter" size={30} color={FONTCOLOR} style={{ padding: 5 }} onPress={() => Linking.openURL('https://twitter.com/Dyuksha_20')} />
@@ -72,7 +69,7 @@ class About extends Component {
     render() {
 
         return (
-            <ScrollView>
+            <ScrollView style={{ backgroundColor: BGCOLOR }}>
                 <View style={styles.container}>
 
                     <View style={{ margin: 15, flexDirection: 'row', justifyContent: 'space-between' }}>
@@ -87,7 +84,7 @@ class About extends Component {
 
                     <View style={styles.contentContainer}>
                         <View>
-                            <Text style={{marginBottom:10, padding: 5, fontSize: 20, fontFamily: 'Black', color: FONTCOLOR }}>About Dyuksha</Text>
+                            <Text style={{ marginBottom: 10, padding: 5, fontSize: 24, fontFamily: 'Black', color: FONTCOLOR }}>About Dyuksha</Text>
                         </View>
 
                         <View style={styles.card}>
@@ -102,7 +99,7 @@ class About extends Component {
 
                         <View style={{ alignItems: 'flex-end' }}>
                             <View style={{ marginTop: 30 }}>
-                                <Text style={{marginBottom:10, padding: 5, fontSize: 20, fontFamily: 'Black', color: FONTCOLOR }}>About College</Text>
+                                <Text style={{ marginBottom: 10, padding: 5, fontSize: 20, fontFamily: 'Black', color: FONTCOLOR }}>About College</Text>
                             </View>
                             <View style={styles.card}>
                                 <View style={{}}>
@@ -116,13 +113,13 @@ class About extends Component {
 
                         {/* end of cards */}
 
-            {/* Social Media */}
-                        <View style={{marginTop:30}}>
+                        {/* Social Media */}
+                        <View style={{ marginTop: 30 }}>
                             <View>
                                 <Text style={{ padding: 5, fontSize: 20, fontFamily: 'Black', color: FONTCOLOR }}>Social Media</Text>
                             </View>
-                            <View style={{marginVertical:10}}>
-                                <DyukshaCard  />
+                            <View style={{ marginVertical: 10 }}>
+                                <DyukshaCard />
                             </View>
                         </View>
 
@@ -195,13 +192,14 @@ const styles = StyleSheet.create({
         padding: 10,
     },
     text: {
-        paddingTop:10,
+        paddingTop: 10,
         fontWeight: 'normal',
         textAlign: 'justify',
         fontSize: 15,
         fontFamily: 'Light',
         color: FONTCOLOR,
-        marginVertical: 10
+        marginVertical: 10,
+        
     },
     developerContainer: {
         flex: 1,
