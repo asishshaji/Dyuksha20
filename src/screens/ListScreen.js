@@ -55,14 +55,16 @@ class SelectScreen extends Component {
         const nav = this.props.navigation;
         return (
             <View style={styles.container}>
-                <View style={{ padding: 10, }}>
+                <View style={{ padding: 10, backgroundColor: BGCOLOR }}>
                     <Text style={{ fontFamily: 'Black', fontSize: 30, color: FONTCOLOR }}>EVENTS</Text>
                 </View>
 
                 {/* Header Scroll */}
-                <View>
+                <View style={{ backgroundColor: BGCOLOR }}>
                     <FlatList
                         horizontal={true}
+                        style={{ backgroundColor: BGCOLOR }}
+                        contentContainerStyle={{ backgroundColor: BGCOLOR }}
                         showsHorizontalScrollIndicator={false}
                         scrollEventThrottle={16}
                         keyExtractor={(item, index) => String(index)}
@@ -104,6 +106,8 @@ class SelectScreen extends Component {
                 }}>
                     <FlatList
                         numColumns={2}
+                        style={{ backgroundColor: BGCOLOR }}
+                        contentContainerStyle={{ backgroundColor: BGCOLOR }}
                         showsHorizontalScrollIndicator={false}
                         scrollEventThrottle={16}
                         keyExtractor={(item, index) => String(index)}
