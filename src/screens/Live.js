@@ -54,7 +54,8 @@ class Live extends Component {
 
   render() {
 
-    const { navigate } = this.props.navigation; // should navigate from today to details
+
+    const navigate = this.props.navigation; // should navigate from today to details
 
     return (
       <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
@@ -75,11 +76,11 @@ class Live extends Component {
             </View>
             <View>
               {/* more than 6 is not swipable */}
-              <Today />
+              <Today navigation={navigate} />
             </View>
           </View>
 
-          <View tyle={styles.nowContainer}>
+          <View style={styles.nowContainer}>
             <View style={styles.TitleNow}>
               <Text style={{ fontSize: 30, fontFamily: 'Black', color: FONTCOLOR }}>
                 See what's happening now.
@@ -88,9 +89,9 @@ class Live extends Component {
 
             <View style={{ alignItems: 'flex-end', backgroundColor: BGCOLOR }}>
               <TouchableOpacity
-                onPress={() => navigate('LiveNow', {})} >
+                onPress={() => this.props.navigation.navigate('LiveNow', {})} >
                 <View style={{ paddingTop: 10, backgroundColor: BGCOLOR, width: 80, justifyContent: 'center', alignItems: 'flex-end' }}>
-                  <Text style={{ color: 'white', fontFamily: "Light", fontSize: 17, padding: 5 }}>See All</Text>
+                  <Text style={{ color: FONTCOLOR, fontFamily: "Light", fontSize: 17, padding: 5 }}>See All</Text>
                 </View>
               </TouchableOpacity>
             </View>

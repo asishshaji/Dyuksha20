@@ -3,9 +3,9 @@ import {
     View,
     Text,
     StyleSheet,
-    FlatList,ScrollView
+    FlatList, ScrollView
 } from "react-native";
-import { BGCOLOR, FONTCOLOR } from "../Styles/Colors"
+import { BGCOLOR, FONTCOLOR, FONTCOLORWHITE } from "../Styles/Colors"
 
 import { firestore } from 'react-native-firebase';
 
@@ -34,8 +34,8 @@ class Notifications extends Component {
 
     render() {
         return (
-            <ScrollView style={styles.container}>
-                <View style={{ flex: 1 }}>
+            <View style={styles.container}>
+                <View style={{ flex: 1, }}>
                     <View style={{ padding: 10, }}>
                         <Text style={{ fontFamily: 'Black', fontSize: 30, color: FONTCOLOR }}>Notifications</Text>
                     </View>
@@ -45,7 +45,7 @@ class Notifications extends Component {
                         keyExtractor={(item, index) => String(index)}
                         data={this.state.notList}
                         renderItem={({ item }) => (
-                            <View style={{ margin: 5,marginLeft:10,marginRight:10, backgroundColor: '#1f1e1e', borderRadius: 10, elevation: 10, minHeight: 100, padding: 12 }}>
+                            <View style={{ margin: 5, marginLeft: 10, marginRight: 10, backgroundColor: '#1f1e1e', borderRadius: 10, elevation: 10, minHeight: 100, padding: 12 }}>
                                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                                     <Text style={{ color: FONTCOLOR, fontFamily: 'Black', fontSize: 26 }}>{item.Title}</Text>
                                     <Text style={{ color: FONTCOLOR, fontFamily: 'Black', fontSize: 16, alignSelf: 'center' }}>{item.date}</Text>
@@ -53,13 +53,13 @@ class Notifications extends Component {
                                 <View>
 
                                     <Text style={{ color: FONTCOLOR, fontFamily: 'Light', fontSize: 16 }}>{item.Body}</Text>
-                                    <Text style={{ color: FONTCOLOR, fontFamily: 'Black', fontSize: 16, textAlign:'right' }}>{item.time}</Text>
+                                    <Text style={{ color: FONTCOLOR, fontFamily: 'Black', fontSize: 16, textAlign: 'right' }}>{item.time}</Text>
                                 </View>
                             </View>
                         )}
                     />
                 </View>
-            </ScrollView>
+            </View>
         );
     }
 }
@@ -68,7 +68,7 @@ export default Notifications;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: BGCOLOR
+        backgroundColor: BGCOLOR,
 
     }
 });

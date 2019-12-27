@@ -5,7 +5,7 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 const ProCarComp = props => {
     const item = props.item;
     return (
-        <TouchableOpacity onPress={() => props.nav.navigate('Detail', {
+        <TouchableOpacity onPress={() => props.nav.navigate('EventDetail', {
             item: item
         })} style={{ flex: 1 }} activeOpacity={1}>
             <View style={{ paddingTop: 10 }}>
@@ -65,7 +65,7 @@ const ProCarComp = props => {
                         margin: 10,
                         width: props.width, //200
                         borderRadius: 10,
-                        elevation: 10,
+                        elevation: 7,
                     }}
                 >
                     <Image

@@ -12,6 +12,7 @@ import BottomNav from './navigators/index'
 
 
 import About from './src/screens/DrawerScreens/About';
+import Contact from './src/screens/DrawerScreens/Contact';
 
 
 const { width } = Dimensions.get('window')
@@ -35,7 +36,7 @@ const DrawerNavigator = createDrawerNavigator({
   Home: {
     screen: BottomNav,
     navigationOptions: {
-      title: 'Home'
+      title: 'Home',
     }
   },
 
@@ -45,24 +46,35 @@ const DrawerNavigator = createDrawerNavigator({
       title: 'About'
     }
   },
-}
-  ,
+  Contact: {
+    screen: Contact,
+    navigationOptions: {
+      title: 'Contact'
+    }
+  },
+
+},
   {
     contentComponent: props => <CustomDrawer {...props} />,
     drawerWidth: width * 0.75,
-    //  hideStatusBar: true,
+    // hideStatusBar: true,
     drawerType: 'slide',
+
     contentOptions: {
-      activeBackgroundColor: BGCOLOR,
-      activeTintColor: FONTCOLOR,
-      inactiveTintColor: 'grey',
+      activeBackgroundColor: "#d3d3d3",
+      activeTintColor: '#fff',
+      inactiveTintColor: '#d3d3d3',
       itemContainerStyle: {
+      
         // marginTop: 16,
         // marginHorizontal: 8
       },
-
+      
       itemStyle: {
-        borderRadius: 8
+       // borderBottomColor: FONTCOLOR,
+        
+       // borderBottomWidth:2,
+        borderRadius: 10
       }
     }
   }
