@@ -38,6 +38,8 @@ target 'Dyuksha' do
 
   pod 'react-native-shimmer', :path => '../node_modules/react-native-shimmer'
 
+  pod 'RNInAppBrowser', :path => '../node_modules/react-native-inappbrowser-reborn'
+
   target 'DyukshaTests' do
     inherit! :search_paths
     # Pods for testing

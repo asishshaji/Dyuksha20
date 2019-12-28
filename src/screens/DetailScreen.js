@@ -60,7 +60,7 @@ class DetailScreen extends Component {
                             }
                         }
                     ])}>
-                    <View style={{ flex: 1 }}  >
+                    <View style={{ flex: 1, paddingBottom: 60 }}  >
 
                         {/* Animated Header start */}
                         <Animated.View style={{ elevation: 5, borderBottomLeftRadius: imageRad, borderBottomRightRadius: imageRad, opacity: imageOpa }}>
@@ -96,7 +96,7 @@ class DetailScreen extends Component {
                         {/* content section start*/}
                         <View style={{ padding: 15, marginBottom: 0, paddingBottom: 3 }}>
                             <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                                <Text style={{ fontSize: 26, fontFamily: 'Black', color: FONTCOLOR }}>{item.title}</Text>
+                                <Text style={{ fontSize: 26, fontFamily: 'Black', color: FONTCOLOR, maxWidth: width / 2 }}>{item.title}</Text>
                                 <View style={{ flexDirection: 'row', }}>
                                     <Icon name="ios-calendar" size={24} color="#E55656" style={{ marginRight: 5 }} onPress={() => alert('Call')} />
                                     <Text style={{ fontSize: 18, fontFamily: 'Black', color: '#E55656', }}>{item.elabDate}</Text>
@@ -106,7 +106,7 @@ class DetailScreen extends Component {
                             {item.rules ?
                                 <View>
                                     <Text style={{ fontSize: 18, marginTop: 10, fontFamily: 'Black', color: FONTCOLOR }}>RULES</Text>
-                                    <Text style={{ fontSize: 16, marginTop: 8, fontFamily: 'Light', color: FONTCOLOR }}>{item.rules}</Text>
+                                    <Text style={{ fontSize: 16, marginTop: 8, fontFamily: 'Light', color: FONTCOLOR }}>{item.rules.replace('<br/>', '\n')}</Text>
                                 </View> : null}
 
 
@@ -131,7 +131,7 @@ class DetailScreen extends Component {
 
 
                 {/* Buy tickets button */}
-                <RoundedButton price="600" />
+                <RoundedButton price={item.amount ? item.amount : "0"} reglink={item.reglink ? item.reglink : "https://dyuksha.org/"} />
                 <BackButton navigation={navigation} />
 
 
