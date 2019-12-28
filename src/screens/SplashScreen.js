@@ -18,7 +18,7 @@ class SplashScreen extends Component {
     constructor() {
         super();
         this.bannerRef = firestore().collection('Banner');
-        this.primeEvents = firestore().collection('PrimeEvents');
+        this.workshops = firestore().collection('Workshop');
         this.events = firestore().collection('Event');
         this.live = firestore().collection('Live');
 
@@ -26,6 +26,7 @@ class SplashScreen extends Component {
             bannerList: [],
             primeEventsList: [],
             liveList: [],
+            primeWorkshopList: [],
 
         }
 
@@ -66,6 +67,18 @@ class SplashScreen extends Component {
             });
         });
 
+        this.workshops.limit(3).onSnapshot(querySnapshot => {
+            this.setState({
+                primeWorkshopList: []
+            });
+
+            querySnapshot.forEach(doc => {
+                this.setState({
+                    primeWorkshopList: this.state.primeWorkshopList.concat(doc.data())
+                });
+            });
+        });
+
         this.live.limit(2).onSnapshot(querySnapshot => {
             this.setState({
                 LiveList: []
@@ -79,13 +92,15 @@ class SplashScreen extends Component {
         });
 
 
-        {/* nav.navigate('Home', { bannerList: this.state.bannerList, primeEventsList: this.state.primeEventsList }) */ }
         setTimeout(() => {
-            if (this.state.bannerList.length !== 0 && this.state.primeEventsList.length !== 0) {
+            if (this.state.bannerList.length !== 0 &&
+                this.state.primeEventsList.length !== 0
+                && this.state.primeWorkshopList.length !== 0) {
                 this.props.navigation.replace('Home', {
                     bannerList: this.state.bannerList,
                     primeEventsList: this.state.primeEventsList,
-                    LiveList: this.state.liveList
+                    LiveList: this.state.liveList,
+                    primeWorkshopList: this.state.primeWorkshopList
                 })
             }
         }, 2000)

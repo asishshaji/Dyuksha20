@@ -42,6 +42,7 @@ class Notifications extends Component {
                     <FlatList
                         showsVerticalScrollIndicator={false}
                         scrollEventThrottle={16}
+                        contentContainerStyle={{ paddingBottom: 90 }}
                         keyExtractor={(item, index) => String(index)}
                         data={this.state.notList}
                         renderItem={({ item }) => (
