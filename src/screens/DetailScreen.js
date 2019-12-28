@@ -83,7 +83,7 @@ class DetailScreen extends Component {
                             }} >
                                 <Text style={{
                                     fontFamily: 'Black', color: FONTCOLOR
-                                    , position: 'absolute', zIndex: 100000, textTransform: 'uppercase', fontSize: 18
+                                    , position: 'absolute', zIndex: 100000, textTransform: 'uppercase', fontSize: 18, textAlign: 'center'
                                 }}>{item.tagline}</Text>
                             </Animated.View> : null}
 
@@ -106,7 +106,7 @@ class DetailScreen extends Component {
                             {item.rules ?
                                 <View>
                                     <Text style={{ fontSize: 18, marginTop: 10, fontFamily: 'Black', color: FONTCOLOR }}>RULES</Text>
-                                    <Text style={{ fontSize: 16, marginTop: 8, fontFamily: 'Light', color: FONTCOLOR }}>{item.rules.replace('<br/>', '\n')}</Text>
+                                    <Text style={{ fontSize: 16, marginTop: 8, fontFamily: 'Light', color: FONTCOLOR }}>{item.rules.replace(/BLL/gi, '\n')}</Text>
                                 </View> : null}
 
 
