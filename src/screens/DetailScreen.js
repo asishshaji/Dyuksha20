@@ -99,7 +99,11 @@ class DetailScreen extends Component {
                                 <Text style={{ fontSize: 26, fontFamily: 'Black', color: FONTCOLOR, maxWidth: width / 2 }}>{item.title}</Text>
                                 <View style={{ flexDirection: 'row', }}>
                                     <Icon name="ios-calendar" size={24} color="#E55656" style={{ marginRight: 5 }} onPress={() => alert('Call')} />
-                                    <Text style={{ fontSize: 18, fontFamily: 'Black', color: '#E55656', }}>{item.elabDate}</Text>
+                                    <View>
+                                        <Text style={{ fontSize: 18, fontFamily: 'Black', color: '#E55656', textAlign: 'right' }}>{item.elabDate}</Text>
+                                        <Text style={{ fontSize: 16, fontFamily: 'Black', color: FONTCOLOR, textAlign: 'right' }}>{item.time}</Text>
+                                    </View>
+
                                 </View>
                             </View>
                             <Text style={{ fontSize: 16, marginTop: 8, fontFamily: 'Light', color: FONTCOLOR }}>{item.details}</Text>

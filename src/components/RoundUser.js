@@ -57,7 +57,7 @@ const RoundUser = (props) => {
 
             <Text style={{
                 fontFamily: 'Black', textAlign: 'center',
-                textTransform: 'uppercase', color: FONTCOLOR, maxWidth: 150
+                textTransform: 'uppercase', color: FONTCOLOR, maxWidth: 100, padding: 3, marginTop: 3
             }}
             >{props.name.replace('<br/>', '\n')}</Text>
         </TouchableOpacity>
