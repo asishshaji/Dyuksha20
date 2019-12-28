@@ -75,6 +75,19 @@ class DetailScreen extends Component {
                             }} source={{ uri: item.imageUrl }}
                                 resizeMode="cover"
                             />
+                            {item.tagline ? <Animated.View style={{
+                                width: width, height: animImageH, borderBottomLeftRadius: imageRad,
+                                borderBottomRightRadius: imageRad, position: 'absolute', top: 0,
+                                backgroundColor: 'transparent', zIndex: 1000, alignItems: 'center'
+                                , justifyContent: 'center'
+                            }} >
+                                <Text style={{
+                                    fontFamily: 'Black', color: FONTCOLOR
+                                    , position: 'absolute', zIndex: 100000, textTransform: 'uppercase', fontSize: 18
+                                }}>It's not just a race</Text>
+                            </Animated.View> : null}
+
+
                         </Animated.View>
                         {/* Animated Header end */}
 
@@ -89,8 +102,14 @@ class DetailScreen extends Component {
                                     <Text style={{ fontSize: 18, fontFamily: 'Black', color: '#E55656', }}>{item.elabDate}</Text>
                                 </View>
                             </View>
-                            <Text style={{ fontSize: 16, marginTop: 8, fontFamily: 'Light', color: FONTCOLOR }}>{item.details}
-                            </Text>
+                            <Text style={{ fontSize: 16, marginTop: 8, fontFamily: 'Light', color: FONTCOLOR }}>{item.details}</Text>
+                            {item.rules ?
+                                <View>
+                                    <Text style={{ fontSize: 18, marginTop: 10, fontFamily: 'Black', color: FONTCOLOR }}>RULES</Text>
+                                    <Text style={{ fontSize: 16, marginTop: 8, fontFamily: 'Light', color: FONTCOLOR }}>{item.rules}</Text>
+                                </View> : null}
+
+
                         </View>
                         {/* content section end*/}
 

@@ -16,6 +16,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import firebase, { firestore } from 'react-native-firebase';
 import { BGCOLOR, FONTCOLOR, ICONCOLOR } from "../../Styles/Colors"
 import CardLive from "../../components/CardLive";
+import BackButton from '../../components/RoundedBackButton';
 
 
 const { height, width } = Dimensions.get('window')
@@ -58,67 +59,36 @@ class LiveNow extends Component {
   }
 
   render() {
-    const { navigate } = this.props.navigation;
+    const { navigation } = this.props;
 
     return (
+      <View style={{ flex: 1, backgroundColor: BGCOLOR, }}>
+        <FlatList
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={{ paddingTop: 60 }}
+          horizontal={false}
+          showsVerticalScrollIndicator={false}
+          numColumns={1}
+          data={this.state.LiveList}
+          keyExtractor={item => item.id}
+          renderItem={({ item, index }) => this.renderList(item, index)}
+          refreshing={this.state.refreshing}
+          onRefresh={this.handleRefresh}
+          ListFooterComponent={this.renderFooter}
+        />
+        <BackButton navigation={navigation} />
 
-      <ScrollView
-        refreshControl={
-          <RefreshControl
-            refreshing={this.state.isLoading}
-            onRefresh={!this.handleRefresh}
-          />}
-      >
-
-        <View style={{ backgroundColor: BGCOLOR }}>
-
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', backgroundColor: BGCOLOR }} >
-            <TouchableOpacity onPress={() => navigate('Explore', {})} style={{ alignItems: "flex-start", }} >
-              <View style={{ backgroundColor: BGCOLOR, width: 50, height: 50, borderRadius: 25, elevation: 6, alignItems: 'center', justifyContent: 'center' }}>
-                <Icon name={'ios-arrow-back'} color={ICONCOLOR} size={40} style={{}} />
-              </View>
-            </TouchableOpacity>
-
-            <Text style={{ padding: 12, fontSize: 25, fontFamily: 'Black', color: FONTCOLOR }}>
-              All Shots
-             </Text>
-
-          </View>
-
-
-
-
-          <View style={styles.contentContainer}>
-
-            <View style={{backgroundColor: BGCOLOR,}}>
-              <FlatList
-                showsHorizontalScrollIndicator={false}
-                horizontal={false}
-                numColumns={1}
-                data={this.state.LiveList}
-                keyExtractor={item => item.id}
-                renderItem={({ item, index }) => this.renderList(item, index)}
-                refreshing={this.state.refreshing}
-                onRefresh={this.handleRefresh}
-                ListFooterComponent={this.renderFooter}
-              />
-            </View>
-
-          </View>
-        </View>
-      </ScrollView>
+      </View>
     );
   }
 
   renderList(item, index) {
     return (
-      <TouchableWithoutFeedback>
-        <CardLive
-          cardTitle={item.title}
-          imageUrl={item.imageUrl}
-          time={item.time}
-        />
-      </TouchableWithoutFeedback>
+      <CardLive
+        cardTitle={item.title}
+        imageUrl={item.imageUrl}
+        time={item.time}
+      />
     );
   }
 
@@ -146,12 +116,10 @@ export default LiveNow;
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
+    backgroundColor: BGCOLOR
   },
   contentContainer: {
     flex: 1,
-    paddingTop: 40,
-    padding: 10,
-    paddingBottom: 30,
     backgroundColor: BGCOLOR, //'white',
 
   },

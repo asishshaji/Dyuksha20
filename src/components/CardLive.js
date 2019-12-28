@@ -38,8 +38,9 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         borderWidth: 0,
         height: 300,
-        width: width - 50,
+        width: width - 30,
         elevation: 10,
+        marginTop: 10
     },
     card: {
         flex: 1,
@@ -58,12 +59,12 @@ const styles = StyleSheet.create({
         backgroundColor: '#1f1e1e'
     },
     cardTitle: {
-        width: 100,
-        padding: 5
+        padding: 5,
+        minWidth: 50
     },
     cardContent: {
         flex: 1,
-        backgroundColor: BGCOLOR, //'yellow'
+        backgroundColor: 'white',
         borderRadius: 8
     },
 
