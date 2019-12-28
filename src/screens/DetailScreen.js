@@ -33,7 +33,7 @@ class DetailScreen extends Component {
 
         const animImageH = this.scroll.interpolate({
             inputRange: [0, imageH - 60],
-            outputRange: [imageH, 60],
+            outputRange: [imageH, 100],
             // extrapolate: 'clamp'
         })
         const imageRad = this.scroll.interpolate({
@@ -96,7 +96,10 @@ class DetailScreen extends Component {
                         {/* content section start*/}
                         <View style={{ padding: 15, marginBottom: 0, paddingBottom: 3 }}>
                             <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                                <Text style={{ fontSize: 26, fontFamily: 'Black', color: FONTCOLOR, maxWidth: width / 2 }}>{item.title}</Text>
+                                <Text style={{
+                                    fontSize: 26, fontFamily: 'Black',
+                                    color: FONTCOLOR, maxWidth: width / 2 + 40  , textTransform: 'capitalize'
+                                }}>{item.title}</Text>
                                 <View style={{ flexDirection: 'row', }}>
                                     <Icon name="ios-calendar" size={24} color="#E55656" style={{ marginRight: 5 }} onPress={() => alert('Call')} />
                                     <View>

@@ -64,17 +64,10 @@ class SelectScreen extends Component {
         return (
             <View style={styles.container}>
 
-                <View style={{alignItems:'center', justifyContent:'space-between', flexDirection:'row', padding: 20, backgroundColor: BGCOLOR }}>
-                <TouchableOpacity style={{
-                       elevation: 6, height: 40, width: 40,
-                        backgroundColor: 'white', justifyContent: 'center',
-                        alignItems: 'center', borderRadius: 40 / 2
-                    }}
-                        onPress={() => nav.goBack()} activeOpacity={1}>
-                        <Icon name="ios-arrow-back" size={30} color="#E55656" onPress={() => nav.goBack()} />
-                    </TouchableOpacity>
-                    <Text style={{ fontFamily: 'Black', fontSize: 30, color: FONTCOLOR }}>{this.name}</Text>
-                </View>
+                <Text style={{
+                    fontFamily: 'Black', fontSize: 30, color: FONTCOLOR,
+                    textAlign: 'right', backgroundColor: BGCOLOR, padding: 20
+                }}>{this.name}</Text>
 
                 {/* Header Scroll */}
                 <View style={{ backgroundColor: BGCOLOR }}>
@@ -152,6 +145,7 @@ class SelectScreen extends Component {
                         />}
 
                 </View>
+                <RoundedBackButton navigation={nav} />
 
             </View>
         );
