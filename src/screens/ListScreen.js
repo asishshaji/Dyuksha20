@@ -4,11 +4,12 @@ import {
     Text,
     StyleSheet, FlatList, ScrollView, TouchableOpacity, Dimensions
 } from "react-native";
-
+import Icon from 'react-native-vector-icons/Ionicons';
 import { BGCOLOR, FONTCOLOR } from '../Styles/Colors'
 import { firestore } from 'react-native-firebase'
 import EventCard from '../components/CardHome';
 import LottieView from 'lottie-react-native';
+import RoundedBackButton from "../components/RoundedBackButton";
 
 const { width, height } = Dimensions.get('window')
 
@@ -57,9 +58,21 @@ class SelectScreen extends Component {
         }
     }
     render() {
+
+        const nav = this.props.navigation;
+
         return (
             <View style={styles.container}>
-                <View style={{ padding: 10, backgroundColor: BGCOLOR }}>
+
+                <View style={{alignItems:'center', justifyContent:'space-between', flexDirection:'row', padding: 20, backgroundColor: BGCOLOR }}>
+                <TouchableOpacity style={{
+                       elevation: 6, height: 40, width: 40,
+                        backgroundColor: 'white', justifyContent: 'center',
+                        alignItems: 'center', borderRadius: 40 / 2
+                    }}
+                        onPress={() => nav.goBack()} activeOpacity={1}>
+                        <Icon name="ios-arrow-back" size={30} color="#E55656" onPress={() => nav.goBack()} />
+                    </TouchableOpacity>
                     <Text style={{ fontFamily: 'Black', fontSize: 30, color: FONTCOLOR }}>{this.name}</Text>
                 </View>
 
