@@ -147,7 +147,7 @@ export default Live;
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: BGCOLOR,
+    backgroundColor: 'black',
 
   },
   TitleMain: {
