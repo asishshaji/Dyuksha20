@@ -84,7 +84,7 @@ class DetailScreen extends Component {
                                 <Text style={{
                                     fontFamily: 'Black', color: FONTCOLOR
                                     , position: 'absolute', zIndex: 100000, textTransform: 'uppercase', fontSize: 18
-                                }}>It's not just a race</Text>
+                                }}>{item.tagline}</Text>
                             </Animated.View> : null}
 
 
