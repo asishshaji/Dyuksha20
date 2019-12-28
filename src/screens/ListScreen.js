@@ -8,30 +8,35 @@ import {
 import { BGCOLOR, FONTCOLOR } from '../Styles/Colors'
 import { firestore } from 'react-native-firebase'
 import EventCard from '../components/CardHome';
+import LottieView from 'lottie-react-native';
 
 const { width, height } = Dimensions.get('window')
 
 
-const data = [{ "dep": "EEE" }, { "dep": "ME" }, { "dep": "CS" }, { "dep": "CE" }]
+const data = [{ "dep": "EEE" }, { "dep": "ME" }, { "dep": "CS" }, { "dep": "CE" }, { "dep": "IC" }, { "dep": "EC" },]
 class SelectScreen extends Component {
     static navigationOptions = {
         header: null,
     }
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             selectedDep: "EEE",
             list: []
         }
 
-        this.eventRef = firestore().collection("DepEvents").doc("Q7EGukvFtGHdsXc2QAQM")
+        this.nav = props.navigation;
+        this.name = this.nav.getParam('name', "")
+        this.DBNAME = this.nav.getParam('DB', "")
+        this.DBDOCNAME = this.nav.getParam('DOCNAME', "")
+        this.ref = firestore().collection(this.DBNAME).doc(this.DBDOCNAME)
     }
 
 
 
     componentDidMount() {
-        this.eventRef.collection(this.state.selectedDep).onSnapshot(q => {
+        this.ref.collection(this.state.selectedDep).onSnapshot(q => {
             this.setState({ list: [] })
             q.forEach(doc => {
                 this.setState({ list: this.state.list.concat(doc.data()) })
@@ -43,7 +48,7 @@ class SelectScreen extends Component {
         if (this.state.selectedDep == prevState.selectedDep) {
 
         } else {
-            this.eventRef.collection(this.state.selectedDep).onSnapshot(q => {
+            this.ref.collection(this.state.selectedDep).onSnapshot(q => {
                 this.setState({ list: [] })
                 q.forEach(doc => {
                     this.setState({ list: this.state.list.concat(doc.data()) })
@@ -52,11 +57,10 @@ class SelectScreen extends Component {
         }
     }
     render() {
-        const nav = this.props.navigation;
         return (
             <View style={styles.container}>
                 <View style={{ padding: 10, backgroundColor: BGCOLOR }}>
-                    <Text style={{ fontFamily: 'Black', fontSize: 30, color: FONTCOLOR }}>EVENTS</Text>
+                    <Text style={{ fontFamily: 'Black', fontSize: 30, color: FONTCOLOR }}>{this.name}</Text>
                 </View>
 
                 {/* Header Scroll */}
@@ -78,7 +82,10 @@ class SelectScreen extends Component {
                                         this.setState({ selectedDep: item.dep })
                                     }}
                                 >
-                                    <Text style={{ color: FONTCOLOR, fontSize: 22, fontFamily: 'Black' }}>{item.dep}</Text>
+                                    <Text style={{
+                                        color: FONTCOLOR, fontSize: 24,
+                                        fontFamily: 'Black'
+                                    }}>{item.dep}</Text>
                                 </TouchableOpacity>)
                             }
                             else {
@@ -87,9 +94,11 @@ class SelectScreen extends Component {
                                     activeOpacity={1}
                                     onPress={() => {
                                         this.setState({ selectedDep: item.dep })
+                                        this.setState({ list: [] })
+
                                     }}
                                 >
-                                    <Text style={{ color: FONTCOLOR, fontSize: 18, fontFamily: 'Black' }}>{item.dep}</Text>
+                                    <Text style={{ color: 'grey', fontSize: 18, fontFamily: 'Black' }}>{item.dep}</Text>
                                 </TouchableOpacity>)
                             }
 
@@ -104,23 +113,31 @@ class SelectScreen extends Component {
                     width: width,
                     backgroundColor: BGCOLOR,
                 }}>
-                    <FlatList
-                        numColumns={2}
-                        style={{ backgroundColor: BGCOLOR }}
-                        contentContainerStyle={{ backgroundColor: BGCOLOR }}
-                        showsHorizontalScrollIndicator={false}
-                        scrollEventThrottle={16}
-                        keyExtractor={(item, index) => String(index)}
-                        data={this.state.list}
-                        renderItem={({ item }) => (
-                            <EventCard
-                                nav={nav}
-                                height={180}
-                                width={width / 2 - 20}
-                                item={item}
+                    {this.state.list.length === 0 ?
+                        <View style={{ flex: 1, justifyContent: 'center' }}>
+                            <LottieView source={require('../../assets/loading.json')}
+                                autoPlay loop
+                                style={{ height: 100, width: 100, alignSelf: 'center' }}
                             />
-                        )}
-                    />
+                        </View>
+                        : <FlatList
+                            numColumns={2}
+                            style={{ backgroundColor: BGCOLOR }}
+                            contentContainerStyle={{ backgroundColor: BGCOLOR }}
+                            showsHorizontalScrollIndicator={false}
+                            scrollEventThrottle={16}
+                            keyExtractor={(item, index) => String(index)}
+                            data={this.state.list}
+                            renderItem={({ item }) => (
+                                <EventCard
+                                    nav={this.nav}
+                                    height={180}
+                                    width={width / 2 - 20}
+                                    item={item}
+                                />
+                            )}
+                        />}
+
                 </View>
 
             </View>

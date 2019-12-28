@@ -44,7 +44,6 @@ class DetailScreen extends Component {
             inputRange: [0, (imageH - 60) / 2],
             outputRange: [1, 0]
         })
-        console.log(item.volunteers)
         return (
             <View style={{ flex: 1 }}  >
 

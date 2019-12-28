@@ -62,7 +62,6 @@ class Home extends Component {
         this.messageListener = firebase
             .messaging()
             .onMessage((message: RemoteMessage) => {
-                console.log(message)
             });
 
         this.removeNotificationListener = firebase
@@ -96,7 +95,6 @@ class Home extends Component {
         }, 4000)
     }
     render() {
-        console.disableYellowBox = true;
         const sliderH = height * 0.39;
         const nav = this.props.navigation;
         const { navigate } = this.props.navigation;
@@ -169,7 +167,7 @@ class Home extends Component {
                     <View style={{ height: 300, marginTop: 5 }}>
                         <View style={{ margin: 10, marginTop: 0, flexDirection: 'row', justifyContent: 'space-between' }}>
                             <Text style={{ fontSize: 24, fontFamily: 'Black', color: FONTCOLOR }}>EVENTS</Text>
-                            <TouchableOpacity onPress={() => navigate('Select', {})} activeOpacity={1}>
+                            <TouchableOpacity onPress={() => navigate('Select', { 'name': 'EVENTS', 'DB': 'DepEvents','DOCNAME':'eventsDoc' })} activeOpacity={1}>
                                 <View style={{ backgroundColor: BGCOLOR, width: 50, height: 50 }}>
                                     <Text style={{ fontSize: 15, fontFamily: 'Black', color: FONTCOLOR, textAlign: 'center' }} >See All</Text>
                                 </View>

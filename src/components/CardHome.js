@@ -5,9 +5,13 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 const ProCarComp = props => {
     const item = props.item;
     return (
-        <TouchableOpacity onPress={() => props.nav.navigate('Detail', {
-            item: item
-        })} style={{ height: props.height + 30, width: props.width + 20 }} activeOpacity={1}>
+        <TouchableOpacity onPress={() => {
+            if (props.nav) {
+                props.nav.navigate('Detail', {
+                    item: item
+                })
+            }
+        }} style={{ height: props.height + 30, width: props.width + 20 }} activeOpacity={1}>
             <View style={{ paddingTop: 10, position: 'relative' }}>
                 <View
                     style={{
@@ -24,7 +28,7 @@ const ProCarComp = props => {
                     }}
                 >
                     <Text style={{ textAlign: "center", fontSize: 12, fontFamily: 'HeadB', flexShrink: 1 }}>
-                        {item.date}
+                        {props.item ? item.date : ""}
                     </Text>
                 </View>
                 <View
@@ -59,7 +63,7 @@ const ProCarComp = props => {
                         fontSize: 15, color: '#fff',
                         textTransform: 'uppercase',
                     }} >
-                        {item.title}
+                        {props.item ? item.title : ""}
                     </Text>
                 </View>
                 <View
@@ -72,13 +76,15 @@ const ProCarComp = props => {
                         elevation: 10,
                     }}
                 >
-                    <Image
-                        style={{ flex: 1, borderRadius: 10 }}
-                        resizeMode="cover"
-                        source={{
-                            uri: item.imageUrl
-                        }}
-                    />
+                    {props.item ?
+                        <Image
+                            style={{ flex: 1, borderRadius: 10 }}
+                            resizeMode="cover"
+                            source={{
+                                uri: item.imageUrl
+                            }}
+                        /> : null}
+
                 </View>
             </View>
         </TouchableOpacity>
