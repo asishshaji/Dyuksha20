@@ -22,12 +22,8 @@ const DyukshaCard = props => {
             borderRadius: 12,
             elevation: 10,
             width: width * 0.9,
-<<<<<<< HEAD
-            backgroundColor: BGCOLOR
-=======
             backgroundColor: BGCOLOR,
             marginLeft: 10
->>>>>>> 030085c72a72a4af4516810a72004b56e7134dd7
         }}>
 
             <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}>
@@ -171,8 +167,6 @@ class About extends Component {
             </View>
         );
     }
-<<<<<<< HEAD
-=======
 
     renderList(item, index) {
         return (
@@ -189,7 +183,6 @@ class About extends Component {
             </TouchableWithoutFeedback>
         );
     }
->>>>>>> 030085c72a72a4af4516810a72004b56e7134dd7
 }
 export default About;
 

@@ -9,7 +9,7 @@ const Banner = (props) => (
         style={{
             width: props.width - 20, margin: 10, marginTop: 0,
             backgroundColor: '#e3e3e3', height: props.sliderH - 55,
-            borderRadius: 20, elevation: 9
+            borderRadius: 20, elevation: 4,marginTop:5
         }}>
         <Image style={{ flex: 1, borderRadius: 20 }}
             source={{ uri: props.imageUrl }} resizeMode="cover" />
