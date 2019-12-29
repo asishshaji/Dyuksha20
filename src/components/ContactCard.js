@@ -25,14 +25,18 @@ const ContactCard = props => {
             flexDirection: 'row',
             justifyContent: 'space-around',
             alignItems: 'center',
+<<<<<<< HEAD
+            backgroundColor: BGCOLOR
+=======
             backgroundColor: BGCOLOR,
+>>>>>>> 030085c72a72a4af4516810a72004b56e7134dd7
         }}>
             <View style={{
                 height: 120,
                 borderRadius: 60,
-                backgroundColor: '#1f1e1e',
+                backgroundColor: BGCOLOR,
                 alignItems: 'center',
-                elevation: 12
+                elevation: 5
             }}>
 
                 <Image source={{ uri: item.imageUrl }}

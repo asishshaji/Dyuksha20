@@ -20,10 +20,14 @@ const DyukshaCard = props => {
             flex: 1,
             height: 150,
             borderRadius: 12,
-            elevation: 8,
+            elevation: 10,
             width: width * 0.9,
+<<<<<<< HEAD
+            backgroundColor: BGCOLOR
+=======
             backgroundColor: BGCOLOR,
             marginLeft: 10
+>>>>>>> 030085c72a72a4af4516810a72004b56e7134dd7
         }}>
 
             <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}>
@@ -146,7 +150,13 @@ class About extends Component {
                                             horizontal={false}
                                             numColumns={1}
                                             data={this.state.DeveloperList}
-                                            renderItem={({ item, index }) => (this.renderList(item, index))}
+                                            renderItem={({ item, index }) => (
+                                                <TouchableWithoutFeedback>
+                                                    <ContactCard
+                                                        item={item}
+                                                    />
+                                                </TouchableWithoutFeedback>
+                                            )}
                                         />
                                     </View>
                                 </ScrollView>
@@ -161,6 +171,8 @@ class About extends Component {
             </View>
         );
     }
+<<<<<<< HEAD
+=======
 
     renderList(item, index) {
         return (
@@ -177,6 +189,7 @@ class About extends Component {
             </TouchableWithoutFeedback>
         );
     }
+>>>>>>> 030085c72a72a4af4516810a72004b56e7134dd7
 }
 export default About;
 
@@ -190,6 +203,7 @@ const styles = StyleSheet.create({
     },
     contentContainer: {
         flex: 1,
+        padding: 5,
         marginVertical: 20,
         backgroundColor: BGCOLOR,
         //  alignItems: 'center'
@@ -218,7 +232,8 @@ const styles = StyleSheet.create({
     developerContainer: {
         flex: 1,
         backgroundColor: BGCOLOR,
-        alignItems: 'flex-end'
+        alignItems: 'flex-end',
+
 
     },
 });
