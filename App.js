@@ -55,15 +55,14 @@ const DrawerNavigator = createDrawerNavigator({
 
 },
   {
-    contentComponent: props => <CustomDrawer {...props} />,
+    contentComponent: props => <CustomDrawer {...props}  />,
     drawerWidth: width * 0.75,
-    // hideStatusBar: true,
     drawerType: 'slide',
 
     contentOptions: {
       activeBackgroundColor: "#d3d3d3",
-      activeTintColor: '#fff',
-      inactiveTintColor: '#d3d3d3',
+      activeTintColor: FONTCOLOR,
+      inactiveTintColor: 'grey',
       itemContainerStyle: {
       
         // marginTop: 16,
@@ -74,7 +73,7 @@ const DrawerNavigator = createDrawerNavigator({
        // borderBottomColor: FONTCOLOR,
         
        // borderBottomWidth:2,
-        borderRadius: 10
+        borderRadius: 5
       }
     }
   }

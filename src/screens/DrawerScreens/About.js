@@ -22,7 +22,8 @@ const DyukshaCard = props => {
             borderRadius: 12,
             elevation: 8,
             width: width * 0.9,
-            backgroundColor: '#1f1e1e'
+            backgroundColor: BGCOLOR,
+            marginLeft: 10
         }}>
 
             <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}>
@@ -71,10 +72,14 @@ class About extends Component {
         return (
             <View style={{ flex: 1 }}>
 
-                <ScrollView style={{ backgroundColor: BGCOLOR, flex: 1 }}>
+                <ScrollView style={{ backgroundColor: BGCOLOR, flex: 1 }}
+                    showsVerticalScrollIndicator={false}>
                     <View style={styles.container}>
 
-                        <View style={{ margin: 15, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+                        <View style={{
+                            margin: 15, flexDirection:
+                                'row', alignItems: 'center', justifyContent: 'space-between'
+                        }}>
                             <TouchableOpacity onPress={this.props.navigation.openDrawer} style={{ alignItems: "flex-start", }}>
                                 <Icon name={'ios-menu'} color={DRAWERCOLOR} size={35} style={{}} />
                             </TouchableOpacity>
@@ -160,7 +165,10 @@ class About extends Component {
     renderList(item, index) {
         return (
             <TouchableWithoutFeedback>
-                <View style={{}}>
+                <View style={{
+                    width: width,
+                    justifyContent: 'flex-end', alignItems: 'flex-end', marginBottom: 20
+                }}>
                     <ContactCard
                         item={item}
                     />
@@ -191,10 +199,11 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         elevation: 10,
         width: width * 0.95,
-        backgroundColor: '#1f1e1e',
+        backgroundColor: BGCOLOR,
         alignItems: 'center',
         justifyContent: 'center',
         padding: 10,
+        margin: 5
     },
     text: {
         paddingTop: 10,

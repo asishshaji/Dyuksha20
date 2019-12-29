@@ -109,8 +109,9 @@ class Home extends Component {
 
 
                 <ScrollView style={styles.container} showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 100 }}>
-                    <StatusBar backgroundColor={BGCOLOR} barStyle="light-content" />
-                    <View style={{ margin: 15, flexDirection: 'row',alignItems:'center', justifyContent: 'space-between' }}>
+
+                    <StatusBar hidden />
+                    <View style={{ margin: 15, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
                         <TouchableOpacity onPress={this.props.navigation.openDrawer} style={{ alignItems: "flex-start", }}>
                             <Icon name={'ios-menu'} color={DRAWERCOLOR} size={35} style={{}} />
                         </TouchableOpacity>
@@ -188,6 +189,10 @@ class Home extends Component {
                         </View>
                         <FlatList
                             numColumns={2}
+                            contentContainerStyle={{
+                                padding: 5,
+                                paddingBottom: 10
+                            }}
                             showsHorizontalScrollIndicator={false}
                             scrollEventThrottle={16}
                             keyExtractor={(item, index) => String(index)}

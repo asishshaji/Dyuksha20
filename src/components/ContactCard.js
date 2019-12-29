@@ -8,7 +8,7 @@ import {
     Linking
 } from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons';
-import { FONTCOLOR } from "../Styles/Colors";
+import { FONTCOLOR, BGCOLOR } from "../Styles/Colors";
 
 const { height, width } = Dimensions.get('window')
 
@@ -21,15 +21,14 @@ const ContactCard = props => {
             width: width * 0.9,
             borderRadius: 12,
             marginVertical: 10,
-            elevation: 10,
+            elevation: 5,
             flexDirection: 'row',
             justifyContent: 'space-around',
             alignItems: 'center',
-            backgroundColor: '#1f1e1e'
+            backgroundColor: BGCOLOR,
         }}>
             <View style={{
                 height: 120,
-                width: 120,
                 borderRadius: 60,
                 backgroundColor: '#1f1e1e',
                 alignItems: 'center',

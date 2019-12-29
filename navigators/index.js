@@ -42,7 +42,6 @@ const AppNavigator = createStackNavigator({
 
 }, {
     initialRouteName: 'SplashScreen',
-    // transitionConfig: navConfig
 });
 
 const LiveStack = createStackNavigator({
