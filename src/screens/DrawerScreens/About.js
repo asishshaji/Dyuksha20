@@ -23,7 +23,7 @@ const DyukshaCard = props => {
             elevation: 10,
             width: width * 0.9,
             backgroundColor: BGCOLOR,
-            marginLeft: 5
+            marginLeft: 10
         }}>
 
             <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}>

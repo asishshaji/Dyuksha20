@@ -55,24 +55,18 @@ const DrawerNavigator = createDrawerNavigator({
 
 },
   {
-    contentComponent: props => <CustomDrawer {...props}  />,
+    contentComponent: props => <CustomDrawer {...props} />,
     drawerWidth: width * 0.75,
-    drawerType: 'slide',
+    drawerType: 'front',
 
     contentOptions: {
       activeBackgroundColor: ICONCOLOR,
       activeTintColor: "white",
       inactiveTintColor: 'grey',
       itemContainerStyle: {
-      
-        // marginTop: 16,
-        // marginHorizontal: 8
       },
-      
+
       itemStyle: {
-       // borderBottomColor: FONTCOLOR,
-        
-       // borderBottomWidth:2,
         borderRadius: 5
       }
     }

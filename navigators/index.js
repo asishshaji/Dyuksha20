@@ -149,7 +149,6 @@ const BottomNav = createBottomTabNavigator({
     defaultNavigationOptions: customTabs,
     animationEnabled: true,
     swipeEnabled: true,
-    // initialRouteName: 'Notifications',
     tabBarOptions: {
         activeTintColor: 'tomato',
         inactiveTintColor: 'gray',
