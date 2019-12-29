@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
         height: 50,
         justifyContent: 'center',
         padding: 5,
-        backgroundColor: '#1f1e1e'
+        backgroundColor: BGCOLOR
     },
     cardTitle: {
         padding: 5,

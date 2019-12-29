@@ -20,9 +20,9 @@ const DyukshaCard = props => {
             flex: 1,
             height: 150,
             borderRadius: 12,
-            elevation: 8,
+            elevation: 10,
             width: width * 0.9,
-            backgroundColor: '#1f1e1e'
+            backgroundColor: BGCOLOR
         }}>
 
             <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}>
@@ -141,7 +141,13 @@ class About extends Component {
                                             horizontal={false}
                                             numColumns={1}
                                             data={this.state.DeveloperList}
-                                            renderItem={({ item, index }) => (this.renderList(item, index))}
+                                            renderItem={({ item, index }) => (
+                                                <TouchableWithoutFeedback>
+                                                    <ContactCard
+                                                        item={item}
+                                                    />
+                                                </TouchableWithoutFeedback>
+                                            )}
                                         />
                                     </View>
                                 </ScrollView>
@@ -154,19 +160,6 @@ class About extends Component {
                     </View>
                 </ScrollView>
             </View>
-        );
-    }
-
-    renderList(item, index) {
-        return (
-            <TouchableWithoutFeedback>
-                <View style={{}}>
-                    <ContactCard
-                        item={item}
-                    />
-
-                </View>
-            </TouchableWithoutFeedback>
         );
     }
 }
@@ -182,6 +175,7 @@ const styles = StyleSheet.create({
     },
     contentContainer: {
         flex: 1,
+        padding: 5,
         marginVertical: 20,
         backgroundColor: BGCOLOR,
         //  alignItems: 'center'
@@ -191,7 +185,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         elevation: 10,
         width: width * 0.95,
-        backgroundColor: '#1f1e1e',
+        backgroundColor: BGCOLOR,
         alignItems: 'center',
         justifyContent: 'center',
         padding: 10,
@@ -209,7 +203,8 @@ const styles = StyleSheet.create({
     developerContainer: {
         flex: 1,
         backgroundColor: BGCOLOR,
-        alignItems: 'flex-end'
+        alignItems: 'flex-end',
+
 
     },
 });
