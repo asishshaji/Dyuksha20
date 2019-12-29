@@ -75,6 +75,9 @@ AppNavigator.navigationOptions = ({ navigation }) => {
     } else if (routeName === "Select") {
         tabBarVisible = false
     }
+    else if (routeName === "Notifications") {
+        tabBarVisible = false
+    }
     return {
         tabBarVisible,
     }
