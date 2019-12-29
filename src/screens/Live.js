@@ -13,7 +13,7 @@ import {
 import firebase, { firestore } from 'react-native-firebase';
 
 
-import { BGCOLOR, FONTCOLOR } from "../Styles/Colors";
+import { BGCOLOR, FONTCOLOR, ICONCOLOR } from "../Styles/Colors";
 import Today from "./LiveScreens/Today";
 import Memories from "./LiveScreens/Memories";
 import CardLive from "../components/CardLive";
@@ -63,14 +63,14 @@ class Live extends Component {
           <View style={styles.TitleMain}>
             <View style={{ elevation: 10 }}>
               <Text style={{ marginBottom: 10, fontSize: 40, fontFamily: 'Black', color: FONTCOLOR }}>
-                Dyuksha 20
+                Schedule
               </Text>
             </View>
           </View>
 
           <View style={styles.todayContainer}>
             <View style={styles.TitleToday}>
-              <Text style={{ fontSize: 25, fontFamily: 'Black', color: FONTCOLOR, }}>
+              <Text style={{ fontSize: 25, fontFamily: 'Light', color: FONTCOLOR, }}>
                 Today
               </Text>
             </View>
@@ -80,7 +80,7 @@ class Live extends Component {
             </View>
           </View>
 
-          <View style={styles.nowContainer}>
+          <View style={{backgroundColor:BGCOLOR}}>
             <View style={styles.TitleNow}>
               <Text style={{ fontSize: 30, fontFamily: 'Black', color: FONTCOLOR }}>
                 See what's happening now.
@@ -91,7 +91,7 @@ class Live extends Component {
               <TouchableOpacity
                 onPress={() => this.props.navigation.navigate('LiveNow', {})} >
                 <View style={{ paddingTop: 10, backgroundColor: BGCOLOR, width: 80, justifyContent: 'center', alignItems: 'flex-end' }}>
-                  <Text style={{ color: FONTCOLOR, fontFamily: "Light", fontSize: 17, padding: 5 }}>See All</Text>
+                  <Text style={{ color: ICONCOLOR, fontFamily: "Light", fontSize: 17, padding: 5 }}>See All</Text>
                 </View>
               </TouchableOpacity>
             </View>

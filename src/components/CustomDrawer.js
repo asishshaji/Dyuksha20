@@ -34,7 +34,7 @@ export default CustomDrawer = (props) => (
         <View style={styles.footer} >
             <Text
                 onPress={() => Linking.openURL('https://www.dyuksha.org/')}
-                style={{ fontSize: 15, fontFamily: 'Black', color: BGCOLOR, paddingTop: 5 }}>
+                style={{ fontSize: 15, fontFamily: 'Light', color: FONTCOLOR, paddingTop: 5 }}>
                 Visit Website
            </Text>
         </View>
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         opacity: 1,
         height: 40,
-        backgroundColor: FONTCOLOR,
+        backgroundColor: BGCOLOR,
 
 
     }

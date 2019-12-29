@@ -5,7 +5,7 @@ import {
     StyleSheet, FlatList, ScrollView, TouchableOpacity, Dimensions
 } from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons';
-import { BGCOLOR, FONTCOLOR } from '../Styles/Colors'
+import { BGCOLOR, FONTCOLOR, ICONCOLOR } from '../Styles/Colors'
 import { firestore } from 'react-native-firebase'
 import EventCard from '../components/CardHome';
 import LottieView from 'lottie-react-native';
@@ -14,7 +14,7 @@ import RoundedBackButton from "../components/RoundedBackButton";
 const { width, height } = Dimensions.get('window')
 
 
-const data = [{ "dep": "EEE" }, { "dep": "ME" }, { "dep": "CS" }, { "dep": "CE" }, { "dep": "IC" }, { "dep": "EC" },]
+const data = [{ "dep": "Electrical" }, { "dep": "Mechanical" }, { "dep": "Computer" }, { "dep": "Civil" }, { "dep": "Instrumentation" }, { "dep": "Electronics" },]
 class SelectScreen extends Component {
     static navigationOptions = {
         header: null,
@@ -23,7 +23,7 @@ class SelectScreen extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            selectedDep: "EEE",
+            selectedDep: "Electrical",
             list: []
         }
 
@@ -65,7 +65,7 @@ class SelectScreen extends Component {
             <View style={styles.container}>
 
                 <Text style={{
-                    fontFamily: 'Black', fontSize: 30, color: FONTCOLOR,
+                    fontFamily: 'Black', fontSize: 30, color: ICONCOLOR,
                     textAlign: 'right', backgroundColor: BGCOLOR, padding: 20
                 }}>{this.name}</Text>
 
@@ -89,7 +89,8 @@ class SelectScreen extends Component {
                                     }}
                                 >
                                     <Text style={{
-                                        color: FONTCOLOR, fontSize: 24,
+                                        color: FONTCOLOR, fontSize: 18,
+                                        borderBottomColor:ICONCOLOR,borderBottomWidth:1,
                                         fontFamily: 'Black'
                                     }}>{item.dep}</Text>
                                 </TouchableOpacity>)

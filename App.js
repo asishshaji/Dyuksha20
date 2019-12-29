@@ -2,7 +2,7 @@ import React from 'react'
 import { Dimensions, View, Text, } from 'react-native'
 import { createAppContainer } from 'react-navigation';
 import { createDrawerNavigator } from 'react-navigation-drawer';
-import { BGCOLOR, FONTCOLOR } from './src/Styles/Colors';
+import { BGCOLOR, FONTCOLOR, ICONCOLOR } from './src/Styles/Colors';
 
 import firebase from 'react-native-firebase'
 
@@ -60,8 +60,8 @@ const DrawerNavigator = createDrawerNavigator({
     drawerType: 'slide',
 
     contentOptions: {
-      activeBackgroundColor: "#d3d3d3",
-      activeTintColor: FONTCOLOR,
+      activeBackgroundColor: ICONCOLOR,
+      activeTintColor: "white",
       inactiveTintColor: 'grey',
       itemContainerStyle: {
       

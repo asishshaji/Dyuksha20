@@ -112,13 +112,21 @@ class Home extends Component {
 
                     <StatusBar hidden />
                     <View style={{ margin: 15, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-                        <TouchableOpacity onPress={this.props.navigation.openDrawer} style={{ alignItems: "flex-start", }}>
-                            <Icon name={'ios-menu'} color={DRAWERCOLOR} size={35} style={{}} />
-                        </TouchableOpacity>
-                        <View style={{ margin: 5 }}>
-                            <Text style={{ fontSize: 25, fontFamily: 'Black', color: FONTCOLOR, textAlign: 'right' }}>
+
+                        <View style={{width:200, alignItems:'center',  flexDirection: 'row' }} >
+                            <TouchableOpacity onPress={this.props.navigation.openDrawer} style={{ alignItems: "flex-start", }}>
+                                <Icon name={'ios-menu'} color={DRAWERCOLOR} size={35} style={{}} />
+                            </TouchableOpacity>
+                            <Text style={{paddingLeft:10, fontSize: 25, fontFamily: 'Black', color: FONTCOLOR }}>
                                 Home
-                        </Text>
+                                </Text>
+                        </View>
+                        <View style={{ margin: 5 }}>
+                            <TouchableOpacity onPress={() => navigate('Notifications')}>
+                                <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'flex-end', }}>
+                                    <Icon name="ios-notifications" size={32} color={ICONCOLOR} style={{}} />
+                                </View>
+                            </TouchableOpacity>
                         </View>
                     </View>
 
@@ -155,13 +163,13 @@ class Home extends Component {
 
                     <View style={{ height: 300, marginTop: 5 }}>
                         <View style={{ margin: 10, marginTop: 0, flexDirection: 'row', justifyContent: 'space-between' }}>
-                            <Text style={{ fontSize: 24, fontFamily: 'Black', color: FONTCOLOR }}>EVENTS</Text>
+                            <Text style={{ width: 230, fontSize: 24, fontFamily: 'Black', color: FONTCOLOR }}>Have a Glance at the Events.</Text>
                             <TouchableOpacity onPress={() => navigate('Select', {
                                 'name': 'EVENTS',
                                 'DB': 'DepEvents', 'DOCNAME': 'eventsDoc'
                             })} activeOpacity={1}>
                                 <View style={{ backgroundColor: BGCOLOR, width: 50, height: 50 }}>
-                                    <Text style={{ fontSize: 15, fontFamily: 'Black', color: FONTCOLOR, textAlign: 'center' }} >See All</Text>
+                                    <Text style={{ paddingTop: 10, fontSize: 15, fontFamily: 'Black', color: ICONCOLOR, textAlign: 'center' }} >See All</Text>
                                 </View>
                             </TouchableOpacity>
                         </View>
@@ -213,7 +221,7 @@ class Home extends Component {
                         'DB': 'DepWorkshops', 'DOCNAME': 'workshopsDoc'
                     })} activeOpacity={1}>
                         <View style={{ flex: 1, padding: 10 }}>
-                            <Text style={{ fontSize: 15, fontFamily: 'Black', color: FONTCOLOR, textAlign: 'right' }} >See All</Text>
+                            <Text style={{ fontSize: 15, fontFamily: 'Black', color: ICONCOLOR, textAlign: 'right' }} >See All</Text>
                         </View>
                     </TouchableOpacity>
 

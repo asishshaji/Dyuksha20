@@ -73,7 +73,7 @@ const ProCarComp = props => {
                         margin: 10,
                         width: props.width, //200
                         borderRadius: 10,
-                        elevation: 10,
+                        elevation: 6,
                     }}
                 >
                     {props.item ?

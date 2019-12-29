@@ -32,6 +32,10 @@ const AppNavigator = createStackNavigator({
         screen: Detail
 
     },
+    Notifications: {
+        screen: Notifications
+    },
+
     Select: {
         screen: SelectScreen
     },
@@ -103,10 +107,10 @@ LiveStack.navigationOptions = ({ navigation }) => {
 const renderNav = (routeName, name, tintColor, focused) => (
     <View style={{
         height: 35, width: 35, alignItems: 'center',
-        backgroundColor: focused ? "#E55656" : '#f5f5f5',
+        backgroundColor: focused ? "white" : 'white',
         borderRadius: 35 / 2, alignItems: 'center', justifyContent: 'center'
     }}>
-        <Icon name={name} color={focused ? "white" : '#ccc'} size={26} style={{}} />
+        <Icon name={name} color={focused ? "tomato" : '#ccc'} size={26} style={{}} />
     </View>
 )
 
@@ -117,11 +121,11 @@ const customTabs = ({ navigation }) => ({
         if (routeName === 'Home') {
             return renderNav(routeName, 'ios-home', tintColor, focused);
         } else if (routeName === 'Live') {
-            return renderNav(routeName, 'ios-search', tintColor, focused);
+            return renderNav(routeName, 'md-calendar', tintColor, focused);
         }
-        else if (routeName === 'Notifications') {
-            return renderNav(routeName, 'ios-notifications', tintColor, focused);
-        }
+        // else if (routeName === 'Notifications') {
+        //     return renderNav(routeName, 'ios-notifications', tintColor, focused);
+        // }
         else if (routeName === 'Map') {
             return renderNav(routeName, 'ios-compass', tintColor, focused);
         }
@@ -135,10 +139,7 @@ const BottomNav = createBottomTabNavigator({
     Live: {
         screen: LiveStack,
     },
-    Notifications: {
-        screen: Notifications
-    },
-
+ 
     Map: {
         screen: MapScreen
     }
@@ -150,6 +151,8 @@ const BottomNav = createBottomTabNavigator({
     swipeEnabled: true,
     // initialRouteName: 'Notifications',
     tabBarOptions: {
+        activeTintColor: 'tomato',
+        inactiveTintColor: 'gray',
         style: {
             width: barWidth,
             backgroundColor: 'white',
@@ -162,7 +165,8 @@ const BottomNav = createBottomTabNavigator({
             borderRadius: 60 / 2,
             borderTopWidth: 0,
             padding: 5,
-        }, showLabel: false
+            
+        }, showLabel: true
     }
 
 })

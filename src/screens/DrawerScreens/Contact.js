@@ -50,9 +50,7 @@ class Contact extends Component {
 
         return (
 
-            <ScrollView contentContainerStyle={{
-                paddingBottom: 90,
-                backgroundColor: BGCOLOR, flex: 1
+            <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{
             }}>
                 <View style={styles.container}>
 
@@ -61,12 +59,18 @@ class Contact extends Component {
                             <Icon name={'ios-menu'} color={DRAWERCOLOR} size={35} style={{}} />
                         </TouchableOpacity>
                         <View style={{ margin: 5 }}>
-                            <Text style={{ fontSize: 25, fontFamily: 'Black', color: FONTCOLOR, textAlign: 'right' }}>
+                            <Text style={{ fontSize: 25, fontFamily: 'Black', color: ICONCOLOR, textAlign: 'right' }}>
                                 Contact
                         </Text>
                         </View>
                     </View>
 
+
+                    <View style={{ marginTop: 30,}}>
+                        <Text style={{paddingLeft:16, fontSize: 21, fontFamily: 'Black', color: FONTCOLOR, }}>
+                            Contact Us for Any Help.
+                        </Text>
+                    </View>
                     {/* Contacts */}
                     <ScrollView style={{ backgroundColor: BGCOLOR }} contentContainerStyle={styles.contentContainer} >
 
@@ -117,7 +121,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: BGCOLOR,
         alignItems: 'center',
-        marginTop: 40,
+        marginTop: 5,
     },
 
 });

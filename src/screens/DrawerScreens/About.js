@@ -7,7 +7,7 @@ import {
     FlatList, TouchableWithoutFeedback, Linking
 } from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons';
-import { FONTCOLOR, BGCOLOR, DRAWERCOLOR } from "../../Styles/Colors";
+import { FONTCOLOR, BGCOLOR, DRAWERCOLOR, ICONCOLOR } from "../../Styles/Colors";
 import ContactCard from "../../components/ContactCard";
 import firebase, { firestore } from 'react-native-firebase';
 
@@ -22,12 +22,8 @@ const DyukshaCard = props => {
             borderRadius: 12,
             elevation: 10,
             width: width * 0.9,
-<<<<<<< HEAD
-            backgroundColor: BGCOLOR
-=======
             backgroundColor: BGCOLOR,
-            marginLeft: 10
->>>>>>> 030085c72a72a4af4516810a72004b56e7134dd7
+            marginLeft: 5
         }}>
 
             <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}>
@@ -88,7 +84,7 @@ class About extends Component {
                                 <Icon name={'ios-menu'} color={DRAWERCOLOR} size={35} style={{}} />
                             </TouchableOpacity>
                             <View style={{ margin: 5 }}>
-                                <Text style={{ fontSize: 25, fontFamily: 'Black', color: FONTCOLOR, textAlign: 'right' }}>
+                                <Text style={{ fontSize: 25, fontFamily: 'Black', color: ICONCOLOR, textAlign: 'right' }}>
                                     About
                         </Text>
                             </View>
@@ -97,7 +93,7 @@ class About extends Component {
 
                         <View style={styles.contentContainer}>
                             <View>
-                                <Text style={{ marginBottom: 10, padding: 5, fontSize: 24, fontFamily: 'Black', color: FONTCOLOR }}>About Dyuksha</Text>
+                                <Text style={{ marginBottom: 10, padding: 5, fontSize: 24, fontFamily: 'Black', color: FONTCOLOR }}>Know About Dyuksha.</Text>
                             </View>
 
                             <View style={styles.card}>
@@ -112,7 +108,7 @@ class About extends Component {
 
                             <View style={{ alignItems: 'flex-end' }}>
                                 <View style={{ marginTop: 30 }}>
-                                    <Text style={{ marginBottom: 10, padding: 5, fontSize: 20, fontFamily: 'Black', color: FONTCOLOR }}>About College</Text>
+                                    <Text style={{ marginBottom: 10, padding: 5, fontSize: 20, fontFamily: 'Black', color: FONTCOLOR }}>About the College.</Text>
                                 </View>
                                 <View style={styles.card}>
                                     <View style={{}}>
@@ -129,7 +125,7 @@ class About extends Component {
                             {/* Social Media */}
                             <View style={{ marginTop: 30 }}>
                                 <View>
-                                    <Text style={{ padding: 5, fontSize: 20, fontFamily: 'Black', color: FONTCOLOR }}>Social Media</Text>
+                                    <Text style={{ padding: 5, fontSize: 20, fontFamily: 'Black', color: FONTCOLOR }}>Dyuksha is Also Active on Social Medias.</Text>
                                 </View>
                                 <View style={{ marginVertical: 10 }}>
                                     <DyukshaCard />
@@ -139,26 +135,31 @@ class About extends Component {
                             {/* Developers */}
 
                             <View style={styles.developerContainer}>
-                                <View style={{ marginTop: 30 }}>
-                                    <Text style={{ padding: 5, fontSize: 20, fontFamily: 'Black', color: FONTCOLOR }}>Developers</Text>
+                                <View style={{marginTop:30}}>
+                                    <Text style={{ padding: 5, fontSize: 20, fontFamily: 'Black', color: FONTCOLOR }}>Here are Our Developers.</Text>
                                 </View>
-                                <ScrollView style={{ backgroundColor: BGCOLOR }} >
 
-                                    <View style={{ justifyContent: 'center', }}>
-                                        <FlatList
-                                            showsVerticalScrollIndicator={false}
-                                            horizontal={false}
-                                            numColumns={1}
-                                            data={this.state.DeveloperList}
-                                            renderItem={({ item, index }) => (
-                                                <TouchableWithoutFeedback>
+
+                                <ScrollView style={{ backgroundColor: BGCOLOR }} contentContainerStyle={{}} >
+                                    <FlatList
+                                        showsVerticalScrollIndicator={false}
+                                        horizontal={false}
+                                        numColumns={1}
+                                        data={this.state.DeveloperList}
+                                        renderItem={({ item, index }) => (
+                                            <TouchableWithoutFeedback>
+                                                <View style={{
+                                                    padding: 5, justifyContent: 'center',
+                                                    alignItems: 'center'
+                                                }}>
                                                     <ContactCard
                                                         item={item}
                                                     />
-                                                </TouchableWithoutFeedback>
-                                            )}
-                                        />
-                                    </View>
+                                                </View>
+
+                                            </TouchableWithoutFeedback>
+                                        )}
+                                    />
                                 </ScrollView>
                             </View>
 
@@ -171,8 +172,6 @@ class About extends Component {
             </View>
         );
     }
-<<<<<<< HEAD
-=======
 
     renderList(item, index) {
         return (
@@ -189,7 +188,6 @@ class About extends Component {
             </TouchableWithoutFeedback>
         );
     }
->>>>>>> 030085c72a72a4af4516810a72004b56e7134dd7
 }
 export default About;
 
@@ -203,7 +201,6 @@ const styles = StyleSheet.create({
     },
     contentContainer: {
         flex: 1,
-        padding: 5,
         marginVertical: 20,
         backgroundColor: BGCOLOR,
         //  alignItems: 'center'
@@ -216,7 +213,7 @@ const styles = StyleSheet.create({
         backgroundColor: BGCOLOR,
         alignItems: 'center',
         justifyContent: 'center',
-        padding: 10,
+        padding: 5,
         margin: 5
     },
     text: {

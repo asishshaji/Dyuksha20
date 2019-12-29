@@ -84,11 +84,12 @@ class LiveNow extends Component {
 
   renderList(item, index) {
     return (
-      <CardLive
-        cardTitle={item.title}
-        imageUrl={item.imageUrl}
-        time={item.time}
-      />
+      <View style={{marginTop:10}}>
+        <CardLive
+          cardTitle={item.title}
+          imageUrl={item.imageUrl}
+          time={item.time}
+        /></View>
     );
   }
 
@@ -119,6 +120,7 @@ const styles = StyleSheet.create({
     backgroundColor: BGCOLOR
   },
   contentContainer: {
+    marginTop: 15,
     flex: 1,
     backgroundColor: BGCOLOR, //'white',
 

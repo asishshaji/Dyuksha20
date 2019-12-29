@@ -5,12 +5,16 @@ import {
     StyleSheet,
     FlatList, ScrollView
 } from "react-native";
-import { BGCOLOR, FONTCOLOR, FONTCOLORWHITE } from "../Styles/Colors"
+import { BGCOLOR, FONTCOLOR, FONTCOLORWHITE, ICONCOLOR } from "../Styles/Colors"
 import LottieView from 'lottie-react-native';
 
 import { firestore } from 'react-native-firebase';
+import RoundedBackButton from "../components/RoundedBackButton";
 
 class Notifications extends Component {
+    static navigationOptions = {
+        header: null,
+    }
 
     constructor() {
         super();
@@ -34,12 +38,14 @@ class Notifications extends Component {
     }
 
     render() {
+        const nav = this.props.navigation;
         return (
             <View style={styles.container}>
-                <View style={{ flex: 1, }}>
-                    <View style={{ padding: 10, }}>
-                        <Text style={{ fontFamily: 'Black', fontSize: 30, color: FONTCOLOR }}>Notifications</Text>
-                    </View>
+                <View style={{padding:10,paddingTop:22}}>
+                    <Text style={{ textAlign: 'right', fontFamily: 'Black', fontSize: 30, color: ICONCOLOR }}>Notifications</Text>
+                </View>
+                <View style={{ flex: 1, marginTop: 40 }}>
+
 
                     {this.state.notList.length === 0 ?
                         <View style={{ flex: 1, justifyContent: 'center' }}>
@@ -58,7 +64,7 @@ class Notifications extends Component {
                             renderItem={({ item }) => (
                                 <View style={{ margin: 5, marginLeft: 10, marginRight: 10, backgroundColor: BGCOLOR, borderRadius: 10, elevation: 10, minHeight: 100, padding: 12 }}>
                                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-                                        <Text style={{ color: FONTCOLOR, fontFamily: 'Black', fontSize: 26 }}>{item.Title}</Text>
+                                        <Text style={{ color: FONTCOLOR, fontFamily: 'Black', fontSize: 20 }}>{item.Title}</Text>
                                         <Text style={{ color: FONTCOLOR, fontFamily: 'Black', fontSize: 16, alignSelf: 'center' }}>{item.date}</Text>
                                     </View>
                                     <View>
@@ -70,6 +76,7 @@ class Notifications extends Component {
                             )}
                         />}
                 </View>
+                <RoundedBackButton navigation={nav} />
             </View>
         );
     }
