@@ -82,7 +82,7 @@ class DetailScreen extends Component {
                                 , justifyContent: 'center'
                             }} >
                                 <Text style={{
-                                    fontFamily: 'Black', color: FONTCOLOR
+                                    fontFamily: 'Black', color: "#fff"
                                     , position: 'absolute', zIndex: 100000, textTransform: 'uppercase', fontSize: 18, textAlign: 'center'
                                 }}>{item.tagline}</Text>
                             </Animated.View> : null}
@@ -98,7 +98,7 @@ class DetailScreen extends Component {
                             <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                                 <Text style={{
                                     fontSize: 26, fontFamily: 'Black',
-                                    color: FONTCOLOR, maxWidth: width / 2 + 40  , textTransform: 'capitalize'
+                                    color: FONTCOLOR, maxWidth: width / 2 + 40, textTransform: 'capitalize'
                                 }}>{item.title}</Text>
                                 <View style={{ flexDirection: 'row', }}>
                                     <Icon name="ios-calendar" size={24} color="#E55656" style={{ marginRight: 5 }} onPress={() => alert('Call')} />
