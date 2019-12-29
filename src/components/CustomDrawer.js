@@ -36,7 +36,7 @@ export default CustomDrawer = (props) => {
             <View style={styles.footer} >
                 <Text
                     onPress={() => Linking.openURL('https://www.dyuksha.org/')}
-                    style={{ fontSize: 15, fontFamily: 'Black', color: BGCOLOR, paddingTop: 5 }}>
+                    style={{ fontSize: 15, fontFamily: 'Black', color: "black", paddingTop: 5 }}>
                     Visit Website
            </Text>
             </View>
