@@ -22,7 +22,12 @@ const DyukshaCard = props => {
             borderRadius: 12,
             elevation: 10,
             width: width * 0.9,
+<<<<<<< HEAD
             backgroundColor: BGCOLOR
+=======
+            backgroundColor: BGCOLOR,
+            marginLeft: 10
+>>>>>>> 030085c72a72a4af4516810a72004b56e7134dd7
         }}>
 
             <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}>
@@ -71,10 +76,14 @@ class About extends Component {
         return (
             <View style={{ flex: 1 }}>
 
-                <ScrollView style={{ backgroundColor: BGCOLOR, flex: 1 }}>
+                <ScrollView style={{ backgroundColor: BGCOLOR, flex: 1 }}
+                    showsVerticalScrollIndicator={false}>
                     <View style={styles.container}>
 
-                        <View style={{ margin: 15, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+                        <View style={{
+                            margin: 15, flexDirection:
+                                'row', alignItems: 'center', justifyContent: 'space-between'
+                        }}>
                             <TouchableOpacity onPress={this.props.navigation.openDrawer} style={{ alignItems: "flex-start", }}>
                                 <Icon name={'ios-menu'} color={DRAWERCOLOR} size={35} style={{}} />
                             </TouchableOpacity>
@@ -162,6 +171,25 @@ class About extends Component {
             </View>
         );
     }
+<<<<<<< HEAD
+=======
+
+    renderList(item, index) {
+        return (
+            <TouchableWithoutFeedback>
+                <View style={{
+                    width: width,
+                    justifyContent: 'flex-end', alignItems: 'flex-end', marginBottom: 20
+                }}>
+                    <ContactCard
+                        item={item}
+                    />
+
+                </View>
+            </TouchableWithoutFeedback>
+        );
+    }
+>>>>>>> 030085c72a72a4af4516810a72004b56e7134dd7
 }
 export default About;
 
@@ -189,6 +217,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         padding: 10,
+        margin: 5
     },
     text: {
         paddingTop: 10,

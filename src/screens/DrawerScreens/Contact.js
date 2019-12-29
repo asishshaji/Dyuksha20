@@ -49,46 +49,50 @@ class Contact extends Component {
     render() {
 
         return (
-            <View style={{ flex: 1 }}>
 
-                <ScrollView contentContainerStyle={styles.container}>
-                    <View style={styles.container}>
+            <ScrollView contentContainerStyle={{
+                paddingBottom: 90,
+                backgroundColor: BGCOLOR, flex: 1
+            }}>
+                <View style={styles.container}>
 
-                        <View style={{ margin: 15, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-                            <TouchableOpacity onPress={this.props.navigation.openDrawer} style={{ alignItems: "flex-start", }}>
-                                <Icon name={'ios-menu'} color={DRAWERCOLOR} size={35} style={{}} />
-                            </TouchableOpacity>
-                            <View style={{ margin: 5 }}>
-                                <Text style={{ fontSize: 25, fontFamily: 'Black', color: FONTCOLOR, textAlign: 'right' }}>
-                                    Contact
+                    <View style={{ margin: 15, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+                        <TouchableOpacity onPress={this.props.navigation.openDrawer} style={{ alignItems: "flex-start", }}>
+                            <Icon name={'ios-menu'} color={DRAWERCOLOR} size={35} style={{}} />
+                        </TouchableOpacity>
+                        <View style={{ margin: 5 }}>
+                            <Text style={{ fontSize: 25, fontFamily: 'Black', color: FONTCOLOR, textAlign: 'right' }}>
+                                Contact
                         </Text>
-                            </View>
                         </View>
-
-                        {/* Contacts */}
-                        <ScrollView style={{ backgroundColor: BGCOLOR }} contentContainerStyle={styles.contentContainer} >
-
-                            <View style={{ justifyContent: 'center', }}>
-                                <FlatList
-                                    showsVerticalScrollIndicator={false}
-                                    horizontal={false}
-                                    numColumns={1}
-                                    data={this.state.ContactList}
-                                    renderItem={({ item, index }) => (this.renderList(item, index))}
-                                />
-                            </View>
-                        </ScrollView>
-
                     </View>
-                </ScrollView>
-            </View>
+
+                    {/* Contacts */}
+                    <ScrollView style={{ backgroundColor: BGCOLOR }} contentContainerStyle={styles.contentContainer} >
+
+                        <View style={{ justifyContent: 'center', }}>
+                            <FlatList
+                                showsVerticalScrollIndicator={false}
+                                horizontal={false}
+                                numColumns={1}
+                                data={this.state.ContactList}
+                                renderItem={({ item, index }) => (this.renderList(item, index))}
+                            />
+                        </View>
+                    </ScrollView>
+
+                </View>
+            </ScrollView>
         );
     }
 
     renderList(item, index) {
         return (
             <TouchableWithoutFeedback>
-                <View style={{}}>
+                <View style={{
+                    padding: 10, width: width, justifyContent: 'center',
+                    alignItems: 'center'
+                }}>
                     <ContactCard
                         item={item}
                     />
@@ -104,7 +108,7 @@ export default Contact;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: BGCOLOR
+        backgroundColor: BGCOLOR,
     },
     headerContainer: {
         alignItems: 'center'

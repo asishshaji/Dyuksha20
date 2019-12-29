@@ -21,15 +21,18 @@ const ContactCard = props => {
             width: width * 0.9,
             borderRadius: 12,
             marginVertical: 10,
-            elevation: 10,
+            elevation: 5,
             flexDirection: 'row',
             justifyContent: 'space-around',
             alignItems: 'center',
+<<<<<<< HEAD
             backgroundColor: BGCOLOR
+=======
+            backgroundColor: BGCOLOR,
+>>>>>>> 030085c72a72a4af4516810a72004b56e7134dd7
         }}>
             <View style={{
                 height: 120,
-                width: 120,
                 borderRadius: 60,
                 backgroundColor: BGCOLOR,
                 alignItems: 'center',

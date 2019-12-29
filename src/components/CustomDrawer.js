@@ -18,8 +18,13 @@ const { width } = Dimensions.get('window')
 export default CustomDrawer = (props) => (
     <SafeAreaView style={{ opacity: 1, flex: 1, backgroundColor: BGCOLOR }}>
         <ScrollView>
-            <View style={{elevation:15, alignItems: 'center', justifyContent: 'center', height: 250, borderBottomEndRadius: 135, backgroundColor: '#1f1e1e' }}>
-                <Image source={require('../../assets/logo.png')} style={{ height: 80, width: 150, resizeMode: 'contain' }} />
+            <View style={{
+                elevation: 15, alignItems: 'center',
+                justifyContent: 'center', height: 250, borderBottomEndRadius: 50,
+                backgroundColor: '#1f1e1e'
+            }}>
+                <Image source={require('../../assets/logo.png')}
+                    style={{ height: 80, width: 150, resizeMode: 'contain' }} />
             </View>
             <View style={styles.container}>
                 <DrawerNavigatorItems {...props} />
@@ -27,7 +32,9 @@ export default CustomDrawer = (props) => (
 
         </ScrollView>
         <View style={styles.footer} >
-            <Text onPress={() => Linking.openURL('https://www.dyuksha.org/')} style={{ fontSize: 15, fontFamily: 'Light', color: FONTCOLOR, paddingTop: 5 }}>
+            <Text
+                onPress={() => Linking.openURL('https://www.dyuksha.org/')}
+                style={{ fontSize: 15, fontFamily: 'Black', color: BGCOLOR, paddingTop: 5 }}>
                 Visit Website
            </Text>
         </View>
@@ -39,17 +46,14 @@ const styles = StyleSheet.create({
         flex: 1,
         marginHorizontal: 20,
         marginTop: 30,
-
-
-
     },
     footer: {
-       
+
         alignItems: 'center',
         justifyContent: 'center',
         opacity: 1,
         height: 40,
-        backgroundColor: BGCOLOR,
+        backgroundColor: FONTCOLOR,
 
 
     }
