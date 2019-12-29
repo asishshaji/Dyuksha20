@@ -148,7 +148,6 @@ const BottomNav = createBottomTabNavigator({
     defaultNavigationOptions: customTabs,
     animationEnabled: true,
     swipeEnabled: true,
-    // initialRouteName: 'Notifications',
     tabBarOptions: {
         style: {
             width: barWidth,
