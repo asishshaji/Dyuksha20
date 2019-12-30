@@ -70,7 +70,7 @@ class Live extends Component {
 
           <View style={styles.todayContainer}>
             <View style={styles.TitleToday}>
-              <Text style={{ fontSize: 25, fontFamily: 'Light', color: FONTCOLOR, }}>
+              <Text style={{ fontSize: 25, fontFamily: 'Black', color: FONTCOLOR, }}>
                 Today
               </Text>
             </View>
@@ -80,23 +80,25 @@ class Live extends Component {
             </View>
           </View>
 
-          <View style={{backgroundColor:BGCOLOR}}>
-            <View style={styles.TitleNow}>
-              <Text style={{ fontSize: 30, fontFamily: 'Black', color: FONTCOLOR }}>
-                See what's happening now.
+          <View style={{ backgroundColor: BGCOLOR, height: 500 }}>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+              <View style={styles.TitleNow}>
+                <Text style={{ fontSize: 25, fontFamily: 'Black', color: FONTCOLOR }}>
+                  See what's happening now.
               </Text>
+              </View>
+
+              <View style={{ backgroundColor: BGCOLOR, }}>
+                <TouchableOpacity
+                  onPress={() => this.props.navigation.navigate('LiveNow', {})} >
+                  <View style={{ paddingTop: 16, backgroundColor: BGCOLOR, }}>
+                    <Text style={{ color: ICONCOLOR, fontFamily: "Light", fontSize: 17, paddingRight: 5 }}>See All</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
             </View>
 
-            <View style={{ alignItems: 'flex-end', backgroundColor: BGCOLOR }}>
-              <TouchableOpacity
-                onPress={() => this.props.navigation.navigate('LiveNow', {})} >
-                <View style={{ paddingTop: 10, backgroundColor: BGCOLOR, width: 80, justifyContent: 'center', alignItems: 'flex-end' }}>
-                  <Text style={{ color: ICONCOLOR, fontFamily: "Light", fontSize: 17, padding: 5 }}>See All</Text>
-                </View>
-              </TouchableOpacity>
-            </View>
-
-            <View style={{ backgroundColor: BGCOLOR }}>
+            <View style={styles.nowCard}>
               <FlatList
                 showsHorizontalScrollIndicator={false}
                 horizontal={true}
@@ -106,22 +108,6 @@ class Live extends Component {
                 renderItem={({ item, index }) => this.renderList(item, index)}
               />
             </View>
-          </View>
-
-
-
-          <View style={{ height: height }}>
-            <View style={styles.TitleMemory}>
-              <Text style={{ marginBottom: 0, fontSize: 14, fontFamily: 'Light', color: FONTCOLOR }}>
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-              </Text>
-            </View>
-            <View style={{ padding: 15, backgroundColor: BGCOLOR, paddingBottom: 5 }}>
-              <Text style={{ fontSize: 20, fontFamily: 'Black', color: FONTCOLOR }}>
-                Glance back to Dyuksha 18.
-              </Text>
-            </View>
-            <Memories />
           </View>
         </View>
       </ScrollView>
@@ -164,39 +150,29 @@ const styles = StyleSheet.create({
   },
 
   TitleNow: {
-    paddingLeft: 5,
-    paddingTop: 0,
-    height: 70,
-    width: width - 5,
-    alignItems: 'center',
+    paddingLeft: 10,
+    paddingTop: 10,
+    maxWidth: width - 50,
     borderBottomColor: 'white',
     // borderWidth:1,
     backgroundColor: BGCOLOR,
 
   },
+  nowCard: {
+    backgroundColor: BGCOLOR,
+    paddingLeft: 5
+  },
   TitleToday: {
     padding: 10,
     paddingTop: 15,
-    width: 40,
     backgroundColor: BGCOLOR,
-  },
-  TitleMemory: {
-    padding: 15,
-    paddingTop: 20,
-    height: 110,
-    width: width - 5,
-    alignItems: 'center',
-    borderBottomColor: 'white',
-    // borderWidth:1,
-    backgroundColor: BGCOLOR,
-    justifyContent: 'center',
   },
   todayContainer: {
     flex: 1,
-    flexDirection: 'row',
+    flexDirection: 'column',
     width: width,
     backgroundColor: BGCOLOR,
-    height: 420
+
   },
 });
 

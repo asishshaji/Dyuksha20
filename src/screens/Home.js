@@ -113,12 +113,12 @@ class Home extends Component {
                     <StatusBar hidden />
                     <View style={{ margin: 15, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
 
-                        <View style={{width:200, alignItems:'center',  flexDirection: 'row' }} >
+                        <View style={{ width: 200, alignItems: 'center', flexDirection: 'row' }} >
                             <TouchableOpacity onPress={this.props.navigation.openDrawer} style={{ alignItems: "flex-start", }}>
                                 <Icon name={'ios-menu'} color={DRAWERCOLOR} size={35} style={{}} />
                             </TouchableOpacity>
-                            <Text style={{paddingLeft:10, fontSize: 25, fontFamily: 'Black', color: FONTCOLOR }}>
-                                Home
+                            <Text style={{ paddingLeft: 10, fontSize: 25, fontFamily: 'Black', color: FONTCOLOR }}>
+                                Discover
                                 </Text>
                         </View>
                         <View style={{ margin: 5 }}>
@@ -165,7 +165,7 @@ class Home extends Component {
 
                     <View style={{ height: 300, marginTop: 5 }}>
                         <View style={{ margin: 10, marginTop: 0, flexDirection: 'row', justifyContent: 'space-between' }}>
-                            <Text style={{ width: 230, fontSize: 24, fontFamily: 'Black', color: FONTCOLOR }}>Have a Glance at the Events.</Text>
+                            <Text style={{ width: 230, fontSize: 24, fontFamily: 'Black', color: FONTCOLOR }}>Have a Glance at the Main Events.</Text>
                             <TouchableOpacity onPress={() => navigate('Select', {
                                 'name': 'EVENTS',
                                 'DB': 'DepEvents', 'DOCNAME': 'eventsDoc'
@@ -191,17 +191,24 @@ class Home extends Component {
                             )}
                         />
                     </View>
-                    <View style={styles.todayContainer}>
-                        <View style={styles.TitleToday}>
-                            <Text style={{ fontSize: 24, fontFamily: 'Black', color: FONTCOLOR, maxWidth: 25 }}>
-                                WORKSHOPS
+                    <View style={styles.workshopContainer}>
+                    <View style={{  flexDirection: 'row', justifyContent: 'space-between' }}>
+                            <Text style={{paddingLeft:10, width: 230, fontSize: 24, fontFamily: 'Black', color: FONTCOLOR, }}>
+                                 Workshops
                         </Text>
+                            <TouchableOpacity onPress={() => navigate('Select', {
+                                'name': 'WORKSHOPS',
+                                'DB': 'DepWorkshops', 'DOCNAME': 'workshopsDoc'
+                            })} activeOpacity={1}>
+                                <View style={{ flex: 1, padding: 10 }}>
+                                    <Text style={{ fontSize: 15, fontFamily: 'Black', color: ICONCOLOR, textAlign: 'right' }} >See All</Text>
+                                </View>
+                            </TouchableOpacity>
                         </View>
                         <FlatList
-                            numColumns={2}
+
                             contentContainerStyle={{
-                                padding: 5,
-                                paddingBottom: 10
+
                             }}
                             showsHorizontalScrollIndicator={false}
                             scrollEventThrottle={16}
@@ -218,14 +225,6 @@ class Home extends Component {
                         />
 
                     </View>
-                    <TouchableOpacity onPress={() => navigate('Select', {
-                        'name': 'WORKSHOPS',
-                        'DB': 'DepWorkshops', 'DOCNAME': 'workshopsDoc'
-                    })} activeOpacity={1}>
-                        <View style={{ flex: 1, padding: 10 }}>
-                            <Text style={{ fontSize: 15, fontFamily: 'Black', color: ICONCOLOR, textAlign: 'right' }} >See All</Text>
-                        </View>
-                    </TouchableOpacity>
 
                 </ScrollView>
             </View>
@@ -240,14 +239,14 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: BGCOLOR,
 
-    }, TitleToday: {
-        backgroundColor: BGCOLOR,
-        paddingTop: 15
-    }, todayContainer: {
-        flex: 1,
-        flexDirection: 'row',
-        width: width,
+    }, TitleWorkshop: {
         backgroundColor: BGCOLOR,
         padding: 10
+    }, workshopContainer: {
+        flex: 1,
+        flexDirection: 'column',
+        width: width,
+        backgroundColor: BGCOLOR,
+        paddingTop:5
     },
 });

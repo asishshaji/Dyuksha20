@@ -65,7 +65,7 @@ class LiveNow extends Component {
       <View style={{ flex: 1, backgroundColor: BGCOLOR, }}>
         <FlatList
           showsHorizontalScrollIndicator={false}
-          contentContainerStyle={{ paddingTop: 60 }}
+          contentContainerStyle={{ paddingTop: 60,paddingLeft:10 }}
           horizontal={false}
           showsVerticalScrollIndicator={false}
           numColumns={1}

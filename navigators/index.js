@@ -24,7 +24,7 @@ const barSpacing = (width - barWidth) / 2
 
 
 const AppNavigator = createStackNavigator({
-    Home: {
+    Discover: {
         screen: Home,
 
     },
@@ -123,9 +123,9 @@ const customTabs = ({ navigation }) => ({
     tabBarIcon: ({ focused, horizontal, tintColor }) => {
         const { routeName } = navigation.state;
         tintColor = "white"
-        if (routeName === 'Home') {
-            return renderNav(routeName, 'ios-home', tintColor, focused);
-        } else if (routeName === 'Live') {
+        if (routeName === 'Discover') {
+            return renderNav(routeName, 'ios-search', tintColor, focused);
+        } else if (routeName === 'Schedule') {
             return renderNav(routeName, 'md-calendar', tintColor, focused);
         }
         // else if (routeName === 'Notifications') {
@@ -138,11 +138,11 @@ const customTabs = ({ navigation }) => ({
 });
 
 const BottomNav = createBottomTabNavigator({
-    Home: {
+    Discover: {
         screen: AppNavigator,
 
     },
-    Live: {
+    Schedule: {
         screen: LiveStack,
         
 

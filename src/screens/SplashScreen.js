@@ -105,7 +105,7 @@ class SplashScreen extends Component {
             if (this.state.bannerList.length !== 0 &&
                 this.state.primeEventsList.length !== 0
                 && this.state.primeWorkshopList.length !== 0 && this.state.LiveList.length !== 0) {
-                this.props.navigation.replace('Home', {
+                this.props.navigation.replace('Discover', {
                     bannerList: this.state.bannerList,
                     primeEventsList: this.state.primeEventsList,
                     LiveList: this.state.liveList,

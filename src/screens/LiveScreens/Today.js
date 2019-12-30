@@ -50,12 +50,12 @@ class Today extends Component {
             <ScrollView style={{ backgroundColor: BGCOLOR, }} contentContainerStyle={{}} >
                 {/* <Text style={{ color: 'white' }}>ALL SHOTS</Text> */}
 
-                <View style={{ height: height, justifyContent: 'center', }}>
+                <View style={{  justifyContent: 'center', }}>
 
                     <FlatList
                         showsHorizontalScrollIndicator={false}
-                        horizontal={false}
-                        numColumns={2}
+                        horizontal={true}
+                        numColumns={1}
                         data={this.state.TodayList}
                         renderItem={({ item, index }) => (
                             <View style={{}}>

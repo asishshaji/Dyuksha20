@@ -33,10 +33,10 @@ const barSpacing = (width - barWidth) / 2
 
 const DrawerNavigator = createDrawerNavigator({
 
-  Home: {
+  Discover: {
     screen: BottomNav,
     navigationOptions: {
-      title: 'Home',
+      title: 'Discover',
     }
   },
 
