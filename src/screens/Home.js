@@ -117,7 +117,7 @@ class Home extends Component {
                             <TouchableOpacity onPress={this.props.navigation.openDrawer} style={{ alignItems: "flex-start", }}>
                                 <Icon name={'ios-menu'} color={DRAWERCOLOR} size={35} style={{}} />
                             </TouchableOpacity>
-                            <Text style={{ paddingLeft: 10, fontSize: 25, fontFamily: 'Black', color: FONTCOLOR }}>
+                            <Text style={{ paddingLeft: 10, fontSize: 25, fontFamily: 'Black', color: ICONCOLOR }}>
                                 Discover
                                 </Text>
                         </View>
