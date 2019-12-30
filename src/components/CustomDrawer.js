@@ -21,7 +21,8 @@ export default CustomDrawer = (props) => {
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={{
                     elevation: 15, alignItems: 'center',
-                    justifyContent: 'center', height: 250, borderBottomEndRadius: 50,
+                    justifyContent: 'center',
+                    height: 250, borderBottomEndRadius: 50,
                     backgroundColor: '#1f1e1e'
                 }}>
                     <Image source={require('../../assets/logo.png')}
@@ -35,7 +36,7 @@ export default CustomDrawer = (props) => {
             <View style={styles.footer} >
                 <Text
                     onPress={() => Linking.openURL('https://www.dyuksha.org/')}
-                    style={{ fontSize: 15, fontFamily: 'Black', color: BGCOLOR, paddingTop: 5 }}>
+                    style={{ fontSize: 15, fontFamily: 'Black', color: "black", paddingTop: 5 }}>
                     Visit Website
            </Text>
             </View>

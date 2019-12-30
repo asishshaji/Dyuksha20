@@ -75,6 +75,9 @@ AppNavigator.navigationOptions = ({ navigation }) => {
     } else if (routeName === "Select") {
         tabBarVisible = false
     }
+    else if (routeName === "Notifications") {
+        tabBarVisible = false
+    }
     return {
         tabBarVisible,
     }
@@ -86,7 +89,7 @@ AppNavigator.navigationOptions = ({ navigation }) => {
 LiveStack.navigationOptions = ({ navigation }) => {
 
     let tabBarVisible = true;
-
+    let drawerLockMode = 'unlocked';
     let routeName = navigation.state.routes[navigation.state.index].routeName
 
     if (routeName == 'LiveNow') {
@@ -94,12 +97,14 @@ LiveStack.navigationOptions = ({ navigation }) => {
     }
     else if (routeName === "EventDetail") {
         tabBarVisible = false
-
+        drawerLockMode = 'locked-closed';
+        
     }
 
 
     return {
         tabBarVisible,
+        drawerLockMode
     }
 
 }
@@ -135,11 +140,14 @@ const customTabs = ({ navigation }) => ({
 const BottomNav = createBottomTabNavigator({
     Home: {
         screen: AppNavigator,
+
     },
     Live: {
         screen: LiveStack,
+        
+
     },
- 
+
     Map: {
         screen: MapScreen
     }
@@ -164,10 +172,12 @@ const BottomNav = createBottomTabNavigator({
             borderRadius: 60 / 2,
             borderTopWidth: 0,
             padding: 5,
-            
+
         }, showLabel: true
     }
 
 })
+
+
 
 export default createAppContainer(BottomNav);

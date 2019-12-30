@@ -8,7 +8,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 const RoundedBackButton = (props) => {
     return (<TouchableOpacity style={{
-        position: 'absolute', top: 15, left: 16, elevation: 6, height: 50, width: 50,
+        position: 'absolute', top: 15, left: 16, elevation: 4, height: 50, width: 50,
         backgroundColor: 'white', justifyContent: 'center',
         alignItems: 'center', borderRadius: 50 / 2
     }}
