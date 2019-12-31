@@ -123,10 +123,12 @@ class DetailScreen extends Component {
 
 
                         {/* Coordinators */}
+                        
                         <View style={{ margin: 10, padding: 5, flexDirection: 'row', height: 150, marginBottom: 70, marginTop: 0 }}>
                             {
                                 item.volunteers.map((val, index) => {
                                     return (
+                                        
                                         <RoundUser name={val.name} image={val.imageUrl} index={index} />
 
                                     )

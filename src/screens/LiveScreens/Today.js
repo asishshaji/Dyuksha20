@@ -9,6 +9,7 @@ import {
     TouchableWithoutFeedback
 } from "react-native";
 import firebase, { firestore } from 'react-native-firebase';
+import LottieView from 'lottie-react-native';
 
 import EventCard from '../../components/CardHome'
 import { BGCOLOR } from "../../Styles/Colors";
@@ -50,24 +51,32 @@ class Today extends Component {
             <ScrollView style={{ backgroundColor: BGCOLOR, }} contentContainerStyle={{}} >
                 {/* <Text style={{ color: 'white' }}>ALL SHOTS</Text> */}
 
-                <View style={{  justifyContent: 'center', }}>
-
-                    <FlatList
-                        showsHorizontalScrollIndicator={false}
-                        horizontal={true}
-                        numColumns={1}
-                        data={this.state.TodayList}
-                        renderItem={({ item, index }) => (
-                            <View style={{}}>
-                                <EventCard
-                                    nav={nav}
-                                    height={100}
-                                    width={width / 2 - 40}
-                                    item={item}
-                                />
-                            </View>
-                        )}
-                    />
+                <View style={{ justifyContent: 'center', }}>
+                    {this.state.TodayList.length === 0 ?
+                        <View style={{ flex: 1, justifyContent: 'center' }}>
+                            <LottieView source={require('../../../assets/today.json')}
+                                autoPlay loop
+                                style={{justifyContent:'center', height: 80, width: 80, alignSelf: 'center' }}
+                            />
+                        </View>
+                        :
+                        <FlatList
+                            showsHorizontalScrollIndicator={false}
+                            horizontal={true}
+                            numColumns={1}
+                            data={this.state.TodayList}
+                            renderItem={({ item, index }) => (
+                                <View style={{}}>
+                                    <EventCard
+                                        nav={nav}
+                                        height={100}
+                                        width={width / 2 - 40}
+                                        item={item}
+                                    />
+                                </View>
+                            )}
+                        />
+                    }
 
                 </View>
             </ScrollView>

@@ -10,6 +10,7 @@ import {
 
 } from "react-native";
 
+import LottieView from 'lottie-react-native';
 import firebase, { firestore } from 'react-native-firebase';
 
 
@@ -74,8 +75,7 @@ class Live extends Component {
                 Today
               </Text>
             </View>
-            <View>
-              {/* more than 6 is not swipable */}
+            <View style={{ minHeight: 130 }}>
               <Today navigation={navigate} />
             </View>
           </View>
@@ -99,14 +99,23 @@ class Live extends Component {
             </View>
 
             <View style={styles.nowCard}>
-              <FlatList
-                showsHorizontalScrollIndicator={false}
-                horizontal={true}
-                numColumns={1}
-                data={this.state.LiveList}
-                keyExtractor={item => item.id}
-                renderItem={({ item, index }) => this.renderList(item, index)}
-              />
+              {this.state.LiveList.length === 0 ?
+                <View style={{ flex: 1, justifyContent: 'center' }}>
+                  <LottieView source={require('../../assets/now.json')}
+                    autoPlay loop
+                    style={{ height: 100, width: 100, alignSelf: 'center' }}
+                  />
+                </View>
+                :
+                <FlatList
+                  showsHorizontalScrollIndicator={false}
+                  horizontal={true}
+                  numColumns={1}
+                  data={this.state.LiveList}
+                  keyExtractor={item => item.id}
+                  renderItem={({ item, index }) => this.renderList(item, index)}
+                />
+              }
             </View>
           </View>
         </View>
@@ -160,7 +169,8 @@ const styles = StyleSheet.create({
   },
   nowCard: {
     backgroundColor: BGCOLOR,
-    paddingLeft: 5
+    minHeight:300
+    // paddingLeft: 5
   },
   TitleToday: {
     padding: 10,

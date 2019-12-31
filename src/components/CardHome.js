@@ -27,7 +27,7 @@ const ProCarComp = props => {
                         padding: 2
                     }}
                 >
-                    <Text style={{ textAlign: "center", fontSize: 12, fontFamily: 'Black', flexShrink: 1 ,textTransform:'uppercase'}}>
+                    <Text style={{ textAlign: "center", fontSize: 12, fontFamily: 'Light', flexShrink: 1 ,textTransform:'uppercase'}}>
                         {props.item ? item.date : "" }
                     </Text>
                 </View>

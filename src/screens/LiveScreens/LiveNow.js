@@ -17,7 +17,7 @@ import firebase, { firestore } from 'react-native-firebase';
 import { BGCOLOR, FONTCOLOR, ICONCOLOR } from "../../Styles/Colors"
 import CardLive from "../../components/CardLive";
 import BackButton from '../../components/RoundedBackButton';
-
+import LottieView from 'lottie-react-native';
 
 const { height, width } = Dimensions.get('window')
 
@@ -63,19 +63,28 @@ class LiveNow extends Component {
 
     return (
       <View style={{ flex: 1, backgroundColor: BGCOLOR, }}>
-        <FlatList
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={{ paddingTop: 60,paddingLeft:10 }}
-          horizontal={false}
-          showsVerticalScrollIndicator={false}
-          numColumns={1}
-          data={this.state.LiveList}
-          keyExtractor={item => item.id}
-          renderItem={({ item, index }) => this.renderList(item, index)}
-          refreshing={this.state.refreshing}
-          onRefresh={this.handleRefresh}
-          ListFooterComponent={this.renderFooter}
-        />
+        {this.state.LiveList.length === 0 ?
+          <View style={{ flex: 1, justifyContent: 'center' }}>
+            <LottieView source={require('../../../assets/loading.json')}
+              autoPlay loop
+              style={{ height: 100, width: 100, alignSelf: 'center' }}
+            />
+          </View>
+          :
+          <FlatList
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{ paddingTop: 60, paddingLeft: 10 }}
+            horizontal={false}
+            showsVerticalScrollIndicator={false}
+            numColumns={1}
+            data={this.state.LiveList}
+            keyExtractor={item => item.id}
+            renderItem={({ item, index }) => this.renderList(item, index)}
+            refreshing={this.state.refreshing}
+            onRefresh={this.handleRefresh}
+            ListFooterComponent={this.renderFooter}
+          />
+        }
         <BackButton navigation={navigation} />
 
       </View>
@@ -84,7 +93,7 @@ class LiveNow extends Component {
 
   renderList(item, index) {
     return (
-      <View style={{marginTop:10}}>
+      <View style={{ marginTop: 10 }}>
         <CardLive
           cardTitle={item.title}
           imageUrl={item.imageUrl}

@@ -1,20 +1,20 @@
 import React, { Component } from "react";
-import {
+import { 
     View,
     Text,
     StyleSheet
 } from "react-native";
 
-class Map extends Component {
+class MapScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>Map</Text>
+                <Text>MapScreen</Text>
             </View>
         );
     }
 }
-export default Map;
+export default MapScreen;
 
 const styles = StyleSheet.create({
     container: {

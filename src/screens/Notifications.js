@@ -46,10 +46,10 @@ class Notifications extends Component {
                 </View>
                 <View style={{ flex: 1, marginTop: 40 }}>
 
-
+      
                     {this.state.notList.length === 0 ?
                         <View style={{ flex: 1, justifyContent: 'center' }}>
-                            <LottieView source={require('../../assets/loading.json')}
+                            <LottieView source={require('../../assets/no-notifications.json')}
                                 autoPlay loop
                                 style={{ height: 100, width: 100, alignSelf: 'center' }}
                             />

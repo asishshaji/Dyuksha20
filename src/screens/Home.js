@@ -6,6 +6,7 @@ import {
     Image, Animated, Text,
     FlatList, Dimensions, StatusBar, TouchableOpacity, SafeAreaView
 } from "react-native";
+import { Badge } from 'react-native-paper';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import EventCard from '../components/CardHome';
@@ -27,6 +28,9 @@ class Home extends Component {
 
     constructor() {
         super();
+        this.state = {
+            notList: '5'
+        }
         this.animatedSlider = new Animated.Value(0);
 
     }
@@ -98,6 +102,7 @@ class Home extends Component {
         const sliderH = height * 0.39;
         const nav = this.props.navigation;
         const { navigate } = this.props.navigation;
+        console.disableYellowBox = true;
 
         const primeEventsList = this.props.navigation.getParam('primeEventsList', {})
         const bannerList = this.props.navigation.getParam('bannerList', {})
@@ -123,8 +128,11 @@ class Home extends Component {
                         </View>
                         <View style={{ margin: 5 }}>
                             <TouchableOpacity onPress={() => navigate('Notifications')}>
-                                <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'flex-end', }}>
+                                <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'flex-end', }}>
                                     <Icon name="ios-notifications" size={32} color={ICONCOLOR} style={{}} />
+                                    <Badge size={18} style={{borderWidth:1, borderColor:ICONCOLOR, backgroundColor:'white', position: 'absolute', top: -4, right: -6 }}  >
+                                       <Text style={{ color:ICONCOLOR}}>{this.state.notList}</Text> 
+                                    </Badge>
                                 </View>
                             </TouchableOpacity>
                         </View>
@@ -163,14 +171,14 @@ class Home extends Component {
 
 
 
-                    <View style={{ height: 300, marginTop: 5 }}>
+                    <View style={{ height: 270, marginTop: 5 }}>
                         <View style={{ margin: 10, marginTop: 0, flexDirection: 'row', justifyContent: 'space-between' }}>
-                            <Text style={{ width: 230, fontSize: 24, fontFamily: 'Black', color: FONTCOLOR }}>Have a Glance at the Main Events.</Text>
+                            <Text style={{ fontSize: 24, fontFamily: 'Black', color: FONTCOLOR }}>Main Events</Text>
                             <TouchableOpacity onPress={() => navigate('Select', {
                                 'name': 'EVENTS',
                                 'DB': 'DepEvents', 'DOCNAME': 'eventsDoc'
                             })} activeOpacity={1}>
-                                <View style={{ backgroundColor: BGCOLOR, width: 50, height: 50 }}>
+                                <View style={{ backgroundColor: BGCOLOR, width: 50, }}>
                                     <Text style={{ paddingTop: 10, fontSize: 15, fontFamily: 'Black', color: ICONCOLOR, textAlign: 'center' }} >See All</Text>
                                 </View>
                             </TouchableOpacity>
@@ -192,9 +200,9 @@ class Home extends Component {
                         />
                     </View>
                     <View style={styles.workshopContainer}>
-                    <View style={{  flexDirection: 'row', justifyContent: 'space-between' }}>
-                            <Text style={{paddingLeft:10, width: 230, fontSize: 24, fontFamily: 'Black', color: FONTCOLOR, }}>
-                                 Workshops
+                        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                            <Text style={{ paddingLeft: 10, width: 230, fontSize: 24, fontFamily: 'Black', color: FONTCOLOR, }}>
+                                Workshops
                         </Text>
                             <TouchableOpacity onPress={() => navigate('Select', {
                                 'name': 'WORKSHOPS',
@@ -247,6 +255,6 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         width: width,
         backgroundColor: BGCOLOR,
-        paddingTop:5
+
     },
 });

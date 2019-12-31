@@ -1,7 +1,8 @@
 import React from 'react'
 import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
+import { createStackNavigator, StackViewTransitionConfigs } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
+import 'react-native-gesture-handler';
 import Home from '../src/screens/Home';
 
 import Detail from '../src/screens/DetailScreen';
@@ -33,7 +34,7 @@ const AppNavigator = createStackNavigator({
 
     },
     Notifications: {
-        screen: Notifications
+        screen: Notifications,
     },
 
     Select: {
@@ -43,9 +44,15 @@ const AppNavigator = createStackNavigator({
     SplashScreen: {
         screen: SplashScreen
     }
-
 }, {
+    defaultNavigationOptions: {
+        gesturesEnabled: true,
+        gestureResponseDistance: {horizontal:width/2}
+    },
+    mode: 'card',
+    transitionConfig: () => StackViewTransitionConfigs.SlideFromRightIOS,
     initialRouteName: 'SplashScreen',
+
 });
 
 const LiveStack = createStackNavigator({
@@ -58,7 +65,15 @@ const LiveStack = createStackNavigator({
     },
     LiveNow: {
         screen: LiveNow
+    }
+}, {
+    defaultNavigationOptions: {
+        gesturesEnabled: true,
+        gestureResponseDistance: {horizontal:width/2}
     },
+    mode: 'card',
+    transitionConfig: () => StackViewTransitionConfigs.SlideFromRightIOS,
+
 });
 
 AppNavigator.navigationOptions = ({ navigation }) => {
@@ -78,6 +93,7 @@ AppNavigator.navigationOptions = ({ navigation }) => {
     else if (routeName === "Notifications") {
         tabBarVisible = false
     }
+
     return {
         tabBarVisible,
     }
@@ -95,10 +111,10 @@ LiveStack.navigationOptions = ({ navigation }) => {
     if (routeName == 'LiveNow') {
         tabBarVisible = false
     }
-    else if (routeName === "EventDetail") {
+    else if (routeName === "Detail") {
         tabBarVisible = false
         drawerLockMode = 'locked-closed';
-        
+
     }
 
 
@@ -144,7 +160,7 @@ const BottomNav = createBottomTabNavigator({
     },
     Schedule: {
         screen: LiveStack,
-        
+
 
     },
 

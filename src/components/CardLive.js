@@ -17,7 +17,7 @@ const CardLive = props => {
             <View style={styles.card}>
                 <View style={styles.cardHeader}>
                     <View style={styles.cardTitle}>
-                        <Text style={{ fontSize: 13, fontFamily: 'Black', color: FONTCOLOR }}>{props.cardTitle}</Text>
+                        <Text style={{ fontSize: 13, fontFamily: 'Light', color: FONTCOLOR }}>{props.cardTitle}</Text>
                         <Text style={{ fontSize: 12, color: 'grey' }}>{props.time}</Text>
                     </View>
                 </View>
@@ -38,9 +38,9 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         borderWidth: 0,
         height: 300,
-      
+
         width: width - 50,
-        elevation: 10,
+        elevation: 8,
         marginTop: 10
     },
     card: {
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         borderWidth: 0,
         height: 300,
-        width: width - 30
+        width: width - 50
     },
     cardHeader: {
         borderWidth: 0,
