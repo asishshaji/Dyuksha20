@@ -16,7 +16,6 @@ import firebase, { firestore } from 'react-native-firebase';
 
 import { BGCOLOR, FONTCOLOR, ICONCOLOR } from "../Styles/Colors";
 import Today from "./LiveScreens/Today";
-import Memories from "./LiveScreens/Memories";
 import CardLive from "../components/CardLive";
 
 
@@ -80,7 +79,7 @@ class Live extends Component {
             </View>
           </View>
 
-          <View style={{ backgroundColor: BGCOLOR, height: 500 }}>
+          <View style={{marginTop:15, backgroundColor: BGCOLOR, height: height*0.75 }}>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
               <View style={styles.TitleNow}>
                 <Text style={{ fontSize: 25, fontFamily: 'Black', color: FONTCOLOR }}>
@@ -142,7 +141,7 @@ export default Live;
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: 'black',
+    backgroundColor: 'white',
 
   },
   TitleMain: {

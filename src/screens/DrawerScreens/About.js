@@ -9,8 +9,9 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 import { FONTCOLOR, BGCOLOR, DRAWERCOLOR, ICONCOLOR } from "../../Styles/Colors";
 import ContactCard from "../../components/ContactCard";
+import { DesignerCard } from "../../components/ContactCard";
 import firebase, { firestore } from 'react-native-firebase';
-
+import LottieView from 'lottie-react-native';
 const { height, width } = Dimensions.get('window')
 
 const DyukshaCard = props => {
@@ -23,7 +24,7 @@ const DyukshaCard = props => {
             elevation: 10,
             width: width * 0.9,
             backgroundColor: BGCOLOR,
-            marginLeft: 10
+            marginLeft: 5
         }}>
 
             <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}>
@@ -37,7 +38,6 @@ const DyukshaCard = props => {
 }
 
 
-
 class About extends Component {
 
     static navigationOptions = {
@@ -46,24 +46,42 @@ class About extends Component {
 
     constructor(props) {
         super(props);
-        this.events = firestore().collection('Developers');
+        this.developer = firestore().collection('Developers');
+        this.designer = firestore().collection('Designers');
         this.state = {
             DeveloperList: [],
+            DesignerList: [],
         };
     }
 
     componentDidMount() {
-        this.events.onSnapshot(querySnapshot => {
+        this.developer.onSnapshot(querySnapshot => {
             this.setState({
-                DeveloperList: []
+                DeveloperList: [],
             });
 
             querySnapshot.forEach(doc => {
                 this.setState({
-                    DeveloperList: this.state.DeveloperList.concat(doc.data())
+                    DeveloperList: this.state.DeveloperList.concat(doc.data()),
+
                 });
             });
         });
+
+        this.designer.onSnapshot(querySnapshot => {
+            this.setState({
+                DesignerList: [],
+            });
+
+            querySnapshot.forEach(doc => {
+                this.setState({
+                    DesignerList: this.state.DesignerList.concat(doc.data()),
+
+                });
+            });
+        });
+
+
     }
 
 
@@ -93,7 +111,7 @@ class About extends Component {
 
                         <View style={styles.contentContainer}>
                             <View>
-                                <Text style={{ marginBottom: 10, padding: 5, fontSize: 24, fontFamily: 'Black', color: FONTCOLOR }}>Know About Dyuksha.</Text>
+                                <Text style={{ marginBottom: 10, padding: 5, fontSize: 24, fontFamily: 'Black', color: FONTCOLOR }}>Know About Dyuksha</Text>
                             </View>
 
                             <View style={styles.card}>
@@ -108,7 +126,7 @@ class About extends Component {
 
                             <View style={{ alignItems: 'flex-end' }}>
                                 <View style={{ marginTop: 30 }}>
-                                    <Text style={{ marginBottom: 10, padding: 5, fontSize: 20, fontFamily: 'Black', color: FONTCOLOR }}>About the College.</Text>
+                                    <Text style={{ marginBottom: 10, padding: 5, fontSize: 20, fontFamily: 'Black', color: FONTCOLOR }}>About the College</Text>
                                 </View>
                                 <View style={styles.card}>
                                     <View style={{}}>
@@ -125,41 +143,88 @@ class About extends Component {
                             {/* Social Media */}
                             <View style={{ marginTop: 30 }}>
                                 <View>
-                                    <Text style={{ padding: 5, fontSize: 20, fontFamily: 'Black', color: FONTCOLOR }}>Dyuksha is Also Active on Social Medias.</Text>
+                                    <Text style={{ padding: 5, fontSize: 20, fontFamily: 'Black', color: FONTCOLOR }}>Dyuksha is Also Active on Social Medias</Text>
                                 </View>
                                 <View style={{ marginVertical: 10 }}>
                                     <DyukshaCard />
                                 </View>
                             </View>
 
+                            {/* Designers */}
+                            <View style={styles.designerContainer}>
+                                <View style={{ marginTop: 30 }}>
+                                    <Text style={{ padding: 5, fontSize: 20, fontFamily: 'Black', color: FONTCOLOR }}>Our Design Head</Text>
+                                </View>
+
+                                <ScrollView style={{ backgroundColor: BGCOLOR }} contentContainerStyle={{  minHeight:200}} >
+                                    {this.state.DesignerList.length === 0 ?
+                                        <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+                                            <LottieView source={require('../../../assets/person.json')}
+                                                autoPlay loop
+                                                style={{ height: 100, width: 100, justifyContent: 'center', alignItems: 'center' }}
+                                            />
+                                        </View>
+                                        :
+                                        <FlatList
+                                            showsVerticalScrollIndicator={false}
+                                            horizontal={false}
+                                            numColumns={1}
+                                            data={this.state.DesignerList}
+                                            renderItem={({ item, index }) => (
+                                                <TouchableWithoutFeedback>
+                                                    <View style={{
+                                                        padding: 5, justifyContent: 'center',
+                                                        alignItems: 'center'
+                                                    }}>
+                                                        <DesignerCard
+                                                            item={item}
+                                                        />
+                                                    </View>
+
+                                                </TouchableWithoutFeedback>
+                                            )}
+                                        />
+                                    }
+                                </ScrollView>
+                            </View>
+
                             {/* Developers */}
 
                             <View style={styles.developerContainer}>
-                                <View style={{marginTop:30}}>
-                                    <Text style={{ padding: 5, fontSize: 20, fontFamily: 'Black', color: FONTCOLOR }}>Here are Our Developers.</Text>
+                                <View style={{ marginTop: 30 }}>
+                                    <Text style={{ padding: 5, fontSize: 20, fontFamily: 'Black', color: FONTCOLOR }}>Here are Our Developers</Text>
                                 </View>
 
 
-                                <ScrollView style={{ backgroundColor: BGCOLOR }} contentContainerStyle={{}} >
-                                    <FlatList
-                                        showsVerticalScrollIndicator={false}
-                                        horizontal={false}
-                                        numColumns={1}
-                                        data={this.state.DeveloperList}
-                                        renderItem={({ item, index }) => (
-                                            <TouchableWithoutFeedback>
-                                                <View style={{
-                                                    padding: 5, justifyContent: 'center',
-                                                    alignItems: 'center'
-                                                }}>
-                                                    <ContactCard
-                                                        item={item}
-                                                    />
-                                                </View>
+                                <ScrollView style={{ backgroundColor: BGCOLOR }} contentContainerStyle={{ minHeight:200}} >
+                                    {this.state.DeveloperList.length === 0 ?
+                                        <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+                                            <LottieView source={require('../../../assets/person.json')}
+                                                autoPlay loop
+                                                style={{ height: 100, width: 100, justifyContent: 'center', alignItems: 'center' }}
+                                            />
+                                        </View>
+                                        :
+                                        <FlatList
+                                            showsVerticalScrollIndicator={false}
+                                            horizontal={false}
+                                            numColumns={1}
+                                            data={this.state.DeveloperList}
+                                            renderItem={({ item, index }) => (
+                                                <TouchableWithoutFeedback>
+                                                    <View style={{
+                                                        padding: 5, justifyContent: 'center',
+                                                        alignItems: 'center'
+                                                    }}>
+                                                        <ContactCard
+                                                            item={item}
+                                                        />
+                                                    </View>
 
-                                            </TouchableWithoutFeedback>
-                                        )}
-                                    />
+                                                </TouchableWithoutFeedback>
+                                            )}
+                                        />
+                                    }
                                 </ScrollView>
                             </View>
 
@@ -226,11 +291,14 @@ const styles = StyleSheet.create({
         marginVertical: 10,
 
     },
-    developerContainer: {
+    designerContainer: {
         flex: 1,
         backgroundColor: BGCOLOR,
         alignItems: 'flex-end',
-
-
+    },
+    developerContainer: {
+        flex: 1,
+        backgroundColor: BGCOLOR,
+        alignItems: 'flex-start',
     },
 });

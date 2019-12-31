@@ -13,7 +13,7 @@ const RoundedBackButton = (props) => {
         alignItems: 'center', borderRadius: 50 / 2
     }}
         onPress={() => props.navigation.goBack()} activeOpacity={1}>
-        <Icon name="ios-arrow-back" size={30} color="#E55656" onPress={() => props.navigation.goBack()} />
+        <Icon name="ios-arrow-back" size={30} color="#E55656" />
     </TouchableOpacity>)
 }
 

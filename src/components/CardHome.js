@@ -8,7 +8,7 @@ const ProCarComp = props => {
         <TouchableOpacity onPress={() => {
             if (props.nav) {
                 props.nav.navigate('Detail', {
-                    item: item
+                    item: item,navToday:props.nav
                 })
             }
         }} style={{ height: props.height + 30, width: props.width + 20 }} activeOpacity={1}>

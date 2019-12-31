@@ -17,11 +17,11 @@ const ContactCard = props => {
     return (
         <View style={{
             flex: 1,
-            height: 150,
+            height: height * 0.23,
             width: width * 0.9,
             borderRadius: 12,
-            marginVertical: 10,
-            elevation: 5,
+            marginVertical: 5,
+            elevation: 6,
             flexDirection: 'row',
             justifyContent: 'space-around',
             alignItems: 'center',
@@ -80,3 +80,70 @@ const ContactCard = props => {
 }
 
 export default ContactCard;
+
+export const DesignerCard = props => {
+    const item = props.item;
+    return (
+        <View style={{
+            flex: 1,
+            height: height * 0.23,
+            width: width * 0.9,
+            borderRadius: 12,
+            marginVertical: 5,
+            elevation: 5,
+            flexDirection: 'row',
+            justifyContent: 'space-around',
+            alignItems: 'center',
+            backgroundColor: BGCOLOR,
+
+        }}>
+            <View style={{
+                height: 110,
+                borderRadius: 55,
+                backgroundColor: BGCOLOR,
+                alignItems: 'center',
+                elevation: 5
+            }}>
+
+                <Image source={{ uri: item.imageUrl }}
+                    style={{ height: 110, width: 110, borderRadius: 55, resizeMode: 'cover' }} />
+            </View>
+
+            <View style={{}}>
+                <View style={{ alignItems: 'center', justifyContent: 'space-between' }}>
+                    <Text style={{
+                        fontSize: 15,
+                        fontFamily: 'Black',
+                        color: FONTCOLOR,
+                        padding: 3
+                    }}>
+                        {item.name}
+                    </Text>
+                    <Text style={{
+                        fontSize: 15,
+                        fontFamily: 'Light',
+                        color: FONTCOLOR,
+                        padding: 3
+                    }}>
+                        {item.badge}
+                    </Text>
+                    <Text style={{
+                        fontSize: 15,
+                        fontFamily: 'Light',
+                        color: FONTCOLOR,
+                        padding: 3
+                    }}>
+                        {item.number}
+                    </Text>
+                    <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+                        <Icon name="logo-instagram" size={30} color={FONTCOLOR} style={{ padding: 5 }} onPress={() => Linking.openURL(item.instagram)} />
+                        <Icon name="logo-dribbble" size={30} color={FONTCOLOR} style={{ padding: 5 }} onPress={() => Linking.openURL(item.dribbble)} />
+
+
+                    </View>
+                </View>
+            </View>
+        </View>
+    );
+}
+

@@ -29,7 +29,7 @@ class DetailScreen extends Component {
         const { navigation } = this.props;
         const imageH = height * 0.5;
         const item = navigation.getParam('item')
-
+        const navToday = navigation.getParam('navToday',{})
 
         const animImageH = this.scroll.interpolate({
             inputRange: [0, imageH - 60],

@@ -46,6 +46,7 @@ class Today extends Component {
 
     render() {
         const nav = this.props.navigation;
+       
 
         return (
             <ScrollView style={{ backgroundColor: BGCOLOR, }} contentContainerStyle={{}} >

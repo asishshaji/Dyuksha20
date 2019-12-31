@@ -8,6 +8,7 @@ import {
     TouchableOpacity, FlatList,
     TouchableWithoutFeedback, Linking
 } from "react-native";
+import LottieView from 'lottie-react-native';
 import { BGCOLOR, FONTCOLOR, DRAWERCOLOR, ICONCOLOR } from "../../Styles/Colors"
 import Icon from 'react-native-vector-icons/Ionicons';
 import firebase, { firestore } from 'react-native-firebase';
@@ -66,24 +67,64 @@ class Contact extends Component {
                     </View>
 
 
-                    <View style={{ marginTop: 30,}}>
-                        <Text style={{paddingLeft:16, fontSize: 21, fontFamily: 'Black', color: FONTCOLOR, }}>
-                            Contact Us for Any Help.
+                    <View style={{ marginTop: 30, }}>
+                        <Text style={{ paddingLeft: 5, fontSize: 21, fontFamily: 'Black', color: FONTCOLOR, }}>
+                            Contact Us
                         </Text>
                     </View>
                     {/* Contacts */}
                     <ScrollView style={{ backgroundColor: BGCOLOR }} contentContainerStyle={styles.contentContainer} >
 
-                        <View style={{ justifyContent: 'center', }}>
-                            <FlatList
-                                showsVerticalScrollIndicator={false}
-                                horizontal={false}
-                                numColumns={1}
-                                data={this.state.ContactList}
-                                renderItem={({ item, index }) => (this.renderList(item, index))}
-                            />
+                        <View style={{ }}>
+                            {this.state.ContactList.length === 0 ?
+                                <View style={{margin:20, alignItems:'center', justifyContent: 'center' }}>
+                                    <LottieView source={require('../../../assets/contact.json')}
+                                        autoPlay loop
+                                        style={{ height: 300, width: 300, }}
+                                    />
+                                </View>
+                                :
+                                <FlatList
+                                    showsVerticalScrollIndicator={false}
+                                    horizontal={false}
+                                    numColumns={1}
+                                    data={this.state.ContactList}
+                                    renderItem={({ item, index }) => (this.renderList(item, index))}
+                                />
+                            }
                         </View>
                     </ScrollView>
+
+                    <View style={{ marginTop: 8, alignItems: 'flex-end' }}>
+                        <Text style={{ paddingRight: 5, fontSize: 21, fontFamily: 'Black', color: FONTCOLOR, }}>
+                            Reach Us
+                        </Text>
+                    </View>
+
+                    <View style={{ alignItems: 'flex-end', paddingRight: 5 }}>
+                        <View style={{
+                            flex: 1,
+                            height: height * 0.15,
+                            borderRadius: 12,
+                            elevation: 10,
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            width: width * 0.9,
+                            backgroundColor: BGCOLOR,
+                            marginTop: 8,
+                            marginBottom: 30,
+
+                        }}>
+                            <Text style={{ alignItems: 'center', color: '#00705f', textAlign: 'center', fontFamily: 'Light' }}>
+                                NSS College of Engineering,  </Text>
+                            <Text style={{ alignItems: 'center', color: '#00705f', textAlign: 'center', fontFamily: 'Light' }}> Akathethara P.O.</Text>
+                            <Text style={{ alignItems: 'center', color: '#00705f', textAlign: 'center', fontFamily: 'Light' }}>Palakkad, Kerala</Text>
+                            <Text style={{ alignItems: 'center', color: '#00705f', textAlign: 'center', fontFamily: 'Light' }}> India. 678008.</Text>
+
+
+                            <Text style={{ alignItems: 'center', color: '#00705f', padding: 5, textAlign: 'center', fontFamily: 'Light' }}>dyuksha@nssce.ac.in</Text>
+                        </View>
+                    </View>
 
                 </View>
             </ScrollView>
@@ -94,8 +135,8 @@ class Contact extends Component {
         return (
             <TouchableWithoutFeedback>
                 <View style={{
-                    padding: 10, width: width, justifyContent: 'center',
-                    alignItems: 'center'
+                    padding: 5, width: width, justifyContent: 'center',
+                    alignItems: 'flex-start'
                 }}>
                     <ContactCard
                         item={item}
@@ -120,8 +161,9 @@ const styles = StyleSheet.create({
     contentContainer: {
         flex: 1,
         backgroundColor: BGCOLOR,
-        alignItems: 'center',
+        alignItems: 'flex-start',
         marginTop: 5,
+        minHeight: 500
     },
 
 });

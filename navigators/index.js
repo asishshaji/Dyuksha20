@@ -17,7 +17,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { Dimensions, View, Text, } from 'react-native'
 import SelectScreen from '../src/screens/ListScreen';
 import LiveNow from '../src/screens/LiveScreens/LiveNow';
-import EventDetailScreen from '../detailScreens/EventDetails';
+
 
 const { width } = Dimensions.get('window')
 const barWidth = 230
@@ -47,7 +47,7 @@ const AppNavigator = createStackNavigator({
 }, {
     defaultNavigationOptions: {
         gesturesEnabled: true,
-        gestureResponseDistance: {horizontal:width/2}
+        gestureResponseDistance: {horizontal:25}
     },
     mode: 'card',
     transitionConfig: () => StackViewTransitionConfigs.SlideFromRightIOS,
@@ -59,8 +59,8 @@ const LiveStack = createStackNavigator({
     Explore: {
         screen: Live,
     },
-    EventDetail: {
-        screen: EventDetailScreen
+    Detail: {
+        screen: Detail
 
     },
     LiveNow: {
