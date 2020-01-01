@@ -110,10 +110,7 @@ class Home extends Component {
 
 
         return (
-            <ImageBackground
-                source={require('../../assets/bg1.jpg')}
-                style={{ flex: 1, width: width,  }}
-            >
+           
                 
                     <ScrollView style={styles.container} showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 100 }}>
 
@@ -238,7 +235,7 @@ class Home extends Component {
 
                     </ScrollView>
               
-            </ImageBackground>
+           
         );
     }
 }

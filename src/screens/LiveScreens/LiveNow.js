@@ -71,19 +71,26 @@ class LiveNow extends Component {
             />
           </View>
           :
-          <FlatList
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={{ paddingTop: 60, paddingLeft: 10 }}
-            horizontal={false}
-            showsVerticalScrollIndicator={false}
-            numColumns={1}
-            data={this.state.LiveList}
-            keyExtractor={item => item.id}
-            renderItem={({ item, index }) => this.renderList(item, index)}
-            refreshing={this.state.refreshing}
-            onRefresh={this.handleRefresh}
-            ListFooterComponent={this.renderFooter}
-          />
+          <View style={{flex:1}}>
+            <View style={{padding:25, alignItems:'flex-end'}}>
+              <Text style={{ fontSize: 25, fontFamily: 'Black', color: ICONCOLOR, }}>
+                Feed
+              </Text>
+            </View>
+            <FlatList
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={{ paddingTop: 20, paddingLeft: 10 }}
+              horizontal={false}
+              showsVerticalScrollIndicator={false}
+              numColumns={1}
+              data={this.state.LiveList}
+              keyExtractor={item => item.id}
+              renderItem={({ item, index }) => this.renderList(item, index)}
+              refreshing={this.state.refreshing}
+              onRefresh={this.handleRefresh}
+              ListFooterComponent={this.renderFooter}
+            />
+          </View>
         }
         <BackButton navigation={navigation} />
 

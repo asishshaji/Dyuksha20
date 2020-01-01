@@ -9,11 +9,13 @@ import {
 } from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons';
 import { FONTCOLOR, BGCOLOR } from "../Styles/Colors";
+import ContactImage from "./ContactImage";
 
 const { height, width } = Dimensions.get('window')
 
 const ContactCard = props => {
     const item = props.item;
+  
     return (
         <View style={{
             flex: 1,
@@ -28,18 +30,9 @@ const ContactCard = props => {
             backgroundColor: BGCOLOR,
 
         }}>
-            <View style={{
-                height: 120,
-                borderRadius: 60,
-                backgroundColor: BGCOLOR,
-                alignItems: 'center',
-                elevation: 5
-            }}>
-
-                <Image source={{ uri: item.imageUrl }}
-                    style={{ height: 120, width: 120, borderRadius: 60, resizeMode: 'cover' }} />
-            </View>
-
+            
+            <ContactImage imageUri={item.imageUrl} />
+            
             <View style={{}}>
                 <View style={{ alignItems: 'center', justifyContent: 'space-between' }}>
                     <Text style={{
@@ -97,17 +90,8 @@ export const DesignerCard = props => {
             backgroundColor: BGCOLOR,
 
         }}>
-            <View style={{
-                height: 110,
-                borderRadius: 55,
-                backgroundColor: BGCOLOR,
-                alignItems: 'center',
-                elevation: 5
-            }}>
-
-                <Image source={{ uri: item.imageUrl }}
-                    style={{ height: 110, width: 110, borderRadius: 55, resizeMode: 'cover' }} />
-            </View>
+            
+            <ContactImage imageUri={item.imageUrl} />
 
             <View style={{}}>
                 <View style={{ alignItems: 'center', justifyContent: 'space-between' }}>

@@ -4,7 +4,7 @@ import {
     Text,
     StyleSheet,
     Dimensions,
-    Image
+    Image, TouchableOpacity
 } from "react-native";
 import { BGCOLOR, FONTCOLOR } from "../Styles/Colors";
 
@@ -13,19 +13,21 @@ const { height, width } = Dimensions.get('window')
 const CardLive = props => {
     const item = props.item;
     return (
-        <View style={styles.cardContainer}>
-            <View style={styles.card}>
-                <View style={styles.cardHeader}>
-                    <View style={styles.cardTitle}>
-                        <Text style={{ fontSize: 13, fontFamily: 'Light', color: FONTCOLOR }}>{props.cardTitle}</Text>
-                        <Text style={{ fontSize: 12, color: 'grey' }}>{props.time}</Text>
+        <TouchableOpacity onPress={() => {if (props.nav) { props.nav.navigate('LiveNow') }}} activeOpacity={1}>
+            <View style={styles.cardContainer}>
+                <View style={styles.card}>
+                    <View style={styles.cardHeader}>
+                        <View style={styles.cardTitle}>
+                            <Text style={{ fontSize: 13, fontFamily: 'Light', color: FONTCOLOR }}>{props.cardTitle}</Text>
+                            <Text style={{ fontSize: 12, color: 'grey' }}>{props.time}</Text>
+                        </View>
+                    </View>
+                    <View style={styles.cardContent}>
+                        <Image style={{ flex: 1, borderBottomLeftRadius: 8, borderBottomRightRadius: 8 }} source={{ uri: props.imageUrl }} resizeMode={'cover'} />
                     </View>
                 </View>
-                <View style={styles.cardContent}>
-                    <Image style={{ flex: 1, borderBottomLeftRadius: 8, borderBottomRightRadius: 8 }} source={{ uri: props.imageUrl }} resizeMode={'cover'} />
-                </View>
             </View>
-        </View>
+        </TouchableOpacity>
     );
 }
 

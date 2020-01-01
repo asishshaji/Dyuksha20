@@ -61,11 +61,11 @@ class Live extends Component {
       <ScrollView style={{ flex: 1, backgroundColor: BGCOLOR }} showsVerticalScrollIndicator={false}>
         <View style={styles.mainContainer}>
           <View style={styles.TitleMain}>
-            <View style={{ elevation: 10 }}>
-              <Text style={{ marginBottom: 10, fontSize: 40, fontFamily: 'Black', color: FONTCOLOR }}>
-                Schedule
+
+            <Text style={{ marginBottom: 10, fontSize: 40, fontFamily: 'Black', color: FONTCOLOR }}>
+              Schedule
               </Text>
-            </View>
+
           </View>
 
           <View style={styles.todayContainer}>
@@ -79,7 +79,7 @@ class Live extends Component {
             </View>
           </View>
 
-          <View style={{marginTop:15, backgroundColor: BGCOLOR, height: height*0.75 }}>
+          <View style={{ marginTop: 15, backgroundColor: BGCOLOR, height: height * 0.75 }}>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
               <View style={styles.TitleNow}>
                 <Text style={{ fontSize: 25, fontFamily: 'Black', color: FONTCOLOR }}>
@@ -112,7 +112,15 @@ class Live extends Component {
                   numColumns={1}
                   data={this.state.LiveList}
                   keyExtractor={item => item.id}
-                  renderItem={({ item, index }) => this.renderList(item, index)}
+                  renderItem={({ item, index }) => (
+                    <TouchableWithoutFeedback>
+                      <CardLive
+                        nav={navigate}
+                        cardTitle={item.title}
+                        imageUrl={item.imageUrl}
+                        time={item.time}
+                      />
+                    </TouchableWithoutFeedback>)}
                 />
               }
             </View>
@@ -123,18 +131,6 @@ class Live extends Component {
     );
   }
 
-
-  renderList(item, index) {
-    return (
-      <TouchableWithoutFeedback>
-        <CardLive
-          cardTitle={item.title}
-          imageUrl={item.imageUrl}
-          time={item.time}
-        />
-      </TouchableWithoutFeedback>
-    );
-  }
 }
 export default Live;
 
@@ -148,13 +144,13 @@ const styles = StyleSheet.create({
     padding: 15,
     paddingTop: 70,
     height: 140,
-    width: width,
 
     alignItems: 'center',
-    borderBottomColor: 'white',
+
     // borderWidth:1,
-    backgroundColor: BGCOLOR,
+
     justifyContent: 'center',
+
   },
 
   TitleNow: {
@@ -168,7 +164,7 @@ const styles = StyleSheet.create({
   },
   nowCard: {
     backgroundColor: BGCOLOR,
-    minHeight:300
+    minHeight: 300
     // paddingLeft: 5
   },
   TitleToday: {
