@@ -22,12 +22,14 @@ class SplashScreen extends Component {
         this.workshops = firestore().collection('Workshop');
         this.events = firestore().collection('Event');
         this.live = firestore().collection('Live');
+        this.primeEvents = firestore().collection('PrimeEvents')
 
         this.state = {
             bannerList: [],
             primeEventsList: [],
             liveList: [],
             primeWorkshopList: [],
+            primeEvents: []
 
         }
 
@@ -42,6 +44,21 @@ class SplashScreen extends Component {
                 }
             });
 
+        this.primeEvents.onSnapshot(querySnapshot => {
+            // this.setState({
+            //     primeEvents: []
+            // })
+            querySnapshot.forEach(doc => {
+                doc.data().id.get().then((query) => {
+                    this.setState({
+                        primeEventsList:
+                            this.state.primeEventsList.concat(query.data())
+                    })
+                })
+            })
+
+        })
+
 
 
         this.bannerRef.onSnapshot(querySnapshot => {
@@ -55,18 +72,6 @@ class SplashScreen extends Component {
             });
         });
 
-
-        this.events.limit(5).onSnapshot(querySnapshot => {
-            this.setState({
-                primeEventsList: []
-            });
-
-            querySnapshot.forEach(doc => {
-                this.setState({
-                    primeEventsList: this.state.primeEventsList.concat(doc.data())
-                });
-            });
-        });
 
         this.workshops.limit(3).onSnapshot(querySnapshot => {
             this.setState({
@@ -95,13 +100,13 @@ class SplashScreen extends Component {
 
 
 
-
-
     }
 
 
     render() {
+
         setTimeout(() => {
+
             if (this.state.bannerList.length !== 0 &&
                 this.state.primeEventsList.length !== 0
                 && this.state.primeWorkshopList.length !== 0 && this.state.LiveList.length !== 0) {
@@ -109,8 +114,10 @@ class SplashScreen extends Component {
                     bannerList: this.state.bannerList,
                     primeEventsList: this.state.primeEventsList,
                     LiveList: this.state.liveList,
-                    primeWorkshopList: this.state.primeWorkshopList
+                    primeWorkshopList: this.state.primeWorkshopList,
+
                 })
+
             }
         }, 300)
         return (
