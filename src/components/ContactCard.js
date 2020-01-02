@@ -50,14 +50,7 @@ const ContactCard = props => {
                     }}>
                         {item.name}
                     </Text>
-                    <Text style={{
-                        fontSize: 15,
-                        fontFamily: 'Light',
-                        color: FONTCOLOR,
-                        padding: 3
-                    }}>
-                        {item.badge}
-                    </Text>
+                  
                     <Text style={{
                         fontSize: 15,
                         fontFamily: 'Light',
@@ -67,7 +60,7 @@ const ContactCard = props => {
                         {item.number}
                     </Text>
                     <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
-                        <Icon name="logo-facebook" size={25} color={FONTCOLOR} style={{ padding: 5 }} onPress={() => Linking.openURL(item.facebook)} />
+                        <Icon name="logo-github" size={25} color={FONTCOLOR} style={{ padding: 5 }} onPress={() => Linking.openURL(item.facebook)} />
                         <Icon name="logo-instagram" size={25} color={FONTCOLOR} style={{ padding: 5 }} onPress={() => Linking.openURL(item.instagram)} />
                         <Icon name="logo-linkedin" size={25} color={FONTCOLOR} style={{ padding: 5 }} onPress={() => Linking.openURL(item.linkedin)} />
 

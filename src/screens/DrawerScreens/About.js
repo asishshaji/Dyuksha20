@@ -283,13 +283,12 @@ const styles = StyleSheet.create({
     },
     text: {
         paddingTop: 10,
-        fontWeight: 'normal',
         textAlign: 'justify',
         fontSize: 15,
         fontFamily: 'Light',
         color: FONTCOLOR,
         marginVertical: 10,
-
+        padding:10
     },
     designerContainer: {
         flex: 1,

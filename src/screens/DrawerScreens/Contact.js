@@ -75,9 +75,9 @@ class Contact extends Component {
                     {/* Contacts */}
                     <ScrollView style={{ backgroundColor: BGCOLOR }} contentContainerStyle={styles.contentContainer} >
 
-                        <View style={{ }}>
+                        <View style={{}}>
                             {this.state.ContactList.length === 0 ?
-                                <View style={{margin:20, alignItems:'center', justifyContent: 'center' }}>
+                                <View style={{ margin: 20, alignItems: 'center', justifyContent: 'center' }}>
                                     <LottieView source={require('../../../assets/contact.json')}
                                         autoPlay loop
                                         style={{ height: 300, width: 300, }}
@@ -115,14 +115,14 @@ class Contact extends Component {
                             marginBottom: 30,
 
                         }}>
-                            <Text style={{ alignItems: 'center', color: '#00705f', textAlign: 'center', fontFamily: 'Light' }}>
+                            <Text style={{ alignItems: 'center', textAlign: 'center', fontFamily: 'Light' }}>
                                 NSS College of Engineering,  </Text>
-                            <Text style={{ alignItems: 'center', color: '#00705f', textAlign: 'center', fontFamily: 'Light' }}> Akathethara P.O.</Text>
-                            <Text style={{ alignItems: 'center', color: '#00705f', textAlign: 'center', fontFamily: 'Light' }}>Palakkad, Kerala</Text>
-                            <Text style={{ alignItems: 'center', color: '#00705f', textAlign: 'center', fontFamily: 'Light' }}> India. 678008.</Text>
+                            <Text style={{ alignItems: 'center', textAlign: 'center', fontFamily: 'Light' }}> Akathethara P.O.</Text>
+                            <Text style={{ alignItems: 'center', textAlign: 'center', fontFamily: 'Light' }}>Palakkad, Kerala</Text>
+                            <Text style={{ alignItems: 'center', textAlign: 'center', fontFamily: 'Light' }}> India. 678008.</Text>
 
 
-                            <Text style={{ alignItems: 'center', color: '#00705f', padding: 5, textAlign: 'center', fontFamily: 'Light' }}>dyuksha@nssce.ac.in</Text>
+                            <Text style={{ alignItems: 'center', padding: 5, textAlign: 'center', fontFamily: 'Light' }}>dyuksha@nssce.ac.in</Text>
                         </View>
                     </View>
 
