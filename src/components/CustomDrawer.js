@@ -17,7 +17,7 @@ const { width } = Dimensions.get('window')
 
 export default CustomDrawer = (props) => {
     return (
-        <SafeAreaView style={{ opacity: 1, width:500, backgroundColor: BGCOLOR ,height:200}}>
+        <SafeAreaView style={{ opacity: 1, flex:1, backgroundColor: BGCOLOR }}>
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={{
                     elevation: 15, alignItems: 'center',

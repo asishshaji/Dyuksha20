@@ -217,6 +217,7 @@ class Home extends Component {
                                 contentContainerStyle={{
 
                                 }}
+                                numColumns={2}
                                 showsHorizontalScrollIndicator={false}
                                 scrollEventThrottle={16}
                                 keyExtractor={(item, index) => String(index)}

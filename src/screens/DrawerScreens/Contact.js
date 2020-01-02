@@ -75,7 +75,7 @@ class Contact extends Component {
                     {/* Contacts */}
                     <ScrollView style={{ backgroundColor: BGCOLOR }} contentContainerStyle={styles.contentContainer} >
 
-                        <View style={{}}>
+                        <View style={{ alignItems: 'center', }}>
                             {this.state.ContactList.length === 0 ?
                                 <View style={{ margin: 20, alignItems: 'center', justifyContent: 'center' }}>
                                     <LottieView source={require('../../../assets/contact.json')}
@@ -87,7 +87,7 @@ class Contact extends Component {
                                 <FlatList
                                     showsVerticalScrollIndicator={false}
                                     horizontal={false}
-                                    numColumns={1}
+                                    contentContainerStyle={{}}
                                     data={this.state.ContactList}
                                     renderItem={({ item, index }) => (this.renderList(item, index))}
                                 />
@@ -101,10 +101,10 @@ class Contact extends Component {
                         </Text>
                     </View>
 
-                    <View style={{ alignItems: 'flex-end', paddingRight: 5 }}>
+                    <View style={{ alignItems: 'center', paddingRight: 5, justifyContent: 'center' }}>
                         <View style={{
                             flex: 1,
-                            height: height * 0.15,
+                            padding: 10,
                             borderRadius: 12,
                             elevation: 10,
                             alignItems: 'center',
@@ -113,6 +113,7 @@ class Contact extends Component {
                             backgroundColor: BGCOLOR,
                             marginTop: 8,
                             marginBottom: 30,
+
 
                         }}>
                             <Text style={{ alignItems: 'center', textAlign: 'center', fontFamily: 'Light' }}>
@@ -136,7 +137,7 @@ class Contact extends Component {
             <TouchableWithoutFeedback>
                 <View style={{
                     padding: 5, width: width, justifyContent: 'center',
-                    alignItems: 'flex-start'
+                    alignItems: 'center'
                 }}>
                     <ContactCard
                         item={item}
@@ -161,9 +162,8 @@ const styles = StyleSheet.create({
     contentContainer: {
         flex: 1,
         backgroundColor: BGCOLOR,
-        alignItems: 'flex-start',
         marginTop: 5,
-        minHeight: 500
+        minHeight: 500,
     },
 
 });
