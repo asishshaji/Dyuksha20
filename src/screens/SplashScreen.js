@@ -19,8 +19,7 @@ class SplashScreen extends Component {
     constructor() {
         super();
         this.bannerRef = firestore().collection('Banner');
-        this.workshops = firestore().collection('Workshop');
-        this.events = firestore().collection('Event');
+        this.primeWorkshop = firestore().collection('PrimeWorkshops')
         this.live = firestore().collection('Live');
         this.primeEvents = firestore().collection('PrimeEvents')
 
@@ -29,7 +28,6 @@ class SplashScreen extends Component {
             primeEventsList: [],
             liveList: [],
             primeWorkshopList: [],
-            primeEvents: []
 
         }
 
@@ -45,14 +43,25 @@ class SplashScreen extends Component {
             });
 
         this.primeEvents.onSnapshot(querySnapshot => {
-            // this.setState({
-            //     primeEvents: []
-            // })
+
             querySnapshot.forEach(doc => {
                 doc.data().id.get().then((query) => {
                     this.setState({
                         primeEventsList:
                             this.state.primeEventsList.concat(query.data())
+                    })
+                })
+            })
+
+        })
+
+        this.primeWorkshop.onSnapshot(querySnapshot => {
+
+            querySnapshot.forEach(doc => {
+                doc.data().id.get().then((query) => {
+                    this.setState({
+                        primeWorkshopList:
+                            this.state.primeWorkshopList.concat(query.data())
                     })
                 })
             })
@@ -73,17 +82,6 @@ class SplashScreen extends Component {
         });
 
 
-        this.workshops.limit(3).onSnapshot(querySnapshot => {
-            this.setState({
-                primeWorkshopList: []
-            });
-
-            querySnapshot.forEach(doc => {
-                this.setState({
-                    primeWorkshopList: this.state.primeWorkshopList.concat(doc.data())
-                });
-            });
-        });
 
         this.live.limit(2).onSnapshot(querySnapshot => {
             this.setState({
