@@ -54,10 +54,10 @@ class Today extends Component {
 
                 <View style={{ justifyContent: 'center', }}>
                     {this.state.TodayList.length === 0 ?
-                        <View style={{ flex: 1, justifyContent: 'center' }}>
+                        <View style={{ flex: 1, justifyContent: 'center', height:height-300 }}>
                             <LottieView source={require('../../../assets/today.json')}
                                 autoPlay loop
-                                style={{justifyContent:'center', height: 80, width: 80, alignSelf: 'center' }}
+                                style={{justifyContent:'center', height: 100, width: 100, alignSelf: 'center' }}
                             />
                         </View>
                         :
@@ -71,7 +71,7 @@ class Today extends Component {
                                     <EventCard
                                         nav={nav}
                                         height={100}
-                                        width={width / 2 - 40}
+                                        width={width / 2 -20}
                                         item={item}
                                     />
                                 </View>

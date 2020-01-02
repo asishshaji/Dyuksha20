@@ -34,6 +34,9 @@ const AppNavigator = createStackNavigator({
     Notifications: {
         screen: Notifications,
     },
+    LiveNow: {
+        screen: LiveNow
+    },
 
     Select: {
         screen: SelectScreen
@@ -71,7 +74,7 @@ const AppNavigator = createStackNavigator({
             return { opacity, transform: [{ translateY }] }
         },
     }),
-    
+
     initialRouteName: 'SplashScreen',
 
 });
@@ -84,9 +87,7 @@ const LiveStack = createStackNavigator({
         screen: Detail
 
     },
-    LiveNow: {
-        screen: LiveNow
-    }
+
 }, {
     defaultNavigationOptions: {
         gesturesEnabled: false,
@@ -130,7 +131,11 @@ AppNavigator.navigationOptions = ({ navigation }) => {
     } else if (routeName === "SplashScreen") {
         tabBarVisible = false
 
-    } else if (routeName === "Select") {
+    }
+    else if (routeName == 'LiveNow') {
+        tabBarVisible = false
+    }
+    else if (routeName === "Select") {
         tabBarVisible = false
     }
     else if (routeName === "Notifications") {
@@ -151,10 +156,7 @@ LiveStack.navigationOptions = ({ navigation }) => {
     let drawerLockMode = 'unlocked';
     let routeName = navigation.state.routes[navigation.state.index].routeName
 
-    if (routeName == 'LiveNow') {
-        tabBarVisible = false
-    }
-    else if (routeName === "Detail") {
+    if (routeName === "Detail") {
         tabBarVisible = false
         drawerLockMode = 'locked-closed';
 

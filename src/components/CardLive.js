@@ -36,7 +36,7 @@ export default CardLive;
 const styles = StyleSheet.create({
     cardContainer: {
         alignItems: 'center',
-        margin: 15,
+        margin: 10,
         borderRadius: 8,
         borderWidth: 0,
         height: 300,

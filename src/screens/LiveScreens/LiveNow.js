@@ -71,15 +71,11 @@ class LiveNow extends Component {
             />
           </View>
           :
-          <View style={{flex:1}}>
-            <View style={{padding:25, alignItems:'flex-end'}}>
-              <Text style={{ fontSize: 25, fontFamily: 'Black', color: ICONCOLOR, }}>
-                Feed
-              </Text>
-            </View>
+          <View style={{ flex: 1 }}>
+
             <FlatList
               showsHorizontalScrollIndicator={false}
-              contentContainerStyle={{ paddingTop: 20, paddingLeft: 10 }}
+              contentContainerStyle={{ paddingBottom: 18, paddingTop: 60, paddingLeft: 15 }}
               horizontal={false}
               showsVerticalScrollIndicator={false}
               numColumns={1}
@@ -92,6 +88,12 @@ class LiveNow extends Component {
             />
           </View>
         }
+
+        {/* <View style={{position:'absolute', top: 25, right: 20,}}>
+          <Text style={{ fontSize: 25, fontFamily: 'Black', color: ICONCOLOR, }}>
+            Feed
+              </Text>
+        </View> */}
         <BackButton navigation={navigation} />
 
       </View>
