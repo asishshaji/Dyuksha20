@@ -1,4 +1,5 @@
 import React from 'react'
+import { Dimensions, View, Text, BackHandler, Animated, Easing } from 'react-native'
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator, StackViewTransitionConfigs } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
@@ -12,9 +13,6 @@ import Notifications from '../src/screens/Notifications';
 import SplashScreen from '../src/screens/SplashScreen'
 
 import Icon from 'react-native-vector-icons/Ionicons';
-
-
-import { Dimensions, View, Text, } from 'react-native'
 import SelectScreen from '../src/screens/ListScreen';
 import LiveNow from '../src/screens/LiveScreens/LiveNow';
 
@@ -47,10 +45,33 @@ const AppNavigator = createStackNavigator({
 }, {
     defaultNavigationOptions: {
         gesturesEnabled: true,
-        gestureResponseDistance: {horizontal:25}
+        gestureResponseDistance: { horizontal: 25 }
     },
-    mode: 'card',
-    transitionConfig: () => StackViewTransitionConfigs.SlideFromRightIOS,
+    transitionConfig: () => ({
+        transitionSpec: {
+            duration: 300,
+            easing: Easing.out(Easing.poly(4)),
+            timing: Animated.timing,
+        },
+        screenInterpolator: sceneProps => {
+            const { layout, position, scene } = sceneProps
+            const { index } = scene
+
+            const height = layout.initHeight
+            const translateY = position.interpolate({
+                inputRange: [index - 1, index, index + 1],
+                outputRange: [height, 0, 0],
+            })
+
+            const opacity = position.interpolate({
+                inputRange: [index - 1, index - 0.99, index],
+                outputRange: [0, 1, 1],
+            })
+
+            return { opacity, transform: [{ translateY }] }
+        },
+    }),
+    
     initialRouteName: 'SplashScreen',
 
 });
@@ -68,11 +89,33 @@ const LiveStack = createStackNavigator({
     }
 }, {
     defaultNavigationOptions: {
-        gesturesEnabled: true,
-        gestureResponseDistance: {horizontal:width/2}
+        gesturesEnabled: false,
     },
-    mode: 'card',
-    transitionConfig: () => StackViewTransitionConfigs.SlideFromRightIOS,
+
+    transitionConfig: () => ({
+        transitionSpec: {
+            duration: 300,
+            easing: Easing.out(Easing.poly(4)),
+            timing: Animated.timing,
+        },
+        screenInterpolator: sceneProps => {
+            const { layout, position, scene } = sceneProps
+            const { index } = scene
+
+            const height = layout.initHeight
+            const translateY = position.interpolate({
+                inputRange: [index - 1, index, index + 1],
+                outputRange: [height, 0, 0],
+            })
+
+            const opacity = position.interpolate({
+                inputRange: [index - 1, index - 0.99, index],
+                outputRange: [0, 1, 1],
+            })
+
+            return { opacity, transform: [{ translateY }] }
+        },
+    }),
 
 });
 

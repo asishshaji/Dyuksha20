@@ -25,7 +25,7 @@ class Today extends Component {
         super(props);
         this.events = firestore().collection('Event');
         this.state = {
-            selectedIndex: 0,
+            
             TodayList: [],
         };
     }
@@ -49,7 +49,7 @@ class Today extends Component {
        
 
         return (
-            <ScrollView style={{ backgroundColor: BGCOLOR, }} contentContainerStyle={{}} >
+            <ScrollView style={{ backgroundColor: BGCOLOR, }} contentContainerStyle={{ alignItems:'center'}} >
                 {/* <Text style={{ color: 'white' }}>ALL SHOTS</Text> */}
 
                 <View style={{ justifyContent: 'center', }}>
@@ -63,8 +63,8 @@ class Today extends Component {
                         :
                         <FlatList
                             showsHorizontalScrollIndicator={false}
-                            horizontal={true}
-                            numColumns={1}
+                            horizontal={false}
+                            numColumns={2}
                             data={this.state.TodayList}
                             renderItem={({ item, index }) => (
                                 <View style={{}}>
