@@ -136,13 +136,13 @@ class Home extends Component {
             <ScrollView style={styles.container} showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 100 }}>
 
                 <StatusBar hidden />
-                <View style={{ margin: 15, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+                <View style={{ margin: 10, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
 
                     <View style={{ width: 200, alignItems: 'center', flexDirection: 'row' }} >
-                        <TouchableOpacity onPress={this.props.navigation.openDrawer} style={{ alignItems: "flex-start", }}>
+                        {/* <TouchableOpacity onPress={this.props.navigation.openDrawer} style={{ alignItems: "flex-start", }}>
                             <Icon name={'ios-menu'} color={DRAWERCOLOR} size={35} style={{}} />
-                        </TouchableOpacity>
-                        <Text style={{ paddingLeft: 10, fontSize: 25, fontFamily: 'Black', color: ICONCOLOR }}>
+                        </TouchableOpacity> */}
+                        <Text style={{  fontSize: 30, fontFamily: 'Black', color: ICONCOLOR }}>
                             Discover
                                 </Text>
                     </View>
@@ -238,6 +238,7 @@ class Home extends Component {
                         contentContainerStyle={{
 
                         }}
+                        horizontal
                         showsHorizontalScrollIndicator={false}
                         scrollEventThrottle={16}
                         keyExtractor={(item, index) => String(index)}
