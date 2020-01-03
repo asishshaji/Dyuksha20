@@ -31,7 +31,7 @@ class Today extends Component {
     }
 
     componentDidMount() {
-        this.events.limit(6).onSnapshot(querySnapshot => {
+        this.events.onSnapshot(querySnapshot => {
             this.setState({
                 TodayList: []
             });
