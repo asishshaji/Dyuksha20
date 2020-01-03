@@ -6,7 +6,7 @@ import {
   ScrollView,
   Dimensions,
   TouchableOpacity,
-  TouchableWithoutFeedback, StyleSheet
+  TouchableWithoutFeedback, StyleSheet, ImageBackground
 
 } from "react-native";
 
@@ -36,14 +36,17 @@ class Live extends Component {
       <ScrollView style={{ flex: 1, backgroundColor: BGCOLOR }} contentContainerStyle={{}} showsVerticalScrollIndicator={false}>
         <View style={styles.mainContainer}>
           <View style={styles.TitleMain}>
-            <Text style={{ marginBottom: 10, fontSize: 40, fontFamily: 'Black', color: ICONCOLOR }}>
-              Schedule
+            <ImageBackground source={require('../../assets/livebg.jpg')} style={{ width: width, flex: 1, backgroundColor: BGCOLOR }} />
+            <View style={{position:"absolute", right:10,top:70}} >
+              <Text style={{ marginBottom: 10, fontSize: 40, fontFamily: 'Black', color: BGCOLOR }}>
+                Schedule
               </Text>
+            </View>
           </View>
 
           <View style={styles.todayContainer}>
             <View style={styles.TitleToday}>
-              <Text style={{ fontSize: 25, fontFamily: 'Black', color: FONTCOLOR, }}>
+              <Text style={{ fontSize: 25, fontFamily: 'Black', color: ICONCOLOR, }}>
                 Today
               </Text>
             </View>
@@ -52,7 +55,7 @@ class Live extends Component {
             </View>
           </View>
 
-         
+
         </View>
       </ScrollView>
 
@@ -66,18 +69,14 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     backgroundColor: 'white',
-    paddingBottom:100
+    paddingBottom: 100
   },
   TitleMain: {
-    padding: 15,
-    paddingTop: 70,
+
+
     height: 140,
 
-    alignItems: 'center',
 
-    // borderWidth:1,
-
-    justifyContent: 'center',
 
   },
 
@@ -89,6 +88,7 @@ const styles = StyleSheet.create({
   },
   todayContainer: {
     flex: 1,
+    marginTop:20,
     flexDirection: 'column',
     width: width,
     backgroundColor: BGCOLOR,

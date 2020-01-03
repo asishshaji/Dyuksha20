@@ -142,14 +142,14 @@ class Home extends Component {
                         {/* <TouchableOpacity onPress={this.props.navigation.openDrawer} style={{ alignItems: "flex-start", }}>
                             <Icon name={'ios-menu'} color={DRAWERCOLOR} size={35} style={{}} />
                         </TouchableOpacity> */}
-                        <Text style={{  fontSize: 30, fontFamily: 'Black', color: ICONCOLOR }}>
+                        <Text style={{  fontSize: 35, fontFamily: 'Black', color: ICONCOLOR }}>
                             Discover
                                 </Text>
                     </View>
                     <View style={{ margin: 5 }}>
                         <TouchableOpacity onPress={() => navigate('Notifications')}>
                             <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'flex-end', }}>
-                                <Icon name="ios-notifications" size={32} color={ICONCOLOR} style={{}} />
+                                <Icon name="ios-notifications-outline" size={32} color={ICONCOLOR} style={{}} />
                                 {/* <Badge size={18} style={{ borderWidth: 1, borderColor: ICONCOLOR, backgroundColor: 'white', position: 'absolute', top: -4, right: -6 }}  >
                                             <Text style={{ color: ICONCOLOR }}>{this.state.notList}</Text>
                                         </Badge> */}

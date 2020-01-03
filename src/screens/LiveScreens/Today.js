@@ -25,7 +25,7 @@ class Today extends Component {
         super(props);
         this.events = firestore().collection('Event');
         this.state = {
-            
+
             TodayList: [],
         };
     }
@@ -46,20 +46,26 @@ class Today extends Component {
 
     render() {
         const nav = this.props.navigation;
-       
+
 
         return (
-            <ScrollView style={{ backgroundColor: BGCOLOR, }} contentContainerStyle={{ alignItems:'center'}} >
+            <ScrollView style={{ backgroundColor: BGCOLOR, }} contentContainerStyle={{ alignItems: 'center' }} >
                 {/* <Text style={{ color: 'white' }}>ALL SHOTS</Text> */}
 
                 <View style={{ justifyContent: 'center', }}>
                     {this.state.TodayList.length === 0 ?
-                        <View style={{ flex: 1, justifyContent: 'center', height:height-300 }}>
-                            <LottieView source={require('../../../assets/today.json')}
-                                autoPlay loop
-                                style={{justifyContent:'center', height: 100, width: 100, alignSelf: 'center' }}
-                            />
+                        <View style={{ flex: 1, justifyContent: 'center', height: height - 300 }}>
+                            <View >
+                                <LottieView source={require('../../../assets/today.json')}
+                                    autoPlay loop
+                                    style={{ justifyContent: 'center', height: 100, width: 100, alignSelf: 'center' }}
+                                />
+                            </View>
+                            <View style={{  alignItems:'center',  }}>
+                                <Text style={{fontSize:15, fontFamily:"Light"}}>Will be updated soon...</Text>
+                            </View>
                         </View>
+
                         :
                         <FlatList
                             showsHorizontalScrollIndicator={false}
@@ -71,7 +77,7 @@ class Today extends Component {
                                     <EventCard
                                         nav={nav}
                                         height={100}
-                                        width={width / 2 -20}
+                                        width={width / 2 - 20}
                                         item={item}
                                     />
                                 </View>
