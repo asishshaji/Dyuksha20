@@ -154,9 +154,7 @@ class Home extends Component {
                     <View style={{ margin: 10, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
 
                         <View style={{ width: 200, alignItems: 'center', flexDirection: 'row' }} >
-                            {/* <TouchableOpacity onPress={this.props.navigation.openDrawer} style={{ alignItems: "flex-start", }}>
-                            <Icon name={'ios-menu'} color={DRAWERCOLOR} size={35} style={{}} />
-                        </TouchableOpacity> */}
+
                             <Text style={{ fontSize: 35, fontFamily: 'Black', color: ICONCOLOR }}>
                                 Discover
                                 </Text>
@@ -314,7 +312,10 @@ class Home extends Component {
                         width: 60, height: 60, borderRadius: 30,
                         backgroundColor: 'red', elevation: 6, zIndex: 1000000000
                     }}
-                    onPress={() => this.setState({ roundClicked: !this.state.roundClicked })}
+                    onPress={() => {
+                        this.setState({ roundClicked: !this.state.roundClicked })
+                        setTimeout(() => this.setState({ roundClicked: false }), 5000)
+                    }}
 
                     activeOpacity={1}>
                     <Image style={{ width: 60, height: 60, borderRadius: 30 }}
@@ -337,16 +338,18 @@ class Home extends Component {
                     justifyContent: 'center',
                     alignItems: 'center',
                     paddingTop: 30,
-                    elevation: 5
+                    elevation: 5,
+                    paddingLeft: 10,
+                    paddingRight: 10
                 }}>
 
 
                     <Icon name="ios-information-circle-outline" size={30} color={ICONCOLOR} style={{
-                        flexShrink: 1
+                        flexShrink: 1,margin:5
                     }} onPress={() => this.props.navigation.navigate("About")}
                     />
                     <Icon name="ios-contact" size={30} color={ICONCOLOR} style={{
-                        flexShrink: 1
+                        flexShrink: 1,margin:5
                     }} onPress={() => this.props.navigation.navigate("Contact")}
                     />
                 </Animated.View>
