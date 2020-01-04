@@ -150,14 +150,7 @@ class About extends Component {
                                 </View>
 
                                 <ScrollView style={{ backgroundColor: BGCOLOR }} contentContainerStyle={{ minHeight: 200 }} >
-                                    {this.state.DesignerList.length === 0 ?
-                                        <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-                                            <LottieView source={require('../../../assets/person.json')}
-                                                autoPlay loop
-                                                style={{ height: 100, width: 100, justifyContent: 'center', alignItems: 'center' }}
-                                            />
-                                        </View>
-                                        :
+                                   
                                         <FlatList
                                             showsVerticalScrollIndicator={false}
                                             horizontal={false}
@@ -177,7 +170,7 @@ class About extends Component {
                                                 </TouchableWithoutFeedback>
                                             )}
                                         />
-                                    }
+                                    
                                 </ScrollView>
                             </View>
 
@@ -190,14 +183,7 @@ class About extends Component {
 
 
                                 <ScrollView style={{ backgroundColor: BGCOLOR }} contentContainerStyle={{ minHeight: 200 }} >
-                                    {this.state.DeveloperList.length === 0 ?
-                                        <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-                                            <LottieView source={require('../../../assets/person.json')}
-                                                autoPlay loop
-                                                style={{ height: 100, width: 100, justifyContent: 'center', alignItems: 'center' }}
-                                            />
-                                        </View>
-                                        :
+                                   
                                         <FlatList
                                             showsVerticalScrollIndicator={false}
                                             horizontal={false}
@@ -217,7 +203,7 @@ class About extends Component {
                                                 </TouchableWithoutFeedback>
                                             )}
                                         />
-                                    }
+                                    
                                 </ScrollView>
                             </View>
 

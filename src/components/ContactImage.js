@@ -9,7 +9,7 @@ import { BGCOLOR } from "../Styles/Colors";
 
 const ContactImage = props => {
     const item = props.imageUri;
-    console.log(item)
+ 
     return (
             <View style={{
                 height: 120,
