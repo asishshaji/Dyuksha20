@@ -12,6 +12,7 @@ import ContactCard from "../../components/ContactCard";
 import { DesignerCard } from "../../components/ContactCard";
 import firebase, { firestore } from 'react-native-firebase';
 import LottieView from 'lottie-react-native';
+import Back from '../../components/RoundedBackButton'
 const { height, width } = Dimensions.get('window')
 
 const DyukshaCard = props => {
@@ -94,18 +95,10 @@ class About extends Component {
                     showsVerticalScrollIndicator={false}>
                     <View style={styles.container}>
 
-                        <View style={{
-                            margin: 15, flexDirection:
-                                'row', alignItems: 'center', justifyContent: 'space-between'
-                        }}>
-                            <TouchableOpacity onPress={this.props.navigation.openDrawer} style={{ alignItems: "flex-start", }}>
-                                <Icon name={'ios-menu'} color={DRAWERCOLOR} size={35} style={{}} />
-                            </TouchableOpacity>
-                            <View style={{ margin: 5 }}>
-                                <Text style={{ fontSize: 25, fontFamily: 'Black', color: ICONCOLOR, textAlign: 'right' }}>
-                                    About
+                        <View style={{ margin: 5 }}>
+                            <Text style={{ fontSize: 25, fontFamily: 'Black', color: ICONCOLOR, textAlign: 'right' }}>
+                                About
                         </Text>
-                            </View>
                         </View>
 
 
@@ -156,7 +149,7 @@ class About extends Component {
                                     <Text style={{ padding: 5, fontSize: 20, fontFamily: 'Black', color: FONTCOLOR }}>Our Design Head</Text>
                                 </View>
 
-                                <ScrollView style={{ backgroundColor: BGCOLOR }} contentContainerStyle={{  minHeight:200}} >
+                                <ScrollView style={{ backgroundColor: BGCOLOR }} contentContainerStyle={{ minHeight: 200 }} >
                                     {this.state.DesignerList.length === 0 ?
                                         <View style={{ alignItems: 'center', justifyContent: 'center' }}>
                                             <LottieView source={require('../../../assets/person.json')}
@@ -196,7 +189,7 @@ class About extends Component {
                                 </View>
 
 
-                                <ScrollView style={{ backgroundColor: BGCOLOR }} contentContainerStyle={{ minHeight:200}} >
+                                <ScrollView style={{ backgroundColor: BGCOLOR }} contentContainerStyle={{ minHeight: 200 }} >
                                     {this.state.DeveloperList.length === 0 ?
                                         <View style={{ alignItems: 'center', justifyContent: 'center' }}>
                                             <LottieView source={require('../../../assets/person.json')}
@@ -234,6 +227,8 @@ class About extends Component {
 
                     </View>
                 </ScrollView>
+                <Back navigation={this.props.navigation} />
+
             </View>
         );
     }
@@ -288,7 +283,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Light',
         color: FONTCOLOR,
         marginVertical: 10,
-        padding:10
+        padding: 10
     },
     designerContainer: {
         flex: 1,

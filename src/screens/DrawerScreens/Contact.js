@@ -13,6 +13,8 @@ import { BGCOLOR, FONTCOLOR, DRAWERCOLOR, ICONCOLOR } from "../../Styles/Colors"
 import Icon from 'react-native-vector-icons/Ionicons';
 import firebase, { firestore } from 'react-native-firebase';
 import ContactCard from "../../components/ContactCard";
+import Back from '../../components/RoundedBackButton'
+
 
 
 const { height, width } = Dimensions.get('window')
@@ -50,85 +52,83 @@ class Contact extends Component {
     render() {
 
         return (
+            <View>
+                <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{
+                }}>
+                    <View style={styles.container}>
 
-            <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{
-            }}>
-                <View style={styles.container}>
-
-                    <View style={{ margin: 15, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-                        <TouchableOpacity onPress={this.props.navigation.openDrawer} style={{ alignItems: "flex-start", }}>
-                            <Icon name={'ios-menu'} color={DRAWERCOLOR} size={35} style={{}} />
-                        </TouchableOpacity>
                         <View style={{ margin: 5 }}>
                             <Text style={{ fontSize: 25, fontFamily: 'Black', color: ICONCOLOR, textAlign: 'right' }}>
                                 Contact
                         </Text>
                         </View>
-                    </View>
 
 
-                    <View style={{ marginTop: 30, }}>
-                        <Text style={{ paddingLeft: 5, fontSize: 21, fontFamily: 'Black', color: FONTCOLOR, }}>
-                            Contact Us
+                        <View style={{ marginTop: 30, }}>
+                            <Text style={{ paddingLeft: 5, fontSize: 21, fontFamily: 'Black', color: FONTCOLOR, }}>
+                                Contact Us
                         </Text>
-                    </View>
-                    {/* Contacts */}
-                    <ScrollView style={{ backgroundColor: BGCOLOR }} contentContainerStyle={styles.contentContainer} >
+                        </View>
+                        {/* Contacts */}
+                        <ScrollView style={{ backgroundColor: BGCOLOR }} contentContainerStyle={styles.contentContainer} >
 
-                        <View style={{ alignItems: 'center', }}>
-                            {this.state.ContactList.length === 0 ?
-                                <View style={{ margin: 20, alignItems: 'center', justifyContent: 'center' }}>
-                                    <LottieView source={require('../../../assets/contact.json')}
-                                        autoPlay loop
-                                        style={{ height: 300, width: 300, }}
+                            <View style={{ alignItems: 'center', }}>
+                                {this.state.ContactList.length === 0 ?
+                                    <View style={{ margin: 20, alignItems: 'center', justifyContent: 'center' }}>
+                                        <LottieView source={require('../../../assets/contact.json')}
+                                            autoPlay loop
+                                            style={{ height: 300, width: 300, }}
+                                        />
+                                    </View>
+                                    :
+                                    <FlatList
+                                        showsVerticalScrollIndicator={false}
+                                        horizontal={false}
+                                        contentContainerStyle={{}}
+                                        data={this.state.ContactList}
+                                        renderItem={({ item, index }) => (this.renderList(item, index))}
                                     />
-                                </View>
-                                :
-                                <FlatList
-                                    showsVerticalScrollIndicator={false}
-                                    horizontal={false}
-                                    contentContainerStyle={{}}
-                                    data={this.state.ContactList}
-                                    renderItem={({ item, index }) => (this.renderList(item, index))}
-                                />
-                            }
-                        </View>
-                    </ScrollView>
+                                }
+                            </View>
+                        </ScrollView>
 
-                    <View style={{ marginTop: 8, alignItems: 'flex-end' }}>
-                        <Text style={{ paddingRight: 5, fontSize: 21, fontFamily: 'Black', color: FONTCOLOR, }}>
-                            Reach Us
+                        <View style={{ marginTop: 8, alignItems: 'flex-end' }}>
+                            <Text style={{ paddingRight: 5, fontSize: 21, fontFamily: 'Black', color: FONTCOLOR, }}>
+                                Reach Us
                         </Text>
-                    </View>
-
-                    <View style={{ alignItems: 'center', paddingRight: 5, justifyContent: 'center' }}>
-                        <View style={{
-                            flex: 1,
-                            padding: 10,
-                            borderRadius: 12,
-                            elevation: 10,
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            width: width * 0.9,
-                            backgroundColor: BGCOLOR,
-                            marginTop: 8,
-                            marginBottom: 30,
-
-
-                        }}>
-                            <Text style={{ alignItems: 'center', textAlign: 'center', fontFamily: 'Light' }}>
-                                NSS College of Engineering,  </Text>
-                            <Text style={{ alignItems: 'center', textAlign: 'center', fontFamily: 'Light' }}> Akathethara P.O.</Text>
-                            <Text style={{ alignItems: 'center', textAlign: 'center', fontFamily: 'Light' }}>Palakkad, Kerala</Text>
-                            <Text style={{ alignItems: 'center', textAlign: 'center', fontFamily: 'Light' }}> India. 678008.</Text>
-
-
-                            <Text style={{ alignItems: 'center', padding: 5, textAlign: 'center', fontFamily: 'Light' }}>dyuksha@nssce.ac.in</Text>
                         </View>
+
+                        <View style={{ alignItems: 'center', paddingRight: 5, justifyContent: 'center' }}>
+                            <View style={{
+                                flex: 1,
+                                padding: 10,
+                                borderRadius: 12,
+                                elevation: 10,
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                width: width * 0.9,
+                                backgroundColor: BGCOLOR,
+                                marginTop: 8,
+                                marginBottom: 30,
+
+
+                            }}>
+                                <Text style={{ alignItems: 'center', textAlign: 'center', fontFamily: 'Light' }}>
+                                    NSS College of Engineering,  </Text>
+                                <Text style={{ alignItems: 'center', textAlign: 'center', fontFamily: 'Light' }}> Akathethara P.O.</Text>
+                                <Text style={{ alignItems: 'center', textAlign: 'center', fontFamily: 'Light' }}>Palakkad, Kerala</Text>
+                                <Text style={{ alignItems: 'center', textAlign: 'center', fontFamily: 'Light' }}> India. 678008.</Text>
+
+
+                                <Text style={{ alignItems: 'center', padding: 5, textAlign: 'center', fontFamily: 'Light' }}>dyuksha@nssce.ac.in</Text>
+                            </View>
+                        </View>
+
                     </View>
 
-                </View>
-            </ScrollView>
+                </ScrollView>
+                <Back navigation={this.props.navigation} />
+            </View>
         );
     }
 
