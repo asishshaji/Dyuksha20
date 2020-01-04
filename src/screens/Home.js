@@ -178,6 +178,7 @@ class Home extends Component {
                                 <BannerCard
                                     imageUrl={item.imageUrl}
                                     width={width}
+                                    title={item.title}
                                     sliderH={sliderH}
                                 />
                             )} />
@@ -297,8 +298,8 @@ class Home extends Component {
 
                 </ScrollView>
 
-                <View style={{position: "absolute", top: 10, right: 10 }}>
-                    <FloatingButton style={{alignItems:'center', }} nav={nav} />
+                <View style={{ position: "absolute", top: 10, right: 10 }}>
+                    <FloatingButton style={{ alignItems: 'center', }} nav={nav} />
                 </View>
 
             </View>

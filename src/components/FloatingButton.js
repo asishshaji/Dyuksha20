@@ -93,10 +93,10 @@ class FloatingButton extends Component {
         const rotation = {
             zIndex: 1000,
             backgroundColor: "white",
-            width: 50,
-            height: 50,
+            width: 60,
+            height: 60,
             elevation: 8,
-            borderRadius: 25,
+            borderRadius: 30,
             alignItems: 'center',
             justifyContent: 'center',
 

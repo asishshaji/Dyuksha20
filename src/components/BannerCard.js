@@ -2,6 +2,7 @@ import React from "react";
 import {
     View,
     Image,
+    Text
 } from "react-native";
 
 const Banner = (props) => (
@@ -13,6 +14,12 @@ const Banner = (props) => (
         }}>
         <Image style={{ flex: 1, borderRadius: 12 }}
             source={{ uri: props.imageUrl }} resizeMode="cover" />
+        <Text style={{
+            fontFamily: 'Black', position: 'absolute', bottom: 30,
+            color: '#fff', fontSize: 22, padding: 5,
+            maxHeight: props.sliderH - 25,
+            minWidth: props.width - 20, alignSelf: 'center', textAlign: 'right'
+        }}>{props.title}</Text>
     </View>
 )
 export default Banner;

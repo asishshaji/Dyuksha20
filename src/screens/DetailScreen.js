@@ -29,7 +29,7 @@ class DetailScreen extends Component {
         const { navigation } = this.props;
         const imageH = height * 0.5;
         const item = navigation.getParam('item')
-        const navToday = navigation.getParam('navToday',{})
+        const navToday = navigation.getParam('navToday', {})
 
         const animImageH = this.scroll.interpolate({
             inputRange: [0, imageH - 60],
@@ -75,6 +75,7 @@ class DetailScreen extends Component {
                             }} source={{ uri: item.imageUrl }}
                                 resizeMode="cover"
                             />
+
                             {item.tagline ? <Animated.View style={{
                                 width: width, height: animImageH, borderBottomLeftRadius: imageRad,
                                 borderBottomRightRadius: imageRad, position: 'absolute', top: 0,
@@ -85,6 +86,7 @@ class DetailScreen extends Component {
                                     fontFamily: 'Black', color: "#fff"
                                     , position: 'absolute', zIndex: 100000, textTransform: 'uppercase', fontSize: 18, textAlign: 'center'
                                 }}>{item.tagline}</Text>
+
                             </Animated.View> : null}
 
 
@@ -100,6 +102,7 @@ class DetailScreen extends Component {
                                     fontSize: 26, fontFamily: 'Black',
                                     color: FONTCOLOR, maxWidth: width / 2 + 40, textTransform: 'capitalize'
                                 }}>{item.title}</Text>
+
                                 <View style={{ flexDirection: 'row', }}>
                                     <Icon name="ios-calendar" size={24} color="#E55656" style={{ marginRight: 5 }} onPress={() => alert('Call')} />
                                     <View>
@@ -108,8 +111,15 @@ class DetailScreen extends Component {
                                     </View>
 
                                 </View>
+
                             </View>
+                            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                                <Icon name="ios-pin" size={24} color="#E55656" style={{ marginRight: 5, }} onPress={() => alert('Call')} />
+                                <Text style={{ fontSize: 18, marginTop: 8, fontFamily: 'Black', color: FONTCOLOR }}>{item.location}</Text>
+                            </View>
+
                             <Text style={{ fontSize: 16, marginTop: 8, fontFamily: 'Light', color: FONTCOLOR }}>{item.details}</Text>
+
                             {item.rules ?
                                 <View>
                                     <Text style={{ fontSize: 18, marginTop: 10, fontFamily: 'Black', color: FONTCOLOR }}>RULES</Text>
@@ -123,12 +133,12 @@ class DetailScreen extends Component {
 
 
                         {/* Coordinators */}
-                        
+
                         <View style={{ margin: 10, padding: 5, flexDirection: 'row', height: 150, marginBottom: 70, marginTop: 0 }}>
                             {
                                 item.volunteers.map((val, index) => {
                                     return (
-                                        
+
                                         <RoundUser name={val.name} image={val.imageUrl} index={index} />
 
                                     )
