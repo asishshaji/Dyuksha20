@@ -1,14 +1,16 @@
-import React, { Component } from "react";
-import {
-    View,
-    Text,
-    StyleSheet,
-    FlatList, ScrollView, Image,
-    Dimensions
-} from "react-native";
 import { BGCOLOR, FONTCOLOR, FONTCOLORWHITE, ICONCOLOR } from "../Styles/Colors"
-import LottieView from 'lottie-react-native';
+import {
+    Dimensions,
+    FlatList,
+    Image,
+    ScrollView,
+    StyleSheet,
+    Text,
+    View
+} from "react-native";
+import React, { Component } from "react";
 
+import LottieView from 'lottie-react-native';
 import { firestore } from 'react-native-firebase';
 
 const { height, width } = Dimensions.get('window')

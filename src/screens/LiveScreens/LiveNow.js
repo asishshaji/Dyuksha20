@@ -1,22 +1,23 @@
-import React, { Component } from "react";
 import {
-  View,
-  Text,
-  StyleSheet,
-  Dimensions,
-  Image,
-  ScrollView,
-  FlatList,
-  TouchableWithoutFeedback,
-  TouchableOpacity,
   ActivityIndicator,
-  RefreshControl
+  Dimensions,
+  FlatList,
+  Image,
+  RefreshControl,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View
 } from "react-native";
-import Icon from 'react-native-vector-icons/Ionicons';
-import firebase, { firestore } from 'react-native-firebase';
 import { BGCOLOR, FONTCOLOR, ICONCOLOR } from "../../Styles/Colors"
-import CardLive from "../../components/CardLive";
+import React, { Component } from "react";
+import firebase, { firestore } from 'react-native-firebase';
+
 import BackButton from '../../components/RoundedBackButton';
+import CardLive from "../../components/CardLive";
+import Icon from 'react-native-vector-icons/Ionicons';
 import LottieView from 'lottie-react-native';
 
 const { height, width } = Dimensions.get('window')
@@ -89,7 +90,7 @@ class LiveNow extends Component {
           </View>
         }
 
-        <View style={{ position: 'absolute', top: 25, right: 5, }}>
+        <View style={{ position: 'absolute', top: 25, right: 5 }}>
           <Text style={{ fontSize: 25, fontFamily: 'Black', color: ICONCOLOR, }}>
             Feed
               </Text>

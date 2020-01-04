@@ -1,23 +1,18 @@
-import React, { Component } from "react";
-import {
-  View,
-  Text,
-  FlatList,
-  ScrollView,
-  Dimensions,
-  TouchableOpacity,
-  TouchableWithoutFeedback, StyleSheet, ImageBackground
-
-} from "react-native";
-
-import LottieView from 'lottie-react-native';
-import firebase, { firestore } from 'react-native-firebase';
-
-
 import { BGCOLOR, FONTCOLOR, ICONCOLOR } from "../Styles/Colors";
+import {
+  Dimensions,
+  FlatList,
+  ImageBackground,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View
+} from "react-native";
+import React, { Component } from "react";
+
 import Today from "./LiveScreens/Today";
-
-
 
 const { height, width } = Dimensions.get('window')
 
@@ -26,12 +21,9 @@ class Live extends Component {
   static navigationOptions = {
     header: null,
   }
-
+  
   render() {
-
-
     const navigate = this.props.navigation; // should navigate from today to details
-
     return (
       <ScrollView style={{ flex: 1, backgroundColor: BGCOLOR }} contentContainerStyle={{}} showsVerticalScrollIndicator={false}>
         <View style={styles.mainContainer}>
@@ -43,7 +35,6 @@ class Live extends Component {
               </Text>
             </View>
           </View>
-
           <View style={styles.todayContainer}>
             <View style={styles.TitleToday}>
               <Text style={{ fontSize: 22, fontFamily: 'Black', color: ICONCOLOR, }}>
@@ -54,17 +45,12 @@ class Live extends Component {
               <Today navigation={navigate} />
             </View>
           </View>
-
-
         </View>
       </ScrollView>
-
     );
   }
-
 }
 export default Live;
-
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
@@ -73,10 +59,7 @@ const styles = StyleSheet.create({
   },
   TitleMain: {
     height: 140,
-   
   },
-
-
   TitleToday: {
     padding: 10,
     paddingTop: 15,
@@ -88,7 +71,5 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     width: width,
     backgroundColor: BGCOLOR,
-
   },
 });
-

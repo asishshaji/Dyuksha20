@@ -1,20 +1,20 @@
-import React, { Component } from "react";
-import {
-    View,
-    Text,
-    StyleSheet,
-    ScrollView,
-    Dimensions,
-    FlatList,
-    TouchableWithoutFeedback
-} from "react-native";
-import firebase, { firestore } from 'react-native-firebase';
-import LottieView from 'lottie-react-native';
-
-import EventCard from '../../components/CardHome'
-import { BGCOLOR } from "../../Styles/Colors";
 import "moment/locale/nl-be"
 
+import {
+    Dimensions,
+    FlatList,
+    ScrollView,
+    StyleSheet,
+    Text,
+    TouchableWithoutFeedback,
+    View
+} from "react-native";
+import React, { Component } from "react";
+import firebase, { firestore } from 'react-native-firebase';
+
+import { BGCOLOR } from "../../Styles/Colors";
+import EventCard from '../../components/CardHome'
+import LottieView from 'lottie-react-native';
 import moment from 'moment';
 
 const { height, width } = Dimensions.get('window')

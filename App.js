@@ -1,24 +1,22 @@
-import React from 'react'
-import { Dimensions, View, Text, BackHandler, Animated, Easing } from 'react-native'
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator, StackViewTransitionConfigs } from 'react-navigation-stack';
-import { createBottomTabNavigator } from 'react-navigation-tabs';
 import 'react-native-gesture-handler';
-import Home from './src/screens/Home';
 
-import Detail from './src/screens/DetailScreen';
-import Live from './src/screens/Live';
-import Notifications from './src/screens/Notifications';
-import SplashScreen from './src/screens/SplashScreen'
+import { Animated, BackHandler, Dimensions, Easing, Text, View } from 'react-native'
+import { StackViewTransitionConfigs, createStackNavigator } from 'react-navigation-stack';
 
-import Icon from 'react-native-vector-icons/Ionicons';
-import SelectScreen from './src/screens/ListScreen';
-import LiveNow from './src/screens/LiveScreens/LiveNow';
 import About from './src/screens/DrawerScreens/About'
 import Contact from './src/screens/DrawerScreens/Contact'
-
+import Detail from './src/screens/DetailScreen';
+import Home from './src/screens/Home';
+import Icon from 'react-native-vector-icons/Ionicons';
+import Live from './src/screens/Live';
+import LiveNow from './src/screens/LiveScreens/LiveNow';
+import Notifications from './src/screens/Notifications';
+import React from 'react'
+import SelectScreen from './src/screens/ListScreen';
+import SplashScreen from './src/screens/SplashScreen'
+import { createAppContainer } from 'react-navigation';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
 import firebase from 'react-native-firebase'
-
 
 const { width } = Dimensions.get('window')
 const barWidth = 230
@@ -27,7 +25,6 @@ const barSpacing = (width - barWidth) / 2
 
 firebase.auth().signInAnonymously()
     .then((user) => {
-        console.log(user)
     });
 
 
