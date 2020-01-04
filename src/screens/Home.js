@@ -138,7 +138,7 @@ class Home extends Component {
 
         return (
 
-            <View style={{ flex: 1, marginTop:10 }}>
+            <View style={{ flex: 1 }}>
                 <ScrollView style={styles.container} showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 100 }}>
 
                     <StatusBar hidden backgroundColor="transparent" barStyle="light-content" />
