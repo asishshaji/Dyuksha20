@@ -3,14 +3,15 @@ import {
     View,
     Text,
     StyleSheet,
-    FlatList, ScrollView
+    FlatList, ScrollView, Image,
+    Dimensions
 } from "react-native";
 import { BGCOLOR, FONTCOLOR, FONTCOLORWHITE, ICONCOLOR } from "../Styles/Colors"
 import LottieView from 'lottie-react-native';
 
 import { firestore } from 'react-native-firebase';
-import RoundedBackButton from "../components/RoundedBackButton";
 
+const { height, width } = Dimensions.get('window')
 class Notifications extends Component {
     static navigationOptions = {
         header: null,
@@ -66,12 +67,19 @@ class Notifications extends Component {
                             <View style={{ margin: 5, marginLeft: 10, marginRight: 10, backgroundColor: BGCOLOR, borderRadius: 10, elevation: 4, minHeight: 100, padding: 12 }}>
                                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                                     <Text style={{ color: FONTCOLOR, fontFamily: 'Black', fontSize: 20 }}>{item.Title}</Text>
-                                    <Text style={{ color: FONTCOLOR, fontFamily: 'Black', fontSize: 16, alignSelf: 'center' }}>{item.date.replace("/2020", "")}</Text>
+                                    <Text style={{ color: FONTCOLOR, fontFamily: 'Light', fontSize: 14, alignSelf: 'center' }}>{item.date.replace("/2020", "")}</Text>
                                 </View>
                                 <View>
 
                                     <Text style={{ color: FONTCOLOR, fontFamily: 'Light', fontSize: 16 }}>{item.Body}</Text>
-                                    <Text style={{ color: FONTCOLOR, fontFamily: 'Black', fontSize: 16, textAlign: 'right' }}>{item.time}</Text>
+                                    {
+                                        item.imageUrl.length === 0 ? null
+                                            :
+                                            <View style={{alignItems:'center'}}>
+                                                <Image source={{uri:item.imageUrl}} style={{  height: 250, width: width-40, resizeMode:'contain' }}  />
+                                            </View>
+                                    }
+                                    <Text style={{ color: FONTCOLOR, fontFamily: 'Light', fontSize: 16, textAlign: 'right' }}>{item.time}</Text>
                                 </View>
                             </View>
                         )}
