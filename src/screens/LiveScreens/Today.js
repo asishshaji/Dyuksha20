@@ -13,7 +13,9 @@ import LottieView from 'lottie-react-native';
 
 import EventCard from '../../components/CardHome'
 import { BGCOLOR } from "../../Styles/Colors";
+import "moment/locale/nl-be"
 
+import moment from 'moment';
 
 const { height, width } = Dimensions.get('window')
 
@@ -23,15 +25,16 @@ class Today extends Component {
 
     constructor(props) {
         super(props);
-        this.events = firestore().collection('Event');
+        this.events = firestore().collection('Common');
         this.state = {
-
             TodayList: [],
         };
     }
 
     componentDidMount() {
-        this.events.onSnapshot(querySnapshot => {
+        moment.locale('nl-be');
+        var date = moment().format('L');
+        this.events.where("elabDate", "==", date).onSnapshot(querySnapshot => {
             this.setState({
                 TodayList: []
             });
@@ -50,7 +53,6 @@ class Today extends Component {
 
         return (
             <ScrollView style={{ backgroundColor: BGCOLOR, }} contentContainerStyle={{ alignItems: 'center' }} >
-                {/* <Text style={{ color: 'white' }}>ALL SHOTS</Text> */}
 
                 <View style={{ justifyContent: 'center', }}>
                     {this.state.TodayList.length === 0 ?
@@ -61,8 +63,8 @@ class Today extends Component {
                                     style={{ justifyContent: 'center', height: 100, width: 100, alignSelf: 'center' }}
                                 />
                             </View>
-                            <View style={{  alignItems:'center',  }}>
-                                <Text style={{fontSize:15, fontFamily:"Light"}}>Will be updated soon...</Text>
+                            <View style={{ alignItems: 'center', }}>
+                                <Text style={{ fontSize: 15, fontFamily: "Light" }}>Will be updated soon...</Text>
                             </View>
                         </View>
 

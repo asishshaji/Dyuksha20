@@ -17,10 +17,18 @@ import LiveNow from './src/screens/LiveScreens/LiveNow';
 import About from './src/screens/DrawerScreens/About'
 import Contact from './src/screens/DrawerScreens/Contact'
 
+import firebase from 'react-native-firebase'
+
 
 const { width } = Dimensions.get('window')
 const barWidth = 230
 const barSpacing = (width - barWidth) / 2
+
+
+firebase.auth().signInAnonymously()
+    .then((user) => {
+        console.log(user)
+    });
 
 
 const AppNavigator = createStackNavigator({
