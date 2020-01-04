@@ -132,7 +132,18 @@ AppNavigator.navigationOptions = ({ navigation }) => {
 
     if (routeName == 'Detail') {
         tabBarVisible = false
-    } else if (routeName === "SplashScreen") {
+    }
+    else if (routeName == 'Contact') {
+        tabBarVisible = false
+    }
+    else if (routeName == 'About') {
+        tabBarVisible = false
+    }
+    else if (routeName == 'Map') {
+        tabBarVisible = false
+    }
+
+    else if (routeName === "SplashScreen") {
         tabBarVisible = false
 
     }

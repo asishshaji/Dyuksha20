@@ -95,7 +95,7 @@ class About extends Component {
                     showsVerticalScrollIndicator={false}>
                     <View style={styles.container}>
 
-                        <View style={{ margin: 5 }}>
+                        <View style={{ margin: 15, marginTop: 25 }}>
                             <Text style={{ fontSize: 25, fontFamily: 'Black', color: ICONCOLOR, textAlign: 'right' }}>
                                 About
                         </Text>
@@ -227,8 +227,9 @@ class About extends Component {
 
                     </View>
                 </ScrollView>
-                <Back navigation={this.props.navigation} />
-
+                <View style={{left:-10,position:'absolute'}}>
+                    <Back navigation={this.props.navigation} />
+                </View>
             </View>
         );
     }
