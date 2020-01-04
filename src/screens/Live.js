@@ -46,7 +46,7 @@ class Live extends Component {
 
           <View style={styles.todayContainer}>
             <View style={styles.TitleToday}>
-              <Text style={{ fontSize: 25, fontFamily: 'Black', color: ICONCOLOR, }}>
+              <Text style={{ fontSize: 22, fontFamily: 'Black', color: ICONCOLOR, }}>
                 Today
               </Text>
             </View>
@@ -72,12 +72,8 @@ const styles = StyleSheet.create({
     paddingBottom: 100
   },
   TitleMain: {
-
-
     height: 140,
-
-
-
+   
   },
 
 
