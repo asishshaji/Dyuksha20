@@ -1,113 +1,3 @@
-// import React from 'react'
-// import { Dimensions, View, Text, } from 'react-native'
-// import { createAppContainer } from 'react-navigation';
-// import { createDrawerNavigator } from 'react-navigation-drawer';
-// import { BGCOLOR, FONTCOLOR, ICONCOLOR } from './src/Styles/Colors';
-
-// import firebase from 'react-native-firebase'
-
-// import CustomDrawer from './src/components/CustomDrawer';
-
-// import BottomNav from './navigators/index'
-
-
-// import About from './src/screens/DrawerScreens/About';
-// import Contact from './src/screens/DrawerScreens/Contact';
-
-
-// const { width } = Dimensions.get('window')
-
-// const channel = new firebase.notifications.Android.Channel(
-//   "Dyuksha",
-//   "Notifications",
-//   firebase.notifications.Android.Importance.Max
-// ).setDescription("Dyuksha");
-
-// // Create the channel
-// firebase.notifications().android.createChannel(channel);
-
-
-// const barWidth = 230
-// const barSpacing = (width - barWidth) / 2
-
-
-// const DrawerNavigator = createDrawerNavigator({
-
-//   Discover: {
-//     screen: BottomNav,
-//     navigationOptions: {
-//       title: 'Discover',
-//     }
-//   },
-
-//   About: {
-//     screen: About,
-//     navigationOptions: {
-//       title: 'About'
-//     }
-//   },
-//   Contact: {
-//     screen: Contact,
-//     navigationOptions: {
-//       title: 'Contact'
-//     }
-//   },
-
-// },
-//   {
-//     contentComponent: props => <CustomDrawer {...props} />,
-//     drawerWidth: width * 0.75,
-//     drawerType: 'front',
-
-//     contentOptions: {
-//       activeBackgroundColor: ICONCOLOR,
-//       activeTintColor: "white",
-//       inactiveTintColor: 'grey',
-//       itemContainerStyle: {
-//       },
-
-//       itemStyle: {
-//         borderRadius: 5
-//       }
-//     }
-//   }
-// );
-
-// DrawerNavigator.navigationOptions = ({ navigation }) => {
-
-
-//   let tabBarVisible = true;
-
-//   let isDrawerOpen = navigation.state.isDrawerOpen
-
-//   let routeName = navigation.state.routes[navigation.state.index].routeName
-
-//   if (isDrawerOpen) {
-//     tabBarVisible = false
-//   }
-//   // else if (routeName === "Map") {
-//   //   tabBarVisible = false
-
-//   // }
-
-//   return {
-//     tabBarVisible,
-//     isDrawerOpen
-//   }
-// }
-
-
-
-
-
-// export default createAppContainer(DrawerNavigator);
-
-
-
-
-
-
-
 import React from 'react'
 import { Dimensions, View, Text, BackHandler, Animated, Easing } from 'react-native'
 import { createAppContainer } from 'react-navigation';
@@ -118,13 +8,14 @@ import Home from './src/screens/Home';
 
 import Detail from './src/screens/DetailScreen';
 import Live from './src/screens/Live';
-import MapScreen from './src/screens/MapScreen';
 import Notifications from './src/screens/Notifications';
 import SplashScreen from './src/screens/SplashScreen'
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import SelectScreen from './src/screens/ListScreen';
 import LiveNow from './src/screens/LiveScreens/LiveNow';
+import About from './src/screens/DrawerScreens/About'
+import Contact from './src/screens/DrawerScreens/Contact'
 
 
 const { width } = Dimensions.get('window')
@@ -141,9 +32,6 @@ const AppNavigator = createStackNavigator({
         screen: Detail
 
     },
-    Notifications: {
-        screen: Notifications,
-    },
     LiveNow: {
         screen: LiveNow
     },
@@ -154,6 +42,12 @@ const AppNavigator = createStackNavigator({
 
     SplashScreen: {
         screen: SplashScreen
+    },
+    About: {
+        screen: About
+    },
+    Contact: {
+        screen: Contact
     }
 }, {
     defaultNavigationOptions: {
@@ -302,8 +196,8 @@ const customTabs = ({ navigation }) => ({
         // else if (routeName === 'Notifications') {
         //     return renderNav(routeName, 'ios-notifications', tintColor, focused);
         // }
-        else if (routeName === 'Map') {
-            return renderNav(routeName, 'ios-compass', tintColor, focused);
+        else if (routeName === 'Notification') {
+            return renderNav(routeName, 'ios-notifications-outline', tintColor, focused);
         }
     }
 });
@@ -319,8 +213,8 @@ const BottomNav = createBottomTabNavigator({
 
     },
 
-    Map: {
-        screen: MapScreen
+    Notification: {
+        screen: Notifications
     }
 
 

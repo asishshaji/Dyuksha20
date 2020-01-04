@@ -76,7 +76,6 @@ class Notifications extends Component {
                             )}
                         />}
                 </View>
-                <RoundedBackButton navigation={nav} />
             </View>
         );
     }
