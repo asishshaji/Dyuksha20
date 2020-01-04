@@ -138,10 +138,10 @@ class Home extends Component {
 
         return (
 
-            <View style={{ flex: 1 }}>
+            <View style={{ flex: 1, marginTop:10 }}>
                 <ScrollView style={styles.container} showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 100 }}>
 
-                    <StatusBar backgroundColor="transparent" barStyle="light-content" />
+                    <StatusBar hidden backgroundColor="transparent" barStyle="light-content" />
                     <View style={{ margin: 10, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
 
                         <View style={{ width: 200, alignItems: 'center', flexDirection: 'row' }} >
@@ -156,7 +156,7 @@ class Home extends Component {
                     <View style={{ height: sliderH }}>
                         <Animated.View style={{
                             elevation: 5, position: 'absolute',
-                            bottom: 70, right: -20, backgroundColor: '#fff', zIndex: 2000,
+                            bottom: 45, right: -20, backgroundColor: '#fff', zIndex: 2000,
                             width: this.animatedSlider, height: 45,
                             borderRadius: 45 / 2
                         }}>
@@ -280,12 +280,14 @@ class Home extends Component {
                                     showsHorizontalScrollIndicator={false}
                                     horizontal={true}
                                     numColumns={1}
+                                    contentContainerStyle={{paddingRight:10}}
                                     data={this.state.LiveList}
                                     keyExtractor={item => item.id}
                                     renderItem={({ item, index }) => (
                                         <TouchableWithoutFeedback>
                                             <CardLive
                                                 nav={nav}
+                                                width={width - 50}
                                                 cardTitle={item.title}
                                                 imageUrl={item.imageUrl}
                                                 time={item.time}

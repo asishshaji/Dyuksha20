@@ -75,7 +75,7 @@ class LiveNow extends Component {
 
             <FlatList
               showsHorizontalScrollIndicator={false}
-              contentContainerStyle={{ paddingBottom: 18, paddingTop: 60, paddingLeft: 15 }}
+              contentContainerStyle={{ paddingBottom: 18, paddingTop: 60, alignItems: 'center' }}
               horizontal={false}
               showsVerticalScrollIndicator={false}
               numColumns={1}
@@ -89,12 +89,14 @@ class LiveNow extends Component {
           </View>
         }
 
-        {/* <View style={{position:'absolute', top: 25, right: 20,}}>
+        <View style={{ position: 'absolute', top: 25, right: 5, }}>
           <Text style={{ fontSize: 25, fontFamily: 'Black', color: ICONCOLOR, }}>
             Feed
               </Text>
-        </View> */}
-        <BackButton navigation={navigation} />
+        </View>
+        <View style={{ position: 'absolute', left: -12 }}>
+          <BackButton navigation={navigation} />
+        </View>
 
       </View>
     );
@@ -104,6 +106,7 @@ class LiveNow extends Component {
     return (
       <View style={{ marginTop: 10 }}>
         <CardLive
+          width={width-10}
           cardTitle={item.title}
           imageUrl={item.imageUrl}
           time={item.time}

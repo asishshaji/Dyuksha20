@@ -185,7 +185,7 @@ class About extends Component {
 
                             <View style={styles.developerContainer}>
                                 <View style={{ marginTop: 30 }}>
-                                    <Text style={{ padding: 5, fontSize: 20, fontFamily: 'Black', color: FONTCOLOR }}>Here are Our Developers</Text>
+                                    <Text style={{ padding: 5, fontSize: 20, fontFamily: 'Black', color: FONTCOLOR }}>Our Developers</Text>
                                 </View>
 
 

@@ -15,7 +15,7 @@ const { height, width } = Dimensions.get('window')
 
 const ContactCard = props => {
     const item = props.item;
-  
+
     return (
         <View style={{
             flex: 1,
@@ -30,9 +30,9 @@ const ContactCard = props => {
             backgroundColor: BGCOLOR,
 
         }}>
-            
+
             <ContactImage imageUri={item.imageUrl} />
-            
+
             <View style={{}}>
                 <View style={{ alignItems: 'center', justifyContent: 'space-between' }}>
                     <Text style={{
@@ -43,7 +43,7 @@ const ContactCard = props => {
                     }}>
                         {item.name}
                     </Text>
-                  
+
                     <Text style={{
                         fontSize: 15,
                         fontFamily: 'Light',
@@ -53,7 +53,7 @@ const ContactCard = props => {
                         {item.number}
                     </Text>
                     <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
-                        <Icon name="logo-github" size={25} color={FONTCOLOR} style={{ padding: 5 }} onPress={() => Linking.openURL(item.facebook)} />
+                        <Icon name={item.facebook ? "logo-facebook" : "logo-github"} size={25} color={FONTCOLOR} style={{ padding: 5 }} onPress={() => Linking.openURL(item.facebook ? item.facebook : item.github)} />
                         <Icon name="logo-instagram" size={25} color={FONTCOLOR} style={{ padding: 5 }} onPress={() => Linking.openURL(item.instagram)} />
                         <Icon name="logo-linkedin" size={25} color={FONTCOLOR} style={{ padding: 5 }} onPress={() => Linking.openURL(item.linkedin)} />
 
@@ -83,7 +83,7 @@ export const DesignerCard = props => {
             backgroundColor: BGCOLOR,
 
         }}>
-            
+
             <ContactImage imageUri={item.imageUrl} />
 
             <View style={{}}>
@@ -96,14 +96,7 @@ export const DesignerCard = props => {
                     }}>
                         {item.name}
                     </Text>
-                    <Text style={{
-                        fontSize: 15,
-                        fontFamily: 'Light',
-                        color: FONTCOLOR,
-                        padding: 3
-                    }}>
-                        {item.badge}
-                    </Text>
+                   
                     <Text style={{
                         fontSize: 15,
                         fontFamily: 'Light',

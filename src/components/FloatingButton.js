@@ -19,7 +19,7 @@ class FloatingButton extends Component {
 
         Animated.spring(this.animation, {
             toValue,
-            friction: 10
+            friction: 6
         }).start();
         this.open = !this.open;
 
@@ -93,10 +93,10 @@ class FloatingButton extends Component {
         const rotation = {
             zIndex: 1000,
             backgroundColor: "white",
-            width: 60,
-            height: 60,
+            width: 50,
+            height: 50,
             elevation: 8,
-            borderRadius: 30,
+            borderRadius: 25,
             alignItems: 'center',
             justifyContent: 'center',
 
@@ -135,13 +135,13 @@ class FloatingButton extends Component {
                     </Animated.View>
                 </TouchableWithoutFeedback>
 
-                <TouchableWithoutFeedback onPress={console.log('clicked info')} >
+                <TouchableWithoutFeedback  >
                     <Animated.View style={infoStyle}>
                         <Icon name={"ios-information-circle-outline"} size={22} color={ICONCOLOR} onPress={() => this.props.nav.navigate("About")} />
                     </Animated.View>
                 </TouchableWithoutFeedback>
 
-                <TouchableWithoutFeedback onPress={console.log('clicked map')} >
+                <TouchableWithoutFeedback  >
                     <Animated.View style={mapStyle} onPress={() => this.props.nav.navigate("Map")} >
                         <Icon name={"ios-compass"} size={22} color={ICONCOLOR} />
                     </Animated.View>

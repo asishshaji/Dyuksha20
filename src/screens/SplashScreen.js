@@ -120,7 +120,7 @@ class SplashScreen extends Component {
         }, 300)
         return (
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', }}>
-                <StatusBar backgroundColor="transparent" barStyle="light-content" />
+                <StatusBar hidden backgroundColor="transparent" barStyle="light-content" />
                 <ImageBackground source={require('../../assets/logo.png')} style={{ width: 250, flex: 1, backgroundColor: BGCOLOR }} resizeMode="center" />
                 {/* <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                     <LottieView source={require('../../assets/loading.json')}

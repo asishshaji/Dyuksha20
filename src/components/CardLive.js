@@ -14,8 +14,23 @@ const CardLive = props => {
     const item = props.item;
     return (
         <TouchableOpacity onPress={() => { if (props.nav) { props.nav.navigate('LiveNow') } }} activeOpacity={1}>
-            <View style={styles.cardContainer}>
-                <View style={styles.card}>
+            <View style={{
+                alignItems: 'center',
+                margin: 10,
+                borderRadius: 8,
+                borderWidth: 0,
+                height: 300,
+                width: props.width,
+                elevation: 8,
+                marginTop: 10
+            }}>
+                <View style={{
+                    flex: 1,
+                    borderRadius: 8,
+                    borderWidth: 0,
+                    height: 300,
+                    width: props.width
+                }}>
                     <View style={styles.cardHeader}>
                         <View style={styles.cardTitle}>
                             <Text style={{
@@ -40,24 +55,7 @@ const CardLive = props => {
 export default CardLive;
 
 const styles = StyleSheet.create({
-    cardContainer: {
-        alignItems: 'center',
-        margin: 10,
-        borderRadius: 8,
-        borderWidth: 0,
-        height: 300,
-
-        width: width - 50,
-        elevation: 8,
-        marginTop: 10
-    },
-    card: {
-        flex: 1,
-        borderRadius: 8,
-        borderWidth: 0,
-        height: 300,
-        width: width - 50
-    },
+ 
     cardHeader: {
         borderWidth: 0,
         borderTopLeftRadius: 8,
