@@ -38,14 +38,9 @@ class Notifications extends Component {
     }
 
     render() {
-        console.log(this.state.notList)
         const nav = this.props.navigation;
         return (
             <View style={styles.container}>
-
-                <View style={{ padding: 10, paddingTop: 22 }}>
-                    <Text style={{ textAlign: 'right', fontFamily: 'Black', fontSize: 30, color: ICONCOLOR }}>Notifications</Text>
-                </View>
 
 
                 {this.state.notList.length === 0 ?
@@ -59,6 +54,11 @@ class Notifications extends Component {
                     <FlatList
                         showsVerticalScrollIndicator={false}
                         scrollEventThrottle={16}
+                        ListFooterComponent={() =>
+                            <View style={{ padding: 10, paddingTop: 22 }}>
+                                <Text style={{ textAlign: 'right', fontFamily: 'Black', fontSize: 30, color: ICONCOLOR }}>Notifications</Text>
+                            </View>
+                        }
                         contentContainerStyle={{ flexDirection: 'column-reverse', paddingBottom: 90 }}
                         keyExtractor={(item, index) => String(index)}
                         data={this.state.notList}
@@ -66,7 +66,7 @@ class Notifications extends Component {
                             <View style={{ margin: 5, marginLeft: 10, marginRight: 10, backgroundColor: BGCOLOR, borderRadius: 10, elevation: 4, minHeight: 100, padding: 12 }}>
                                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                                     <Text style={{ color: FONTCOLOR, fontFamily: 'Black', fontSize: 20 }}>{item.Title}</Text>
-                                    <Text style={{ color: FONTCOLOR, fontFamily: 'Black', fontSize: 16, alignSelf: 'center' }}>{item.date}</Text>
+                                    <Text style={{ color: FONTCOLOR, fontFamily: 'Black', fontSize: 16, alignSelf: 'center' }}>{item.date.replace("/2020", "")}</Text>
                                 </View>
                                 <View>
 
