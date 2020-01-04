@@ -280,7 +280,7 @@ class Home extends Component {
                                     showsHorizontalScrollIndicator={false}
                                     horizontal={true}
                                     numColumns={1}
-                                    contentContainerStyle={{ paddingRight: 10 }}
+                                    contentContainerStyle={{flexDirection:"row-reverse", paddingRight: 10 }}
                                     data={this.state.LiveList}
                                     keyExtractor={item => item.id}
                                     renderItem={({ item, index }) => (

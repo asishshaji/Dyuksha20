@@ -64,6 +64,11 @@ class LiveNow extends Component {
 
     return (
       <View style={{ flex: 1, backgroundColor: BGCOLOR, }}>
+       <View style={{  }}>
+          <Text style={{textAlign:'right',paddingRight:10, padding:25, fontSize: 25, fontFamily: 'Black', color: ICONCOLOR, }}>
+            Feed
+              </Text>
+        </View>
         {this.state.LiveList.length === 0 ?
           <View style={{ flex: 1, justifyContent: 'center' }}>
             <LottieView source={require('../../../assets/loading.json')}
@@ -76,7 +81,7 @@ class LiveNow extends Component {
 
             <FlatList
               showsHorizontalScrollIndicator={false}
-              contentContainerStyle={{ paddingBottom: 18, paddingTop: 60, alignItems: 'center' }}
+              contentContainerStyle={{flexDirection:'column-reverse', paddingBottom: 18, paddingTop: 20, alignItems: 'center' }}
               horizontal={false}
               showsVerticalScrollIndicator={false}
               numColumns={1}
@@ -90,12 +95,8 @@ class LiveNow extends Component {
           </View>
         }
 
-        <View style={{ position: 'absolute', top: 25, right: 5 }}>
-          <Text style={{ fontSize: 25, fontFamily: 'Black', color: ICONCOLOR, }}>
-            Feed
-              </Text>
-        </View>
-        <View style={{ position: 'absolute', left: -12 }}>
+       
+        <View style={{ position: 'absolute', left: -10 }}>
           <BackButton navigation={navigation} />
         </View>
 
