@@ -4,7 +4,7 @@ import {
     Text,
     StyleSheet, Image, Dimensions, ScrollView, Animated, ImageBackground
 } from "react-native";
-import { BGCOLOR, FONTCOLOR } from "../Styles/Colors"
+import { BGCOLOR, FONTCOLOR, ICONCOLOR } from "../Styles/Colors"
 import RoundUser from '../components/RoundUser';
 const { height, width } = Dimensions.get('window')
 
@@ -103,18 +103,18 @@ class DetailScreen extends Component {
                                     color: FONTCOLOR, maxWidth: width / 2 + 40, textTransform: 'capitalize'
                                 }}>{item.title}</Text>
 
-                                <View style={{ flexDirection: 'row', }}>
-                                    <Icon name="ios-calendar" size={24} color="#E55656" style={{ marginRight: 5 }} onPress={() => alert('Call')} />
+                                <View style={{marginTop:4, flexDirection: 'row', }}>
+                                    <Icon name="ios-calendar" size={24} color="#E55656" style={{ marginRight: 5 }} onPress={() => console.log('date pressed')} />
                                     <View>
-                                        <Text style={{ fontSize: 18, fontFamily: 'Black', color: '#E55656', textAlign: 'right' }}>{item.elabDate}</Text>
-                                        <Text style={{ fontSize: 16, fontFamily: 'Black', color: FONTCOLOR, textAlign: 'right' }}>{item.time}</Text>
+                                        <Text style={{marginTop:3, fontSize: 18, fontFamily: 'Black', color: '#E55656', textAlign: 'right' }}>{item.elabDate}</Text>
+                                        <Text style={{ fontSize: 16, fontFamily: 'Black', color: ICONCOLOR, textAlign: 'right' }}>{item.time}</Text>
                                     </View>
 
                                 </View>
 
                             </View>
                             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                                <Icon name="ios-pin" size={24} color="#E55656" style={{ marginRight: 5, }} onPress={() => alert('Call')} />
+                                <Icon name="ios-pin" size={24} color="#E55656" style={{ marginRight: 5, }} onPress={() => console.log('location pressed')} />
                                 <Text style={{ fontSize: 18, marginTop: 8, fontFamily: 'Black', color: FONTCOLOR }}>{item.location}</Text>
                             </View>
 
@@ -134,12 +134,12 @@ class DetailScreen extends Component {
 
                         {/* Coordinators */}
 
-                        <View style={{ margin: 10, padding: 5, flexDirection: 'row', height: 150, marginBottom: 70, marginTop: 0 }}>
+                        <View style={{  padding: 5, flexDirection: 'row', height: 150, marginBottom: 70, marginTop: 13 }}>
                             {
                                 item.volunteers.map((val, index) => {
                                     return (
 
-                                        <RoundUser name={val.name} image={val.imageUrl} index={index} />
+                                        <RoundUser name={val.name} image={val.imageUrl} index={index} phoneNumber={val.phoneNumber} />
 
                                     )
                                 })}

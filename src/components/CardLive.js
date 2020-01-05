@@ -73,12 +73,12 @@ export default class CardLive extends Component {
                                 onHandlerStateChange={this.onZoomStateChange}>
                                 <Animated.Image
                                     style={{
-                                        flex:1, borderRadius:5,
+                                        flex:1, 
                                         
                                         transform: [{ scale: this.scale }]
                                     }}
                                     source={{ uri: this.props.imageUrl }}
-                                    resizeMode={'cover'} />
+                                    resizeMode={'contain'} />
                             </PinchGestureHandler>
                         </View>
                     </View>
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
     },
     cardContent: {
         flex: 1,
-        padding:3,
+        padding:2,
         backgroundColor: 'white',
         borderBottomLeftRadius: 8,
         borderBottomRightRadius: 8

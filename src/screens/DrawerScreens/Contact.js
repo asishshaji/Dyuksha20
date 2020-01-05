@@ -65,7 +65,7 @@ class Contact extends Component {
 
 
                         <View style={{ marginTop: 30, }}>
-                            <Text style={{ paddingLeft: 15, fontSize: 21, fontFamily: 'Black', color: FONTCOLOR, }}>
+                            <Text style={{ paddingLeft: 17, fontSize: 21, fontFamily: 'Black', color: FONTCOLOR, }}>
                                 Contact Us
                         </Text>
                         </View>
@@ -92,13 +92,13 @@ class Contact extends Component {
                             </View>
                         </ScrollView>
 
-                        <View style={{ marginTop: 8, alignItems: 'flex-end' }}>
-                            <Text style={{ paddingRight: 5, fontSize: 21, fontFamily: 'Black', color: FONTCOLOR, }}>
+                        <View style={{ marginTop: 10, alignItems: 'flex-start' }}>
+                            <Text style={{ paddingLeft: 17, fontSize: 21, fontFamily: 'Black', color: FONTCOLOR, }}>
                                 Reach Us
                         </Text>
                         </View>
 
-                        <View style={{ alignItems: 'center', paddingRight: 5, justifyContent: 'center' }}>
+                        <View style={{ alignItems: 'center',  justifyContent: 'center' }}>
                             <View style={{
                                 flex: 1,
                                 padding: 10,

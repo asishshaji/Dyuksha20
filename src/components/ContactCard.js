@@ -5,7 +5,8 @@ import {
     Text,
     Image,
     Dimensions,
-    Linking
+    Linking,
+    TouchableHighlight
 } from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons';
 import { FONTCOLOR, BGCOLOR } from "../Styles/Colors";
@@ -44,14 +45,18 @@ const ContactCard = props => {
                         {item.name}
                     </Text>
 
-                    <Text style={{
-                        fontSize: 15,
-                        fontFamily: 'Light',
-                        color: FONTCOLOR,
-                        padding: 3
-                    }}>
-                        {item.number}
-                    </Text>
+                    <View style={{ flexDirection: 'row' }} >
+                        <Icon name="ios-call" size={24} color="#E55656" style={{}} onPress={() => Linking.openURL(`tel:${item.number}`)} />
+
+                        <Text style={{
+                            fontSize: 15,
+                            fontFamily: 'Light',
+                            color: FONTCOLOR,
+                            padding: 3
+                        }} >
+                            {item.number}
+                        </Text>
+                    </View>
                     <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
                         <Icon name={item.facebook ? "logo-facebook" : "logo-github"} size={25} color={FONTCOLOR} style={{ padding: 5 }} onPress={() => Linking.openURL(item.facebook ? item.facebook : item.github)} />
                         <Icon name="logo-instagram" size={25} color={FONTCOLOR} style={{ padding: 5 }} onPress={() => Linking.openURL(item.instagram)} />
@@ -96,15 +101,20 @@ export const DesignerCard = props => {
                     }}>
                         {item.name}
                     </Text>
-                   
-                    <Text style={{
-                        fontSize: 15,
-                        fontFamily: 'Light',
-                        color: FONTCOLOR,
-                        padding: 3
-                    }}>
-                        {item.number}
-                    </Text>
+
+                    <View style={{ flexDirection: 'row' }} >
+                        <Icon name="ios-call" size={24} color="#E55656" style={{}} onPress={() => Linking.openURL(`tel:${item.number}`)} />
+
+                        <Text style={{
+                            fontSize: 15,
+                            fontFamily: 'Light',
+                            color: FONTCOLOR,
+                            padding: 3
+                        }} >
+                            {item.number}
+                        </Text>
+                    </View>
+
                     <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
                         <Icon name="logo-instagram" size={30} color={FONTCOLOR} style={{ padding: 5 }} onPress={() => Linking.openURL(item.instagram)} />
                         <Icon name="logo-dribbble" size={30} color={FONTCOLOR} style={{ padding: 5 }} onPress={() => Linking.openURL(item.dribbble)} />

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {
     View,
     Text,
-    Image, TouchableOpacity, Animated, Easing
+    Image, TouchableOpacity, Animated, Easing, Linking
 } from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons';
 import { BGCOLOR, FONTCOLOR } from '../Styles/Colors'
@@ -51,7 +51,7 @@ const RoundUser = (props) => {
                 position: 'absolute', top: 0,
                 alignItems: 'center', justifyContent: 'center'
             }}>
-                <Icon name="ios-phone-portrait" size={32} color="white" style={{}} onPress={() => alert('Call')} />
+                <Icon name="ios-phone-portrait" size={35} color="white" style={{}} onPress={() => Linking.openURL(`tel:${props.phoneNumber}`)} />
 
             </View>}
 

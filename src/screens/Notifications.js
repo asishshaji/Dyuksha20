@@ -45,7 +45,9 @@ class Notifications extends Component {
         return (
             <View style={styles.container}>
 
-
+                <View style={{ padding: 10, paddingTop: 22 }}>
+                    <Text style={{ textAlign: 'right', fontFamily: 'Black', fontSize: 30, color: ICONCOLOR }}>Notifications</Text>
+                </View>
                 {this.state.notList.length === 0 ?
                     <View style={{ flex: 1, justifyContent: 'center' }}>
                         <LottieView source={require('../../assets/no-notifications.json')}
@@ -57,11 +59,7 @@ class Notifications extends Component {
                     <FlatList
                         showsVerticalScrollIndicator={false}
                         scrollEventThrottle={16}
-                        ListFooterComponent={() =>
-                            <View style={{ padding: 10, paddingTop: 22 }}>
-                                <Text style={{ textAlign: 'right', fontFamily: 'Black', fontSize: 30, color: ICONCOLOR }}>Notifications</Text>
-                            </View>
-                        }
+
                         contentContainerStyle={{ flexDirection: 'column-reverse', paddingBottom: 90 }}
                         keyExtractor={(item, index) => String(index)}
                         data={this.state.notList}
@@ -77,8 +75,8 @@ class Notifications extends Component {
                                     {
                                         item.imageUrl.length === 0 ? null
                                             :
-                                            <View style={{ alignItems:'center'}}>
-                                                <Image source={{uri:item.imageUrl}} style={{borderRadius:15,  height: 250, width: width-40, resizeMode:'contain' }}  />
+                                            <View style={{ alignItems: 'center' }}>
+                                                <Image source={{ uri: item.imageUrl }} style={{ height: 250, width: width - 50, resizeMode: 'contain' }} />
                                             </View>
                                     }
                                     <Text style={{ color: FONTCOLOR, fontFamily: 'Light', fontSize: 14, textAlign: 'right' }}>{item.time}</Text>

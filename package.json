@@ -19,6 +19,7 @@
     "react-native-gesture-handler": "^1.5.2",
     "react-native-inappbrowser-reborn": "^3.3.3",
     "react-native-paper": "^3.3.0",
+    "react-native-phone-call": "^1.0.9",
     "react-native-reanimated": "^1.4.0",
     "react-native-screens": "^2.0.0-alpha.22",
     "react-native-shimmer": "^0.5.0",
