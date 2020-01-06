@@ -17,6 +17,7 @@ import SplashScreen from './src/screens/SplashScreen'
 import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import firebase from 'react-native-firebase'
+import MapScreen from './src/screens/MapScreens/MapScreen';
 
 const { width } = Dimensions.get('window')
 const barWidth = 230
@@ -53,6 +54,9 @@ const AppNavigator = createStackNavigator({
     },
     Contact: {
         screen: Contact
+    },
+    Map:{
+        screen:MapScreen
     }
 }, {
     defaultNavigationOptions: {

@@ -40,6 +40,8 @@ target 'Dyuksha' do
 
   pod 'RNInAppBrowser', :path => '../node_modules/react-native-inappbrowser-reborn'
 
+  pod 'react-native-maps', :path => '../node_modules/react-native-maps'
+
   target 'DyukshaTests' do
     inherit! :search_paths
     # Pods for testing

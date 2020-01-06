@@ -141,11 +141,11 @@ class FloatingButton extends Component {
                     </Animated.View>
                 </TouchableWithoutFeedback>
 
-                {/* <TouchableWithoutFeedback  >
-                    <Animated.View style={mapStyle} onPress={() => this.props.nav.navigate("Map")} >
-                        <Icon name={"ios-compass"} size={25} color={ICONCOLOR} />
+                <TouchableWithoutFeedback  >
+                    <Animated.View style={mapStyle}>
+                        <Icon name={"ios-compass"} size={25} color={ICONCOLOR}  onPress={() => this.props.nav.navigate("Map")}  />
                     </Animated.View>
-                </TouchableWithoutFeedback> */}
+                </TouchableWithoutFeedback>
 
 
             </View>
