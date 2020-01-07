@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "817771550659",
-    "firebase_url": "https://dyuksha20-f6d1f.firebaseio.com",
-    "project_id": "dyuksha20-f6d1f",
-    "storage_bucket": "dyuksha20-f6d1f.appspot.com"
+    "project_number": "660815939624",
+    "firebase_url": "https://dyuksha-42606.firebaseio.com",
+    "project_id": "dyuksha-42606",
+    "storage_bucket": "dyuksha-42606.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:817771550659:android:66d0275e0b9948ccc08f76",
+        "mobilesdk_app_id": "1:660815939624:android:ff0117a41e1821a4b74d1d",
         "android_client_info": {
-          "package_name": "com.dyuksha"
+          "package_name": "com.dyuksha20"
         }
       },
       "oauth_client": [
         {
-          "client_id": "817771550659-9u4g4vjk19an46u1oh94ih9tv4lqtkh7.apps.googleusercontent.com",
+          "client_id": "660815939624-3verndm8mjth541g42m6v1lfhklmfpu6.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBYYa_l1sM1CFrCxuJMuEiffMMdeQ9FWVg"
+          "current_key": "AIzaSyAvxddaL7-uGa6a9g0C9pwZ6eOP1MOGhZc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "817771550659-9u4g4vjk19an46u1oh94ih9tv4lqtkh7.apps.googleusercontent.com",
+              "client_id": "660815939624-3verndm8mjth541g42m6v1lfhklmfpu6.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

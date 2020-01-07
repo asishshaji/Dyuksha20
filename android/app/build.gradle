@@ -128,7 +128,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.dyuksha"
+        applicationId "com.dyuksha20"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 3

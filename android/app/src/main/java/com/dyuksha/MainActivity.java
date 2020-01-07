@@ -1,4 +1,4 @@
-package com.dyuksha;
+package com.dyuksha20;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;

@@ -42,6 +42,15 @@ export const markers = [
     },
     {
         coordinate: {
+            latitude: 10.823765, 
+            longitude: 76.641313,
+        },
+        title: "ACADEMIC BLOCK",
+        description: "",
+       
+    },
+    {
+        coordinate: {
             latitude: 10.824251,
             longitude: 76.641711,
         },
@@ -58,6 +67,7 @@ export const markers = [
         description: "",
        
     },
+
     {
         coordinate: {
             latitude: 10.823354,
@@ -88,11 +98,29 @@ export const markers = [
     },
     {
         coordinate: {
+            latitude: 10.824270, 
+            longitude: 76.641302,
+        },
+        title: "IC BLOCK",
+        description: "",
+  
+    },
+    {
+        coordinate: {
             latitude: 10.825295, 
             longitude: 76.641661,
         },
         title: "NEW BLOCK",
         description: "",
+  
+    },
+    {
+        coordinate: {
+            latitude: 10.824968, 
+            longitude: 76.642058,
+        },
+        title: "LAB/WORKSHOP",
+        description: "Electrical/Analog",
   
     },
     {
@@ -120,6 +148,15 @@ export const markers = [
         },
         title: "AALTHARA",
         description: "",
+
+    },
+    {
+        coordinate: {
+            latitude: 10.824671, 
+            longitude: 76.643740,
+        },
+        title: "WORKSHOP",
+        description: "Lathe/Carpentary",
 
     },
 

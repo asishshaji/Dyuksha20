@@ -149,7 +149,7 @@ class Home extends Component {
 
                         <View style={{ width: 200, alignItems: 'center', flexDirection: 'row' }} >
 
-                            <Text style={{ fontSize: 35, fontFamily: 'Black', color: ICONCOLOR }}>
+                            <Text style={{ fontSize: 32, fontFamily: 'Black', color: ICONCOLOR }}>
                                 Discover
                                 </Text>
                         </View>
