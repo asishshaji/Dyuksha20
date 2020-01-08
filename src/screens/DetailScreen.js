@@ -118,7 +118,7 @@ class DetailScreen extends Component {
                                 <Text style={{ fontSize: 18, marginTop: 8, fontFamily: 'Black', color: FONTCOLOR }}>{item.location}</Text>
                             </View>
 
-                            <Text style={{textAlign:'auto', fontSize: 16, marginTop: 8, fontFamily: 'Light', color: FONTCOLOR }}>{item.details}</Text>
+                            <Text style={{textAlign:'auto', fontSize: 16, marginTop: 8, fontFamily: 'Light', color: FONTCOLOR }}>{item.details.replace(/BLL/gi, '\n')}</Text>
 
                             {item.rules ?
                                 <View>
