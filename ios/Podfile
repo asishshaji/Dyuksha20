@@ -42,6 +42,10 @@ target 'Dyuksha' do
 
   pod 'react-native-maps', :path => '../node_modules/react-native-maps'
 
+  pod 'RNShare', :path => '../node_modules/react-native-share'
+
+  pod 'react-native-image-base64', :path => '../node_modules/react-native-image-base64'
+
   target 'DyukshaTests' do
     inherit! :search_paths
     # Pods for testing

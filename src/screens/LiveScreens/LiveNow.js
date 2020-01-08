@@ -64,11 +64,7 @@ class LiveNow extends Component {
 
     return (
       <View style={{ flex: 1, backgroundColor: BGCOLOR, }}>
-       <View style={{  }}>
-          <Text style={{textAlign:'right',paddingRight:10, padding:25, fontSize: 25, fontFamily: 'Black', color: ICONCOLOR, }}>
-            Feed
-              </Text>
-        </View>
+
         {this.state.LiveList.length === 0 ?
           <View style={{ flex: 1, justifyContent: 'center' }}>
             <LottieView source={require('../../../assets/loading.json')}
@@ -77,11 +73,11 @@ class LiveNow extends Component {
             />
           </View>
           :
-          <View style={{ flex: 1 }}>
+          <View style={{ flex: 1, }}>
 
             <FlatList
               showsHorizontalScrollIndicator={false}
-              contentContainerStyle={{flexDirection:'column-reverse', paddingBottom: 18, paddingTop: 20, alignItems: 'center' }}
+              contentContainerStyle={{ flexDirection: 'column-reverse', paddingBottom: 18, paddingTop: 15,  }}
               horizontal={false}
               showsVerticalScrollIndicator={false}
               numColumns={1}
@@ -90,12 +86,16 @@ class LiveNow extends Component {
               renderItem={({ item, index }) => this.renderList(item, index)}
               refreshing={this.state.refreshing}
               onRefresh={this.handleRefresh}
-              ListFooterComponent={this.renderFooter}
+              ListFooterComponent={<View style={{ padding: 10,  }}>
+                <Text style={{ textAlign: 'right', fontSize: 25, fontFamily: 'Black', color: ICONCOLOR, }}>
+                  Feed
+              </Text>
+              </View>}
             />
           </View>
         }
 
-       
+
         <View style={{ position: 'absolute', left: -10 }}>
           <BackButton navigation={navigation} />
         </View>
@@ -106,9 +106,10 @@ class LiveNow extends Component {
 
   renderList(item, index) {
     return (
-      <View style={{ marginTop: 10 }}>
+      <View style={{ marginTop: 10,alignItems:'center' }}>
+
         <CardLive
-          width={width-10}
+          width={width - 10}
           cardTitle={item.title}
           imageUrl={item.imageUrl}
           time={item.time}
@@ -124,15 +125,17 @@ class LiveNow extends Component {
     })
   }
 
-  renderFooter = () => {
-    if (!this.state.loading) return null;
+  // renderFooter = () => {
+  //   if (!this.state.loading) return null;
 
-    return (
-      <View style={styles.headerBg}>
-        <ActivityIndicator animating size="large" />
-      </View>
-    );
-  };
+  //   return (
+  //     <View style={{ padding: 10, }}>
+  //       <Text style={{ textAlign: 'right', fontSize: 25, fontFamily: 'Black', color: ICONCOLOR, }}>
+  //         Feed
+  //             </Text>
+  //     </View>
+  //   );
+  // };
 
 }
 export default LiveNow;

@@ -15,7 +15,7 @@ import RoundedBackButton from "../components/RoundedBackButton";
 const { width, height } = Dimensions.get('window')
 
 
- const data = [{ "dep": "Electrical" }, { "dep": "Mechanical" }, { "dep": "Computer" }, { "dep": "Civil" }, { "dep": "Instrumentation" }, { "dep": "Electronics" },]
+ const data = [{ "dep": "Electrical" }, { "dep": "Mechanical" }, { "dep": "Computer" }, { "dep": "Electronics" }, { "dep": "Civil" }, { "dep": "Instrumentation" },]
 class SelectScreen extends Component {
     static navigationOptions = {
         header: null,

@@ -26,7 +26,7 @@ export const markers = [
             latitude: 10.824050,
             longitude: 76.642425,
         },
-        title: "MAIN BLOCK",
+        title: "ADMINISTRATIVE/MAIN BLOCK",
         description: "Ground floor : Auditorium, " +
         "eOne hall",
        

@@ -46,7 +46,7 @@ const ContactCard = props => {
                     </Text>
 
                     <View style={{ flexDirection: 'row' }} >
-                        <Icon name="ios-call" size={24} color="#E55656" style={{}} onPress={() => Linking.openURL(`tel:${item.number}`)} />
+                        <Icon name="ios-phone-portrait" size={25} color="black" style={{}} onPress={() => Linking.openURL(`tel:${item.number}`)} />
 
                         <Text style={{
                             fontSize: 15,
@@ -103,7 +103,7 @@ export const DesignerCard = props => {
                     </Text>
 
                     <View style={{ flexDirection: 'row' }} >
-                        <Icon name="ios-call" size={24} color="#E55656" style={{}} onPress={() => Linking.openURL(`tel:${item.number}`)} />
+                        <Icon name="ios-phone-portrait" size={25} color="black" style={{}} onPress={() => Linking.openURL(`tel:${item.number}`)} />
 
                         <Text style={{
                             fontSize: 15,

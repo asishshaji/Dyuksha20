@@ -45,9 +45,7 @@ class Notifications extends Component {
         return (
             <View style={styles.container}>
 
-                <View style={{ padding: 10, paddingTop: 22 }}>
-                    <Text style={{ textAlign: 'right', fontFamily: 'Black', fontSize: 30, color: ICONCOLOR }}>Notifications</Text>
-                </View>
+
                 {this.state.notList.length === 0 ?
                     <View style={{ flex: 1, justifyContent: 'center' }}>
                         <LottieView source={require('../../assets/no-notifications.json')}
@@ -59,7 +57,9 @@ class Notifications extends Component {
                     <FlatList
                         showsVerticalScrollIndicator={false}
                         scrollEventThrottle={16}
-
+                        ListFooterComponent={<View style={{ padding: 10, paddingTop: 22 }}>
+                            <Text style={{ textAlign: 'right', fontFamily: 'Black', fontSize: 30, color: ICONCOLOR }}>Notifications</Text>
+                        </View>}
                         contentContainerStyle={{ flexDirection: 'column-reverse', paddingBottom: 90 }}
                         keyExtractor={(item, index) => String(index)}
                         data={this.state.notList}
