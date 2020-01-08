@@ -60,7 +60,7 @@ const ProCarComp = props => {
                     <Text style={{
                         textAlign: "center",
                         fontFamily: 'Black',
-                        fontSize: 16, color: '#fff',
+                        fontSize: 14, color: '#fff',
                         textTransform: 'uppercase',
                     }} >
                         {props.item ? item.title : ""}

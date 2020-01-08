@@ -188,7 +188,7 @@ class Home extends Component {
 
                     <View style={{ height: 270, marginTop: 5 }}>
                         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                            <Text style={{ marginLeft: 10, fontSize: 24, fontFamily: 'Black', color: TITLECOLOR, }}>Main Events</Text>
+                            <Text style={{ marginLeft: 10, fontSize: 24, fontFamily: 'Black', color: TITLECOLOR, }}>Genereral Events</Text>
                             <TouchableOpacity onPress={() => navigate('Select', {
                                 'name': 'EVENTS',
                                 'DB': 'DepEvents', 'DOCNAME': 'eventsDoc'
