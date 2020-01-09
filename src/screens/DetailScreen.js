@@ -140,7 +140,7 @@ class DetailScreen extends Component {
                             </Text>
                         </View>
 
-                        <View style={{  padding: 5,  marginBottom: 70, marginTop: 3 }}>
+                        <View style={{ padding: 5,  marginBottom: 70, marginTop: 3 }}>
                             {
                                 item.volunteers.map((val, index) => {
                                     return (

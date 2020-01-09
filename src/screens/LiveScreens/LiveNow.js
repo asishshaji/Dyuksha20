@@ -9,11 +9,13 @@ import {
   Text,
   TouchableOpacity,
   TouchableWithoutFeedback,
-  View
+  View,
+  Linking
 } from "react-native";
 import { BGCOLOR, FONTCOLOR, ICONCOLOR } from "../../Styles/Colors"
 import React, { Component } from "react";
 import firebase, { firestore } from 'react-native-firebase';
+import Axios from 'axios';
 
 import BackButton from '../../components/RoundedBackButton';
 import CardLive from "../../components/CardLive";
@@ -38,6 +40,40 @@ class LiveNow extends Component {
     }
   }
 
+  async instagramPhotos() {
+    // It will contain our photos' links
+    const res = []
+
+    try {
+      const userInfoSource = await Axios.get('https://www.instagram.com/theraloss/')
+
+      // userInfoSource.data contains the HTML from Axios
+      const jsonObject = userInfoSource.data.match(/<script type="text\/javascript">window\._sharedData = (.*)<\/script>/)[1].slice(0, -1)
+
+      const userInfo = JSON.parse(jsonObject)
+
+      // Retrieve only the first 10 results
+      const mediaArray = userInfo.entry_data.ProfilePage[0].graphql.user.edge_owner_to_timeline_media.edges.splice(0, 20).reverse()
+      for (let media of mediaArray) {
+        const node = media.node
+        console.log(node)
+        // Process only if is an image
+        // Push the thumbnail src in the array
+        res.push(node)
+      }
+    } catch (e) {
+      console.error('Unable to retrieve photos. Reason: ' + e.toString())
+    }
+
+    this.setState({
+      LiveList: res,
+      isLoading: false,
+      refreshing: false
+    });
+    return res
+  }
+
+
 
   makeRequest = () => {
     this.events.onSnapshot(querySnapshot => {
@@ -55,12 +91,15 @@ class LiveNow extends Component {
     });
   }
 
-  componentDidMount() {
-    this.makeRequest();
+
+  async componentDidMount() {
+    //this.makeRequest();
+    this.instagramPhotos();
   }
 
   render() {
     const { navigation } = this.props;
+
 
     return (
       <View style={{ flex: 1, backgroundColor: BGCOLOR, }}>
@@ -77,7 +116,7 @@ class LiveNow extends Component {
 
             <FlatList
               showsHorizontalScrollIndicator={false}
-              contentContainerStyle={{ flexDirection: 'column-reverse', paddingBottom: 18, paddingTop: 15,  }}
+              contentContainerStyle={{ flexDirection: 'column-reverse', paddingBottom: 18, paddingTop: 15, }}
               horizontal={false}
               showsVerticalScrollIndicator={false}
               numColumns={1}
@@ -86,11 +125,25 @@ class LiveNow extends Component {
               renderItem={({ item, index }) => this.renderList(item, index)}
               refreshing={this.state.refreshing}
               onRefresh={this.handleRefresh}
-              ListFooterComponent={<View style={{ padding: 10,  }}>
-                <Text style={{ textAlign: 'right', fontSize: 25, fontFamily: 'Black', color: ICONCOLOR, }}>
-                  Feed
+
+              ListFooterComponent={
+                <View style={{ padding: 10, }}>
+                  <Text style={{ textAlign: 'right', fontSize: 25, fontFamily: 'Black', color: ICONCOLOR, }}>
+                    Feed
               </Text>
-              </View>}
+                </View>
+              }
+
+              ListHeaderComponent={
+                <View style={{ marginTop: 15, alignItems: 'center',justifyContent:'center' }}>
+                  <View style={{flexDirection:'row', alignItems:'center'}} >
+                  <Icon name="logo-instagram" size={25} color={FONTCOLOR} style={{ padding: 5 }} onPress={() => Linking.openURL('https://www.instagram.com/d20.mixtape/')} />
+                    <Text style={{ color: FONTCOLOR, fontSize: 15, fontFamily: 'Light' }} onPress={() => Linking.openURL('https://www.instagram.com/d20.mixtape/')} >
+                      @d20.mixtape
+                   </Text>
+                  </View>
+                </View>
+              }
             />
           </View>
         }
@@ -106,14 +159,30 @@ class LiveNow extends Component {
 
   renderList(item, index) {
     return (
-      <View style={{ marginTop: 10,alignItems:'center' }}>
+      <View>
+        {/* {console.log(this.state.LiveList)} */}
+        <View style={{ marginTop: 10, alignItems: 'center' }}>
+          <CardLive
+            width={width - 10}
+            cardTitle={item.owner.username}
+            imageUrl={item.thumbnail_src}
+            like={item.edge_liked_by.count}
+            timestamp={item.taken_at_timestamp}
+          /></View>
+        <View style={styles.cardFooter}>
+          <Text style={{ fontFamily: 'Black', paddingLeft: 5 }}>
+            {item.edge_liked_by.count} likes
+          </Text>
+          <Text style={{ flex: 1, textAlign: 'right', fontFamily: 'Light', paddingLeft: 20 }} onPress={() => Linking.openURL('https://www.instagram.com/p/' + item.shortcode)} >
+            view post
+          </Text>
 
-        <CardLive
-          width={width - 10}
-          cardTitle={item.title}
-          imageUrl={item.imageUrl}
-          time={item.time}
-        /></View>
+        </View>
+
+
+
+      </View>
+
     );
   }
 
@@ -121,7 +190,7 @@ class LiveNow extends Component {
     this.setState({
       refreshing: true,
     }, () => {
-      this.makeRequest();
+      this.instagramPhotos();
     })
   }
 
@@ -157,6 +226,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: BGCOLOR,
     height: 50,
+  },
+  cardFooter: {
+    paddingLeft: 10,
+    flexDirection: 'row',
+
+    elevation: 5,
+    height: 30,
+    width: width - 10
   },
 
 });

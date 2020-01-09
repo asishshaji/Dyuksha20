@@ -7,6 +7,7 @@ import {
     Image, TouchableOpacity,
     Animated
 } from "react-native";
+import moment from 'moment';
 import { BGCOLOR, FONTCOLOR } from "../Styles/Colors";
 import { PinchGestureHandler, State } from 'react-native-gesture-handler'
 
@@ -39,6 +40,8 @@ export default class CardLive extends Component {
 
     render() {
         const item = this.props.item;
+        var timestamp = moment(new Date(this.props.timestamp * 1000)).format('DD/MM  ');
+        console.log(timestamp);
         return (
             <TouchableOpacity onPress={() => { if (this.props.nav) { this.props.nav.navigate('LiveNow') } }} activeOpacity={1}>
                 <View style={{
@@ -61,10 +64,10 @@ export default class CardLive extends Component {
                         <View style={styles.cardHeader}>
                             <View style={styles.cardTitle}>
                                 <Text style={{
-                                    fontSize: 13, fontFamily: 'Light',
+                                    fontSize: 13, fontFamily: 'Black',
                                     color: FONTCOLOR
                                 }}>{this.props.cardTitle}</Text>
-                                <Text style={{ fontSize: 12, color: 'grey' }}>{this.props.time}</Text>
+                                <Text style={{ fontSize: 12, color: 'grey' }}>{timestamp || item.time}</Text>
                             </View>
                         </View>
                         <View style={styles.cardContent}>
@@ -73,8 +76,8 @@ export default class CardLive extends Component {
                                 onHandlerStateChange={this.onZoomStateChange}>
                                 <Animated.Image
                                     style={{
-                                        flex:1, 
-                                        
+                                        flex: 1,
+
                                         transform: [{ scale: this.scale }]
                                     }}
                                     source={{ uri: this.props.imageUrl }}
@@ -82,7 +85,10 @@ export default class CardLive extends Component {
                             </PinchGestureHandler>
                         </View>
                     </View>
+
+                   
                 </View>
+                
             </TouchableOpacity>
         );
     }
@@ -107,7 +113,7 @@ const styles = StyleSheet.create({
     },
     cardContent: {
         flex: 1,
-        padding:2,
+        padding: 2,
         backgroundColor: 'white',
         borderBottomLeftRadius: 8,
         borderBottomRightRadius: 8

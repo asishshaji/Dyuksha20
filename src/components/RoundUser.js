@@ -12,19 +12,20 @@ const RoundUser = (props) => {
     const [opacity, opacityChanger] = useState(new Animated.Value(0))
 
     return (
-        <TouchableOpacity style={{flexDirection:'row', alignItems: 'center', margin: 7, marginLeft: 10 }}
+        <TouchableOpacity style={{marginHorizontal:10, borderRadius:5, justifyContent:'center', flexDirection:'row', alignItems: 'center', margin: 7, height:50, elevation:5, backgroundColor:'white' }}
             keyExtractor={(item, index) => String(index)}
-            onPress={() => Linking.openURL(`tel:${props.phoneNumber}`)}
+          
             activeOpacity={1}>
 
 
 
-            <Icon name="ios-phone-portrait" size={35} color="black" style={{}}  />
+            <Icon name="ios-phone-portrait" size={30} color="black" style={{}}   onPress={() => Linking.openURL(`tel:${props.phoneNumber}`)} />
 
 
            
-                <Text style={{
-                    fontFamily: 'Black', textAlign: 'center', padding:5,
+                <Text   onPress={() => Linking.openURL(`tel:${props.phoneNumber}`)} style={{
+                    fontFamily: 'Black', textAlign: 'center', padding:6,
+                    fontSize:12,
 
                     textTransform: 'uppercase', color: FONTCOLOR, marginTop: 6
                 }}
