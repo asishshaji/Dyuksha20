@@ -117,6 +117,11 @@ class Feed extends Component {
         this.instagramPhotos();
     }
 
+    async componentDidUpdate() {
+        //this.makeRequest();
+        this.instagramPhotos();
+    }
+
 
     render() {
 
