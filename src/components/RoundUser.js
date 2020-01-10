@@ -1,38 +1,48 @@
-import React, { useState } from "react";
 import {
-    View,
+    Animated,
+    Dimensions,
+    Easing,
+    Image,
+    Linking,
     Text,
-    Image, TouchableOpacity, Animated, Easing, Linking
+    TouchableOpacity,
+    View
 } from "react-native";
-import Icon from 'react-native-vector-icons/Ionicons';
 import { BGCOLOR, FONTCOLOR } from '../Styles/Colors'
+import React, { useState } from "react";
+
+import Icon from 'react-native-vector-icons/Ionicons';
+
+const { width } = Dimensions.get('window')
 
 const RoundUser = (props) => {
-    const [clicked, clickListner] = useState(false)
-    const [opacity, opacityChanger] = useState(new Animated.Value(0))
+
 
     return (
-        <TouchableOpacity style={{marginHorizontal:10, borderRadius:5, justifyContent:'center', flexDirection:'row', alignItems: 'center', margin: 7, height:50, elevation:5, backgroundColor:'white' }}
+        <View style={{
+            marginHorizontal: 10, borderRadius: 5, justifyContent: 'center', flexDirection: 'row',
+            alignItems: 'center', margin: 7, height: 50, elevation: 5, backgroundColor: 'white', padding: 20, width: width / 2 - 25
+        }}
             keyExtractor={(item, index) => String(index)}
-          
+
             activeOpacity={1}>
 
 
 
-            <Icon name="ios-phone-portrait" size={30} color="black" style={{}}   onPress={() => Linking.openURL(`tel:${props.phoneNumber}`)} />
+            <Icon name="ios-phone-portrait" size={24} color="black" style={{}} onPress={() => Linking.openURL(`tel:${props.phoneNumber}`)} />
 
 
-           
-                <Text   onPress={() => Linking.openURL(`tel:${props.phoneNumber}`)} style={{
-                    fontFamily: 'Black', textAlign: 'center', padding:6,
-                    fontSize:12,
 
-                    textTransform: 'uppercase', color: FONTCOLOR, marginTop: 6
-                }}
-                >{props.name.replace('<br/>', '\n')}</Text>
-         
+            <Text onPress={() => Linking.openURL(`tel:${props.phoneNumber}`)} style={{
+                fontFamily: 'Black', textAlign: 'center', padding: 10,
+                fontSize: 12,
 
-        </TouchableOpacity>
+                textTransform: 'uppercase', color: FONTCOLOR, marginTop: 6
+            }}
+            >{props.name.replace('<br/>', '\n')}</Text>
+
+
+        </View>
     )
 }
 export default RoundUser;

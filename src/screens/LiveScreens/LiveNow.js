@@ -3,20 +3,20 @@ import {
   Dimensions,
   FlatList,
   Image,
+  Linking,
   RefreshControl,
   ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
   TouchableWithoutFeedback,
-  View,
-  Linking
+  View
 } from "react-native";
 import { BGCOLOR, FONTCOLOR, ICONCOLOR } from "../../Styles/Colors"
 import React, { Component } from "react";
 import firebase, { firestore } from 'react-native-firebase';
-import Axios from 'axios';
 
+import Axios from 'axios';
 import BackButton from '../../components/RoundedBackButton';
 import CardLive from "../../components/CardLive";
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -45,7 +45,7 @@ class LiveNow extends Component {
     const res = []
 
     try {
-      const userInfoSource = await Axios.get('https://www.instagram.com/theraloss/')
+      const userInfoSource = await Axios.get('https://www.instagram.com/d20.mixtape/')
 
       // userInfoSource.data contains the HTML from Axios
       const jsonObject = userInfoSource.data.match(/<script type="text\/javascript">window\._sharedData = (.*)<\/script>/)[1].slice(0, -1)
@@ -56,13 +56,9 @@ class LiveNow extends Component {
       const mediaArray = userInfo.entry_data.ProfilePage[0].graphql.user.edge_owner_to_timeline_media.edges.splice(0, 20).reverse()
       for (let media of mediaArray) {
         const node = media.node
-        console.log(node)
-        // Process only if is an image
-        // Push the thumbnail src in the array
         res.push(node)
       }
     } catch (e) {
-      console.error('Unable to retrieve photos. Reason: ' + e.toString())
     }
 
     this.setState({
@@ -135,9 +131,9 @@ class LiveNow extends Component {
               }
 
               ListHeaderComponent={
-                <View style={{ marginTop: 15, alignItems: 'center',justifyContent:'center' }}>
-                  <View style={{flexDirection:'row', alignItems:'center'}} >
-                  <Icon name="logo-instagram" size={25} color={FONTCOLOR} style={{ padding: 5 }} onPress={() => Linking.openURL('https://www.instagram.com/d20.mixtape/')} />
+                <View style={{ marginTop: 15, alignItems: 'center', justifyContent: 'center' }}>
+                  <View style={{ flexDirection: 'row', alignItems: 'center' }} >
+                    <Icon name="logo-instagram" size={25} color={FONTCOLOR} style={{ padding: 5 }} onPress={() => Linking.openURL('https://www.instagram.com/d20.mixtape/')} />
                     <Text style={{ color: FONTCOLOR, fontSize: 15, fontFamily: 'Light' }} onPress={() => Linking.openURL('https://www.instagram.com/d20.mixtape/')} >
                       @d20.mixtape
                    </Text>
@@ -165,7 +161,7 @@ class LiveNow extends Component {
           <CardLive
             width={width - 10}
             cardTitle={item.owner.username}
-            imageUrl={item.thumbnail_src}
+            imageUrl={item.display_url}
             like={item.edge_liked_by.count}
             timestamp={item.taken_at_timestamp}
           /></View>
@@ -194,17 +190,7 @@ class LiveNow extends Component {
     })
   }
 
-  // renderFooter = () => {
-  //   if (!this.state.loading) return null;
 
-  //   return (
-  //     <View style={{ padding: 10, }}>
-  //       <Text style={{ textAlign: 'right', fontSize: 25, fontFamily: 'Black', color: ICONCOLOR, }}>
-  //         Feed
-  //             </Text>
-  //     </View>
-  //   );
-  // };
 
 }
 export default LiveNow;
