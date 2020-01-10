@@ -88,14 +88,12 @@ class Feed extends Component {
 
             for (let media1 of mediaArray1) {
                 const node1 = media1.node
-                console.log(node1)
                 // Process only if is an image
                 // Push the thumbnail src in the array
                 res.push(node1)
             }
             for (let media2 of mediaArray2) {
                 const node2 = media2.node
-                console.log(node2)
                 // Process only if is an image
                 // Push the thumbnail src in the array
                 res.push(node2)
@@ -150,7 +148,7 @@ class Feed extends Component {
                             ListFooterComponent={
                                 <View style={{ padding: 10, }}>
                                     <Text style={{ textAlign: 'center', fontSize: 25, fontFamily: 'Black', color: ICONCOLOR, }}>
-                                        Feed
+                                        Insta Feed
                                      </Text>
 
                                 </View>
@@ -186,21 +184,18 @@ class Feed extends Component {
     }
 
     renderList(item, index) {
-        if (item.owner)
 
+        if (item.owner)
             return (
                 <View>
-                    {/* {console.log(this.state.LiveList)} */}
                     <TouchableOpacity activeOpacity={0.8} onPress={() => openLink('https://www.instagram.com/p/' + item.shortcode)}>
-                        <View style={{ marginTop: 10, alignItems: 'center' }}>
-                            <CardLive
-                                width={width - 10}
-                                cardTitle={item.owner.username}
-                                imageUrl={item.thumbnail_src}
-                                like={item.edge_liked_by.count}
+                        <CardLive
+                            width={width - 10}
+                            cardTitle={item.owner.username}
+                            imageUrl={item.display_url}
+                            like={item.edge_liked_by.count}
 
-                            />
-                        </View>
+                        />
                     </TouchableOpacity>
                     <View style={styles.cardFooter}>
                         <Text style={{ fontFamily: 'Black', paddingLeft: 5 }}>

@@ -1,22 +1,22 @@
-import React, { Component } from "react";
 import {
+  Alert,
+  Animated,
   AppRegistry,
+  Dimensions,
+  Image,
+  ScrollView,
   StyleSheet,
   Text,
   View,
-  ScrollView,
-  Animated,
-  Image,
-  Alert,
-  Dimensions,
 } from "react-native";
 import MapView, { Marker, Polyline } from "react-native-maps";
-import Geolocation from "react-native-geolocation-service";
-import CustomCallout from "./CustomCallout";
-import BackButton from '../../components/RoundedBackButton';
-import { markers } from "./Markers";
-import { ICONCOLOR } from "../../Styles/Colors";
+import React, { Component } from "react";
 
+import BackButton from '../../components/RoundedBackButton';
+import CustomCallout from "./CustomCallout";
+import Geolocation from "react-native-geolocation-service";
+import { ICONCOLOR } from "../../Styles/Colors";
+import { markers } from "./Markers";
 
 const { width, height } = Dimensions.get("window");
 const CARD_HEIGHT = 50;
@@ -110,7 +110,6 @@ export default class MapScreen extends Component {
         });
       },
       error => {
-        console.log(error);
       },
       {
         showLocationDialog: true,
@@ -130,7 +129,6 @@ export default class MapScreen extends Component {
   }
 
   onMarkerPress(text) {
-    console.log(text)
   }
 
 
@@ -258,7 +256,7 @@ const styles = StyleSheet.create({
   card: {
     padding: 6,
     borderRadius: 5,
-    alignItems:'center',
+    alignItems: 'center',
     justifyContent: 'center',
     elevation: 6,
     backgroundColor: "#FFF",
@@ -280,7 +278,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     marginTop: 10,
     color: ICONCOLOR,
-    fontFamily:'Black'
+    fontFamily: 'Black'
   },
   cardDescription: {
     fontSize: 12,

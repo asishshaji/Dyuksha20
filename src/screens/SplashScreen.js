@@ -1,14 +1,16 @@
-import React, { Component } from "react";
 import {
-    ImageBackground, View, StatusBar, Alert, ToastAndroid, PermissionsAndroid
+    Alert,
+    ImageBackground,
+    PermissionsAndroid,
+    StatusBar,
+    ToastAndroid,
+    View
 } from "react-native";
-
+import React, { Component } from "react";
 import firebase, { firestore } from 'react-native-firebase';
 
 import { BGCOLOR } from '../Styles/Colors'
 import LottieView from 'lottie-react-native';
-
-
 
 async function requestCameraPermission() {
     try {
@@ -25,9 +27,7 @@ async function requestCameraPermission() {
             },
         );
         if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-            console.log('You can use GPS');
         } else {
-            console.log('GPS permission denied');
         }
     } catch (err) {
         console.warn(err);
