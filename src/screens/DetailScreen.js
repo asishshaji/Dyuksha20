@@ -103,13 +103,14 @@ class DetailScreen extends Component {
                                     color: FONTCOLOR, maxWidth: width / 2 + 40, textTransform: 'capitalize'
                                 }}>{item.title}</Text>
 
-                                <View style={{marginTop:4, flexDirection: 'row', }}>
-                                    <Icon name="ios-calendar" size={24} color="#E55656" style={{ marginRight: 5 }} onPress={() => console.log('date pressed')} />
-                                    <View>
-                                        <Text style={{marginTop:3, fontSize: 18, fontFamily: 'Black', color: '#E55656', textAlign: 'right' }}>{item.elabDate}</Text>
-                                        <Text style={{ fontSize: 16, fontFamily: 'Black', color: ICONCOLOR, textAlign: 'right' }}>{item.time}</Text>
+                                <View >
+                                    <View style={{ marginTop: 4, flexDirection: 'row',  }}>
+                                        <Icon name="ios-calendar" size={24} color="#E55656" style={{ marginRight: 5 }} onPress={() => console.log('date pressed')} />
+                                        <Text style={{ marginTop: 3, fontSize: 18, fontFamily: 'Black', color: '#E55656', textAlign: 'right', }}>{item.elabDate}</Text>
                                     </View>
-
+                                    <View style={{}}>
+                                        <Text style={{ fontSize: 16, fontFamily: 'Black', color: ICONCOLOR, textAlign: 'right', }}>{item.time}</Text>
+                                    </View>
                                 </View>
 
                             </View>
@@ -118,12 +119,12 @@ class DetailScreen extends Component {
                                 <Text style={{ fontSize: 18, marginTop: 8, fontFamily: 'Black', color: FONTCOLOR }}>{item.location}</Text>
                             </View>
 
-                            <Text style={{textAlign:'auto', fontSize: 16, marginTop: 8, fontFamily: 'Light', color: FONTCOLOR }}>{item.details.replace(/BLL/gi, '\n')}</Text>
+                            <Text style={{ textAlign: 'auto', fontSize: 16, marginTop: 8, fontFamily: 'Light', color: FONTCOLOR }}>{item.details.replace(/BLL/gi, '\n')}</Text>
 
                             {item.rules ?
                                 <View>
                                     <Text style={{ fontSize: 18, marginTop: 10, fontFamily: 'Black', color: FONTCOLOR }}>RULES</Text>
-                                    <Text style={{textAlign:'auto', fontSize: 16, marginTop: 8, fontFamily: 'Light', color: FONTCOLOR }}>{item.rules.replace(/BLL/gi, '\n')}</Text>
+                                    <Text style={{ textAlign: 'auto', fontSize: 16, marginTop: 8, fontFamily: 'Light', color: FONTCOLOR }}>{item.rules.replace(/BLL/gi, '\n')}</Text>
                                 </View> : null}
 
 
@@ -134,13 +135,13 @@ class DetailScreen extends Component {
 
                         {/* Coordinators */}
 
-                        <View style={{padding:15}}>
+                        <View style={{ padding: 15 }}>
                             <Text style={{ fontSize: 18, marginTop: 10, fontFamily: 'Black', color: FONTCOLOR }}>
                                 CONTACT
                             </Text>
                         </View>
 
-                        <View style={{ padding: 5,  marginBottom: 70, marginTop: 3 }}>
+                        <View style={{ padding: 5, marginBottom: 70, marginTop: 3 }}>
                             {
                                 item.volunteers.map((val, index) => {
                                     return (

@@ -40,8 +40,8 @@ export default class CardLive extends Component {
 
     render() {
         const item = this.props.item;
-        var timestamp = moment(new Date(this.props.timestamp * 1000)).format('DD/MM  ');
-        console.log(timestamp);
+        // var timestamp = moment(new Date(this.props.timestamp * 1000)).format('DD/MM  ');
+        // console.log(timestamp);
         return (
             <TouchableOpacity onPress={() => { if (this.props.nav) { this.props.nav.navigate('LiveNow') } }} activeOpacity={1}>
                 <View style={{
@@ -67,7 +67,7 @@ export default class CardLive extends Component {
                                     fontSize: 13, fontFamily: 'Black',
                                     color: FONTCOLOR
                                 }}>{this.props.cardTitle}</Text>
-                                <Text style={{ fontSize: 12, color: 'grey' }}>{timestamp || item.time}</Text>
+                                <Text style={{ fontSize: 12, color: 'grey' }}>{this.props.time}</Text>
                             </View>
                         </View>
                         <View style={styles.cardContent}>

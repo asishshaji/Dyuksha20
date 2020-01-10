@@ -5,7 +5,7 @@ import {
     Image, TouchableOpacity, Animated, Easing, Linking
 } from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons';
-import { BGCOLOR, FONTCOLOR } from '../Styles/Colors'
+import { BGCOLOR, FONTCOLOR, ICONCOLOR } from '../Styles/Colors'
 
 const RoundUser = (props) => {
     const [clicked, clickListner] = useState(false)
@@ -19,7 +19,7 @@ const RoundUser = (props) => {
 
 
 
-            <Icon name="ios-phone-portrait" size={30} color="black" style={{}}   onPress={() => Linking.openURL(`tel:${props.phoneNumber}`)} />
+            <Icon name="ios-phone-portrait" size={30} color={ICONCOLOR} style={{}}   onPress={() => Linking.openURL(`tel:${props.phoneNumber}`)} />
 
 
            
