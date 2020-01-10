@@ -69,7 +69,10 @@ export default class CardLive extends Component {
                                     fontSize: 13, fontFamily: 'Black',
                                     color: FONTCOLOR
                                 }}>{this.props.cardTitle}</Text>
+                                <View style={{flexDirection:'row', justifyContent:'space-between'}}>
                                 <Text style={{ fontSize: 12, color: 'grey' }}>{this.props.time}</Text>
+                                <Text style={{ fontSize: 12, color: 'grey' }}>{this.props.date}</Text>
+                                </View>
                             </View>
                         </View>
                         <View style={styles.cardContent}>

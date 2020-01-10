@@ -3,6 +3,7 @@ import {
   Animated,
   AppRegistry,
   Dimensions,
+  PermissionsAndroid,
   Image,
   ScrollView,
   StyleSheet,
@@ -23,6 +24,28 @@ const CARD_HEIGHT = 50;
 const CARD_WIDTH = 120;
 
 
+
+async function requestLocationPermission() {
+  try {
+      const granted = await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+          {
+              title: 'Location Permission',
+              message:
+                  'Dyuksha App needs access to your location ',
+
+              buttonNeutral: 'Ask Me Later',
+              buttonNegative: 'Cancel',
+              buttonPositive: 'OK',
+          },
+      );
+      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+      } else {
+      }
+  } catch (err) {
+      console.warn(err);
+  }
+}
 
 export default class MapScreen extends Component {
   static navigationOptions = {
@@ -51,6 +74,8 @@ export default class MapScreen extends Component {
 
   async componentDidMount() {
 
+       await requestLocationPermission();
+       
     this.animation.addListener(({ value }) => {
       let index = Math.floor(value / CARD_WIDTH + 0.3); // animate 30% away from landing on the next item
       if (index >= this.state.markers.length) {

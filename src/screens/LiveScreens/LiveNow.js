@@ -73,7 +73,7 @@ class LiveNow extends Component {
 
             <FlatList
               showsHorizontalScrollIndicator={false}
-              contentContainerStyle={{ flexDirection: 'column-reverse', paddingBottom: 18, paddingTop: 60, }}
+              contentContainerStyle={{ flexDirection: 'column-reverse', paddingBottom: 18, paddingTop: 17, }}
               horizontal={false}
               showsVerticalScrollIndicator={false}
               numColumns={1}
@@ -84,7 +84,7 @@ class LiveNow extends Component {
 
               ListFooterComponent={
                 <View style={{ padding: 10, }}>
-                  <Text style={{ textAlign: 'right', fontSize: 25, fontFamily: 'Black', color: ICONCOLOR, }}>
+                  <Text style={{ textAlign: 'center', fontSize: 25, fontFamily: 'Black', color: ICONCOLOR, }}>
                     Feed
               </Text>
                 </View>
@@ -100,10 +100,10 @@ class LiveNow extends Component {
           <BackButton navigation={navigation} />
 
         </View>
-        <View style={{ position: 'absolute', right: 5, top: 31 }}>
-          <TouchableOpacity style={{ alignItems: 'center', flexDirection: 'row', height: 20, backgroundColor: 'white' }} onPress={() => this.props.navigation.navigate('Feed')} activeOpacity={.7}>
+        <View style={{ position: 'absolute', right: 5, top: 35 }}>
+          <TouchableOpacity style={{ alignItems: 'center', flexDirection: 'row', height: 20, backgroundColor: 'transparent' }} onPress={() => this.props.navigation.navigate('Feed')} activeOpacity={.7}>
 
-            <Text style={{ fontFamily: "Black", fontSize: 20, color: ICONCOLOR, }} >Insta Feed</Text>
+            <Text style={{ fontFamily: "Black", fontSize: 20, color: ICONCOLOR, }} >Insta</Text>
             <Icon name="ios-arrow-forward" size={25} color="#E55656" style={{ marginLeft: 5 }} />
 
           </TouchableOpacity>
@@ -119,7 +119,8 @@ class LiveNow extends Component {
         width={width - 10}
         cardTitle={item.title}
         imageUrl={item.imageUrl}
-        timestamp={item.date}
+        time={item.time}
+        date={item.date}
       />
 
     )

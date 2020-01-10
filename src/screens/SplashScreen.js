@@ -12,55 +12,7 @@ import firebase, { firestore } from 'react-native-firebase';
 import { BGCOLOR } from '../Styles/Colors'
 import LottieView from 'lottie-react-native';
 
-<<<<<<< HEAD
 
-
-// async function requestCameraPermission() {
-//     try {
-//         const granted = await PermissionsAndroid.request(
-//             PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-//             {
-//                 title: 'Location Permission',
-//                 message:
-//                     'Dyuksha App needs access to your location ',
-
-//                 buttonNeutral: 'Ask Me Later',
-//                 buttonNegative: 'Cancel',
-//                 buttonPositive: 'OK',
-//             },
-//         );
-//         if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-//             console.log('You can use GPS');
-//         } else {
-//             console.log('GPS permission denied');
-//         }
-//     } catch (err) {
-//         console.warn(err);
-//     }
-// }
-=======
-async function requestCameraPermission() {
-    try {
-        const granted = await PermissionsAndroid.request(
-            PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-            {
-                title: 'Location Permission',
-                message:
-                    'Dyuksha App needs access to your location ',
-
-                buttonNeutral: 'Ask Me Later',
-                buttonNegative: 'Cancel',
-                buttonPositive: 'OK',
-            },
-        );
-        if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-        } else {
-        }
-    } catch (err) {
-        console.warn(err);
-    }
-}
->>>>>>> 9b64f5c196b60dd08a4ce10ae3117fdef161a7e3
 class SplashScreen extends Component {
     static navigationOptions = {
         header: null,
@@ -88,7 +40,7 @@ class SplashScreen extends Component {
 
     async componentDidMount() {
 
-      //  await requestCameraPermission()
+    
 
         firebase.auth()
             .signInAnonymously()

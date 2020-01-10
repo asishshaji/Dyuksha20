@@ -99,7 +99,7 @@ class Feed extends Component {
                 res.push(node2)
             }
         } catch (e) {
-            console.error('Unable to retrieve photos. Reason: ' + e.toString())
+            // console.error('Unable to retrieve photos. Reason: ' + e.toString())
         }
 
         this.setState({
