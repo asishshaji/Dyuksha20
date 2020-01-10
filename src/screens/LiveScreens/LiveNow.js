@@ -171,30 +171,33 @@ class LiveNow extends Component {
   }
 
   renderList(item, index) {
-    return (
-      <View>
-        {/* {console.log(this.state.LiveList)} */}
-        <View style={{ marginTop: 10, alignItems: 'center' }}>
-          <CardLive
-            width={width - 10}
-            cardTitle={item.owner.username}
-            imageUrl={item.display_url}
-            like={item.edge_liked_by.count}
-            timestamp={item.taken_at_timestamp}
-          /></View>
-        <View style={styles.cardFooter}>
-          <Text style={{ fontFamily: 'Black', paddingLeft: 5 }}>
-            {item.edge_liked_by.count} likes
+    if (item.owner)
+      return (
+        <View>
+          {/* {console.log(this.state.LiveList)} */}
+          <View style={{ marginTop: 10, alignItems: 'center' }}>
+            <CardLive
+              width={width - 10}
+              cardTitle={item.owner.username}
+              imageUrl={item.display_url}
+              like={item.edge_liked_by.count}
+              timestamp={item.taken_at_timestamp}
+            /></View>
+          <View style={styles.cardFooter}>
+            <Text style={{ fontFamily: 'Black', paddingLeft: 5 }}>
+              {item.edge_liked_by.count} likes
           </Text>
-          <Text style={{ flex: 1, textAlign: 'right', fontFamily: 'Light', paddingLeft: 20 }} onPress={() => Linking.openURL('https://www.instagram.com/p/' + item.shortcode)} >
-            view post
+            <Text style={{ flex: 1, textAlign: 'right', fontFamily: 'Light', paddingLeft: 20 }} onPress={() => Linking.openURL('https://www.instagram.com/p/' + item.shortcode)} >
+              view post
           </Text>
 
 
+          </View>
         </View>
-      </View>
 
-    );
+      );
+    else
+      return null
   }
 
   handleRefresh = () => {
