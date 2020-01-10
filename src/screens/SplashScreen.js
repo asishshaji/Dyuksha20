@@ -30,7 +30,7 @@ class SplashScreen extends Component {
             primeEventsList: [],
             liveList: [],
             primeWorkshopList: [],
-
+            user: "null"
         }
 
     }
@@ -39,17 +39,17 @@ class SplashScreen extends Component {
 
     async componentDidMount() {
 
-    
+
 
         firebase.auth()
             .signInAnonymously()
             .then(credential => {
                 if (credential) {
-
+                    this.setState({user:'logged'})
                 }
             });
 
-       
+
 
         this.primeEvents.onSnapshot(querySnapshot => {
 
@@ -116,7 +116,7 @@ class SplashScreen extends Component {
 
             if (this.state.bannerList.length !== 0 &&
                 this.state.primeEventsList.length !== 0
-                && this.state.primeWorkshopList.length !== 0 && this.state.LiveList.length !== 0) {
+                && this.state.primeWorkshopList.length !== 0 && this.state.LiveList.length !== 0 && this.state.user === "logged") {
                 this.props.navigation.replace('Discover', {
                     bannerList: this.state.bannerList,
                     primeEventsList: this.state.primeEventsList,
