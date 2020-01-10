@@ -1,16 +1,23 @@
-import React, { Component } from "react";
 import {
-    View,
+    Animated,
+    Dimensions,
+    Image,
+    ImageBackground,
+    ScrollView,
+    StyleSheet,
     Text,
-    StyleSheet, Image, Dimensions, ScrollView, Animated, ImageBackground
+    View
 } from "react-native";
 import { BGCOLOR, FONTCOLOR, ICONCOLOR } from "../Styles/Colors"
-import RoundUser from '../components/RoundUser';
-const { height, width } = Dimensions.get('window')
+import React, { Component } from "react";
 
-import RoundedButton from '../components/RoundedButton'
 import BackButton from '../components/RoundedBackButton'
 import Icon from 'react-native-vector-icons/Ionicons';
+import RoundUser from '../components/RoundUser';
+import RoundedButton from '../components/RoundedButton'
+
+const { height, width } = Dimensions.get('window')
+
 
 
 class DetailScreen extends Component {
@@ -100,24 +107,26 @@ class DetailScreen extends Component {
                             <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                                 <Text style={{
                                     fontSize: 26, fontFamily: 'Black',
-                                    color: FONTCOLOR, maxWidth: width / 2 + 40, textTransform: 'capitalize'
+                                    color: FONTCOLOR, maxWidth: width / 2, textTransform: 'capitalize'
                                 }}>{item.title}</Text>
 
-                                <View >
-                                    <View style={{ marginTop: 4, flexDirection: 'row',  }}>
-                                        <Icon name="ios-calendar" size={24} color="#E55656" style={{ marginRight: 5 }} onPress={() => console.log('date pressed')} />
-                                        <Text style={{ marginTop: 3, fontSize: 18, fontFamily: 'Black', color: '#E55656', textAlign: 'right', }}>{item.elabDate}</Text>
-                                    </View>
-                                    <View style={{}}>
-                                        <Text style={{ fontSize: 16, fontFamily: 'Black', color: ICONCOLOR, textAlign: 'right', }}>{item.time}</Text>
+
+                                <View style={{ marginTop: 4, flexDirection: 'row', }}>
+                                    <Icon name="ios-calendar" size={24} color="#E55656" style={{ marginRight: 5 }}
+                                    />
+                                    <View>
+                                        <Text style={{ marginTop: 3, fontSize: 18, fontFamily: 'Black', color: '#E55656', textAlign: 'right' }}>{item.elabDate}</Text>
+                                        <Text style={{ fontSize: 16, fontFamily: 'Black', color: ICONCOLOR, textAlign: 'right' }}>{item.time}</Text>
+
                                     </View>
                                 </View>
 
                             </View>
-                            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                                <Icon name="ios-pin" size={24} color="#E55656" style={{ marginRight: 5, }} onPress={() => console.log('location pressed')} />
-                                <Text style={{ fontSize: 18, marginTop: 8, fontFamily: 'Black', color: FONTCOLOR }}>{item.location}</Text>
-                            </View>
+                            {item.location ? <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                                <Icon name="ios-pin" size={24} color="#E55656" style={{ marginRight: 5, }} />
+                                <Text style={{ fontSize: 16, marginTop: 8, fontFamily: 'Black', color: FONTCOLOR }}>{item.location}</Text>
+                            </View> : null}
+
 
                             <Text style={{ textAlign: 'auto', fontSize: 16, marginTop: 8, fontFamily: 'Light', color: FONTCOLOR }}>{item.details.replace(/BLL/gi, '\n')}</Text>
 
@@ -141,7 +150,10 @@ class DetailScreen extends Component {
                             </Text>
                         </View>
 
-                        <View style={{ padding: 5, marginBottom: 70, marginTop: 3 }}>
+                        <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{
+                            padding: 5, marginBottom: 70, marginTop: 3, flexDirection: 'row'
+                        }}>
+
                             {
                                 item.volunteers.map((val, index) => {
                                     return (
@@ -149,8 +161,9 @@ class DetailScreen extends Component {
                                         <RoundUser name={val.name} image={val.imageUrl} index={index} phoneNumber={val.phoneNumber} />
 
                                     )
-                                })}
-                        </View>
+                                })
+                            }
+                        </ScrollView>
                     </View>
 
                 </ScrollView>

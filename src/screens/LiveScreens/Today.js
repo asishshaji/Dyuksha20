@@ -27,22 +27,29 @@ class Today extends Component {
         super(props);
         this.events = firestore().collection('Common');
         this.state = {
-            TodayList: [],
+            ListReferences: [],
+            dataList: []
         };
     }
 
     componentDidMount() {
         moment.locale('nl-be');
         var date = moment().format('L');
-        this.events.where("elabDate", "==", date).onSnapshot(querySnapshot => {
-            this.setState({
-                TodayList: []
-            });
+        this.events.onSnapshot(querySnapshot => {
 
+            this.setState({
+                ListReferences: []
+            })
             querySnapshot.forEach(doc => {
-                this.setState({
-                    TodayList: this.state.TodayList.concat(doc.data())
-                });
+                if (doc.data().id) {
+                    doc.data().id.get().then((query) => {
+                        if (query.data().details && query.data().elabDate === date)
+                            this.setState({
+                                ListReferences: this.state.ListReferences.concat(query.data())
+                            })
+                    })
+
+                }
             });
         });
     }
@@ -55,7 +62,7 @@ class Today extends Component {
             <ScrollView style={{ backgroundColor: BGCOLOR, }} contentContainerStyle={{ alignItems: 'center' }} >
 
                 <View style={{ justifyContent: 'center', }}>
-                    {this.state.TodayList.length === 0 ?
+                    {this.state.ListReferences.length === 0 ?
                         <View style={{ flex: 1, justifyContent: 'center', height: height - 300 }}>
                             <View >
                                 <LottieView source={require('../../../assets/today.json')}
@@ -73,7 +80,7 @@ class Today extends Component {
                             showsHorizontalScrollIndicator={false}
                             horizontal={false}
                             numColumns={2}
-                            data={this.state.TodayList}
+                            data={this.state.ListReferences}
                             renderItem={({ item, index }) => (
                                 <View style={{}}>
                                     <EventCard

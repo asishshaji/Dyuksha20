@@ -1,16 +1,16 @@
-
-import React, { Component } from "react";
+import { BGCOLOR, FONTCOLOR } from "../Styles/Colors";
 import {
-    View,
-    Text,
-    Image,
     Dimensions,
+    Image,
     Linking,
-    TouchableHighlight
+    Text,
+    TouchableHighlight,
+    View
 } from "react-native";
-import Icon from 'react-native-vector-icons/Ionicons';
-import { FONTCOLOR, BGCOLOR } from "../Styles/Colors";
+import React, { Component } from "react";
+
 import ContactImage from "./ContactImage";
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const { height, width } = Dimensions.get('window')
 
@@ -46,7 +46,7 @@ const ContactCard = props => {
                     </Text>
 
                     <View style={{ flexDirection: 'row' }} >
-                        <Icon name="ios-phone-portrait" size={25} color="black" style={{}} onPress={() => Linking.openURL(`tel:${item.number}`)} />
+                        <Icon name="ios-phone-portrait" size={24} color="black" style={{}} onPress={() => Linking.openURL(`tel:${item.number}`)} />
 
                         <Text style={{
                             fontSize: 15,
@@ -103,7 +103,7 @@ export const DesignerCard = props => {
                     </Text>
 
                     <View style={{ flexDirection: 'row' }} >
-                        <Icon name="ios-phone-portrait" size={25} color="black" style={{}} onPress={() => Linking.openURL(`tel:${item.number}`)} />
+                        <Icon name="ios-phone-portrait" size={24} color="black" style={{}} onPress={() => Linking.openURL(`tel:${item.number}`)} />
 
                         <Text style={{
                             fontSize: 15,

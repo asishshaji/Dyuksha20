@@ -2,20 +2,20 @@ import {
     ActivityIndicator,
     Dimensions,
     FlatList,
+    Linking,
     StyleSheet,
     Text,
-    View,
-    Linking
+    View
 } from "react-native";
 import { BGCOLOR, FONTCOLOR, ICONCOLOR } from "../../Styles/Colors"
 import React, { Component } from "react";
 import firebase, { firestore } from 'react-native-firebase';
-import Axios from 'axios';
-import InAppBrowser from 'react-native-inappbrowser-reborn';
 
+import Axios from 'axios';
 import BackButton from '../../components/RoundedBackButton';
 import CardLive from "../../components/CardLive";
 import Icon from 'react-native-vector-icons/Ionicons';
+import InAppBrowser from 'react-native-inappbrowser-reborn';
 import LottieView from 'lottie-react-native';
 import { TouchableOpacity } from "react-native-gesture-handler";
 
@@ -191,30 +191,34 @@ class Feed extends Component {
     }
 
     renderList(item, index) {
-        return (
-            <View>
-                {/* {console.log(this.state.LiveList)} */}
-                <TouchableOpacity activeOpacity={0.8} onPress={() => openLink('https://www.instagram.com/p/' + item.shortcode)}>
-                    <View style={{ marginTop: 10, alignItems: 'center' }}>
-                        <CardLive
-                            width={width - 10}
-                            cardTitle={item.owner.username}
-                            imageUrl={item.thumbnail_src}
-                            like={item.edge_liked_by.count}
+        if (item.owner)
 
-                        />
-                    </View>
-                </TouchableOpacity>
-                <View style={styles.cardFooter}>
-                    <Text style={{ fontFamily: 'Black', paddingLeft: 5 }}>
-                        {item.edge_liked_by.count} likes
+            return (
+                <View>
+                    {/* {console.log(this.state.LiveList)} */}
+                    <TouchableOpacity activeOpacity={0.8} onPress={() => openLink('https://www.instagram.com/p/' + item.shortcode)}>
+                        <View style={{ marginTop: 10, alignItems: 'center' }}>
+                            <CardLive
+                                width={width - 10}
+                                cardTitle={item.owner.username}
+                                imageUrl={item.thumbnail_src}
+                                like={item.edge_liked_by.count}
+
+                            />
+                        </View>
+                    </TouchableOpacity>
+                    <View style={styles.cardFooter}>
+                        <Text style={{ fontFamily: 'Black', paddingLeft: 5 }}>
+                            {item.edge_liked_by.count} likes
                     </Text>
+
+                    </View>
 
                 </View>
 
-            </View>
-
-        );
+            );
+        else
+            return null
     }
 
     handleRefresh = () => {

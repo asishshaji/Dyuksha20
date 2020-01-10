@@ -1,15 +1,17 @@
-import React, { Component } from "react";
 import {
-    View,
-    Text,
-    StyleSheet,
+    Animated,
     Dimensions,
-    Image, TouchableOpacity,
-    Animated
+    Image,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    View
 } from "react-native";
-import moment from 'moment';
 import { BGCOLOR, FONTCOLOR } from "../Styles/Colors";
 import { PinchGestureHandler, State } from 'react-native-gesture-handler'
+import React, { Component } from "react";
+
+import moment from 'moment';
 
 const { height, width } = Dimensions.get('window')
 
@@ -40,8 +42,8 @@ export default class CardLive extends Component {
 
     render() {
         const item = this.props.item;
-        // var timestamp = moment(new Date(this.props.timestamp * 1000)).format('DD/MM  ');
-        // console.log(timestamp);
+        var timestamp = moment(new Date(this.props.timestamp * 1000)).format('DD/MM  ');
+
         return (
             <TouchableOpacity onPress={() => { if (this.props.nav) { this.props.nav.navigate('LiveNow') } }} activeOpacity={1}>
                 <View style={{
@@ -77,7 +79,7 @@ export default class CardLive extends Component {
                                 <Animated.Image
                                     style={{
                                         flex: 1,
-
+                                        resizeMode: 'center',
                                         transform: [{ scale: this.scale }]
                                     }}
                                     source={{ uri: this.props.imageUrl }}
@@ -86,9 +88,9 @@ export default class CardLive extends Component {
                         </View>
                     </View>
 
-                   
+
                 </View>
-                
+
             </TouchableOpacity>
         );
     }
