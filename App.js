@@ -18,6 +18,7 @@ import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import firebase from 'react-native-firebase'
 import MapScreen from './src/screens/MapScreens/MapScreen';
+import Feed from './src/screens/LiveScreens/Feed';
 
 const { width } = Dimensions.get('window')
 const barWidth = 230
@@ -39,9 +40,13 @@ const AppNavigator = createStackNavigator({
 
     },
     LiveNow: {
-        screen: LiveNow
-    },
+        screen: LiveNow,
 
+    },
+    Feed: {
+        screen: Feed
+
+    },
     Select: {
         screen: SelectScreen
     },
@@ -61,8 +66,10 @@ const AppNavigator = createStackNavigator({
 }, {
     defaultNavigationOptions: {
         gesturesEnabled: true,
-        gestureResponseDistance: { horizontal: 25 }
+        
+        gestureResponseDistance: { horizontal: 30 }
     },
+   
     transitionConfig: () => ({
         transitionSpec: {
             duration: 300,
@@ -92,7 +99,8 @@ const AppNavigator = createStackNavigator({
 
 });
 
-const LiveStack = createStackNavigator({
+
+const ScheduleStack = createStackNavigator({
     Explore: {
         screen: Live,
     },
@@ -159,6 +167,9 @@ AppNavigator.navigationOptions = ({ navigation }) => {
     else if (routeName == 'LiveNow') {
         tabBarVisible = false
     }
+    else if (routeName == 'Feed') {
+        tabBarVisible = false
+    }
     else if (routeName === "Select") {
         tabBarVisible = false
     }
@@ -174,7 +185,7 @@ AppNavigator.navigationOptions = ({ navigation }) => {
 
 
 
-LiveStack.navigationOptions = ({ navigation }) => {
+ScheduleStack.navigationOptions = ({ navigation }) => {
 
     let tabBarVisible = true;
     let drawerLockMode = 'unlocked';
@@ -228,7 +239,7 @@ const BottomNav = createBottomTabNavigator({
 
     },
     Schedule: {
-        screen: LiveStack,
+        screen: ScheduleStack,
 
 
     },

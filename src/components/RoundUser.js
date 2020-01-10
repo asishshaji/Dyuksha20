@@ -9,9 +9,9 @@ import {
     View
 } from "react-native";
 import { BGCOLOR, FONTCOLOR } from '../Styles/Colors'
-import React, { useState } from "react";
 
 import Icon from 'react-native-vector-icons/Ionicons';
+import React from "react";
 
 const { width } = Dimensions.get('window')
 
@@ -30,6 +30,7 @@ const RoundUser = (props) => {
 
 
             <Icon name="ios-phone-portrait" size={24} color="black" style={{}} onPress={() => Linking.openURL(`tel:${props.phoneNumber}`)} />
+
 
 
 

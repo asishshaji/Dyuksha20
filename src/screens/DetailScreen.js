@@ -110,14 +110,15 @@ class DetailScreen extends Component {
                                     color: FONTCOLOR, maxWidth: width / 2, textTransform: 'capitalize'
                                 }}>{item.title}</Text>
 
+
                                 <View style={{ marginTop: 4, flexDirection: 'row', }}>
                                     <Icon name="ios-calendar" size={24} color="#E55656" style={{ marginRight: 5 }}
                                     />
                                     <View>
                                         <Text style={{ marginTop: 3, fontSize: 18, fontFamily: 'Black', color: '#E55656', textAlign: 'right' }}>{item.elabDate}</Text>
                                         <Text style={{ fontSize: 16, fontFamily: 'Black', color: ICONCOLOR, textAlign: 'right' }}>{item.time}</Text>
-                                    </View>
 
+                                    </View>
                                 </View>
 
                             </View>
@@ -152,6 +153,7 @@ class DetailScreen extends Component {
                         <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{
                             padding: 5, marginBottom: 70, marginTop: 3, flexDirection: 'row'
                         }}>
+
                             {
                                 item.volunteers.map((val, index) => {
                                     return (

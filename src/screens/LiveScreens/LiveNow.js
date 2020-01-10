@@ -89,16 +89,23 @@ class LiveNow extends Component {
 
 
   async componentDidMount() {
-    //this.makeRequest();
-    this.instagramPhotos();
+    this.makeRequest();
+
   }
 
   render() {
     const { navigation } = this.props;
-
+    const { navigate } = this.props.navigation;
+    console.log(this.instagramPhotos())
 
     return (
       <View style={{ flex: 1, backgroundColor: BGCOLOR, }}>
+
+
+
+
+
+
 
         {this.state.LiveList.length === 0 ?
           <View style={{ flex: 1, justifyContent: 'center' }}>
@@ -112,7 +119,7 @@ class LiveNow extends Component {
 
             <FlatList
               showsHorizontalScrollIndicator={false}
-              contentContainerStyle={{ flexDirection: 'column-reverse', paddingBottom: 18, paddingTop: 15, }}
+              contentContainerStyle={{ flexDirection: 'column-reverse', paddingBottom: 18, paddingTop: 60, }}
               horizontal={false}
               showsVerticalScrollIndicator={false}
               numColumns={1}
@@ -140,6 +147,7 @@ class LiveNow extends Component {
                   </View>
                 </View>
               }
+
             />
           </View>
         }
@@ -147,6 +155,15 @@ class LiveNow extends Component {
 
         <View style={{ position: 'absolute', left: -10 }}>
           <BackButton navigation={navigation} />
+
+        </View>
+        <View style={{ position: 'absolute', right: 5, top: 31 }}>
+          <TouchableOpacity style={{ alignItems: 'center', flexDirection: 'row', height: 20, backgroundColor: 'white' }} onPress={() => this.props.navigation.navigate('Feed')} activeOpacity={.7}>
+
+            <Text style={{ fontFamily: "Black", fontSize: 20, color: ICONCOLOR, }} > Feed</Text>
+            <Icon name="ios-arrow-forward" size={25} color="#E55656" style={{ marginLeft: 5 }} />
+
+          </TouchableOpacity>
         </View>
 
       </View>
@@ -173,10 +190,8 @@ class LiveNow extends Component {
             view post
           </Text>
 
+
         </View>
-
-
-
       </View>
 
     );
@@ -186,12 +201,9 @@ class LiveNow extends Component {
     this.setState({
       refreshing: true,
     }, () => {
-      this.instagramPhotos();
+      this.makeRequest();
     })
   }
-
-
-
 }
 export default LiveNow;
 
