@@ -10,29 +10,29 @@ import LottieView from 'lottie-react-native';
 
 
 
-async function requestCameraPermission() {
-    try {
-        const granted = await PermissionsAndroid.request(
-            PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-            {
-                title: 'Location Permission',
-                message:
-                    'Dyuksha App needs access to your location ',
+// async function requestCameraPermission() {
+//     try {
+//         const granted = await PermissionsAndroid.request(
+//             PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+//             {
+//                 title: 'Location Permission',
+//                 message:
+//                     'Dyuksha App needs access to your location ',
 
-                buttonNeutral: 'Ask Me Later',
-                buttonNegative: 'Cancel',
-                buttonPositive: 'OK',
-            },
-        );
-        if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-            console.log('You can use GPS');
-        } else {
-            console.log('GPS permission denied');
-        }
-    } catch (err) {
-        console.warn(err);
-    }
-}
+//                 buttonNeutral: 'Ask Me Later',
+//                 buttonNegative: 'Cancel',
+//                 buttonPositive: 'OK',
+//             },
+//         );
+//         if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+//             console.log('You can use GPS');
+//         } else {
+//             console.log('GPS permission denied');
+//         }
+//     } catch (err) {
+//         console.warn(err);
+//     }
+// }
 class SplashScreen extends Component {
     static navigationOptions = {
         header: null,
@@ -60,7 +60,7 @@ class SplashScreen extends Component {
 
     async componentDidMount() {
 
-        await requestCameraPermission()
+      //  await requestCameraPermission()
 
         firebase.auth()
             .signInAnonymously()
