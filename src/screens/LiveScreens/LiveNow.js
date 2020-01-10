@@ -103,7 +103,7 @@ class LiveNow extends Component {
         <View style={{ position: 'absolute', right: 5, top: 35 }}>
           <TouchableOpacity style={{ alignItems: 'center', flexDirection: 'row', height: 20, backgroundColor: 'transparent' }} onPress={() => this.props.navigation.navigate('Feed')} activeOpacity={.7}>
 
-            <Text style={{ fontFamily: "Black", fontSize: 20, color: ICONCOLOR, }} >Insta</Text>
+            <Text style={{ fontFamily: "Black", fontSize: 20, color: ICONCOLOR, }} >Mixtape</Text>
             <Icon name="ios-arrow-forward" size={25} color="#E55656" style={{ marginLeft: 5 }} />
 
           </TouchableOpacity>

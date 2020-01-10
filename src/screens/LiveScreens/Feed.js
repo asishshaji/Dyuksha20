@@ -129,11 +129,14 @@ class Feed extends Component {
             <View style={{ flex: 1, backgroundColor: BGCOLOR, }}>
 
                 {this.state.LiveList.length === 0 ?
-                    <View style={{ flex: 1, justifyContent: 'center' }}>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems:'center' }}>
                         <LottieView source={require('../../../assets/loading.json')}
                             autoPlay loop
-                            style={{ height: 100, width: 100, alignSelf: 'center' }}
+                            style={{ height: 100, width: 100,  }}
                         />
+                        <View>
+                        <Text style={{alignSelf:'center', fontSize: 15, fontFamily: "Light" }}>   Will be updated soon...</Text>
+                        </View>
                     </View>
                     :
                     <View style={{ flex: 1, }}>

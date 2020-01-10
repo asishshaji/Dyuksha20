@@ -73,7 +73,16 @@ export const markers = [
             latitude: 10.823354,
             longitude: 76.641086,
         },
-        title: "PLACEMENT BLOCK",
+        title: "PTIB",
+        description: "",
+      
+    },
+    {
+        coordinate: {
+            latitude: 10.822815,
+            longitude: 76.641607,
+        },
+        title: "INDIAN BANK ATM",
         description: "",
       
     },
@@ -120,7 +129,7 @@ export const markers = [
             longitude: 76.642058,
         },
         title: "LAB/WORKSHOP",
-        description: "Electrical/Analog",
+        description: "Electrical",
   
     },
     {
