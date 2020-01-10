@@ -41,13 +41,6 @@ class SplashScreen extends Component {
 
 
 
-        firebase.auth()
-            .signInAnonymously()
-            .then(credential => {
-                if (credential) {
-                    this.setState({user:'logged'})
-                }
-            });
 
 
 
@@ -112,11 +105,17 @@ class SplashScreen extends Component {
 
     render() {
 
+        firebase.auth()
+            .signInAnonymously()
+            .then(credential => {
+
+            });
+
         setTimeout(() => {
 
             if (this.state.bannerList.length !== 0 &&
                 this.state.primeEventsList.length !== 0
-                && this.state.primeWorkshopList.length !== 0 && this.state.LiveList.length !== 0 && this.state.user === "logged") {
+                && this.state.primeWorkshopList.length !== 0 && this.state.LiveList.length !== 0) {
                 this.props.navigation.replace('Discover', {
                     bannerList: this.state.bannerList,
                     primeEventsList: this.state.primeEventsList,
