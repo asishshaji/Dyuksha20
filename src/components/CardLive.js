@@ -54,14 +54,14 @@ export default class CardLive extends Component {
                     height: 300,
                     width: this.props.width,
                     elevation: 6,
-                    marginTop: 10
+                    marginTop: 10,
                 }}>
                     <View style={{
                         flex: 1,
                         borderRadius: 8,
                         borderWidth: 0,
                         height: 300,
-                        width: this.props.width
+                        width: this.props.width,
                     }}>
                         <View style={styles.cardHeader}>
                             <View style={styles.cardTitle}>
@@ -79,7 +79,7 @@ export default class CardLive extends Component {
                                 <Animated.Image
                                     style={{
                                         flex: 1,
-                                        resizeMode: 'center',
+                                        resizeMode: 'contain',
                                         transform: [{ scale: this.scale }]
                                     }}
                                     source={{ uri: this.props.imageUrl }}
