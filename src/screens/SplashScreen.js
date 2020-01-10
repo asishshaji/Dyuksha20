@@ -12,7 +12,6 @@ import firebase, { firestore } from 'react-native-firebase';
 import { BGCOLOR } from '../Styles/Colors'
 import LottieView from 'lottie-react-native';
 
-
 class SplashScreen extends Component {
     static navigationOptions = {
         header: null,
@@ -50,9 +49,7 @@ class SplashScreen extends Component {
                 }
             });
 
-        firebase.auth().signInAnonymously()
-            .then((user) => {
-            });
+       
 
         this.primeEvents.onSnapshot(querySnapshot => {
 
