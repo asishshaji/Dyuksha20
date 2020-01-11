@@ -6,7 +6,8 @@ import {
     StyleSheet,
     Text,
     TouchableOpacity,
-    View
+    View,
+    Alert,
 } from "react-native";
 import { BGCOLOR, FONTCOLOR } from "../Styles/Colors";
 import { PinchGestureHandler, State } from 'react-native-gesture-handler'
@@ -103,6 +104,11 @@ export default class CardLive extends Component {
 
                 <Modal animationType="fade"
                     transparent={false}
+                    onRequestClose={() => {
+                        this.setState({
+                            clicked: !this.state.clicked
+                        })
+                    }}
                     visible={this.state.clicked}>
                     <View style={{ flex: 1 }}>
                         <Image
@@ -155,7 +161,7 @@ const styles = StyleSheet.create({
     },
     cardContent: {
         flex: 1,
-       
+
         backgroundColor: 'white',
         borderBottomLeftRadius: 8,
         borderBottomRightRadius: 8

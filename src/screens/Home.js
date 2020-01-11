@@ -291,6 +291,7 @@ class Home extends Component {
                                                 cardTitle={item.title}
                                                 imageUrl={item.imageUrl}
                                                 time={item.time}
+                                                date= {item.date}
                                             />
                                         </TouchableWithoutFeedback>)}
                                 />
