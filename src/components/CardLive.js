@@ -2,6 +2,7 @@ import {
     Animated,
     Dimensions,
     Image,
+    Modal,
     StyleSheet,
     Text,
     TouchableOpacity,
@@ -11,14 +12,19 @@ import { BGCOLOR, FONTCOLOR } from "../Styles/Colors";
 import { PinchGestureHandler, State } from 'react-native-gesture-handler'
 import React, { Component } from "react";
 
+import Icon from 'react-native-vector-icons/Ionicons';
 import moment from 'moment';
 
 const { height, width } = Dimensions.get('window')
+
 
 export default class CardLive extends Component {
 
 
     scale = new Animated.Value(1)
+    state = {
+        clicked: false
+    }
 
     onZoomEvent = Animated.event(
         [
@@ -42,13 +48,15 @@ export default class CardLive extends Component {
 
     render() {
         const item = this.props.item;
-        var timestamp = moment(new Date(this.props.timestamp * 1000)).format('DD/MM  ');
+        var timestamp = moment(new Date(this.props.timestamp * 1000)).format('hh:mm a  ');
+        var timestampDate = moment(new Date(this.props.timestamp * 1000)).format('DD/MM  ');
+
 
         return (
             <TouchableOpacity onPress={() => { if (this.props.nav) { this.props.nav.navigate('LiveNow') } }} activeOpacity={1}>
                 <View style={{
                     alignItems: 'center',
-                    margin: 10,
+                    margin: 5,
                     borderRadius: 8,
                     borderWidth: 0,
                     height: 300,
@@ -69,30 +77,57 @@ export default class CardLive extends Component {
                                     fontSize: 13, fontFamily: 'Black',
                                     color: FONTCOLOR
                                 }}>{this.props.cardTitle}</Text>
-                                <View style={{flexDirection:'row', justifyContent:'space-between'}}>
-                                <Text style={{ fontSize: 12, color: 'grey' }}>{this.props.time}</Text>
-                                <Text style={{ fontSize: 12, color: 'grey' }}>{this.props.date}</Text>
+                                <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                                    <Text style={{ fontSize: 12, color: 'grey' }}>{this.props.time ? this.props.time : timestamp}</Text>
+                                    <Text style={{ fontSize: 12, color: 'grey' }}>{this.props.date ? this.props.date : timestampDate}</Text>
                                 </View>
                             </View>
                         </View>
-                        <View style={styles.cardContent}>
-                            <PinchGestureHandler
-                                onGestureEvent={this.onZoomEvent}
-                                onHandlerStateChange={this.onZoomStateChange}>
-                                <Animated.Image
-                                    style={{
-                                        flex: 1,
-                                        resizeMode: 'contain',
-                                        transform: [{ scale: this.scale }]
-                                    }}
-                                    source={{ uri: this.props.imageUrl }}
-                                    resizeMode={'contain'} />
-                            </PinchGestureHandler>
-                        </View>
+                        <TouchableOpacity style={styles.cardContent} onPress={() => this.setState({
+                            clicked: !this.state.clicked
+                        })} activeOpacity={1}>
+
+                            <Image
+                                style={{
+                                    flex: 1,
+                                    resizeMode: 'contain',
+
+                                }}
+                                source={{ uri: this.props.imageUrl }}
+                                resizeMode={'contain'} />
+                        </TouchableOpacity>
                     </View>
 
 
                 </View>
+
+                <Modal animationType="fade"
+                    transparent={false}
+                    visible={this.state.clicked}>
+                    <View style={{ flex: 1 }}>
+                        <Image
+                            style={{
+                                flex: 1,
+                                resizeMode: 'contain',
+                            }}
+                            source={{ uri: this.props.imageUrl }}
+                            resizeMode={'contain'} />
+                    </View>
+                    <View style={{ position: 'absolute', left: -10 }}>
+
+                        <TouchableOpacity style={{
+                            position: 'absolute', top: 15, left: 16, elevation: 4, height: 50, width: 50,
+                            backgroundColor: 'white', justifyContent: 'center',
+                            alignItems: 'center', borderRadius: 50 / 2
+                        }}
+                            onPress={() => this.setState({
+                                clicked: !this.state.clicked
+                            })} activeOpacity={1}>
+                            <Icon name="ios-arrow-back" size={30} color="#E55656" />
+                        </TouchableOpacity>
+                    </View>
+                </Modal>
+
 
             </TouchableOpacity>
         );
@@ -110,7 +145,9 @@ const styles = StyleSheet.create({
         height: 50,
         justifyContent: 'center',
         padding: 5,
-        backgroundColor: BGCOLOR
+        backgroundColor: BGCOLOR,
+        borderColor: '#ededed',
+        borderBottomWidth: 1
     },
     cardTitle: {
         padding: 5,

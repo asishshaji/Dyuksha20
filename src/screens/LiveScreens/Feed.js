@@ -129,13 +129,13 @@ class Feed extends Component {
             <View style={{ flex: 1, backgroundColor: BGCOLOR, }}>
 
                 {this.state.LiveList.length === 0 ?
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems:'center' }}>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                         <LottieView source={require('../../../assets/loading.json')}
                             autoPlay loop
-                            style={{ height: 100, width: 100,  }}
+                            style={{ height: 100, width: 100, }}
                         />
                         <View>
-                        <Text style={{alignSelf:'center', fontSize: 15, fontFamily: "Light" }}>   Will be updated soon...</Text>
+                            <Text style={{ alignSelf: 'center', fontSize: 15, fontFamily: "Light" }}>   Will be updated soon...</Text>
                         </View>
                     </View>
                     :
@@ -199,6 +199,7 @@ class Feed extends Component {
                     <TouchableOpacity activeOpacity={0.8} onPress={() => openLink('https://www.instagram.com/p/' + item.shortcode)}>
                         <CardLive
                             width={width - 10}
+                            timestamp={item.taken_at_timestamp}
                             cardTitle={item.owner.username}
                             imageUrl={item.display_url}
                             like={item.edge_liked_by.count}
