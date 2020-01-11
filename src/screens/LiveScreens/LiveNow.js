@@ -73,7 +73,7 @@ class LiveNow extends Component {
 
             <FlatList
               showsHorizontalScrollIndicator={false}
-              contentContainerStyle={{ flexDirection: 'column-reverse', paddingBottom: 18, paddingTop: 17, }}
+              contentContainerStyle={{alignItems:'center', flexDirection: 'column-reverse', paddingBottom: 18, paddingTop: 17, }}
               horizontal={false}
               showsVerticalScrollIndicator={false}
               numColumns={1}

@@ -136,7 +136,7 @@ class About extends Component {
                             {/* Social Media */}
                             <View style={{ marginTop: 30 }}>
                                 <View>
-                                    <Text style={{ padding: 5, fontSize: 20, fontFamily: 'Black', color: FONTCOLOR }}>Dyuksha is Also Active on Social Medias</Text>
+                                    <Text style={{ padding: 5, fontSize: 20, fontFamily: 'Black', color: FONTCOLOR }}>Social Medias</Text>
                                 </View>
                                 <View style={{ marginVertical: 10 }}>
                                     <DyukshaCard />

@@ -156,7 +156,7 @@ class Feed extends Component {
                             ListFooterComponent={
                                 <View style={{ padding: 10, }}>
                                     <Text style={{ textAlign: 'center', fontSize: 25, fontFamily: 'Black', color: ICONCOLOR, }}>
-                                        Insta Feed
+                                        Insta Posts
                                      </Text>
 
                                 </View>
