@@ -134,9 +134,7 @@ class Feed extends Component {
                             autoPlay loop
                             style={{ height: 100, width: 100, }}
                         />
-                        <View>
-                            <Text style={{ alignSelf: 'center', fontSize: 15, fontFamily: "Light" }}>   Will be updated soon...</Text>
-                        </View>
+                       
                     </View>
                     :
                     <View style={{ flex: 1, }}>
