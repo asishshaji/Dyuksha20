@@ -48,10 +48,11 @@ class SplashScreen extends Component {
 
             querySnapshot.forEach(doc => {
                 doc.data().id.get().then((query) => {
-                    this.setState({
-                        primeEventsList:
-                            this.state.primeEventsList.concat(query.data())
-                    })
+                    if (query.data().title)
+                        this.setState({
+                            primeEventsList:
+                                this.state.primeEventsList.concat(query.data())
+                        })
                 })
             })
 
@@ -61,10 +62,11 @@ class SplashScreen extends Component {
 
             querySnapshot.forEach(doc => {
                 doc.data().id.get().then((query) => {
-                    this.setState({
-                        primeWorkshopList:
-                            this.state.primeWorkshopList.concat(query.data())
-                    })
+                    if (query.data().title)
+                        this.setState({
+                            primeWorkshopList:
+                                this.state.primeWorkshopList.concat(query.data())
+                        })
                 })
             })
 
