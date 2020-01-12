@@ -1,33 +1,14 @@
+import { Image, Text, TouchableOpacity, View } from "react-native";
 import React, { Component } from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
-
 
 class ProCarComp extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            bgColor: [
-                '#' + (function co(lor) {
-                    return (lor +=
-                        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'][Math.floor(Math.random() * 16)])
-                        && (lor.length == 6) ? lor : co(lor);
-                })('')
-            ],
-            selectedColor: '',
-        };
+
     }
 
-    componentDidMount() {
-        this._getRandomColor()
-    }
 
-    _getRandomColor() {
-        var item = this.state.bgColor[Math.floor(Math.random() * this.state.bgColor.length)];
-        this.setState({
-            selectedColor: item,
-        })
-    }
 
 
     render() {
@@ -64,13 +45,13 @@ class ProCarComp extends Component {
                             position: "absolute",
                             zIndex: 100000,
                             bottom: 10,
-                            backgroundColor: this.state.selectedColor,
                             borderRadius: 10,
                             elevation: 10, margin: 10,
                             marginBottom: 0,
                             height: this.props.height,
                             width: this.props.width,
-                            opacity: 0.3,
+                            opacity: 0.5,
+                            backgroundColor: '#000'
 
                         }}
                     ></View>

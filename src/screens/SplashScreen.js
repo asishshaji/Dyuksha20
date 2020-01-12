@@ -47,13 +47,14 @@ class SplashScreen extends Component {
         this.primeEvents.onSnapshot(querySnapshot => {
 
             querySnapshot.forEach(doc => {
-                doc.data().id.get().then((query) => {
-                    if (query.data().title)
-                        this.setState({
-                            primeEventsList:
-                                this.state.primeEventsList.concat(query.data())
-                        })
-                })
+                if (doc)
+                    doc.data().id.get().then((query) => {
+                        if (query.data().title)
+                            this.setState({
+                                primeEventsList:
+                                    this.state.primeEventsList.concat(query.data())
+                            })
+                    })
             })
 
         })
@@ -61,14 +62,16 @@ class SplashScreen extends Component {
         this.primeWorkshop.onSnapshot(querySnapshot => {
 
             querySnapshot.forEach(doc => {
-                doc.data().id.get().then((query) => {
-                    if (query.data().title)
-                        this.setState({
-                            primeWorkshopList:
-                                this.state.primeWorkshopList.concat(query.data())
-                        })
-                })
+                if (doc)
+                    doc.data().id.get().then((query) => {
+                        if (query.data().title)
+                            this.setState({
+                                primeWorkshopList:
+                                    this.state.primeWorkshopList.concat(query.data())
+                            })
+                    })
             })
+
 
         })
 

@@ -6,19 +6,20 @@ import { StackViewTransitionConfigs, createStackNavigator } from 'react-navigati
 import About from './src/screens/DrawerScreens/About'
 import Contact from './src/screens/DrawerScreens/Contact'
 import Detail from './src/screens/DetailScreen';
+import Feed from './src/screens/LiveScreens/Feed';
 import Home from './src/screens/Home';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Live from './src/screens/Live';
 import LiveNow from './src/screens/LiveScreens/LiveNow';
+import MapScreen from './src/screens/MapScreens/MapScreen';
 import Notifications from './src/screens/Notifications';
+import ProShow from './src/screens/ProShowScreen'
 import React from 'react'
 import SelectScreen from './src/screens/ListScreen';
 import SplashScreen from './src/screens/SplashScreen'
 import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import firebase from 'react-native-firebase'
-import MapScreen from './src/screens/MapScreens/MapScreen';
-import Feed from './src/screens/LiveScreens/Feed';
 
 const { width } = Dimensions.get('window')
 const barWidth = 230
@@ -60,16 +61,17 @@ const AppNavigator = createStackNavigator({
     Contact: {
         screen: Contact
     },
-    Map:{
-        screen:MapScreen
-    }
+    Map: {
+        screen: MapScreen
+    },
+    ProShow
 }, {
     defaultNavigationOptions: {
         gesturesEnabled: true,
-        
+
         gestureResponseDistance: { horizontal: 30 }
     },
-   
+
     transitionConfig: () => ({
         transitionSpec: {
             duration: 300,
@@ -176,7 +178,9 @@ AppNavigator.navigationOptions = ({ navigation }) => {
     else if (routeName === "Notifications") {
         tabBarVisible = false
     }
-
+    else if (routeName === "ProShow") {
+        tabBarVisible = false
+    }
     return {
         tabBarVisible,
     }

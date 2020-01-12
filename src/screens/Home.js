@@ -179,6 +179,7 @@ class Home extends Component {
                                     imageUrl={item.imageUrl}
                                     width={width}
                                     title={item.title}
+                                    nav={nav}
                                     sliderH={sliderH}
                                 />
                             )} />
