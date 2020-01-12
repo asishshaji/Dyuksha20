@@ -49,7 +49,7 @@ class SplashScreen extends Component {
             querySnapshot.forEach(doc => {
                 if (doc)
                     doc.data().id.get().then((query) => {
-                        if (query.data().title)
+                        if (query.data().isPrime)
                             this.setState({
                                 primeEventsList:
                                     this.state.primeEventsList.concat(query.data())

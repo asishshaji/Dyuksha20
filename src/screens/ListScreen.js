@@ -56,7 +56,7 @@ class SelectScreen extends Component {
             q.forEach(doc => {
                 this.setState({ generalData: [] })
                 doc.data().id.get().then((query) => {
-                    if (query.data().title)
+                    if (query.data().isPrime)
                         this.setState({ generalData: this.state.generalData.concat(query.data()) })
 
                 })
