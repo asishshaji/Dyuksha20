@@ -73,7 +73,7 @@ class LiveNow extends Component {
 
             <FlatList
               showsHorizontalScrollIndicator={false}
-              contentContainerStyle={{alignItems:'center', flexDirection: 'column-reverse', paddingBottom: 18, paddingTop: 17, }}
+              contentContainerStyle={{ alignItems: 'center', flexDirection: 'column-reverse', paddingBottom: 18, paddingTop: 17, }}
               horizontal={false}
               showsVerticalScrollIndicator={false}
               numColumns={1}
@@ -120,7 +120,7 @@ class LiveNow extends Component {
         cardTitle={item.title}
         imageUrl={item.imageUrl}
         time={item.time}
-        date={item.date}
+        date={item.date.replace("/2020", "")}
       />
 
     )
