@@ -106,7 +106,6 @@ class Home extends Component {
 
     }
     componentWillUnmount() {
-        // this.unsubscribe();
         this.messageListener();
         this.removeNotificationListener();
 
@@ -141,8 +140,8 @@ class Home extends Component {
 
         return (
 
-            <View style={{ flex: 1,  }}>
-                <ScrollView style={styles.container} showsVerticalScrollIndicator={false} contentContainerStyle={{marginTop:5, paddingBottom: 100 }}>
+            <View style={{ flex: 1, }}>
+                <ScrollView style={styles.container} showsVerticalScrollIndicator={false} contentContainerStyle={{ marginTop: 5, paddingBottom: 100 }}>
 
                     <StatusBar hidden backgroundColor="transparent" barStyle="light-content" />
                     <View style={{ margin: 10, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -163,7 +162,7 @@ class Home extends Component {
                             width: this.animatedSlider, height: 45,
                             borderRadius: 45 / 2, justifyContent: 'center', padding: 10
                         }}>
-                            <Icon name="ios-arrow-back" size={30} color="#E55656" style={{ marginLeft: 5}} />
+                            <Icon name="ios-arrow-back" size={30} color="#E55656" style={{ marginLeft: 5 }} />
 
                         </Animated.View>
                         <FlatList style={{ flex: 1, width: width, }} contentContainerStyle={{
@@ -223,14 +222,6 @@ class Home extends Component {
                             <Text style={{ paddingLeft: 10, width: 230, fontSize: 24, fontFamily: 'Black', color: TITLECOLOR, }}>
                                 Workshops
                         </Text>
-                            <TouchableOpacity onPress={() => navigate('Select', {
-                                'name': 'WORKSHOPS',
-                                'DB': 'DepWorkshops', 'DOCNAME': 'workshopsDoc'
-                            })} activeOpacity={1}>
-                                <View style={{ flex: 1, paddingTop: 6 }}>
-                                    <Text style={{ paddingRight: 5, fontFamily: "Black", fontSize: 16, color: ICONCOLOR, }} >See All</Text>
-                                </View>
-                            </TouchableOpacity>
                         </View>
                         <FlatList
                             horizontal
@@ -281,7 +272,7 @@ class Home extends Component {
                                     showsHorizontalScrollIndicator={false}
                                     horizontal={true}
                                     numColumns={1}
-                                    contentContainerStyle={{flexDirection:"row-reverse", paddingRight: 10 }}
+                                    contentContainerStyle={{ flexDirection: "row-reverse", paddingRight: 10 }}
                                     data={this.state.LiveList}
                                     keyExtractor={item => item.id}
                                     renderItem={({ item, index }) => (
@@ -292,7 +283,7 @@ class Home extends Component {
                                                 cardTitle={item.title}
                                                 imageUrl={item.imageUrl}
                                                 time={item.time}
-                                                date= {item.date}
+                                                date={item.date}
                                             />
                                         </TouchableWithoutFeedback>)}
                                 />
